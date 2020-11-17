@@ -1,0 +1,28 @@
+{
+  "name": "bulletin-board-project",
+  "version": "1.0.0",
+  "description": "Bulletin Board made by an awesome team. Queen rocks!",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "sass": "^1.29.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Freecey/Bulletin-Board-Project.git"
+  },
+  "keywords": [
+    "Forum",
+    "Bulletin"
+  ],
+  "author": "Tanya, Cédric, Kévin, Alan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Freecey/Bulletin-Board-Project/issues"
+  },
+  "homepage": "https://github.com/Freecey/Bulletin-Board-Project#readme"
+}
