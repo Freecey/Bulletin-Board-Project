@@ -8,9 +8,7 @@
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container-fluid">
-            <?php include('includes/header.php'); ?>
-        </div>
+        <?php include('includes/header.php'); ?>
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -27,9 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <?php include('includes/footer.php'); ?>
-        </div>
+        <?php include('includes/footer.php'); ?>
         
 
     </body>
