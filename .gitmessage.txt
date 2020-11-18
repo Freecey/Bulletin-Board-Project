@@ -1,0 +1,15 @@
+signup.php fix:
+
+- add check for password and confirm password
+- add hash password
+- add keep feild if password don't match
+- clear all feild if Success
+- add REQUIRED for all input feild
+- fix place of error msg, not match
+- fix place of error creation or Success
+
+todo:
+
+- prez
+- redirect or add link to login
+- ...
