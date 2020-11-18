@@ -1,8 +1,16 @@
+<?php
+$req_boards = $conn->query('SELECT board_id, board_name FROM boards ORDER BY board_id');
+?>
+
 <section class="container mb-3" id="boards">
+    <?php
+    while ($board = $req_boards->fetch())
+    {
+    ?>
     <article class="container">
         <div class="row">
             <div class="col">
-                <h2>Category One</h2>
+                <h2><?php echo $board['board_name']; ?></h2>
             </div>
         </div>
         <div class="row bg-light rounded-lg pb-3">
@@ -42,5 +50,8 @@
             </div>
         </div>
     </article>
-    
+    <?php
+    }
+    $req_boards->closeCursor();
+    ?>
 </section>
