@@ -1,0 +1,10 @@
+update README.md
+
+
+- a resume project
+- list feature
+- list Technology
+- folders structure
+- installation step
+- contributor list
+- license
