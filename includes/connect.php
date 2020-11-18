@@ -1,16 +1,13 @@
 <?php
 //connect.php
-$server = 'localhost';
-$username   = 'bcbb-site';
-$password   = 'BCBB0pwdSITE--';
-$database   = 'BCBB';
-
-if(!mysql_connect($server, $username,  $password))
+try
 {
-    exit('Error: could not establish database connection');
+    $conn = new PDO('mysql:host=localhost; dbname=BCBB', 'bcbb-site', 'BCBB0pwdSITE--',
+    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    
 }
-if(!mysql_select_db($database))
+catch (Exception $e)
 {
-    exit('Error: could not select the database');
+    die('Erreur : ' .$e->connect_error);
 }
 ?>

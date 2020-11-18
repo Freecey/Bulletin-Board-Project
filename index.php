@@ -8,6 +8,7 @@
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <?php include('includes/connect.php') ?>
         <?php include('includes/header.php'); ?>
         <div class="container shadow rounded-lg" id="content">
             <div class="row">
