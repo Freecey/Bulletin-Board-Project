@@ -43,9 +43,10 @@ if ($_SESSION['loginOK']  == true) {
     echo '<div class="m-2">';
     echo 'Welcome ';echo $_SESSION['user_name'];
     echo '</div>';
-    echo '<div class="my-2 btn btn-primary btn-block rounded-pill" >
-        <a class="text-white" href="includes/profile.php">Your Profil</a>
-    </div>';
+    echo '<a class="text-white" href="includes/profile.php">
+    <div class="my-2 btn btn-primary btn-block rounded-pill" >
+        Your Profil
+    </div></a>';
 
 
 
@@ -56,9 +57,10 @@ if ($_SESSION['loginOK']  == true) {
         header('location:./'); 
     }
     echo '
+    <a class="text-white" href="?logout">
     <div class="my-2 btn btn-primary btn-block rounded-pill" >
-        <a class="text-white" href="?logout">Logout</a>
-    </div>';
+        Logout
+    </div></a>';
     // echo '<pre>' . print_r($data, TRUE) . '</pre>';
     // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {

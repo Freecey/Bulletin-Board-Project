@@ -1,5 +1,5 @@
 
-<div class="mx-2 mt-2">Login or</div>
+<div class="mx-2 mt-2" id="login">Login or</div>
 <div class="mx-2 mb-2">
     <a href="includes/signup.php"> click here to Register</a>
 </div>
