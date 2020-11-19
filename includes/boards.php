@@ -65,7 +65,14 @@ if (!$req_boards) {
                                 <p class="small">Posts</p>
                             </div>
                             <div class="col-3 pl-0">
-                                <p class="small mb-0">Sun Feb 03</p>
+                                <p class="small mb-0">
+                                    <?php
+                                        $req_posts = $conn->query("SELECT post_date FROM posts WHERE post_topic =" .  $board['board_id']);
+                                        $post = $req_posts->fetch();
+                                        $date = new DateTime($post['post_date']);
+                                        echo $date->format('Y-m-d');
+                                    ?>
+                                </p>
                                 <p class="small">Last post</p>
                             </div>
                         </div>
