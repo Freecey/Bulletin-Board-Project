@@ -6,6 +6,7 @@
         <title>.::Bulletin Board::.</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     </head>
     <body>
         <?php include('includes/connect.php') ?>
@@ -27,7 +28,10 @@
             </div>
         </div>
         <?php include('includes/footer.php'); ?>
-        
+        <div id="scroll-up-btn" data-toggle="tooltip" data-placement="top" title="Go back to the top">
+            <a href="#top"><i class="fas fa-arrow-up"></i></a>
+        </div>
 
+        <script type="text/javascript" src="scroll-up-btn.js"></script>
     </body>
 </html>
