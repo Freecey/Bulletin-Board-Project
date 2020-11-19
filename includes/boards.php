@@ -1,19 +1,23 @@
 <?php
-$req_boards = $conn->query('SELECT board_id, board_name FROM boards ORDER BY board_id');
+$req_boards = $conn->query('SELECT * FROM boards ORDER BY board_id');
+if (!$req_boards) {
+    echo 'Unable to display the categories' .mysql_error();
+} else {
 ?>
 
 <section class="container mb-3" id="boards">
-    <?php
-    while ($board = $req_boards->fetch())
-    {
-    ?>
+    
     <article class="container">
         <div class="row">
             <div class="col">
-                <h2><?php echo $board['board_name']; ?></h2>
+                <h2>Category One</h2>
             </div>
         </div>
         <div class="row bg-light rounded-lg pb-3">
+            <?php
+            while ($board = $req_boards->fetch())
+            {
+            ?>
             <div class="col-lg-6 mt-3">
                 <div class="card border-0">
                     <div class="card-body">
@@ -22,8 +26,8 @@ $req_boards = $conn->query('SELECT board_id, board_name FROM boards ORDER BY boa
                                 <img src="assets/topics/001-headphone.svg" alt="" width="48" height="48">
                             </div>
                             <div class="col ml-2">
-                                <p class="h6 mb-1">Topic Type Demos</p>
-                                <p class="small text-secondary">This forum demonstrates different topic types (stikies, attachments, polls, long posts, etc)</p>
+                                <p class="h6 mb-1"><?php echo $board['board_name']?></p>
+                                <p class="small text-secondary"><?php echo $board['board_description']; ?></p>
                             </div>
                         </div>
                         <div class="row">
@@ -31,13 +35,33 @@ $req_boards = $conn->query('SELECT board_id, board_name FROM boards ORDER BY boa
                                 <hr>
                             </div>
                         </div>
+                        
                         <div class="row pl-3 text-secondary">
+
                             <div class="col-3 pl-0">
-                                <p class="small mb-0"><strong>459</strong></p>
+                                <p class="small mb-0">
+                                    <strong>
+                                        <?php
+                                            $req_topics = $conn->query("SELECT topic_id FROM topics WHERE topic_board =" .  $board['board_id']);
+                                            $topics_cnt = $req_topics->rowCount();
+                                            echo $topics_cnt;
+                                            $req_topics->closeCursor();
+                                        ?>
+                                    </strong>
+                                </p>
                                 <p class="small">Topics</p>
                             </div>
                             <div class="col-3 pl-0">
-                                <p class="small mb-0"><strong>908</strong></p>
+                                <p class="small mb-0">
+                                    <strong>
+                                    <?php
+                                        $req_posts = $conn->query("SELECT post_id FROM posts WHERE post_topic =" .  $board['board_id']);
+                                        $posts_cnt = $req_posts->rowCount();
+                                        echo $posts_cnt;
+                                        $req_posts->closeCursor();
+                                    ?>
+                                    </strong>
+                                </p>
                                 <p class="small">Posts</p>
                             </div>
                             <div class="col-3 pl-0">
@@ -48,10 +72,15 @@ $req_boards = $conn->query('SELECT board_id, board_name FROM boards ORDER BY boa
                     </div>
                 </div>
             </div>
+            
+            <?php
+            }
+            $req_boards->closeCursor();
+            ?>
         </div>
     </article>
-    <?php
-    }
-    $req_boards->closeCursor();
-    ?>
+    
 </section>
+<?php
+}
+?>
