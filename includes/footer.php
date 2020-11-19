@@ -47,7 +47,7 @@
 
     <!-- Copyrights design (same than the given design on becode's repo) -->
     <p id="design-cpright" class="d-flex justify-content-start align-items-center">
-        Powered by <a class="design-cpright__link" href="#">phpBB</a>&trade; &bull; Design by <a  class="design-cpright__link" href="#">Planet Styles</a>
+        Powered by <a class="design-cpright__link" href="https://github.com/becodeorg">Becode Learners</a>&trade; &bull; Design by <a  class="design-cpright__link" href="https://github.com/Freecey/Bulletin-Board-Project">Queen Team</a>
     </p>
 
 </footer>
