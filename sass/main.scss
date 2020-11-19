@@ -9,3 +9,53 @@ body {
     }
 }
 
+hr {
+    background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+    height: 2px;
+    border-radius: 2px;
+}
+
+// FOOTER
+footer {
+    z-index: 5;
+}
+
+#social-media {
+    height: 10em;
+    background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+}
+
+.social-media__circle {
+    height: 2.5em;
+    width: 2.5em;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 2px solid white;
+    margin: 0.5em;
+    position: relative;
+    top: 1.5em;
+}
+
+.social-media__icon {
+    color: white;
+    font-size: 1.3em;
+}
+
+#more-infos, #design-cpright {
+    padding: 1em;
+    font-size: 0.7em;
+    color: seashell;
+}
+
+#more-infos {
+    height: 6em;
+    background-color: rgb(41, 43, 48);
+}
+
+.more-infos__link, .design-cpright__link {
+    margin: 0.5em;
+}
+
+#design-cpright {
+    height: 3em;
+    background-color: rgb(21, 22, 24);
+}
