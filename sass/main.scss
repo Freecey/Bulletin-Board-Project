@@ -18,6 +18,8 @@ hr {
 // FOOTER
 footer {
     z-index: 5;
+    position: relative;
+    top: 100em;
 }
 
 #social-media {
@@ -63,11 +65,18 @@ footer {
 //Scroll up button
 
 #scroll-up-btn {
-    height: 2em;
-    width: 2em;
+    z-index: 10;
+    height: 3em;
+    width: 3em;
     background-color: $primary;
     position: fixed;
     bottom : 10px;
     right: -100px;
-    opacity: 0.5;
+    opacity: 0.7;
+    border-radius: 2px;
+}
+
+.scroll-up-btn__icon {
+    color: seashell;
+    font-size: 2em;
 }
