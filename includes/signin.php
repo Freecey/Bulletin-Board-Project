@@ -40,37 +40,31 @@ catch (PDOException $e) {
 
 
 if ($_SESSION['loginOK']  == true) {
+    echo '<div class="m-2">';
     echo 'Welcome ';echo $_SESSION['user_name'];
-    // echo 'Hello, ';echo $user_name;
-    echo '<div>
-        <a href="includes/profile.php">Your Profil</a>
+    echo '</div>';
+    echo '<div class="my-2 btn btn-primary btn-block rounded-pill" >
+        <a class="text-white" href="includes/profile.php">Your Profil</a>
     </div>';
 
-    if($_GET['logout']==1) {
+
+
+    if(isset($_GET['logout'])) { 
         $loginOK = false;
         session_destroy(); 
+        unset($_SESSION['user_name']); 
+        header('location:./'); 
     }
     echo '
-    <div>
-        <a href="?logout=1">Logout</a>
+    <div class="my-2 btn btn-primary btn-block rounded-pill" >
+        <a class="text-white" href="?logout">Logout</a>
     </div>';
     // echo '<pre>' . print_r($data, TRUE) . '</pre>';
     // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {
-    echo '<p>Need to login? or <br><a href="includes/signup.php"> click here to SignUP</a></p>';
     include('includes/signinform.php');
 }
-
-
-
 ?>
-
-
-
-
-
-
-
 
 
 </aside>
