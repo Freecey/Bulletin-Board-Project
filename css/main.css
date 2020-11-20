@@ -9900,6 +9900,11 @@ body #content {
   background-color: white;
 }
 
+#header {
+  background: url(../bck-ground-two.png);
+  background-size: cover;
+  height: 35vh;
+=======
 hr {
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
   height: 2px;
