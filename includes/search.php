@@ -6,8 +6,7 @@
 
     if (isset($_GET['search']) AND !empty($_GET['search'])) {
         $search = htmlspecialchars($_GET['search']);
-        $response = $conn->query('SELECT * FROM topics, users, boards, posts WHERE * LIKE "%'.$search.'%"');
-
+        $response = $conn->query('SELECT * FROM topics, users, boards, posts WHERE topic_subject LIKE "%'.$search.'%"');
     }
 ?>
 
@@ -17,17 +16,15 @@
     <button type="submit" name="submit"><i class="fas fa-search"></i></button>
 </form>
 
-<?php
-    while ($datas = $response->fetch())
-    {
-        echo $datas['topic_id'];
-        echo $datas['topic_subject'];
-        echo $datas['topic_date'];
-        echo $datas['topic_board'];
-        echo $datas['post_id'];
-        echo $datas['post_content'];
-        echo $datas['post_date'];
-    }
 
-    $response->closeCursor();
-?>
+<ul>
+    <?php while ($datas = $response->fetch()){ ?>
+        <li><?= $datas['topic_id'] ?></li>
+        <li><?= $datas['topic_subject'] ?></li>
+        <li><?= $datas['topic_image'] ?></li>
+        <li><?= $datas['topic_date'] ?></li>
+        <li><?= $datas['topic_date_upd'] ?></li>
+        <li><?= $datas['topic_board'] ?></li>
+        <li><?= $datas['topic_by'] ?></li>
+    <?php } ?>
+</ul>
