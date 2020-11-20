@@ -9,7 +9,7 @@
 
     <div class="form-group <?php echo $nameclasserr; ?>">
 	    <!-- <label for="user_name">Username </label> -->
-		<input type="text" class="form-control" name = "user_name" placeholder = "User Name" required> 
+		<input type="email" class="form-control" name = "user_email" placeholder = "email" required> 
 	</div>	
 
     <div class="form-group <?php echo $pwdclasserr; ?>">

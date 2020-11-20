@@ -37,22 +37,65 @@ include('header.php');
                     <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data['user_lname'] ?>" required></div>
                 </div>
                 <div class="row mt-3">
+                    <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>
+                    <select class="custom-select col-md-3 ml-3" name="dobd">
+                        <option value="">Date</option>
+                        <?php 
+                        for($i=1;$i<=31;$i++)
+                        {
+                        echo "<option value='$i'>".$i."</option>";
+                        }
+                        ?>
+                    </select>
+                    <select class="custom-select col-md-3 ml-3" name="dobm">
+                        <option value="">Month</option>
+                        <?php 
+                        for($i=1;$i<=12;$i++)
+                        {
+                        echo "<option value='$i'>".$i."</option>";
+                        }
+                        ?>
+                    </select>
+                    <select class="custom-select col-md-3 ml-3" name="doby">
+                        <option value="">Year</option>
+                        <?php 
+                        $actual_year = date("Y"); 
+                        for($i=($actual_year-100);$i<=($actual_year-15);$i++)
+                        {
+                        echo "<option value='$i'>".$i."</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="row mt-3">
                     <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3" value="<?php echo $data['user_sign'] ?>"></textarea>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data['user_id'] ?>" readonly></div>
-                    <div class="col-md-4"><label class="labels">Registry Date</label><input type="text" class="form-control" value="<?php echo $data['user_date'] ?>" readonly></div>
+                    <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data['user_active'] ?>" readonly></div>
                     <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $data['user_level'] ?>" readonly></div>
                 </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-4"><label class="labels">Registry Date</label><input type="text" class="form-control" value="<?php echo $data['user_date'] ?>" readonly></div>
+                    <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data['user_datelastlog'] ?>" readonly></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data['user_secquest'] ?>" required></div>
+                    <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data['user_secansw'] ?>" required></div>
+                </div>
+
                 <div class="row mt-3">
                     <div class="col-md-4"><label class="labels">Old Password</label><input type="password" class="form-control" name="pwd_current" placeholder="*******" value=""></div>
                     <div class="col-md-4"><label class="labels">New Password</label><input type="password" class="form-control" name="pwd_new" value="" ></div>
                     <div class="col-md-4"><label class="labels">Confirm New Password</label><input type="password" class="form-control" name="pwd_newconfirm" value="" ></div>
                 </div>
                 <div class="mt-5 text-center">
-                    <a href="../"><button class="btn btn-primary profile-button" type="button" >Back</button></a>
-                    <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                    <a href="../"><button class="btn btn-primary rounded-pill" type="button" >Back</button></a>
+                    <button class="btn btn-primary rounded-pill" type="button">Save Profile</button>
                 </div>
             </div>
         </div>

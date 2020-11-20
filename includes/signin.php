@@ -9,25 +9,26 @@ session_start();
 try {
 	include('connect.php');
 	if(isset($_POST['signin'])){
-		$user_name = $_POST['user_name'];
+		$user_email = $_POST['user_email'];
         $user_pass = $_POST['user_pass'];
         $user_pass = hash('sha512', $user_pass);
 
-		$select = $conn->prepare("SELECT*FROM users where user_name='$user_name' and user_pass='$user_pass'");
+		$select = $conn->prepare("SELECT*FROM users where user_email='$user_email' and user_pass='$user_pass'");
 		$select->setFetchMode(PDO::FETCH_ASSOC);
 		$select->execute();
 		$data=$select->fetch();
-		if($data['user_name']!=$user_name and $data['user_pass']!=$user_pass)
+		if($data['user_email']!=$user_email and $data['user_pass']!=$user_pass)
 		{
             // $loginOK = false;
             echo "Invalid username or Password";
 		}
-		elseif($data['user_name']==$user_name and $data['user_pass']==$user_pass)
+		elseif($data['user_email']==$user_email and $data['user_pass']==$user_pass)
 		{
             $loginOK = true;
-			$_SESSION['user_name'] = $user_name;
+			$_SESSION['user_email'] = $user_email;
             $_SESSION['loginOK'] = $loginOK;
             $_SESSION['user_level'] = $data['user_level'];
+            $_SESSION['user_name'] = $data['user_name'];
 			// header("location:profile.php");
 		}
 	}
