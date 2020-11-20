@@ -28,12 +28,13 @@ include('header.php');
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo $data['user_fname'] ?> required"></div>
-                    <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data['user_lname'] ?> required" ></div>
-                </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data['user_email'] ?> required"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data['user_email'] ?>" readonly></div>
+                    <div class="col-md-12"><label class="labels">Alias (Display Name)</label><input type="text" class="form-control" name="user_name" value="<?php echo $data['user_name'] ?>" required></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo $data['user_fname'] ?>" required></div>
+                    <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data['user_lname'] ?>" required></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3" value="<?php echo $data['user_sign'] ?>"></textarea>

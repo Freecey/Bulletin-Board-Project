@@ -2,7 +2,7 @@
 //connect.php
 try
 {
-    $conn = new PDO('mysql:host=localhost; dbname=BCBB', 'bcbb-site', 'BCBB0pwdSITE--',
+    $conn = new PDO('mysql:host=db.bbs-queen.neant.be; port=33060; dbname=BCBB', 'bcbb-site', 'BCBB0pwdSITE--',
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     
 }
