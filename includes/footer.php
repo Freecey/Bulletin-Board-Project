@@ -1,4 +1,4 @@
-<footer>
+<footer class="container-fluid">
 
     <!-- All links to social medias -->
     <div id="social-media" class="d-flex justify-content-center align-items-center">

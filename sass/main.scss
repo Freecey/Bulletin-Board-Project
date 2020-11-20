@@ -3,14 +3,18 @@
 
 body {
     
-    #content {
-        background-color: white;
-        
+    main {
+        margin-top: -40px;
+        #content {
+            background-color: white;
+        }
     }
+    
 }
 
+// Header
 #header{
-    background:url(../bck-ground-two.png);
+    background:url('../assets/bck-ground-two.png');
     background-size: cover;
     height: 35vh;
 }
