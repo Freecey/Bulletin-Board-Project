@@ -2,13 +2,17 @@
 <?php
     include 'connect.php';
 
-    $response = $conn->query('SELECT topic_subject  FROM topics, users, boards, posts');
+    $search_done = false;
 
     if (isset($_GET['search']) AND !empty($_GET['search'])) {
         $search = htmlspecialchars($_GET['search']);
-        $response = $conn->query('SELECT topic_subject FROM topics, users, boards, posts WHERE topic_subject LIKE "%'.$search.'%"');
+        $response = $conn->query('SELECT * FROM topics WHERE topic_subject LIKE "%'.$search.'%"');
+        $response_two = $conn->query('SELECT * FROM posts WHERE post_content LIKE "%'.$search.'%"');
+        $search_done = true;
+
     }
 ?>
+
 
 
 <form atcion="" methode="GET "class="form-group">	
@@ -22,9 +26,25 @@
     </div>	
 </form>
 
-<ul>
-    <?php while ($datas = $response->fetch()){ ?>
-        <li><?= $datas['topic_subject'] ?></li>
+<?php
+    if ($search_done = true) {
+        <h3>recherche topics</h3>
+        <ul>
+            <?php while ($datas = $response->fetch()){ ?>
+                <li><?= $datas['topic_subject'] ?></li>
+                <li><?= $datas['topic_date'] ?></li>
+            <?php } ?>
+        </ul>
 
-    <?php } ?>
-</ul>
+        <h3>recherche posts</h3>
+        <ul>
+            <?php while ($datas = $response_two->fetch()){ ?>
+                <li><?= $datas['post_content'] ?></li>
+                <li><?= $datas['post_date'] ?></li>
+            <?php } ?>
+        </ul>);
+    }
+?>
+
+
+
