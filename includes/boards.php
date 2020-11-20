@@ -23,7 +23,7 @@ if (!$req_boards) {
                     <div class="card-body">
                         <div class="row align-items-center no-gutters">
                             <div class="col-auto">
-                                <img src="assets/topics/001-headphone.svg" alt="" width="48" height="48">
+                                <img src="<?php echo $board['board_image']; ?>" alt="" width="48" height="48">
                             </div>
                             <div class="col ml-2">
                                 <p class="h6 mb-1"><?php echo $board['board_name']?></p>
@@ -67,10 +67,10 @@ if (!$req_boards) {
                             <div class="col-3 pl-0">
                                 <p class="small mb-0">
                                     <?php
-                                        $req_posts = $conn->query("SELECT post_date FROM posts WHERE post_topic =" .  $board['board_id']);
+                                        $req_posts = $conn->query("SELECT post_date FROM posts WHERE post_topic =" .  $board['board_id'] . " ORDER BY post_date DESC");
                                         $post = $req_posts->fetch();
                                         $date = new DateTime($post['post_date']);
-                                        echo $date->format('Y-m-d');
+                                        echo $date->format('D M d');
                                     ?>
                                 </p>
                                 <p class="small">Last post</p>

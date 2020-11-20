@@ -1,30 +1,39 @@
-<ol class="breadcrumb">
+<p>Home / Board / Topic</p>
+
+
     <?php 
+        // class breadcrumb {
 
-    $breadcrumb;
-    $separator = ' / ';
-    $domain = 'jenesaispas'
-    function build($array) {
-        $crumbs = array_merge(array('home' => ''), $array);
-        $count = 0;
+        //     private $breadcrumb;
 
-        foreach($crumbs as $title => $link) {
-            $this->breadcrumb .= '
-            <li>
-                <a href"'.$this->domain. '/' .link.'" itemprop="url">
-                    <span itemprop="title">'.$title.'</span>
-                </a> 
-            </li>'
+        //     private $separator = ' / ';
 
-        $count++;
+        //     private $domain = 'http://localhost/Bulletin-Board-Project/';
 
-        if ($count !== count($crumbs)) {
-            $this->breadcrumb .= $this->separator;
-        }
-        }
-    }
-    return $this->breadcrumb;
+        //     public function build($array) {
+                
+        //         $crumbs = array_merge(array('Home' => ''), $array);
 
+        //         $count = 0;
+
+        //         foreach($crumbs as $title => $link) {
+        //             $this->breadcrumb .= '
+        //             <li>
+        //                 <a href="'.$this->domain. '/'.$link.'" itemprop="url">
+        //                 <span itemprop="title">'.$title.'</span>
+        //                 </a>
+        //             </li>';
+
+        //             $count++;
+
+        //             if($count !== count($crumbs)) {
+        //                 $this->breadcrumb .= $this->separator;
+        //             }
+        //         }
+        //         return $this->breadcrumb;
+        //     }
+        // }
+
+        // $breadcrumb = new breadcrumb();
+        // echo $breadcrumb->build(array());
     ?>
-  <li class="guidemap"><a href= <?php echo $homePath . 'guides/map.php"' ?> >map</a></li>
-</ol>
