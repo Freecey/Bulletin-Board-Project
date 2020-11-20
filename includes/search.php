@@ -12,8 +12,7 @@
 
 
 <form action="" methode="GET" >
-    <input type="text" name="search" placeholder="Search...">
-    <button type="submit" name="submit"><i class="fas fa-search"></i></button>
+    <input type="text" name="search" placeholder="Search..."  class="form-control form-rounded">
 </form>
 
 
