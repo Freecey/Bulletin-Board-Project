@@ -7795,11 +7795,13 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-body #content {
-  background-color: white; }
+body main {
+  margin-top: -40px; }
+  body main #content {
+    background-color: white; }
 
 #header {
-  background: url("../bck-ground-two.png");
+  background: url("../assets/bck-ground-two.png");
   background-size: cover;
   height: 35vh; }
 
@@ -7816,17 +7818,19 @@ footer {
 #social-media {
   height: 10em;
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%); }
-  #social-media__circle {
-    height: 2.5em;
-    width: 2.5em;
-    background-color: rgba(0, 0, 0, 0);
-    border: 2px solid white;
-    margin: 0.5em;
-    position: relative;
-    top: 1.5em; }
-  #social-media__icon {
-    color: white;
-    font-size: 1.3em; }
+
+.social-media__circle {
+  height: 2.5em;
+  width: 2.5em;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  margin: 0.5em;
+  position: relative;
+  top: 1.5em; }
+
+.social-media__icon {
+  color: white;
+  font-size: 1.3em; }
 
 #more-infos, #design-cpright {
   padding: 1em;
@@ -7854,8 +7858,9 @@ footer {
   right: -100px;
   opacity: 0.7;
   border-radius: 2px; }
-  #scroll-up-btn__icon {
-    color: seashell;
-    font-size: 2em; }
+
+.scroll-up-btn__icon {
+  color: seashell;
+  font-size: 2em; }
 
 /*# sourceMappingURL=main.css.map */
