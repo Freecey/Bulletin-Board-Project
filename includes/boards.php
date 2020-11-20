@@ -5,9 +5,9 @@ if (!$req_boards) {
 } else {
 ?>
 
-<section class="container mb-3" id="boards">
+<section class="mb-3" id="boards">
     
-    <article class="container">
+    <article class="container-fluid">
         <div class="row">
             <div class="col">
                 <h2>Category One</h2>
@@ -18,7 +18,7 @@ if (!$req_boards) {
             while ($board = $req_boards->fetch())
             {
             ?>
-            <div class="col-lg-6 mt-3">
+            <div class="col-lg-6 col-xl-4 mt-3">
                 <div class="card border-0">
                     <div class="card-body">
                         <div class="row align-items-center no-gutters">
@@ -64,7 +64,7 @@ if (!$req_boards) {
                                 </p>
                                 <p class="small">Posts</p>
                             </div>
-                            <div class="col-3 pl-0">
+                            <div class="col pl-0">
                                 <p class="small mb-0">
                                     <?php
                                         $req_posts = $conn->query("SELECT post_date FROM posts WHERE post_topic =" .  $board['board_id'] . " ORDER BY post_date DESC");
