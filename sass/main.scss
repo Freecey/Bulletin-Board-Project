@@ -9,6 +9,12 @@ body {
     }
 }
 
+#header{
+    background:url(../bck-ground-two.png);
+    background-size: cover;
+    height: 35vh;
+}
+
 hr {
     background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
     height: 2px;
