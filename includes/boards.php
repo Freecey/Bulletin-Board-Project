@@ -16,7 +16,7 @@ if (!$req_boards) {
         <div class="row bg-light rounded-lg pb-3">
             <?php
             while ($board = $req_boards->fetch())
-            {
+            { 
             ?>
             <div class="col-lg-6 col-xl-4 mt-3">
                 <div class="card border-0">
@@ -26,8 +26,12 @@ if (!$req_boards) {
                                 <img src="<?php echo $board['board_image']; ?>" alt="" width="48" height="48">
                             </div>
                             <div class="col ml-2">
-                                <p class="h6 mb-1"><?php echo $board['board_name']?></p>
-                                <p class="small text-secondary"><?php echo $board['board_description']; ?></p>
+                                <p class="h6 mb-1"> 
+                                    <a href="/Bulletin-Board-Project/page-topics.php"> <?php echo $board['board_name']?> </a>
+                                </p>
+                                <p class="small text-secondary"> 
+                                    <a href="/Bulletin-Board-Project/page-topics.php"> <?php echo $board['board_description']; ?> </a>
+                                </p>
                             </div>
                         </div>
                         <div class="row">
