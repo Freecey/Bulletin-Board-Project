@@ -9904,6 +9904,74 @@ body #content {
   background: url(../bck-ground-two.png);
   background-size: cover;
   height: 35vh;
+=======
+hr {
+  background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
+  height: 2px;
+  border-radius: 2px;
+}
+
+footer {
+  z-index: 5;
+  position: relative;
+  top: 100em;
+}
+
+#social-media {
+  height: 10em;
+  background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
+}
+
+.social-media__circle {
+  height: 2.5em;
+  width: 2.5em;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  margin: 0.5em;
+  position: relative;
+  top: 1.5em;
+}
+
+.social-media__icon {
+  color: white;
+  font-size: 1.3em;
+}
+
+#more-infos, #design-cpright {
+  padding: 1em;
+  font-size: 0.7em;
+  color: seashell;
+}
+
+#more-infos {
+  height: 6em;
+  background-color: #292b30;
+}
+
+.more-infos__link, .design-cpright__link {
+  margin: 0.5em;
+}
+
+#design-cpright {
+  height: 3em;
+  background-color: #151618;
+}
+
+#scroll-up-btn {
+  z-index: 10;
+  height: 3em;
+  width: 3em;
+  background-color: #b06ab3;
+  position: fixed;
+  bottom: 10px;
+  right: -100px;
+  opacity: 0.7;
+  border-radius: 2px;
+}
+
+.scroll-up-btn__icon {
+  color: seashell;
+  font-size: 2em;
 }
 
 /*# sourceMappingURL=main.css.map */
