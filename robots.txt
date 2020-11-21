@@ -1,0 +1,4 @@
+# Allow crawling
+User-agent: *
+Disallow: profile.php
+Disallow: /resources/

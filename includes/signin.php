@@ -44,7 +44,7 @@ if ($_SESSION['loginOK']  == true) {
     echo '<div class="m-2">';
     echo 'Welcome ';echo $_SESSION['user_name'];
     echo '</div>';
-    echo '<a class="text-white" href="includes/profile.php">
+    echo '<a class="text-white" href="profile.php">
     <div class="my-2 btn btn-primary btn-block rounded-pill" >
         Your Profil
     </div></a>';

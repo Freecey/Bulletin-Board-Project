@@ -1,10 +1,10 @@
 <head>
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="./css/main.css">
 </head>
 
 
 <?php
-include('header.php');
+include('includes/header.php');
 
 $pwdclasserr = '';
 $nameclasserr = '';
@@ -17,7 +17,7 @@ $signupProssComplet = false;
 
 session_start();
 try {
-	include('connect.php');
+	include('includes/connect.php');
 	if(isset($_POST['signup'])){
 		$pwdclasserr = '';
 		$nameclasserr = '';
@@ -89,11 +89,11 @@ if ($signupProssComplet == true) {
 <div><a href="../policy.html">Read privacy policy</a></div>
 ';
 } else {
-	include('signupform.php');	
+	include('includes/signupform.php');	
 }
 
 
 
 
-include('footer.php');
+include('includes/footer.php');
 ?>

@@ -1,7 +1,7 @@
 <?php
 //profile.php
-include('session.php');
-include('connect.php');
+include('includes/session.php');
+include('includes/connect.php');
 
 $select = $conn->prepare("SELECT*FROM users where user_name='$user_name'");
 $select->setFetchMode(PDO::FETCH_ASSOC);
@@ -13,10 +13,10 @@ $data=$select->fetch();
 // echo $user_name;
 ?>
 <head>
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="./css/main.css">
 </head>
 <?php 
-include('header.php');
+include('includes/header.php');
 ?>
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
@@ -105,5 +105,5 @@ include('header.php');
 </div>
 
 <?php
-include('footer.php');
+include('includes/footer.php');
 ?>

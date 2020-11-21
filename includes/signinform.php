@@ -8,7 +8,7 @@
 
 
     <div class="form-group <?php echo $nameclasserr; ?>">
-	    <!-- <label for="user_name">Username </label> -->
+	    <!-- <label for="user_email">email </label> -->
 		<input type="email" class="form-control" name = "user_email" placeholder = "email" required> 
 	</div>	
 
