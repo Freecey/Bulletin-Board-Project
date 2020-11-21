@@ -9898,11 +9898,7 @@ h3 {
 }
 .btn-rounded, .input-rounded {
   border-radius: 23px;
-    border-color: #dee2e6; } }
-
-.btn-rounded, .input-rounded {
-  border-radius: 23px; }
-
+}
 
 body main {
   margin-top: -40px;
