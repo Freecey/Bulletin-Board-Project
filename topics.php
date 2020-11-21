@@ -30,7 +30,7 @@
                         <section class="mb-3" id="topics">
                             
                             <article class="container-fluid">
-
+                              
                                 <div class="row">
                                     <div class="col">
                                         <h2>Topics' List</h2>
@@ -69,6 +69,15 @@
                                         <div class="card-header__element col-2"> <i class="fas fa-comments"></i> </div>
                                         <div class="card-header__element col-1"> <i class="far fa-eye"></i> </div>
                                         <div class="card-header__element col-2"> <i class="far fa-clock"></i> </div>
+
+                                <div class="row card bg-light rounded-lg pb-3">
+                                    <div class="card-header d-flex">
+                                        <div class="col-7">
+                                            <p class="h6 mb-1">Topics' List</p>
+                                        </div>
+                                        <div class="col-2"> <i class="fas fa-comments"></i> </div>
+                                        <div class="col-1"> <i class="far fa-eye"></i> </div>
+                                        <div class="col-2"> <i class="far fa-clock"></i> </div>
                                     </div>
 
                                     <div class="card-body">
@@ -76,6 +85,7 @@
                                         while ($topic = $req_topics->fetch())
                                         { 
                                         ?>
+
                                         <div class="card m-1">
                                             <div class="card border-0">
                                                 <div class="topic-list-item card-body w-100 d-flex">
