@@ -30,11 +30,46 @@
                         <section class="mb-3" id="topics">
                             
                             <article class="container-fluid">
+                              
                                 <div class="row">
                                     <div class="col">
                                         <h2>Topics' List</h2>
                                     </div>
                                 </div>
+
+                                <div class="alert alert-danger m-2" role="alert">
+                                    Forum rules
+                                </div>
+
+                                <div class="btn-and-search row">
+                                    <button class="col-2 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </button>
+                                    <div class="col-2"> <?php include('includes/search.php'); ?> </div>
+                                </div>
+
+                                <div class="row card bg-light rounded-lg m-2 pb-3">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="card-header__element col-7">
+                                            <p class="h6 mb-1">Announcements</p>
+                                        </div>
+                                        <div class="card-header__element col-2"> <i class="fas fa-comments"></i> </div>
+                                        <div class="card-header__element col-1"> <i class="far fa-eye"></i> </div>
+                                        <div class="card-header__element col-2"> <i class="far fa-clock"></i> </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                     
+                                    </div>
+                                </div>
+
+                                <div class="row card bg-light rounded-lg m-2 pb-3">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="card-header__element col-7">
+                                            <p class="h6 mb-1">Topics' List</p>
+                                        </div>
+                                        <div class="card-header__element col-2"> <i class="fas fa-comments"></i> </div>
+                                        <div class="card-header__element col-1"> <i class="far fa-eye"></i> </div>
+                                        <div class="card-header__element col-2"> <i class="far fa-clock"></i> </div>
+
                                 <div class="row card bg-light rounded-lg pb-3">
                                     <div class="card-header d-flex">
                                         <div class="col-7">
@@ -50,12 +85,28 @@
                                         while ($topic = $req_topics->fetch())
                                         { 
                                         ?>
-                                        <div class="row">
+
+                                        <div class="card m-1">
                                             <div class="card border-0">
-                                            <?php echo '<a href="../Bulletin-Board-Project/comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                <div class="topic-list-item card-body w-100 d-flex">
+                                                    <div class="col-7">
+                                                        <?php echo '<a href="../Bulletin-Board-Project/comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                    </div>
+                                                    <div class="topic-details col-2">
+                                                        Comments
+                                                        <!-- TODO: use a request / 'post linked to this topic' count -->
+                                                    </div>
+                                                    <div class="topic-details col-1">
+                                                        Views
+                                                        <!-- TODO: create a view count? -->
+                                                    </div>
+                                                    <div class="topic-details col-2">
+                                                        Date
+                                                        <!-- TODO: use a request / topic_by and topic_date -->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        
                                         <?php
                                         }
                                         $req_topics->closeCursor();
