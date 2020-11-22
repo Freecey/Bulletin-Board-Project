@@ -1,30 +1,44 @@
-<footer class="container-fluid">
+
+<footer id="footer">
 
     <!-- All links to social medias -->
     <div id="social-media" class="d-flex justify-content-center align-items-center">
-
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://twitter.com/?lang=fr"> <i class="social-media__icon fab fa-twitter"></i> </a>
-        </div>
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://www.apple.com/"> <i class="social-media__icon fab fa-apple"></i> </a>
-        </div>
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://fr-fr.facebook.com/"> <i class="social-media__icon fab fa-facebook-f"></i> </a>
-        </div>
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://codepen.io"> <i class="social-media__icon fab fa-codepen"></i> </a>
-        </div>
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://plus.google.com/"> <i class="social-media__icon fab fa-google-plus-g"></i> </a>
-        </div>
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://digg.com/"> <i class="social-media__icon fab fa-digg"></i> </a>
-        </div>
-        <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
-            <a href="https://www.pinterest.fr/"> <i class="social-media__icon fab fa-pinterest-p"></i> </a>
-        </div>
-
+        
+        <a class="social-media__link" href="https://twitter.com/?lang=fr">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+            <i class="social-media__icon fab fa-twitter"></i> 
+            </div>
+        </a>
+        <a class="social-media__link" href="https://www.apple.com/">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+                    <i class="social-media__icon fab fa-apple"></i> 
+            </div>
+        </a>
+        <a class="social-media__link" href="https://fr-fr.facebook.com/">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+                <i class="social-media__icon fab fa-facebook-f"></i> 
+            </div>
+        </a>
+        <a class="social-media__link" href="https://codepen.io">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+                <i class="social-media__icon fab fa-codepen"></i> 
+            </div>
+        </a>
+        <a class="social-media__link" href="#">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+                <i class="social-media__icon fab fa-google-plus-g"></i>
+            </div>
+        </a>
+        <a class="social-media__link" href="https://digg.com/">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+                <i class="social-media__icon fab fa-digg"></i> 
+            </div>
+        </a>
+        <a class="social-media__link" href="https://www.pinterest.fr/">
+            <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
+                <i class="social-media__icon fab fa-pinterest-p"></i> 
+            </div>
+        </a>
     </div>
 
     <!-- Breadcrumbs + links to legal informations, team members... -->
@@ -37,7 +51,7 @@
             <a class="more-infos__link" href="#"> <i class="fas fa-envelope"></i>Contact us </a>
             <a class="more-infos__link" href="#"> <i class="fas fa-shield-alt"></i> The team </a>
             <a class="more-infos__link" href="#"> <i class="fas fa-check"></i> Terms </a>
-            <a class="more-infos__link" href="../policy.htm"> <i class="fas fa-lock"></i> Privacy </a>
+            <a class="more-infos__link" href="./policy.html"> <i class="fas fa-lock"></i> Privacy </a>
             <a class="more-infos__link" href="#"> <i class="fas fa-users"></i> Members </a>
             <a class="more-infos__link" href="#"> <i class="fas fa-trash-alt"></i> Delete cookies </a>
             All times are UTC
@@ -46,8 +60,8 @@
     </div>
 
     <!-- Copyrights design (same than the given design on becode's repo) -->
-    <p id="design-cpright" class="d-flex justify-content-start align-items-center">
+    <div id="design-cpright" class="d-flex justify-content-start align-items-center">
         Powered by <a class="design-cpright__link" href="https://github.com/becodeorg">Becode Learners</a>&trade; &bull; Design by <a  class="design-cpright__link" href="https://github.com/Freecey/Bulletin-Board-Project">Queen Team</a>
-    </p>
+    </div>
 
 </footer>

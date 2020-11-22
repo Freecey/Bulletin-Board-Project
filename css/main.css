@@ -9898,13 +9898,11 @@ h3 {
 }
 .btn-rounded, .input-rounded {
   border-radius: 23px;
-    border-color: #dee2e6; } }
-
-.btn-rounded, .input-rounded {
-  border-radius: 23px; }
-
+}
 
 body main {
+  position: relative;
+  z-index: 20;
   margin-top: -40px;
   margin-bottom: -40px;
 }
@@ -9924,7 +9922,18 @@ body main #content {
   border-radius: 2px;
 }
 
-.card-header {
+#topics a {
+  color: #292b30;
+}
+
+#topics a:hover {
+  color: #b06ab3;
+  text-decoration: none;
+}
+
+.gradient-header {
+  padding: 1em;
+  border-radius: 0.8em 0.8em 0em 0em;
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
   color: seashell;
 }
@@ -9961,6 +9970,11 @@ body main #content {
   font-size: 1.3em;
 }
 
+.social-media__link:hover {
+  text-decoration: none;
+  color: #b06ab3;
+}
+
 #more-infos, #design-cpright {
   padding: 1em;
   font-size: 0.7em;
@@ -9981,8 +9995,13 @@ body main #content {
   background-color: #151618;
 }
 
+.more-infos__link:hover, .design-cpright__link:hover {
+  text-decoration: none;
+  color: seashell;
+}
+
 #scroll-up-btn {
-  z-index: 10;
+  z-index: 30;
   height: 3em;
   width: 3em;
   background-color: #b06ab3;

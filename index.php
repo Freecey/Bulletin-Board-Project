@@ -9,7 +9,8 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     </head>
     <body>
-        <?php include('includes/connect.php') ?>
+        <?php session_start(); ?>
+        <?php include('includes/connect.php'); ?>
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">

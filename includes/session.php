@@ -3,7 +3,7 @@
 
 session_start();
 if($_SESSION['loginOK'] !=true) {
-    header("Location: ../index.php");
+    header("Location: ./");
     
 }
 
