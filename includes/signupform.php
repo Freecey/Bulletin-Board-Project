@@ -12,8 +12,8 @@
 				<input type="text" class="form-control" name = "user_name" placeholder = "User Name" required value="<?php echo $user_name ?>"> 
 			</div>	
 
-			<div class="form-group">
-				<label for="user_email">Email address</label>
+			<div class="form-group  <?php echo $emailclasserr; ?>">
+				<label for="user_email">Email address <?php echo $useremailErr;?></label>
 				<input type="email"  class="form-control" name = "user_email" placeholder = "name@domain.com" required value="<?php echo $user_email ?>"  id="exampleInputEmail1" aria-describedby="emailHelp" > 
 				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 			</div>	
@@ -26,17 +26,18 @@
 				<label for="user_lname">Last Name</label>
 				<input type="text" class="form-control" name = "user_lname" placeholder = "Last Name" required value="<?php echo $user_lname ?>">
 			</div>	
-			<div class="form-group <?php echo $pwdclasserr; ?>">
+			<div class="form-group">
 				<label for="user_pass">Password <?php echo $passmatchErr;?></label>
-				<input type="password" class="form-control" name = "user_pass" placeholder = "********" required>
+				<input type="password" class="form-control <?php echo $pwdclasserr; ?>" name = "user_pass" placeholder = "********" required>
 				<small id="" class="form-text text-muted">Must be 8-20 characters long.</small>
 			</div>	
-			<div class="form-group  <?php echo $pwdclasserr; ?>">
+			<div class="form-group">
 				<label for="cpassword">Confirm Password <?php echo $passmatchErr;?></label>
-				<input type="password" class="form-control" name = "cpassword" placeholder = "********" required>
+				<input type="password" class="form-control <?php echo $pwdclasserr; ?>" name = "cpassword" placeholder = "********" required>
 				<small id="" class="form-text text-muted">retype the same as before.</small>
 			</div>	
-			<input type="submit" class="btn btn-primary" name = "signup" Value = "Register" class="btn btn-primary">
+			<input type="submit" class="btn btn-primary rounded-pill" name = "signup" Value = "Register" class="btn btn-primary">
+			<a href="../"><button class="btn btn-secondary rounded-pill" type="button" >Back</button></a>
 			<!-- OLD VERSION
 			<div class="form-group">
 				<input type="text" class="form-control" name = "user_name" placeholder = "User Name" required value="<?php echo $user_name ?>"> * </br> 
