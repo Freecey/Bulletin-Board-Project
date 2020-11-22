@@ -1,0 +1,16 @@
+fix bug session
+
+- add sql update user_lastlog date at login
+- add user_id in session when login
+- add function for update profile
+- add error message for signup.php already a account if email in db
+- add function change password
+- add a default sercret question
+- add a random word to sercret answer
+- fix prez and add message update or error
+- fix prez from index.php for profile login signup
+
+TODO
+- profile picture 
+- password recovery
+- fix prez register

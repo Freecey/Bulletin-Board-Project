@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>.BSS-QUEEN : Your Profile</title>
+        <title>.BSS-QUEEN : Login</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -21,9 +21,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
-                        <?php include('includes/profile-upd.php'); ?>
-
-
+                        <?php include('./includes/signin.php'); ?>
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
                         <?php include('includes/search.php'); ?>

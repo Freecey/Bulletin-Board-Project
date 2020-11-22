@@ -2,10 +2,10 @@
 //session.php
 
 session_start();
-// if($_SESSION['loginOK'] !=true) {
-//     header("Location: ../index.php");
+if($_SESSION['loginOK'] !=true) {
+    header("Location: ./");
     
-// }
+}
 
 $user_name = $_SESSION['user_name'];
 $user_level = $_SESSION['user_level'];
