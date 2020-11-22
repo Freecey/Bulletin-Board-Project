@@ -1,3 +1,4 @@
+
 <footer id="footer">
 
     <!-- All links to social medias -->

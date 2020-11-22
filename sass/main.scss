@@ -9,6 +9,7 @@
 body {
     
     main {
+
         position: relative;
         z-index: 20;
         margin-top: -40px;
@@ -16,6 +17,7 @@ body {
         #content {
             background-color: white;
         }
+
     }
     
 }
@@ -106,6 +108,7 @@ body {
     height: 3em;
     background-color: rgb(21, 22, 24);
 }
+
 
 .more-infos__link:hover, .design-cpright__link:hover {
     text-decoration: none;
