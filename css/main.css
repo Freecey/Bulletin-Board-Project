@@ -9902,6 +9902,7 @@ h3 {
 
 body main {
   margin-top: -40px;
+  margin-bottom: -40px;
 }
 body main #content {
   background-color: white;
@@ -9924,22 +9925,16 @@ body main #content {
   color: seashell;
 }
 
-.topic-list-item {
+.topic-list-item, .ann-list-item {
   padding: 1em 0em;
 }
 
 .btn-and-search {
-  margin: 2em 0em;
+  margin: 3em 1em;
 }
 
-.topic-details {
+.topic-details, .ann-details {
   color: #6a6b6e;
-}
-
-footer {
-  z-index: 5;
-  position: relative;
-  top: 100em;
 }
 
 #social-media {

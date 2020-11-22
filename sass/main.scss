@@ -10,6 +10,7 @@ body {
     
     main {
         margin-top: -40px;
+        margin-bottom: -40px;
         #content {
             background-color: white;
         }
@@ -32,6 +33,7 @@ body {
         border-radius: 2px;
     }
 
+
 }
 
 // Topics
@@ -40,27 +42,23 @@ body {
     color: seashell;
 }
 
-.topic-list-item {
+.topic-list-item, .ann-list-item {
     padding: 1em 0em;
 }
 
 .btn-and-search {
-    margin: 2em 0em;
+    margin: 3em 1em;
 }
 
-.topic-details {
+.topic-details, .ann-details {
     color: rgb(106, 107, 110);
 }
+
 
 // --------- Posts -----------
 
 
 // FOOTER
-footer {
-    z-index: 5;
-    position: relative;
-    top: 100em;
-}
 
 #social-media {
     height: 10em;
