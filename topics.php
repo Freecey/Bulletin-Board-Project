@@ -56,21 +56,46 @@
                                         <div class="card-header__element col-2"> <i class="far fa-clock"></i> </div>
                                     </div>
 
-                                    <div class="card-body">
-                                     
+                                    <div id="announce-list" class="card-body">
+                                    <?php
+                                        $req_announce = $conn->query('SELECT * FROM announce ORDER BY ann_id');
+                                        if (!$req_announce) {
+                                            echo 'Unable to display the announces' .mysql_error();
+                                        } else {
+                                            while ($ann = $req_announce->fetch())
+                                            { 
+                                            ?>
+                                            <div class="card m-1">
+                                                <div class="card border-0">
+                                                    <div class="ann-list-item card-body w-100 d-flex">
+                                                        <div class="col-7">
+                                                            <?php echo '<a href="../Bulletin-Board-Project/announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
+                                                        </div>
+                                                        <div class="ann-details col-2">
+                                                            Comments
+                                                            <!-- TODO: use a request / 'comments linked to this announce' count -->
+                                                        </div>
+                                                        <div class="ann-details col-1">
+                                                            Views
+                                                            <!-- TODO: create a view count? -->
+                                                        </div>
+                                                        <div class="ann-details col-2">
+                                                            Date
+                                                            <!-- TODO: use a request / ann_by and ann_date -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <?php
+                                            }
+                                        }
+                                        $req_announce->closeCursor();
+                                        ?>
                                     </div>
                                 </div>
 
                                 <div class="row card bg-light rounded-lg m-2 pb-3">
-                                    <div class="card-header d-flex align-items-center">
-                                        <div class="card-header__element col-7">
-                                            <p class="h6 mb-1">Topics' List</p>
-                                        </div>
-                                        <div class="card-header__element col-2"> <i class="fas fa-comments"></i> </div>
-                                        <div class="card-header__element col-1"> <i class="far fa-eye"></i> </div>
-                                        <div class="card-header__element col-2"> <i class="far fa-clock"></i> </div>
-
-                                <div class="row card bg-light rounded-lg pb-3">
                                     <div class="card-header d-flex">
                                         <div class="col-7">
                                             <p class="h6 mb-1">Topics' List</p>
@@ -80,7 +105,7 @@
                                         <div class="col-2"> <i class="far fa-clock"></i> </div>
                                     </div>
 
-                                    <div class="card-body">
+                                    <div id="topics-list" class="card-body">
                                         <?php
                                         while ($topic = $req_topics->fetch())
                                         { 
