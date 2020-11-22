@@ -41,7 +41,18 @@ body {
 }
 
 // Topics
-.card-header {
+#topics a {
+    color: rgb(41, 43, 48);
+}
+
+#topics a:hover {
+    color: $primary;
+    text-decoration: none;
+}
+
+.gradient-header {
+    padding: 1em;
+    border-radius: 0.8em 0.8em 0em 0em;
     background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
     color: seashell;
 }

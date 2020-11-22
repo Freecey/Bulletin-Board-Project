@@ -46,8 +46,8 @@
                                     <div class="col-2"> <?php include('includes/search.php'); ?> </div>
                                 </div>
 
-                                <div class="row card bg-light rounded-lg m-2 pb-3">
-                                    <div class="card-header d-flex align-items-center">
+                                <div class="container-fluid bg-light rounded-lg m-2">
+                                    <div class="gradient-header row d-flex align-items-center">
                                         <div class="card-header__element col-7">
                                             <p class="h6 mb-1">Announcements</p>
                                         </div>
@@ -65,28 +65,25 @@
                                             while ($ann = $req_announce->fetch())
                                             { 
                                             ?>
-                                            <div class="card m-1">
-                                                <div class="card border-0">
-                                                    <div class="ann-list-item card-body w-100 d-flex">
-                                                        <div class="col-7">
-                                                            <?php echo '<a href="../Bulletin-Board-Project/announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
-                                                        </div>
-                                                        <div class="ann-details col-2">
-                                                            Comments
-                                                            <!-- TODO: use a request / 'comments linked to this announce' count -->
-                                                        </div>
-                                                        <div class="ann-details col-1">
-                                                            Views
-                                                            <!-- TODO: create a view count? -->
-                                                        </div>
-                                                        <div class="ann-details col-2">
-                                                            Date
-                                                            <!-- TODO: use a request / ann_by and ann_date -->
-                                                        </div>
+                                            <div class="card border-0 m-1">
+                                                <div class="ann-list-item card-body w-100 d-flex">
+                                                    <div class="col-7">
+                                                        <?php echo '<a href="../Bulletin-Board-Project/announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
+                                                    </div>
+                                                    <div class="ann-details col-2">
+                                                        Comments
+                                                        <!-- TODO: use a request / 'comments linked to this announce' count -->
+                                                    </div>
+                                                    <div class="ann-details col-1">
+                                                        Views
+                                                        <!-- TODO: create a view count? -->
+                                                    </div>
+                                                    <div class="ann-details col-2">
+                                                        Date
+                                                        <!-- TODO: use a request / ann_by and ann_date -->
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <?php
                                             }
                                         }
@@ -95,8 +92,8 @@
                                     </div>
                                 </div>
 
-                                <div class="row card bg-light rounded-lg m-2 pb-3">
-                                    <div class="card-header d-flex">
+                                <div class="container-fluid bg-light rounded-lg m-2 pb-3">
+                                    <div class="gradient-header row d-flex">
                                         <div class="col-7">
                                             <p class="h6 mb-1">Topics' List</p>
                                         </div>
@@ -110,25 +107,22 @@
                                         while ($topic = $req_topics->fetch())
                                         { 
                                         ?>
-
-                                        <div class="card m-1">
-                                            <div class="card border-0">
-                                                <div class="topic-list-item card-body w-100 d-flex">
-                                                    <div class="col-7">
-                                                        <?php echo '<a href="../Bulletin-Board-Project/comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
-                                                    </div>
-                                                    <div class="topic-details col-2">
-                                                        Comments
-                                                        <!-- TODO: use a request / 'post linked to this topic' count -->
-                                                    </div>
-                                                    <div class="topic-details col-1">
-                                                        Views
-                                                        <!-- TODO: create a view count? -->
-                                                    </div>
-                                                    <div class="topic-details col-2">
-                                                        Date
-                                                        <!-- TODO: use a request / topic_by and topic_date -->
-                                                    </div>
+                                        <div class="card border-0 m-1">
+                                            <div class="topic-list-item card-body w-100 d-flex">
+                                                <div class="col-7">
+                                                    <?php echo '<a href="../Bulletin-Board-Project/comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                </div>
+                                                <div class="topic-details col-2">
+                                                    Comments
+                                                    <!-- TODO: use a request / 'post linked to this topic' count -->
+                                                </div>
+                                                <div class="topic-details col-1">
+                                                    Views
+                                                    <!-- TODO: create a view count? -->
+                                                </div>
+                                                <div class="topic-details col-2">
+                                                    Date
+                                                    <!-- TODO: use a request / topic_by and topic_date -->
                                                 </div>
                                             </div>
                                         </div>
