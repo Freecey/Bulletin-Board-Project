@@ -19,6 +19,6 @@
         <input type="submit" class="btn btn-primary btn-block rounded-pill" name = "signin_main" Value = "Login">
     </div>
 </form>
-<div class="m-2" data-toggle="tooltip" data-placement="top" title="Soon">
-    <span>I forgot my password </span>
+<div class="m-2" data-toggle="tooltip" data-placement="top" title="Password Recovery">
+    <span><a href="./lostpwd.php"> I forgot my password </a></span>
 </div>
