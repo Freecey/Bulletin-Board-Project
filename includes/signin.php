@@ -22,6 +22,7 @@ try {
 		}
 		elseif($SignInDATA['user_email']==$user_email and $SignInDATA['user_pass']==$user_pass)
 		{
+
             $loginOK = true;
             $loginOK = true;
 			$_SESSION['user_email'] = $user_email;
@@ -29,10 +30,15 @@ try {
             $_SESSION['user_level'] = $SignInDATA['user_level'];
             $_SESSION['user_name'] = $SignInDATA['user_name'];
             $_SESSION['user_id'] = $SignInDATA['user_id'];
+            $_SESSION['user_gravatar'] = $SignInDATA['user_gravatar'];
             $user_ID = $SignInDATA['user_id'];
+            
+            $email = $_SESSION['user_email'];
+            $size = '';
+            include('includes/gravatars.php');
+            $user_gravatar = $grav_url;
 
-
-            $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date' WHERE `users`.`user_id` = $user_ID";
+            $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar'  WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);
             $SignInINSERT->execute();
 
