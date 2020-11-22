@@ -22,6 +22,9 @@ try {
 		$user_lname = $_POST['user_lname'];
 		$user_pass = $_POST['user_pass'];
 		$cpassword = $_POST['cpassword'];
+		$email = $user_email;
+		include('includes/gravatars.php');
+		$user_gravatar = $grav_url;
 		$user_secquest = "Your favorite word ?";
 		include('includes/randomword.php');
 		$user_secansw = $rand_word_ans;
@@ -35,8 +38,8 @@ try {
 
 				$user_date = date('Y-m-d H:i:s');
 		
-				$SignUPinsert = $conn->prepare("INSERT INTO users(user_name,user_email,user_pass,user_fname,user_lname,user_date,user_secquest,user_secansw)
-						values(:user_name, :user_email, :user_pass, :user_fname, :user_lname, :user_date, :user_secquest, :user_secansw)
+				$SignUPinsert = $conn->prepare("INSERT INTO users(user_name,user_email,user_pass,user_fname,user_lname,user_date,user_secquest,user_secansw,user_gravatar)
+						values(:user_name, :user_email, :user_pass, :user_fname, :user_lname, :user_date, :user_secquest, :user_secansw, :user_gravatar)
 						");
 				$SignUPinsert->bindParam (':user_name',$user_name);
 				$SignUPinsert->bindParam (':user_email',$user_email);
@@ -46,6 +49,7 @@ try {
 				$SignUPinsert->bindParam (':user_date',$user_date);
 				$SignUPinsert->bindParam (':user_secquest',$user_secquest);
 				$SignUPinsert->bindParam (':user_secansw',$user_secansw);
+				$SignUPinsert->bindParam (':user_gravatar',$user_gravatar);
 				$SignUPinsert->execute();
 				$creationOKClass = 'bg-success text-white';
 				$creationOK = 'Sign Up Successfully <a href="../index.php">Click Here to go Home for login</a>';

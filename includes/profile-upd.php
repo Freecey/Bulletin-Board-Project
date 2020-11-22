@@ -10,6 +10,10 @@ $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $data=$select->fetch();
 
+$email = $_SESSION[user_email];
+$size = '90';
+include('includes/gravatars.php');
+$user_gravatar = $grav_url;
 
 if($_SESSION[ProfileUPDATEComplet] == true ){
     $UpdateOKClass = 'bg-success text-white';
@@ -69,7 +73,7 @@ try {
         // echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
         // echo "---456";
 
-        $UPDATEQuerySQL1 = "UPDATE `users` SET `user_name` = '$UPD_user_name', `user_fname` = '$UPD_user_fname', `user_lname` = '$UPD_user_lname', `user_sign` = '$UPD_user_sign', `user_datebirthday` = '$UPD_DOB', `user_secquest` = '$UPD_user_secquest', `user_secansw` = '$UPD_user_secansw'  WHERE `users`.`user_id` = $user_id";
+        $UPDATEQuerySQL1 = "UPDATE `users` SET `user_name` = '$UPD_user_name', `user_fname` = '$UPD_user_fname', `user_lname` = '$UPD_user_lname', `user_sign` = '$UPD_user_sign', `user_datebirthday` = '$UPD_DOB', `user_secquest` = '$UPD_user_secquest', `user_secansw` = '$UPD_user_secansw', `user_gravatar` = '$user_gravatar'  WHERE `users`.`user_id` = $user_id";
         // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Prof_UpdateINSERT->execute();
