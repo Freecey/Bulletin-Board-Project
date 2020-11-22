@@ -9896,18 +9896,47 @@ h3 {
     border-color: #dee2e6;
   }
 }
-body #content {
+.btn-rounded, .input-rounded {
+  border-radius: 23px;
+}
+
+body main {
+  position: relative;
+  z-index: 20;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+body main #content {
   background-color: white;
 }
 
-hr {
+#header {
+  background: url("../assets/bck-ground-two.png");
+  background-size: cover;
+  height: 35vh;
+}
+
+#boards hr {
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
   height: 2px;
   border-radius: 2px;
 }
 
-footer {
-  z-index: 5;
+.card-header {
+  background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
+  color: seashell;
+}
+
+.topic-list-item, .ann-list-item {
+  padding: 1em 0em;
+}
+
+.btn-and-search {
+  margin: 3em 1em;
+}
+
+.topic-details, .ann-details {
+  color: #6a6b6e;
 }
 
 #social-media {
@@ -9930,6 +9959,11 @@ footer {
   font-size: 1.3em;
 }
 
+.social-media__link:hover {
+  text-decoration: none;
+  color: #b06ab3;
+}
+
 #more-infos, #design-cpright {
   padding: 1em;
   font-size: 0.7em;
@@ -9950,9 +9984,26 @@ footer {
   background-color: #151618;
 }
 
-hr {
-  background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
-  height: 2px;
-  border-radius: 2px; }
+.more-infos__link:hover, .design-cpright__link:hover {
+  text-decoration: none;
+  color: seashell;
+}
+
+#scroll-up-btn {
+  z-index: 30;
+  height: 3em;
+  width: 3em;
+  background-color: #b06ab3;
+  position: fixed;
+  bottom: 10px;
+  right: -100px;
+  opacity: 0.7;
+  border-radius: 2px;
+}
+
+.scroll-up-btn__icon {
+  color: seashell;
+  font-size: 2em;
+}
 
 /*# sourceMappingURL=main.css.map */
