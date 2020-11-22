@@ -9922,7 +9922,18 @@ body main #content {
   border-radius: 2px;
 }
 
-.card-header {
+#topics a {
+  color: #292b30;
+}
+
+#topics a:hover {
+  color: #b06ab3;
+  text-decoration: none;
+}
+
+.gradient-header {
+  padding: 1em;
+  border-radius: 0.8em 0.8em 0em 0em;
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
   color: seashell;
 }
