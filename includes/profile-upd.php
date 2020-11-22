@@ -38,9 +38,9 @@ if($user_datebirthday == ''){
 }
 
 
-echo $$UPD_PWD_Complet;
-echo "-----";
-echo $dbResErr;
+// echo $$UPD_PWD_Complet;
+// echo "-----";
+// echo $dbResErr;
 
 
 // Prepare and make update of users table
@@ -66,11 +66,11 @@ try {
         
          	
         // echo '123---';
-        echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+        // echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
         // echo "---456";
 
         $UPDATEQuerySQL1 = "UPDATE `users` SET `user_name` = '$UPD_user_name', `user_fname` = '$UPD_user_fname', `user_lname` = '$UPD_user_lname', `user_sign` = '$UPD_user_sign', `user_datebirthday` = '$UPD_DOB', `user_secquest` = '$UPD_user_secquest', `user_secansw` = '$UPD_user_secansw'  WHERE `users`.`user_id` = $user_id";
-        echo $UPDATEQuerySQL1;
+        // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Prof_UpdateINSERT->execute();
 
