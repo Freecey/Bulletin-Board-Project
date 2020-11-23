@@ -23,8 +23,6 @@
 
     $query->execute();
     $posts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
 ?>
 <div class="d-flex justify-content-between mt-4">
     <div class="d-flex justify-content-start">
@@ -32,12 +30,7 @@
             <a href="#" class="btn btn-primary btn-rounded">Post a reply <i class="fas fa-long-arrow-alt-left"></i></a>
         </div>
         <div>
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <div class="input-group-append">
-                    <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
-                </div>
-            </div>
+            <?php include('includes/search.php') ?>
         </div>
     </div>
     <div>

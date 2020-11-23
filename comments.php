@@ -71,12 +71,12 @@
                                     ?>
                                     <div class="card border-0 shadow-sm rounded-lg mt-3">
                                         <div class="card-body row">
-                                            <div class="col-2 text-center">
+                                            <div class="col-md-2 text-center">
                                                 <img class="avatar avatar-xl rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
                                                 <p><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
                                                 <p>Posts: <strong>43</strong></p>
                                             </div>
-                                            <div class="col-10">
+                                            <div class="col-md-10">
                                                 <p class="text-secondary">
                                                 <?php
                                                     $date = new DateTime($post['post_date']);
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="row mt-4">
-                                <a href="#"><i class="fas fa-chevron-left"></i>Return to "Topic Icon Demos"</a>
+                                <a href="#" onclick="window.history.go(-1); return false;"><i class="fas fa-chevron-left"></i> Return to the topic section</a>
                             </div>
                             <?php require('includes/posts_pagination_reply.php'); ?>
                         </section>
