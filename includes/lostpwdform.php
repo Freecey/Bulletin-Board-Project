@@ -4,10 +4,10 @@
 ?>
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
-        <div class="col-xl-2 col-md-2 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="./assets/pwdforgot/funny-it-comics-li-anne-dias-fb.png" width="200x"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data['user_email'] ?></span><span> </span></div>
+        <div class="col-xl-3 col-md-3 border-right">
+            <!-- <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="./assets/pwdforgot/funny-it-comics-li-anne-dias-fb.png" width="200x"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data['user_email'] ?></span><span> </span></div> -->
         </div>
-        <div class="col-xl-8 col-md-7 border-right">
+        <div class="col-xl-7 col-md-7 border-right">
             <div class="p-3 py-5">
                 <form method="post">
                     <div class="text-center <?php echo $UpdateOKClass . ' ' . $nameclasserr; ?>">
@@ -87,8 +87,8 @@
                         <?php echo $UpdPWDOK; ?>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-4"><label class="labels">New Password</label><input type="password" class="form-control  <?php echo $pwdclasserrmm; ?> <?php echo $_SESSION['lp_LOCKClassOK_3'];?>" name="pwd_new" value=""  <?php echo $_SESSION['lp_LOCK_3'];?>></div>
-                        <div class="col-md-4"><label class="labels">Confirm New Password</label><input type="password" class="form-control <?php echo $pwdclasserrmm; ?> <?php echo $_SESSION['lp_LOCKClassOK_3'];?>" name="pwd_newconfirm" value=""  <?php echo $_SESSION['lp_LOCK_3'];?>></div>
+                        <div class="col-md-6"><label class="labels">New Password</label><input type="password" class="form-control  <?php echo $pwdclasserrmm; ?> <?php echo $_SESSION['lp_LOCKClassOK_3'];?>" name="pwd_new" value=""  <?php echo $_SESSION['lp_LOCK_3'];?>></div>
+                        <div class="col-md-6"><label class="labels">Confirm New Password</label><input type="password" class="form-control <?php echo $pwdclasserrmm; ?> <?php echo $_SESSION['lp_LOCKClassOK_3'];?>" name="pwd_newconfirm" value=""  <?php echo $_SESSION['lp_LOCK_3'];?>></div>
                     </div>
                     <div class="mt-5 text-center">
                             <input type="submit" class="btn btn-primary rounded-pill" name = "set_new_pwd" Value = "3. Set New Password">
@@ -102,6 +102,5 @@
             </div>
         </div>
     </div>
-</div>
-</div>
+ </div>
 </div>
