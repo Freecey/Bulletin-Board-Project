@@ -1,0 +1,4 @@
+add session_start() on header
+
+- add <?php session_start(); ?> in top of header.php for create or resume session on all pages
+
