@@ -1,10 +1,13 @@
-<?php include 'connect.php'; ?>
+<?php include 'connect.php'; 
+
+?>
+
 
 <form id="newPostArea">
-  <div class="form-group">
-    <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your message"></textarea>
-  </div>
-  <button id="submitNewPost" type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <textarea type="email" class="form-control" aria-describedby="emailHelp" placeholder="Your message"></textarea>
+    </div>
+    <button id="submitNewPost" type="submit" class="btn btn-primary btn-rounded">Submit</button>
 </form>
 
 
@@ -13,20 +16,9 @@
     let newPostContainer = document.getElementById("newPostArea");
     let submitNewPost = document.getElementById("submitNewPost");
 
-    postReply.addEventListener("click", () => {
-        
-        if(getComputedStyle(newPostContainer).display != "none"){
-            newPostContainer.style.display = "none";
-        } else {
-            newPostContainer.style.display = "block";
-        }
-    })
+    newPostContainer.style.display = "none";  
 
-    submitNewPost.addEventListener("click", () => {
-        if(getComputedStyle(newPostContainer).display != "none"){
-            newPostContainer.style.display = "none";
-        } else {
-            newPostContainer.style.display = "block";
-        }
+    postReply.addEventListener("click", () => {
+        newPostContainer.style.display = "block";  
     })
 </script>
