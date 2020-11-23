@@ -1,3 +1,33 @@
+<?php require('includes/connect.php') ?>
+<?php
+
+    // Creation de la pagination
+    if(isset($_GET['page']) && !empty($_GET['page'])){
+        $currentPage = (int) strip_tags($_GET['page']);
+    }else{
+        $currentPage = 1;
+    }
+
+
+    $query = $conn->prepare('SELECT count(*) AS nb_posts FROM posts');
+    $query->execute();
+    $result = $query->fetch();
+    $nb_posts = (int) $result['nb_posts'];
+
+    $byPage = 20;
+    $pages = ceil($nb_posts / $byPage);
+
+    $firstElemByPage = ($currentPage * $byPage) - $byPage;
+    $query = $conn->prepare('SELECT * FROM posts ORDER BY post_date DESC LIMIT :firstElementByPage, :byPage');
+    $query->bindValue(':firstElementByPage', $firstElemByPage, PDO::PARAM_INT);
+    $query->bindValue(':byPage', $byPage, PDO::PARAM_INT);
+
+    $query->execute();
+    $posts = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +39,6 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     </head>
     <body>
-        <?php include('includes/connect.php') ?>
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
@@ -40,29 +69,59 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    1 post • Page 1 of 1
+                                    <nav>
+                                        <ul class="pagination">
+                                            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                                                <a href="./comments.php?id=3&page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                                            </li>
+                                            <?php for($page = 1; $page <= $pages; $page++): ?>
+                                            <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                                                    <a href="./comments.php?id=3&page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                                </li>
+                                            <?php endfor ?>
+                                            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                                                <a href="./comments.php?id=3&page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
-                                    <div class="card-body">
-                                        <div class="row">
+                                    <?php
+                                        $req_posts = $conn->query('SELECT * FROM posts WHERE post_topic=' . $_GET['id']);
+                                            if (!$req_posts) {
+                                                echo 'Unable to display the topics' .mysql_error();
+                                            } else {
+                                                while($post = $req_posts->fetch()) {
+                                    ?>
+                                    <div class="card border-0 shadow-sm rounded-lg mt-3">
+                                        <div class="card-body row">
                                             <div class="col-2 text-center">
-                                                <img src="assets/topics/003-dvd.svg" alt="" width="48" height="48">
+                                                <img src="assets/topics/003-dvd.svg" alt="" width="128 " height="128">
                                                 <p><strong>Username</strong></p>
                                                 <p>Posts: <strong>43</strong></p>
                                             </div>
                                             <div class="col-10">
-                                                <p class="text-secondary">Sun Oct 09, 2020 6:11pm</p>
-                                                <p>This a hot topic that has the read icon. Very cool</p>
+                                                <p class="text-secondary">
+                                                <?php
+                                                    $date = new DateTime($post['post_date']);
+                                                    echo $date->format('D M d, Y H:m:s');
+                                                ?></p>
+                                                <p><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
                                                 <p>This is my signature</p>
                                             </div>
                                         </div>
-                                        
                                     </div>
+                                    <?php 
+                                            }
+                                        }
+                                        $req_posts->closeCursor();
+                                    ?>
                                 </div>
                             </div>
+                            
                         </section>
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
