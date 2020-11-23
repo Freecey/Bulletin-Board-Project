@@ -26,25 +26,38 @@
     </div>	
 </form>
 
-<?php
-    if ($search_done = true) {
-        <h3>recherche topics</h3>
+<?php if ($search_done == true) { ?>
+
+    <?php if ($response -> rowCount() > 0) { ?>
+        <h5>Topics</h5>
         <ul>
-            <?php while ($datas = $response->fetch()){ ?>
+            <?php while($datas = $response->fetch()) { ?>
                 <li><?= $datas['topic_subject'] ?></li>
-                <li><?= $datas['topic_date'] ?></li>
+            <?php } ?>
+        </ul>
+    
+    <?php } else { ?>
+        <h5>Topics</h5>
+        <ul>
+            <li>Aucun résultat...</li>
+        </ul>
+    <?php } ?>
+
+    <?php if ($response_two -> rowCount() > 0) { ?>
+        <h5>Posts</h5>
+        <ul>
+            <?php while($datas = $response_two->fetch()) { ?>
+                <li><?= $datas['post_content'] ?></li>
             <?php } ?>
         </ul>
 
-        <h3>recherche posts</h3>
+    <?php } else { ?>
+        <h5>Posts</h5>
         <ul>
-            <?php while ($datas = $response_two->fetch()){ ?>
-                <li><?= $datas['post_content'] ?></li>
-                <li><?= $datas['post_date'] ?></li>
-            <?php } ?>
-        </ul>);
-    }
-?>
+            <li>Aucun résultat...</li>
+        </ul>
+    <?php } ?>
 
+<?php } ?>
 
 
