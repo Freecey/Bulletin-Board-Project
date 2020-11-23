@@ -32,7 +32,9 @@
         <h5>Topics</h5>
         <ul>
             <?php while($datas = $response->fetch()) { ?>
-                <li><?= $datas['topic_subject'] ?></li>
+                <li><a href="#"><?= $datas['topic_subject'] ?></a> <br>
+                    <?= $datas['topic_date'] ?>
+                </li>
             <?php } ?>
         </ul>
     
@@ -47,7 +49,9 @@
         <h5>Posts</h5>
         <ul>
             <?php while($datas = $response_two->fetch()) { ?>
-                <li><?= $datas['post_content'] ?></li>
+                <li><a href="#"><?= $datas['post_content'] ?></a> <br>
+                    <?= $datas['post_date'] ?>
+                </li>
             <?php } ?>
         </ul>
 
