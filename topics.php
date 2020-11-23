@@ -9,6 +9,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     </head>
     <body>
+        <?php session_start(); ?>
         <?php include('includes/connect.php') ?>
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
@@ -66,21 +67,43 @@
                                             { 
                                             ?>
                                             <div class="card border-0 m-1">
-                                                <div class="ann-list-item card-body w-100 d-flex">
+                                                <div class="ann-list-item card-body w-100 d-flex align-items-center">
                                                     <div class="col-7">
-                                                        <?php echo '<a href="../Bulletin-Board-Project/announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
+                                                        <?php echo '<a href="./announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
                                                     </div>
                                                     <div class="ann-details col-2">
-                                                        Comments
-                                                        <!-- TODO: use a request / 'comments linked to this announce' count -->
+                                                        <!-- COMMENTS -->
+                                                        <?php
+                                                            $req_posts = $conn->query("SELECT post_id FROM posts WHERE post_topic =" .  $ann['ann_id']);
+                                                            $posts_cnt = $req_posts->rowCount();
+                                                            echo $posts_cnt;
+                                                            $req_posts->closeCursor();
+                                                        ?>
                                                     </div>
                                                     <div class="ann-details col-1">
-                                                        Views
-                                                        <!-- TODO: create a view count? -->
+                                                        <!-- VIEWS -->
+                                                        486
                                                     </div>
                                                     <div class="ann-details col-2">
-                                                        Date
-                                                        <!-- TODO: use a request / ann_by and ann_date -->
+                                                        <!-- DATE -->
+                                                        <div class="d-flex">
+                                                            <div class="font-weight-light">by</div>
+                                                            <strong> 
+                                                                <?php 
+                                                                    $req_user = $conn->query("SELECT user_name FROM users WHERE user_id =" .  $ann['ann_by']); 
+                                                                    while($user = $req_user->fetch()) {
+                                                                        echo $user['user_name'];
+                                                                    }
+                                                                    $req_user->closeCursor();
+                                                                ?>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="font-weight-light">
+                                                            <?php
+                                                                $annDate = new DateTime($ann['ann_date']);
+                                                                echo $annDate->format('D M d, H:i');
+                                                            ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,21 +131,43 @@
                                         { 
                                         ?>
                                         <div class="card border-0 m-1">
-                                            <div class="topic-list-item card-body w-100 d-flex">
+                                            <div class="topic-list-item card-body w-100 d-flex align-items-center">
                                                 <div class="col-7">
-                                                    <?php echo '<a href="../Bulletin-Board-Project/comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                    <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
                                                 <div class="topic-details col-2">
-                                                    Comments
-                                                    <!-- TODO: use a request / 'post linked to this topic' count -->
+                                                    <!-- COMMENTS -->
+                                                    <?php
+                                                        $req_posts = $conn->query("SELECT post_id FROM posts WHERE post_topic =" .  $topic['topic_id']);
+                                                        $posts_cnt = $req_posts->rowCount();
+                                                        echo $posts_cnt;
+                                                        $req_posts->closeCursor();
+                                                    ?>
                                                 </div>
                                                 <div class="topic-details col-1">
-                                                    Views
-                                                    <!-- TODO: create a view count? -->
+                                                    <!-- VIEWS -->
+                                                    410
                                                 </div>
                                                 <div class="topic-details col-2">
-                                                    Date
-                                                    <!-- TODO: use a request / topic_by and topic_date -->
+                                                    <!-- DATE -->
+                                                    <div class="d-flex">
+                                                        <div class="font-weight-light">by</div>
+                                                        <strong class="text-danger"> 
+                                                            <?php 
+                                                                $req_user = $conn->query("SELECT user_name FROM users WHERE user_id =" .  $topic['topic_by']); 
+                                                                while($user = $req_user->fetch()) {
+                                                                    echo $user['user_name'];
+                                                                }
+                                                                $req_user->closeCursor();
+                                                            ?>
+                                                        </strong>
+                                                    </div>
+                                                    <div class="font-weight-light">
+                                                        <?php
+                                                            $topicDate = new DateTime($topic['topic_date']);
+                                                            echo $topicDate->format('D M d, H:i');
+                                                        ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -42,6 +42,18 @@ if($user_datebirthday == ''){
 }
 
 
+// Set Text to User LVL
+if( $data['user_level'] == 1 ) {
+    $user_lvl_text = "User";
+} elseif ( $data['user_level'] == 2 ) {
+    $user_lvl_text = "Moderator";
+} elseif ( $data['user_level'] == 3 ) {
+    $user_lvl_text = "Admin";
+} elseif ( $data['user_level'] == 4 ) {
+    $user_lvl_text = "God";
+} 
+
+
 // echo $$UPD_PWD_Complet;
 // echo "-----";
 // echo $dbResErr;
