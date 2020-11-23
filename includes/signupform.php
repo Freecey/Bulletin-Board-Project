@@ -1,7 +1,14 @@
 <!-- Remove BR tag when set prez  -->
+
+<div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
+    <div class="row">
+        <div class="col-xl-3 col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data['user_email'] ?></span><span> </span></div>
+        </div>
+        <div class="col-xl-9 col-md-9 border-right">
 <div class ="box">
 	Don't have any account yet?
-	<h1>Sign Up Here</h1>
+	<h2>Sign Up Here</h2>
 	<div><?php echo $dbResErr ?></div>
 	
 		<form method="post">
@@ -41,20 +48,7 @@
 			</div>	
 			<input type="submit" class="btn btn-primary rounded-pill" name = "signup" Value = "Create my account" class="btn btn-primary">
 			<a href="../"><button class="btn btn-secondary rounded-pill" type="button" >Back</button></a>
-			<!-- OLD VERSION
-			<div class="form-group">
-				<input type="text" class="form-control" name = "user_name" placeholder = "User Name" required value="<?php echo $user_name ?>"> * </br> 
-				<input type="email"  class="form-control" name = "user_email" placeholder = "name@domain.com" required value="<?php echo $user_email ?>"> * </br> </br>
-				<label for="inputPassword6">Password</label>
-				<input type="password" class="form-control" name = "user_pass" placeholder = "********" required> * <?php echo $passmatchErr;?> </br> </br>
-				<small id="passwordHelpInline" class="text-muted">
-					Must be 8-20 characters long.
-				</small>
-				<input type="password" class="form-control" name = "cpassword" placeholder = "********" required> * </br> </br>
-				<input type="text" class="form-control" name = "user_fname" placeholder = "First Name" required value="<?php echo $user_fname ?>"> * </br> </br>
-				<input type="text" class="form-control" name = "user_lname" placeholder = "Last Name" required value="<?php echo $user_lname ?>"> * </br> </br>
-				<input type="submit" class="btn btn-primary" name = "signup" Value = "Register" class="btn btn-primary">
-			</div> -->
+
 		</form>
 			<div class="form-group <?php echo $creationOKClass; ?>">
 				<p><?php echo $creationOK; ?></p>
@@ -66,3 +60,7 @@
 		<div><a href="./terms.html">TERMS OF USE</a></div>
 		<div><a href="./policy.html">Read privacy policy</a></div>
 </div>
+</div>
+                </form>
+            </div>
+        </div>

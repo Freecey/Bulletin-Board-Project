@@ -76,13 +76,13 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo $data['user_sign'] ?></textarea>
+                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo $data['user_sign']; ?></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data['user_id'] ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data['user_active'] ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $data['user_level'] ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data['user_id']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data['user_active']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $user_lvl_text; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
@@ -90,12 +90,13 @@
                             <label class="labels">Registry Date</label>
                             <input type="text" class="form-control" value="<?php echo $data['user_date'] ?>" readonly>
                         </div>
-                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data['user_datelastlog'] ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data['user_datelastlog']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last IP connexion</label><input type="text" class="form-control" value="<?php echo $data['user_last_ip']; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data['user_secquest'] ?>" ></div>
-                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data['user_secansw'] ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data['user_secquest']; ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data['user_secansw']; ?>" ></div>
                     </div>
                     <div class="mt-5 text-center">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_profil" Value = "Update Profile">
