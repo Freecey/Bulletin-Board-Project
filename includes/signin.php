@@ -57,16 +57,20 @@ if ($_SESSION['loginOK']  == true) {
     echo '<div class="m-2">';
     echo 'Welcome ';echo $_SESSION['user_name'];
     echo '</div>';
+    
+    echo '
+    <a class="text-white" href="/">
+    <div class="my-2  btn btn-primary btn-block rounded-pill" >
+        Home
+    </div></a>';
+    
     echo '<a class="text-white" href="profile.php">
     <div class="my-2 btn btn-primary btn-block rounded-pill" >
         Your Profil
     </div></a>';
-
-
-
     echo '
     <a class="text-white" href="logout.php">
-    <div class="my-2 btn btn-primary btn-block rounded-pill" >
+    <div class="my-2  btn btn-primary btn-block rounded-pill" >
         Logout
     </div></a>';
     // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';

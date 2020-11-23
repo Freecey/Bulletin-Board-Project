@@ -36,7 +36,10 @@
 				<input type="password" class="form-control <?php echo $pwdclasserr; ?>" name = "cpassword" placeholder = "********" required>
 				<small id="" class="form-text text-muted">retype the same as before.</small>
 			</div>	
-			<input type="submit" class="btn btn-primary rounded-pill" name = "signup" Value = "Register" class="btn btn-primary">
+			<div class="form-group">
+				By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.
+			</div>	
+			<input type="submit" class="btn btn-primary rounded-pill" name = "signup" Value = "Create my account" class="btn btn-primary">
 			<a href="../"><button class="btn btn-secondary rounded-pill" type="button" >Back</button></a>
 			<!-- OLD VERSION
 			<div class="form-group">
@@ -60,5 +63,6 @@
 
 		<div>* All fields is required</div> 
 		<div>you must be at least 16 years old to register</div>
-		<div><a href="../policy.html">Read privacy policy</a></div>
+		<div><a href="./terms.html">TERMS OF USE</a></div>
+		<div><a href="./policy.html">Read privacy policy</a></div>
 </div>
