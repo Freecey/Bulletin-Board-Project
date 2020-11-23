@@ -50,7 +50,7 @@
                                                     </div>
                                                     <div class="col ml-2">
                                                         <p class="h6 mb-1"> 
-                                                            <?php echo '<a href="../Bulletin-Board-Project/topics.php?id=' . $board['board_id'] . '">' . $board['board_name'] . '</a>'?>
+                                                            <?php echo '<a href="./topics.php?id=' . $board['board_id'] . '">' . $board['board_name'] . '</a>'?>
                                                         </p>
                                                         <p class="small text-secondary"> 
                                                             <?php echo $board['board_description']; ?>

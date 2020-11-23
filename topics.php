@@ -68,7 +68,7 @@
                                             <div class="card border-0 m-1">
                                                 <div class="ann-list-item card-body w-100 d-flex">
                                                     <div class="col-7">
-                                                        <?php echo '<a href="../Bulletin-Board-Project/announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
+                                                        <?php echo '<a href="./announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
                                                     </div>
                                                     <div class="ann-details col-2">
                                                         Comments
@@ -110,7 +110,7 @@
                                         <div class="card border-0 m-1">
                                             <div class="topic-list-item card-body w-100 d-flex">
                                                 <div class="col-7">
-                                                    <?php echo '<a href="../Bulletin-Board-Project/comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                    <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
                                                 <div class="topic-details col-2">
                                                     Comments
