@@ -1,33 +1,28 @@
-<?php require('includes/connect.php') ?>
 <?php
-
-    // Creation de la pagination
-    if(isset($_GET['page']) && !empty($_GET['page'])){
-        $currentPage = (int) strip_tags($_GET['page']);
-    }else{
-        $currentPage = 1;
+    
+    function getPosts() { 
+        require('includes/connect.php');
+        $query = $conn->query('SELECT
+                posts.post_content,
+                posts.post_date,
+                posts.post_by,
+                users.user_name,
+                users.user_gravatar,
+                users.user_sign,
+                users.user_id
+            FROM
+                posts
+            LEFT JOIN
+                users
+            ON
+                posts.post_by = users.user_id
+            WHERE
+                post_topic=' . $_GET['id']
+        );
+        return $query;
     }
-
-
-    $query = $conn->prepare('SELECT count(*) AS nb_posts FROM posts');
-    $query->execute();
-    $result = $query->fetch();
-    $nb_posts = (int) $result['nb_posts'];
-
-    $byPage = 20;
-    $pages = ceil($nb_posts / $byPage);
-
-    $firstElemByPage = ($currentPage * $byPage) - $byPage;
-    $query = $conn->prepare('SELECT * FROM posts ORDER BY post_date DESC LIMIT :firstElementByPage, :byPage');
-    $query->bindValue(':firstElementByPage', $firstElemByPage, PDO::PARAM_INT);
-    $query->bindValue(':byPage', $byPage, PDO::PARAM_INT);
-
-    $query->execute();
-    $posts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
+    
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,6 +34,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     </head>
     <body>
+        
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
@@ -54,55 +50,33 @@
                                 <div class="col">
                                     <h2>Topic Read</h2>
                                     <div class="alert alert-danger" role="alert">
-                                        Forum rules
+                                    <p>Forum rules</p>
+                                        <ol>
+                                            <li>No Spam / Advertising / Self-promote in the forums.</li>
+                                            <li>Do not post copyright-infringing material.</li>
+                                            <li>Do not post “offensive” posts, links or images.</li>
+                                            <li>Do not cross post questions.</li>
+                                            <li>Do not PM users asking for help.</li>
+                                            <li>Remain respectful of other members at all times.</li>
+                                        </ol>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row d-flex justify-content-between">
-                                <div class="col">
-                                    <a href="#" class="btn btn-primary btn-rounded">Post a reply</a>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <nav>
-                                        <ul class="pagination">
-                                            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                                                <a href="./comments.php?id=3&page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
-                                            </li>
-                                            <?php for($page = 1; $page <= $pages; $page++): ?>
-                                            <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                                                    <a href="./comments.php?id=3&page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                                                </li>
-                                            <?php endfor ?>
-                                            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                                                <a href="./comments.php?id=3&page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+                            <?php require('includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
                                     <?php
-                                        $req_posts = $conn->query('SELECT * FROM posts WHERE post_topic=' . $_GET['id']);
-                                            if (!$req_posts) {
-                                                echo 'Unable to display the topics' .mysql_error();
-                                            } else {
-                                                while($post = $req_posts->fetch()) {
+                                        $req = getPosts();
+                                        while($post = $req->fetch()) {
                                     ?>
                                     <div class="card border-0 shadow-sm rounded-lg mt-3">
                                         <div class="card-body row">
-                                            <div class="col-2 text-center">
-                                                <img src="assets/topics/003-dvd.svg" alt="" width="128 " height="128">
-                                                <p><strong>Username</strong></p>
+                                            <div class="col-md-2 text-center">
+                                                <img class="avatar avatar-xl rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
+                                                <p><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
                                                 <p>Posts: <strong>43</strong></p>
                                             </div>
-                                            <div class="col-10">
+                                            <div class="col-md-10">
                                                 <p class="text-secondary">
                                                 <?php
                                                     $date = new DateTime($post['post_date']);
@@ -110,18 +84,19 @@
                                                 ?></p>
                                                 <p><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
-                                                <p>This is my signature</p>
+                                                <p><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
                                         </div>
                                     </div>
                                     <?php 
-                                            }
                                         }
-                                        $req_posts->closeCursor();
                                     ?>
                                 </div>
                             </div>
-                            
+                            <div class="row mt-4">
+                                <a href="#" onclick="window.history.go(-1); return false;"><i class="fas fa-chevron-left"></i> Return to the topic section</a>
+                            </div>
+                            <?php require('includes/posts_pagination_reply.php'); ?>
                         </section>
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
