@@ -2,7 +2,7 @@
 //profile.php
 include('includes/session.php');
 include('includes/connect.php');
-// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 $user_id = $_SESSION[user_id];
 
 $select = $conn->prepare("SELECT*FROM users where user_id='$user_id' LIMIT 1");
