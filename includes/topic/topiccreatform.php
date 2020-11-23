@@ -20,11 +20,26 @@
                         <?php echo $passmatchErr; ?>
                         <?php echo $UpdPWDOK; ?>
                     </div> -->
+                    
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings </h4> 
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data['user_email'] ?>" readonly></div>
+                    <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>
+                        <select class="custom-select col-md-6 ml-6" name="dobd">
+                            <option value="<?php echo $dobday ?>">Boards</option>
+                            <?php 
+                            for($i=1;$i<=31;$i++)
+                            {
+                                if ($i == $dobday){
+                                    echo "<option value='$i' selected>".$i."</option>";
+                                } else {
+                                    echo "<option value='$i'>".$i."</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                        <div class="col-md-12"><label class="labels">Subject</label><input type="text" class="form-control" name="new_topic_name" value="<?php echo $new_topic_name['new_topic_name'] ?>" required></div>
                         <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data['user_name'] ?>" required></div>
                     </div>
                     <div class="row mt-2">

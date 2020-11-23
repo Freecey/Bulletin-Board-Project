@@ -26,22 +26,33 @@ $select_USER->execute();
 $User_DATA=$select_USER->fetch();
 
 // catch board name
-// $select_BOARDS = $conn->prepare("SELECT * FROM boards");
-// $select_BOARDS->setFetchMode(PDO::FETCH_ASSOC);
-// $select_BOARDS->execute();
-// $BOARDS_DATA = Array();
+$select_BOARDS = $conn->prepare("SELECT * FROM boards");
+$select_BOARDS->setFetchMode(PDO::FETCH_ASSOC);
+$select_BOARDS->execute();
+$BOARDS_DATA = Array();
 // =$select_BOARDS->fetch();
 // $BOARDS_Name = $BOARDS_DATA['board_name'];
 
 
-$select_BOARDS = mysql_query("SELECT board_id FROM boards");
-$BOARDS_DATA = Array();
-while ($table_brd = mysql_fetch_array($select_BOARDS, MYSQL_ASSOC)) {
-    $BOARDS_DATA[] =  $table_brd['board_id'];  
-    $BOARDS_DATA[] =  $table_brd['board_name'];  
-    $BOARDS_DATA[] =  $table_brd['board_desciption'];  
-    $BOARDS_DATA[] =  $table_brd['Board_image'];  
+
+$select_BOARDS = $conn->query("SELECT * FROM boards "); 
+while($REQ_BRD_DATA = $select_BOARDS->fetch()) {
+  $BOARDS_DATA[] =  $REQ_BRD_DATA['board_id'];  
+  $BOARDS_DATA['board_name'] =  $REQ_BRD_DATA['board_name'];  
+  $BOARDS_DATA['board_desciption'] =  $REQ_BRD_DATA['board_desciption'];  
+  $BOARDS_DATA['Board_image'] =  $REQ_BRD_DATA['Board_image'];  
 }
+$select_BOARDS->closeCursor();
+
+
+// $select_BOARDS = mysql_query("SELECT board_id FROM boards");
+// // $BOARDS_DATA = Array();
+// while ($table_brd = mysql_fetch_array($select_BOARDS, MYSQL_ASSOC)) {
+//     $BOARDS_DATA[] =  $table_brd['board_id'];  
+//     $BOARDS_DATA[] =  $table_brd['board_name'];  
+//     $BOARDS_DATA[] =  $table_brd['board_desciption'];  
+//     $BOARDS_DATA[] =  $table_brd['Board_image'];  
+// }
 
 
 // TEST Catched data
