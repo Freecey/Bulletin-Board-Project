@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <section id="header" class="container-fluid">
     <div class="row justify-content-between">
         <div class="col">
