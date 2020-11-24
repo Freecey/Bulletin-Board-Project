@@ -102,7 +102,7 @@ if ($_SESSION['loginOK']  == true) {
             Logout
         </div></a>';
         // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
-        echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {
     include('includes/signinform.php');
 }
