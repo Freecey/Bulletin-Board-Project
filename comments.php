@@ -71,12 +71,18 @@
                                     ?>
                                     <div class="card border-0 shadow-sm rounded-lg mt-3">
                                         <div class="card-body row">
-                                            <div class="col-md-2 text-center">
-                                                <img class="avatar avatar-xl rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
-                                                <p><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
-                                                <p>Posts: <strong>43</strong></p>
+                                            <div class="col-12 col-sm-5 col-md-3 col-lg-2">
+                                                <div class="row mb-2 text-md-center">
+                                                    <div class="col-4 col-md-3 col-lg-12">
+                                                        <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
+                                                    </div>
+                                                    <div class="col-8 col-md-9 col-lg-12">
+                                                        <p class="mt-3 mb-0"><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
+                                                        <p>Posts: <strong>43</strong></p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-10">
+                                            <div class="col-12 col-sm-7 col-md-9 col-lg-10">
                                                 <p class="text-secondary">
                                                 <?php
                                                     $date = new DateTime($post['post_date']);
