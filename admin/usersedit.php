@@ -21,8 +21,8 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
-                        <?php include('../includes/admin/usersedit.php'); ?>
-                        <?php include('../includes/admin/userseditform.php'); ?>
+                        <?php include('../includes/admin/usersedit_view.php'); ?>
+                        <?php include('../includes/admin/usersedit_form.php'); ?>
 
 
                     </div>

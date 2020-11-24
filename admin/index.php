@@ -21,14 +21,14 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
-                        <?php include('../includes/admin/users_view.php'); ?>
-                        <?php include('../includes/admin/users_form.php'); ?>
+                        <?php include('../includes/admin/admin_view.php'); ?>
+                        <?php include('../includes/admin/admin_content.php'); ?>
 
 
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
                         <?php include('../includes/search.php'); ?>
-                        <?php include('../includes/admin/sidemenu.php'); ?> 
+                        <?php include('../includes/admin/sidemenu.php'); ?>
                     </div>
                 </div>
             </div>
