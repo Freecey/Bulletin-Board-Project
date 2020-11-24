@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script type="text/javascript" src="js/functions.js"></script>
     </head>
     <body>
         <?php include('includes/connect.php') ?>
@@ -32,8 +31,13 @@
                             </div>
                             <div class="row d-flex justify-content-between">
                                 <div class="col">
-                                    <a id="btnPostReply" class="btn btn-primary btn-rounded">Post a reply</a>
-                                    <?php include('includes/new-post.php'); ?>
+                                    <a href="#" class="btn btn-primary btn-rounded">Post a reply</a>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col">
                                     1 post • Page 1 of 1
