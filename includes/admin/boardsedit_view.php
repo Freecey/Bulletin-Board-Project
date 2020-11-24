@@ -28,7 +28,7 @@ $board_image_cur =  str_replace("assets/topics/", "",$data[board_image]);
 
 if($_SESSION[BoardUPDATEComplet] == true ){
     $UpdateOKClass = 'bg-success text-white';
-    $UpdateOK = 'Profile Update Successfully';
+    $UpdateOK = 'Board Update Successfully';
     unset($_SESSION['BoardUPDATEComplet']);
 }
 

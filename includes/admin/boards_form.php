@@ -39,7 +39,7 @@
             <?php }else{ echo "DATA NOT FOUND"; } ?>
     </tbody>
 
-    <span><a href="create.php" class="btn btn-success">Add Board</a></span>
+    <span><a href="boardscreat.php" class="btn btn-success">Add Board</a></span>
 </table>
             <div class="clearfix text-center">
                 <div class="hint-text">Showing <b><?php echo $i-1; ?></b> out of <b><?php echo $i-1; ?></b> entries</div>
