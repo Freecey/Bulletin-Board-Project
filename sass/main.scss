@@ -40,6 +40,28 @@ body {
 
 }
 
+//Last active user 
+#last-active-user {
+    margin: 2em 1em;
+}
+
+.user-card {
+    padding: 1em;
+}
+
+.user-list-item__gravatar {
+    width: 5em;
+    height: auto;
+}
+
+.user-list-item__name, .user-list-item__sign {
+    font-size: 0.9em;
+}
+
+.user-list-item__sign {
+    color: rgb(106, 107, 110);
+}
+
 // Topics
 #topics a {
     color: rgb(41, 43, 48);
