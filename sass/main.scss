@@ -1,24 +1,103 @@
 @import "variable_overrides";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+// general
+.btn-rounded, .input-rounded {
+    border-radius: 23px;
+}
+
 body {
     
-    #content {
-        background-color: white;
-        
+    main {
+
+        position: relative;
+        z-index: 20;
+        margin-top: -40px;
+        margin-bottom: -40px;
+        #content {
+            background-color: white;
+        }
+
     }
+    
 }
 
-hr {
+// Header
+#header{
+    background:url('../assets/bck-ground-two.png');
+    background-size: cover;
+    height: 35vh;
+}
+
+#boards {
+
+    hr {
+        background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+        height: 2px;
+        border-radius: 2px;
+    }
+
+
+}
+
+//Last active user 
+#last-active-user {
+    margin: 2em 1em;
+}
+
+.user-card {
+    padding: 1em;
+}
+
+.user-list-item__gravatar {
+    width: 5em;
+    height: auto;
+}
+
+.user-list-item__name, .user-list-item__sign {
+    font-size: 0.9em;
+}
+
+.user-list-item__sign {
+    color: rgb(106, 107, 110);
+}
+
+// Topics
+#topics a {
+    color: rgb(41, 43, 48);
+}
+
+#topics a:hover {
+    color: $primary;
+    text-decoration: none;
+}
+
+.gradient-header {
+    padding: 1em;
+    border-radius: 0.8em 0.8em 0em 0em;
     background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
-    height: 2px;
-    border-radius: 2px;
+    color: seashell;
 }
 
+<<<<<<< HEAD
 // FOOTER
 footer {
     z-index: 5;
+=======
+.topic-list-item, .ann-list-item {
+    padding: 1em 0em;
+>>>>>>> dev
 }
+
+.btn-and-search {
+    margin: 3em 1em;
+}
+
+.topic-details, .ann-details {
+    color: rgb(106, 107, 110);
+}
+
+// FOOTER
 
 #social-media {
     height: 10em;
@@ -38,6 +117,11 @@ footer {
 .social-media__icon {
     color: white;
     font-size: 1.3em;
+}
+
+.social-media__link:hover {
+    text-decoration: none;
+    color: $primary;
 }
 
 #more-infos, #design-cpright {
@@ -60,10 +144,18 @@ footer {
     background-color: rgb(21, 22, 24);
 }
 
+
+.more-infos__link:hover, .design-cpright__link:hover {
+    text-decoration: none;
+    color: seashell;
+}
+
+
+
 //Scroll up button
 
 #scroll-up-btn {
-    z-index: 10;
+    z-index: 30;
     height: 3em;
     width: 3em;
     background-color: $primary;
