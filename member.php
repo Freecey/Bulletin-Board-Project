@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>.BSS-QUEEN : Your Profile</title>
+        <title>.::Bulletin Board::.</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -20,10 +20,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-10 col-md-9">
-                        <?php include('includes/member_view.php');
-                              include('includes/member_form.php'); ?>
+                    <div class="col-xl-9 col-md-8">
+                        <?php 
+                            if(empty($_GET['view_user_id'])){
+                                include('includes/memberdir_view.php');
+                                include('includes/memberdir_form.php'); 
 
+                            } else {
+                                include('includes/member_view.php');
+                                include('includes/member_form.php'); 
+                            }
+                            ?>
 
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">

@@ -9,11 +9,11 @@ $user_id = $Edit_ID;
 $select = $conn->prepare("SELECT*FROM users where user_id='$view_user_id' LIMIT 1");
 $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
-$data = $select->fetch();
+$data_Sel_USR = $select->fetch();
 
-//  echo '<pre>' . print_r($data, TRUE) . '</pre>';
+//  echo '<pre>' . print_r($data_Sel_USR, TRUE) . '</pre>';
 
-if (isset($data[user_id])) {
+if (isset($data_Sel_USR[user_id])) {
     $user_id_nok = '';
     $user_id_nok_class = '';
 } else {
@@ -22,7 +22,7 @@ if (isset($data[user_id])) {
 }
 
 // Popote pour la date et mis a 0 si autre selectionner
-$user_datebirthday = $data['user_datebirthday'];
+$user_datebirthday = $data_Sel_USR['user_datebirthday'];
 // echo $user_datebirthday;
 $dobdate = strtotime($user_datebirthday);
 $dobday = date('d', $dobdate);

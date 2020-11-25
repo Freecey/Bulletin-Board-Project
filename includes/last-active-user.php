@@ -30,7 +30,7 @@
                     </div>
                 <?php
                 }
-                $req_topics->closeCursor();
+                $req_users->closeCursor();
                 ?>
             </div>
         </div>
