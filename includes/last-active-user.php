@@ -18,13 +18,15 @@
                 {
                 ?>
                     <div class="user-card card col border-0 m-2">
-                        <div class="user-list__item text-center">
-                            <div>
-                                <img class="user-list-item__gravatar col rounded-circle" src="<?php echo $user['user_gravatar']; ?>" alt="">
+                        <a href="./member.php?view_user_id=<?php echo $user['user_id'];?>">
+                            <div class="user-list__item text-center">
+                                <div>
+                                    <img class="user-list-item__gravatar col rounded-circle" src="<?php echo $user['user_gravatar']; ?>" alt="">
+                                </div>
+                                <div class="user-list-item__name font-weight-bold col"> <?php echo $user['user_name']; ?> </div>
+                                <div class="user-list-item__sign font-weight-light col"> <?php echo $user['user_sign']; ?> </div>
                             </div>
-                            <div class="user-list-item__name font-weight-bold col"> <?php echo $user['user_name']; ?> </div>
-                            <div class="user-list-item__sign font-weight-light col"> <?php echo $user['user_sign']; ?> </div>
-                        </div>
+                        </a>
                     </div>
                 <?php
                 }
