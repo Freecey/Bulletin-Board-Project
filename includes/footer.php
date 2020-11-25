@@ -53,7 +53,7 @@
             <a class="more-infos__link" href="#"> <i class="fas fa-shield-alt"></i> The team </a>
             <a class="more-infos__link" href="./terms.html"> <i class="fas fa-check"></i> Terms </a>
             <a class="more-infos__link" href="./policy.html"> <i class="fas fa-lock"></i> Privacy </a>
-            <a class="more-infos__link" href="#"> <i class="fas fa-users"></i> Members </a>
+            <a class="more-infos__link" href="./member.php"> <i class="fas fa-users"></i> Members </a>
             <a class="more-infos__link" href="./logout.php"> <i class="fas fa-trash-alt"></i> Delete cookies </a>
             All times are UTC
         </div>
