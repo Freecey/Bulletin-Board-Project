@@ -42,6 +42,14 @@ ___
 - Javascript.
 
 ___
+## Screen Shot
+
+![alt text](resources/Screenshot_Main.png?raw=true "Main Page loged" )
+![alt text](resources/Screenshot_ReadPost.png?raw=true "Read Post" )
+![alt text](resources/Screenshot_PwdRev.png?raw=true "Password Recovery" )
+![alt text](resources/Screenshot_PrivProfile.png?raw=true "Profile Editing by user" )
+
+___
 ## Folder Structure
 
 ```
