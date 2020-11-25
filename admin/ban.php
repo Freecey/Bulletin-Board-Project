@@ -1,11 +1,10 @@
 <?php
-//msg.php
+//ban.php
 
 // user $_GET[sendto_id=???] for select user
 
-echo 'Send a msg to : USER ID '.$_GET[sendto_id];
+echo 'BAN USER ID :'.$_GET[id];
 echo '<br>';
 echo 'SOON feature in way';
-
 
 ?>
