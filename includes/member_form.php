@@ -5,7 +5,7 @@
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $data[user_gravatar]; ?>" width="90"><span class="font-weight-bold"><?php echo $data['user_name'] ?></span><span class="text-black-50"><?php echo $user_lvl_text[$data['user_level']]; ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $data_Sel_USR[user_gravatar]; ?>" width="90"><span class="font-weight-bold"><?php echo $data_Sel_USR['user_name'] ?></span><span class="text-black-50"><?php echo $user_lvl_text[$data_Sel_USR['user_level']]; ?></span><span> </span></div>
 
         </div>
         <div class="col-xl-9 col-md-9 border-right">
@@ -19,7 +19,7 @@
                         <h4 class="text-right">Profile </h4>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data['user_name'] ?>" readonly></div>
+                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data_Sel_USR['user_name'] ?>" readonly></div>
                     </div>
                     <div class="row mt-3">
                         <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>
@@ -53,16 +53,16 @@ for ($i = ($actual_year - 100); $i <= ($actual_year - 15); $i++) {
                         </select>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3" readonly><?php echo $data['user_sign']; ?></textarea>
+                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3" readonly><?php echo $data_Sel_USR['user_sign']; ?></textarea>
                         </div>
                     </div>
                     <div class="mt-3 row">
-                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data['user_id']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_id']; ?>" readonly></div>
                         <div class="col-md-4">
                             <label class="labels">Registry Date</label>
-                            <input type="text" class="form-control" value="<?php echo $data['user_date'] ?>" readonly>
+                            <input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_date'] ?>" readonly>
                         </div>
-                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data['user_datelastlog']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_datelastlog']; ?>" readonly></div>
                     </div>
                     <div class="row mt-3">
 
@@ -71,7 +71,7 @@ for ($i = ($actual_year - 100); $i <= ($actual_year - 15); $i++) {
                             <select class="custom-select form-control" name="user_active" readonly>
                                                   <?php
 for ($i = 0; $i <= 1; $i++) {
-    if ($i == $data['user_active']) {
+    if ($i == $data_Sel_USR['user_active']) {
         echo "<option value='$i' selected>" . $i . "</option>";
     }
 }
@@ -83,11 +83,11 @@ for ($i = 0; $i <= 1; $i++) {
                             <select class="custom-select form-control" name="user_level" readonly>
                                                   <?php
 for ($ilvl = 0; $ilvl <= 4; $ilvl++) {
-    if ($ilvl == $data['user_level']) {
+    if ($ilvl == $data_Sel_USR['user_level']) {
         echo "<option value='$user_lvl_text[$ilvl]' selected>" . $user_lvl_text[$ilvl] . "</option>";
     }
 }
-if (666 == $data['user_level']) {
+if (666 == $data_Sel_USR['user_level']) {
     echo "<option value='$user_lvl_text[666]' selected>" . $user_lvl_text[666] . "</option>";
 }
 ?>

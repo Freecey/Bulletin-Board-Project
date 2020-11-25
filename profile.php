@@ -22,6 +22,7 @@
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
                         <?php include('includes/profile-upd.php'); ?>
+                        <?php include('includes/profileform.php'); ?>
 
 
                     </div>
