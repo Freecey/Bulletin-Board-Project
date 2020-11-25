@@ -11,7 +11,7 @@
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Boards</div></a>
         <a class="text-white" href="users.php">
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Edit Users</div></a>
-        <a class="text-white" href="">
+        <a class="text-white" href="setting.php">
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Site Setting (soon)</div></a>
         <a class="text-white" href="../">
         <div class="my-2  btn btn-secondary btn-block rounded-pill" >Site Home</div></a>

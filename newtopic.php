@@ -1,12 +1,12 @@
 <?php 
-//member.php
+//newtopic.php
 
 include 'includes/1head.php';
 include 'includes/2body.php';
 
 if (empty($_GET['view_user_id'])) {
-    include 'includes/memberdir_view.php';
-    include 'includes/memberdir_form.php';
+    include 'includes/topicnew_view.php';
+    include 'includes/topicnew_form.php';
 
 } else {
     include 'includes/member_view.php';
