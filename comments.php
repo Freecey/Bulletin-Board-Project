@@ -7,9 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>.::Bulletin Board::.</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript" src="js/functions.js"></script>
+
+        <script src="js/simplemde.min.js"></script>
+
     </head>
     <body>
         <?php include('includes/connect.php') ?>
@@ -34,7 +38,7 @@
                             </div>
                             <div class="row d-flex justify-content-between">
                                 <div class="col">
-                                    <a id="btnPostReply" class="btn btn-primary btn-rounded">Post a reply</a>
+                                    <a id="btn-post-reply" class="btn btn-primary btn-rounded">Post a reply</a>
                                     <?php include('includes/new-post.php'); ?>
                                 </div>
                                 <div class="col">
@@ -48,7 +52,7 @@
                                             <div class="col-2 text-center">
                                                 <img src="assets/topics/003-dvd.svg" alt="" width="48" height="48">
                                                 <p><strong>Username</strong></p>
-                                                <p>Posts: <strong>43</strong></p>
+                                                <p>Posts: <strong><?php ?></strong></p>
                                             </div>
                                             <div class="col-10">
                                                 <p class="text-secondary">Sun Oct 09, 2020 6:11pm</p>
@@ -74,7 +78,7 @@
         <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
-
+        <script>const simplemde = new SimpleMDE();</script>
         <script type="text/javascript" src="scroll-up-btn.js"></script>
     </body>
 </html>
