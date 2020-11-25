@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="btn-and-search row">
-                                    <button class="col-2 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </button>
+                                    <a href='newtopic.php?boardID=<?php echo $_GET[id];?>'> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a>
                                     <div class="col-2"> <?php include('includes/search.php'); ?> </div>
                                 </div>
 
