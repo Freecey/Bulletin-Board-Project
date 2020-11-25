@@ -40,6 +40,51 @@ body {
 
 }
 
+//Last active user & Last posts
+#last-active-user, #last-posts {
+    margin: 2em 1em;
+}
+
+.user-card {
+    padding: 1em;
+}
+
+.user-list-item__gravatar {
+    width: 5em;
+    height: auto;
+}
+
+.user-list-item__sign {
+    font-size: 0.9em;
+}
+
+.user-list-item__sign {
+    color: rgb(106, 107, 110);
+}
+
+.last-posts__link {
+    color: rgb(41, 43, 48);
+    transform: scale(1);
+}
+
+.last-posts__link:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.last-posts-list__title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.last-posts-list__time {
+    font-size: 0.9em;
+}
+
+.last-posts-list__time, .last-posts-list__content {
+    color: rgb(106, 107, 110);
+}
+
 // Topics
 #topics a {
     color: rgb(41, 43, 48);
@@ -68,10 +113,6 @@ body {
 .topic-details, .ann-details {
     color: rgb(106, 107, 110);
 }
-
-
-// --------- Posts -----------
-
 
 // FOOTER
 

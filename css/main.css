@@ -9922,6 +9922,50 @@ body main #content {
   border-radius: 2px;
 }
 
+#last-active-user, #last-posts {
+  margin: 2em 1em;
+}
+
+.user-card {
+  padding: 1em;
+}
+
+.user-list-item__gravatar {
+  width: 5em;
+  height: auto;
+}
+
+.user-list-item__sign {
+  font-size: 0.9em;
+}
+
+.user-list-item__sign {
+  color: #6a6b6e;
+}
+
+.last-posts__link {
+  color: #292b30;
+  transform: scale(1);
+}
+
+.last-posts__link:hover {
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.last-posts-list__title {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.last-posts-list__time {
+  font-size: 0.9em;
+}
+
+.last-posts-list__time, .last-posts-list__content {
+  color: #6a6b6e;
+}
+
 #topics a {
   color: #292b30;
 }

@@ -3,7 +3,7 @@
 session_start();
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 try {
-	include('connect.php');
+	// include('connect.php');
 	if(isset($_POST['signin_main'])){
 		$user_email = $_POST['user_email'];
         $user_pass = $_POST['user_pass'];
@@ -33,12 +33,18 @@ try {
             $_SESSION['user_gravatar'] = $SignInDATA['user_gravatar'];
             $user_ID = $SignInDATA['user_id'];
             
+            // Check if user have a gravatar if not set default picture
             $email = $_SESSION['user_email'];
             $size = '';
             include('includes/gravatars.php');
             $user_gravatar = $grav_url;
-
-            $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar'  WHERE `users`.`user_id` = $user_ID";
+            
+            // Get IP address of client
+            include('includes/function/getip.php');
+            $userlast_ip = getRealIpAddr();
+            
+            // Store IP and update gravatar
+            $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar',`user_last_ip` = '$userlast_ip'   WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);
             $SignInINSERT->execute();
 
@@ -54,23 +60,49 @@ catch (PDOException $Exception) {
 
 
 if ($_SESSION['loginOK']  == true) {
-    echo '<div class="m-2">';
-    echo 'Welcome ';echo $_SESSION['user_name'];
-    echo '</div>';
-    echo '<a class="text-white" href="profile.php">
-    <div class="my-2 btn btn-primary btn-block rounded-pill" >
-        Your Profil
-    </div></a>';
+        echo '<div class="m-2">';
+        echo 'Welcome ';echo $_SESSION['user_name'];
+        echo '</div>';
 
 
+    // Check if user is on / or /index.php for hidden home    
+    $uri = $_SERVER['REQUEST_URI'];
 
-    echo '
-    <a class="text-white" href="logout.php">
-    <div class="my-2 btn btn-primary btn-block rounded-pill" >
-        Logout
-    </div></a>';
-    // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
-    // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+        if ( $uri == "/" )
+    {
+        // You're on the root route
+    } elseif ( $uri == "/index.php" ) {
+        // You're on the root route index.php
+    } else {
+        echo '
+        <a class="text-white" href="/">
+        <div class="my-2  btn btn-primary btn-block rounded-pill" >
+            Home
+        </div></a>';
+    }
+    if ( $uri == "/profile.php" )
+    {
+        // You're on the root route
+    } else {
+        echo '<a class="text-white" href="profile.php">
+        <div class="my-2 btn btn-primary btn-block rounded-pill" >
+            Your Profil
+        </div></a>';
+    }
+    if($_SESSION[user_level] >= 2 ){
+        echo '
+        <a class="text-white" href="./admin/">
+        <div class="my-2  btn btn-primary btn-block rounded-pill" >
+            Admin
+        </div></a>';
+    }
+        echo '
+        <a class="text-white" href="logout.php">
+        <div class="my-2  btn btn-primary btn-block rounded-pill" >
+            Logout
+        </div></a>';
+        // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
+        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {
     include('includes/signinform.php');
 }

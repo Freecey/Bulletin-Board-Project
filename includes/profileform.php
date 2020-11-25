@@ -4,10 +4,10 @@
 ?>
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
-        <div class="col-xl-2 col-md-2 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data['user_email'] ?></span><span> </span></div>
+        <div class="col-xl-3 col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span><span> </span></div>
         </div>
-        <div class="col-xl-8 col-md-7 border-right">
+        <div class="col-xl-9 col-md-9 border-right">
             <div class="p-3 py-5">
                 <form method="post">
                     <div class="text-center <?php echo $UpdateOKClass . ' ' . $nameclasserr; ?>">
@@ -24,12 +24,12 @@
                         <h4 class="text-right">Profile Settings </h4> 
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data['user_email'] ?>" readonly></div>
-                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data['user_name'] ?>" required></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data_Sel_USR['user_email'] ?>" readonly></div>
+                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data_Sel_USR['user_name'] ?>" required></div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo $data['user_fname'] ?>" required></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data['user_lname'] ?>" required></div>
+                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo $data_Sel_USR['user_fname'] ?>" required></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data_Sel_USR['user_lname'] ?>" required></div>
                     </div>
                     <div class="row mt-3">
                         <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>
@@ -76,26 +76,27 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo $data['user_sign'] ?></textarea>
+                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo $data_Sel_USR['user_sign']; ?></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data['user_id'] ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data['user_active'] ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $data['user_level'] ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_id']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_active']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $user_lvl_text; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <label class="labels">Registry Date</label>
-                            <input type="text" class="form-control" value="<?php echo $data['user_date'] ?>" readonly>
+                            <input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_date'] ?>" readonly>
                         </div>
-                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data['user_datelastlog'] ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_datelastlog']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last IP connexion</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_last_ip']; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data['user_secquest'] ?>" ></div>
-                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data['user_secansw'] ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data_Sel_USR['user_secquest']; ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw']; ?>" ></div>
                     </div>
                     <div class="mt-5 text-center">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_profil" Value = "Update Profile">
@@ -119,5 +120,4 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+

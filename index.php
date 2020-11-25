@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-10 col-md-9">
+                    <div class="col-xl-9 col-md-8">
                     <?php
                         $req_boards = $conn->query('SELECT * FROM boards ORDER BY board_id');
                         if (!$req_boards) {
@@ -120,9 +120,11 @@
                         ?>
 
                     </div>
-                    <div class="col-xl-2 col-md-3 d-none d-md-block">
+                    <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/last-posts.php'); ?>
+                        <?php include('includes/last-active-user.php'); ?>
                     </div>
                 </div>
             </div>

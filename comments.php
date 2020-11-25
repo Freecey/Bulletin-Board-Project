@@ -1,4 +1,28 @@
-
+<?php
+    
+    function getPosts() { 
+        require('includes/connect.php');
+        $query = $conn->query('SELECT
+                posts.post_content,
+                posts.post_date,
+                posts.post_by,
+                users.user_name,
+                users.user_gravatar,
+                users.user_sign,
+                users.user_id
+            FROM
+                posts
+            LEFT JOIN
+                users
+            ON
+                posts.post_by = users.user_id
+            WHERE
+                post_topic=' . $_GET['id']
+        );
+        return $query;
+    }
+    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +40,7 @@
 
     </head>
     <body>
-        <?php include('includes/connect.php') ?>
+        
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
@@ -32,44 +56,69 @@
                                 <div class="col">
                                     <h2>Topic Read</h2>
                                     <div class="alert alert-danger" role="alert">
-                                        Forum rules
+                                    <p>Forum rules</p>
+                                        <ol>
+                                            <li>No Spam / Advertising / Self-promote in the forums.</li>
+                                            <li>Do not post copyright-infringing material.</li>
+                                            <li>Do not post “offensive” posts, links or images.</li>
+                                            <li>Do not cross post questions.</li>
+                                            <li>Do not PM users asking for help.</li>
+                                            <li>Remain respectful of other members at all times.</li>
+                                        </ol>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row d-flex justify-content-between">
+
+                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
                                     <a id="btn-post-reply" class="btn btn-primary btn-rounded">Post a reply</a>
                                     <?php include('includes/new-post.php'); ?>
-                                </div>
-                                <div class="col">
-                                    1 post • Page 1 of 1
-                                </div>
-                            </div>
-                            <div class="row bg-light rounded-lg pb-3">
-                                <div class="col">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-2 text-center">
-                                                <img src="assets/topics/003-dvd.svg" alt="" width="48" height="48">
-                                                <p><strong>Username</strong></p>
-                                                <p>Posts: <strong><?php ?></strong></p>
+                                    <?php
+                                        $req = getPosts();
+                                        while($post = $req->fetch()) {
+                                    ?>
+                                    <div class="card border-0 shadow-sm rounded-lg mt-3">
+                                        <div class="card-body row">
+                                            <div class="col-12 col-sm-5 col-md-3 col-lg-2">
+                                                <div class="row mb-2 text-md-center">
+                                                    <div class="col-4 col-md-3 col-lg-12">
+                                                        <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
+                                                    </div>
+                                                    <div class="col-8 col-md-9 col-lg-12">
+                                                        <p class="mt-3 mb-0"><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
+                                                        <p>Posts: <strong>43</strong></p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-10">
-                                                <p class="text-secondary">Sun Oct 09, 2020 6:11pm</p>
-                                                <p>This a hot topic that has the read icon. Very cool</p>
+                                            <div class="col-12 col-sm-7 col-md-9 col-lg-10">
+                                                <p class="text-secondary">
+                                                <?php
+                                                    $date = new DateTime($post['post_date']);
+                                                    echo $date->format('D M d, Y H:m:s');
+                                                ?></p>
+                                                <p><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
-                                                <p>This is my signature</p>
+                                                <p><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
                                         </div>
-                                        
                                     </div>
+                                    <?php 
+                                        }
+                                    ?>
                                 </div>
                             </div>
+                            <div class="row mt-4">
+                                <a href="#" onclick="window.history.go(-1); return false;"><i class="fas fa-chevron-left"></i> Return to the topic section</a>
+                            </div>
+                            <?php require('includes/posts_pagination_reply.php'); ?>
                         </section>
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/last-posts.php'); ?>
+                        <?php include('includes/last-active-user.php'); ?>
                     </div>
                 </div>
             </div>

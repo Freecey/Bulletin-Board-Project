@@ -24,11 +24,12 @@
                 <i class="social-media__icon fab fa-codepen"></i> 
             </div>
         </a>
-        <a class="social-media__link" href="#">
+        <!-- remove because google+ service stop -->
+        <!-- <a class="social-media__link" href="#">
             <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
                 <i class="social-media__icon fab fa-google-plus-g"></i>
             </div>
-        </a>
+        </a> -->
         <a class="social-media__link" href="https://digg.com/">
             <div class="social-media__circle rounded-circle d-flex justify-content-center align-items-center">
                 <i class="social-media__icon fab fa-digg"></i> 
@@ -50,10 +51,10 @@
         <div class="more-infos__links-box">
             <a class="more-infos__link" href="#"> <i class="fas fa-envelope"></i>Contact us </a>
             <a class="more-infos__link" href="#"> <i class="fas fa-shield-alt"></i> The team </a>
-            <a class="more-infos__link" href="#"> <i class="fas fa-check"></i> Terms </a>
+            <a class="more-infos__link" href="./terms.html"> <i class="fas fa-check"></i> Terms </a>
             <a class="more-infos__link" href="./policy.html"> <i class="fas fa-lock"></i> Privacy </a>
-            <a class="more-infos__link" href="#"> <i class="fas fa-users"></i> Members </a>
-            <a class="more-infos__link" href="#"> <i class="fas fa-trash-alt"></i> Delete cookies </a>
+            <a class="more-infos__link" href="./member.php"> <i class="fas fa-users"></i> Members </a>
+            <a class="more-infos__link" href="./logout.php"> <i class="fas fa-trash-alt"></i> Delete cookies </a>
             All times are UTC
         </div>
 
