@@ -67,7 +67,7 @@ ___
 
 ## Database Structure
 
-For explane of table see [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki)
+For explaine of tables see [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki/DataBase-Structure)
 
 ![alt text](resources/db_strucure.jpg?raw=true "Database Structure" )
 
@@ -122,7 +122,7 @@ sudo mysql < bbs-queen.sql
 ___
 ## Wiki
 
-See Wiki [Click Here](https://github.com/Freecey/Bulletin-Board-Project/wiki)
+More info see Wiki [Click Here](https://github.com/Freecey/Bulletin-Board-Project/wiki)
 
 ___
 ## Contributor
