@@ -44,11 +44,7 @@ ___
 ___
 ## Screen Shot
 
-![alt text](resources/Screenshot_Main.png?raw=true "Main Page loged" )
-![alt text](resources/Screenshot_ReadPost.png?raw=true "Read Post" )
-![alt text](resources/Screenshot_PwdRev.png?raw=true "Password Recovery" )
-![alt text](resources/Screenshot_PrivProfile.png?raw=true "Profile Editing by user" )
-
+See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
 ___
 ## Folder Structure
 
@@ -138,6 +134,8 @@ ___
 
 ## Database Structure
 
+For explane of table see [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki)
+
 ![alt text](resources/db_strucure.jpg?raw=true "Database Structure" )
 
 (pvmsg table is not used at this time, create for future feature)
@@ -187,6 +185,12 @@ or
 ```
 sudo mysql < bbs-queen.sql
 ```
+
+___
+## Wiki
+
+See Wiki [Click Here](https://github.com/Freecey/Bulletin-Board-Project/wiki)
+
 ___
 ## Contributor
 
