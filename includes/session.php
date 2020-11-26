@@ -3,7 +3,12 @@
 
 session_start();
 if($_SESSION['loginOK'] !=true) {
-    header("Location: ./");
+    $url=$_SERVER['HTTP_REFERER'];
+    if(isset($url)) {
+        header("location:$url");    
+    } else {
+    header("location: /");
+}
     
 }
 

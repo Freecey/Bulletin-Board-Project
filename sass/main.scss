@@ -84,6 +84,29 @@ body {
     color: rgb(106, 107, 110);
 }
 
+.last-posts__link {
+    color: rgb(41, 43, 48);
+    transform: scale(1);
+}
+
+.last-posts__link:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.last-posts-list__title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.last-posts-list__time {
+    font-size: 0.9em;
+}
+
+.last-posts-list__time, .last-posts-list__content {
+    color: rgb(106, 107, 110);
+}
+
 // Topics
 #topics a {
     color: rgb(41, 43, 48);
