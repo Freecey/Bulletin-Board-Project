@@ -3,12 +3,14 @@
 include('includes/session.php');
 include('includes/connect.php');
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-$user_id = $_SESSION[user_id];
+// $user_id = $_SESSION[user_id];
 
-$select = $conn->prepare("SELECT*FROM users where user_id='$user_id' LIMIT 1");
-$select->setFetchMode(PDO::FETCH_ASSOC);
-$select->execute();
-$data=$select->fetch();
+$select_usr = $conn->prepare("SELECT*FROM users where user_id=$_SESSION[user_id] LIMIT 1");
+$select_usr->setFetchMode(PDO::FETCH_ASSOC);
+$select_usr->execute();
+$data_Sel_USR=$select_usr->fetch();
+
+// echo '<pre>' . print_r($data_Sel_USR, TRUE) . '</pre>';
 
 $email = $_SESSION[user_email];
 $size = '90';
@@ -21,9 +23,8 @@ if($_SESSION[ProfileUPDATEComplet] == true ){
     unset($_SESSION['ProfileUPDATEComplet']);
 }
 
-
 // Popote pour la date et mis a 0 si autre selectionner
-$user_datebirthday = $data['user_datebirthday'];
+$user_datebirthday = $data_Sel_USR['user_datebirthday'];
 // echo $user_datebirthday;
 $dobdate  = strtotime($user_datebirthday);
 $dobday   = date('d',$dobdate);
@@ -43,13 +44,13 @@ if($user_datebirthday == ''){
 
 
 // Set Text to User LVL
-if( $data['user_level'] == 1 ) {
+if( $data_Sel_USR['user_level'] == 1 ) {
     $user_lvl_text = "User";
-} elseif ( $data['user_level'] == 2 ) {
+} elseif ( $data_Sel_USR['user_level'] == 2 ) {
     $user_lvl_text = "Moderator";
-} elseif ( $data['user_level'] == 3 ) {
+} elseif ( $data_Sel_USR['user_level'] == 3 ) {
     $user_lvl_text = "Admin";
-} elseif ( $data['user_level'] == 4 ) {
+} elseif ( $data_Sel_USR['user_level'] == 4 ) {
     $user_lvl_text = "God";
 } 
 
@@ -108,7 +109,7 @@ try {
 			if($UPD_pwd_new == $UPD_pwd_newconfirm) {
                 $UPD_pwd_new_hast = hash('sha512', $UPD_pwd_new);
                 $UPD_pwd_current_hast = hash('sha512', $UPD_pwd_current);
-                $current_user_pass_DB = $data['user_pass'];
+                $current_user_pass_DB = $data_Sel_USR['user_pass'];
                 if($UPD_pwd_current_hast == $current_user_pass_DB) {
 
                     $UPDATEQueryPWD = "UPDATE `users` SET `user_pass` = '$UPD_pwd_new_hast'  WHERE `users`.`user_id` = $user_id";
@@ -151,8 +152,3 @@ catch (PDOException $e) {
 <head>
 <link rel="stylesheet" href="./css/main.css">
 </head>
-<?php 
-include('includes/profileform.php');
-
-
-?>

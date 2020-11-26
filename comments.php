@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-10 col-md-9">
+                    <div class="col-xl-9 col-md-8">
                         <section id="comments" class="mb-3 pl-5">
                             <div class="row">
                                 <div class="col">
@@ -105,9 +105,10 @@
                             <?php require('includes/posts_pagination_reply.php'); ?>
                         </section>
                     </div>
-                    <div class="col-xl-2 col-md-3 d-none d-md-block">
+                    <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </div>
                 </div>

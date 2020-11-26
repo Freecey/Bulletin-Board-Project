@@ -22,12 +22,14 @@
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
                         <?php include('includes/profile-upd.php'); ?>
+                        <?php include('includes/profileform.php'); ?>
 
 
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </div>
                 </div>
