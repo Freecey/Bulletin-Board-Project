@@ -12,7 +12,7 @@ function breadcrumbs($separator = ' &lsaquo; ', $home = '<i class="fas fa-home">
         }
     }
     $base = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-    $breadcrumbs = Array("<a href=\"$base\">$home</a>");
+    $breadcrumbs = Array("<a class=\"text-truncate\" href=\"$base\">$home</a>");
     $pathkeys = array_keys($path);
     $last = end($pathkeys);
 
@@ -27,7 +27,7 @@ function breadcrumbs($separator = ' &lsaquo; ', $home = '<i class="fas fa-home">
         }
     
         if ($x != $last) {
-            $breadcrumbs[] = "<a href=\"$base$crumb\">$title</a>";
+            $breadcrumbs[] = "<a class=\"text-truncate\" href=\"$base$crumb\">$title</a>";
         }
         else {
             $breadcrumbs[] = $title;

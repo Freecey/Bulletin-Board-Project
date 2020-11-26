@@ -50,7 +50,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-9 col-md-8">
-                        <section id="comments" class="mb-3 pl-5">
+                        <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
                                     <h2>Topic Read</h2>
