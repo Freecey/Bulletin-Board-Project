@@ -40,13 +40,20 @@ body {
 
 }
 
-//Last active user 
-#last-active-user {
+//Last active user & Last posts
+#last-active-user, #last-posts {
     margin: 2em 1em;
 }
 
 .user-card {
-    padding: 1em;
+    width: 33%;
+    transform: scale(1);
+    color: rgb(41, 43, 48);
+}
+
+.user-card:hover {
+    text-decoration: none;    
+    transform: scale(1.05);
 }
 
 .user-list-item__gravatar {
@@ -54,11 +61,49 @@ body {
     height: auto;
 }
 
-.user-list-item__name, .user-list-item__sign {
+.last-posts__link {
+    color: rgb(41, 43, 48);
+    transform: scale(1);
+}
+
+.last-posts__link:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.user-list-item__name, .last-posts-list__title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.user-list-item__sign, .last-posts-list__time {
     font-size: 0.9em;
 }
 
-.user-list-item__sign {
+.user-list-item__sign, .last-posts-list__time, .last-posts-list__content {
+    color: rgb(106, 107, 110);
+}
+
+.last-posts__link {
+    color: rgb(41, 43, 48);
+    transform: scale(1);
+}
+
+.last-posts__link:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.last-posts-list__title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.last-posts-list__time {
+    font-size: 0.9em;
+}
+
+.last-posts-list__time, .last-posts-list__content {
     color: rgb(106, 107, 110);
 }
 

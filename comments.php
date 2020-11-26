@@ -23,6 +23,7 @@
     }
     
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,8 +31,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>.::Bulletin Board::.</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+
+        <script src="js/simplemde.min.js"></script>
+
     </head>
     <body>
         
@@ -44,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-10 col-md-9">
+                    <div class="col-xl-9 col-md-8">
                         <section id="comments" class="mb-3 pl-5">
                             <div class="row">
                                 <div class="col">
@@ -62,9 +68,12 @@
                                     </div>
                                 </div>
                             </div>
+
                             <?php require('includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
+                                    <a id="btn-post-reply" class="btn btn-primary btn-rounded">Post a reply</a>
+                                    <?php include('includes/new-post.php'); ?>
                                     <?php
                                         $req = getPosts();
                                         while($post = $req->fetch()) {
@@ -105,9 +114,10 @@
                             <?php require('includes/posts_pagination_reply.php'); ?>
                         </section>
                     </div>
-                    <div class="col-xl-2 col-md-3 d-none d-md-block">
+                    <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </div>
                 </div>
@@ -117,7 +127,10 @@
         <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
-
+        <script>const simplemde = new SimpleMDE();</script>
         <script type="text/javascript" src="scroll-up-btn.js"></script>
     </body>
 </html>
+
+
+
