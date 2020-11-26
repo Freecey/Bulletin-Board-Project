@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <h1 class="text-center text-white display-1">TRACKER</h1>
+            <h1 class="text-center text-white display-1"><?php echo $SITENAME; ?></h1>
         </div>
     </div>
 </section>
