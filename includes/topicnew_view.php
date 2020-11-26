@@ -2,7 +2,7 @@
 //topicnew_view.php
 
 $url=$_SERVER['HTTP_REFERER'];
-echo $url;
+// echo $url;
 
 // Check if form error for reselect the precedent board selection or page from
 if($_POST[board_id] != ''){

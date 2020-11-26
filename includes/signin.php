@@ -2,6 +2,7 @@
 //signin.php
 session_start();
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+$url=$_SERVER['HTTP_REFERER'];
 try {
 	// include('connect.php');
 	if(isset($_POST['signin_main'])){
@@ -47,6 +48,7 @@ try {
             $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar',`user_last_ip` = '$userlast_ip'   WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);
             $SignInINSERT->execute();
+            header("location:$url,");
 
 			// header("location:profile.php");
 		}
