@@ -1,5 +1,0 @@
-add prof directory
-
-
-- use member.php if no view_user_id display directory
-- change on last-active-user.php  $req_topics->closeCursor() to $req_users->closeCursor() because it stop loading page
