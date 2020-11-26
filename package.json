@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^4.5.3",
+    "dompurify": "^2.2.2",
     "marked": "^1.2.5",
     "node-sass": "^5.0.0",
     "sass": "^1.29.0"
