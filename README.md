@@ -5,8 +5,8 @@ A simple bulletin board system based on ```PHP``` and ```MySQL```.
 ___
 ## Live Demo
 
-http://bbs-queen.neant.be/
-https://bbs-queen.herokuapp.com/
+ [http://bbs-queen.neant.be/](http://bbs-queen.neant.be/)
+ [https://bbs-queen.herokuapp.com/](http://bbs-queen.neant.be/)
 
 ___
 ## Features
