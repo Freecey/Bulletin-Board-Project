@@ -3,6 +3,7 @@
 A simple bulletin board system based on ```PHP``` and ```MySQL```.
 
 ___
+
 ## Live Demo
 
  [http://bbs-queen.neant.be/](http://bbs-queen.neant.be/)
@@ -10,6 +11,7 @@ ___
  [https://bbs-queen.herokuapp.com/](http://bbs-queen.neant.be/)
 
 ___
+
 ## Features
 
 ### Generals
@@ -32,12 +34,13 @@ ___
 - Create & edit Topic
 - Post and reply to topic message
 - Search in Topics name and messages content
+- Markdown interpretation for content
 
 ### Soon
-- Markdown interpretation for content (in post/sign/desciption)
 - emojis supported
 
 ___
+
 ## Technology used and specification
 
 - html.
@@ -49,9 +52,11 @@ ___
 - Javascript.
 
 ___
+
 ## Screen Shot
 
 See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
+
 ___
 ## Folder Structure
 
@@ -127,11 +132,13 @@ sudo mysql < bbs-queen.sql
 ```
 
 ___
+
 ## Wiki
 
 More info see Wiki [Click Here](https://github.com/Freecey/Bulletin-Board-Project/wiki)
 
 ___
+
 ## Contributor
 
 
@@ -144,5 +151,6 @@ ___
 * Cedric AUDRIT     [@freecey](https://github.com/freecey/)
 
 ___
+
 ## License
 Please see [LICENSE](https://raw.githubusercontent.com/Freecey/Bulletin-Board-Project/master/LICENSE) file for more details.
