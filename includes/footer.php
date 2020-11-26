@@ -45,9 +45,9 @@
     <!-- Breadcrumbs + links to legal informations, team members... -->
     <div id="more-infos" class="d-flex justify-content-between align-items-center">
 
-        <div class="more-infos__breadcrumbs">
-            <?php include('includes/breadcrumb.php'); ?>
-        </div>
+        <!-- <div class="more-infos__breadcrumbs"> -->
+            <?php //include('includes/breadcrumb.php'); ?>
+        <!-- </div> -->
         <div class="more-infos__links-box">
             <a class="more-infos__link" href="#"> <i class="fas fa-envelope"></i>Contact us </a>
             <a class="more-infos__link" href="#"> <i class="fas fa-shield-alt"></i> The team </a>

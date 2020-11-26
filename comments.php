@@ -1,3 +1,4 @@
+
 <?php
     
     function getPosts() { 
@@ -35,9 +36,7 @@
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript" src="js/functions.js"></script>
-
         <script src="js/simplemde.min.js"></script>
-
     </head>
     <body>
         
@@ -97,7 +96,7 @@
                                                     $date = new DateTime($post['post_date']);
                                                     echo $date->format('D M d, Y H:m:s');
                                                 ?></p>
-                                                <p><?= htmlspecialchars($post['post_content']) ?></p>
+                                                <p class="post-content"><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
                                                 <p><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
@@ -113,6 +112,7 @@
                             </div>
                             <?php require('includes/posts_pagination_reply.php'); ?>
                         </section>
+                        
                     </div>
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
@@ -123,14 +123,25 @@
                 </div>
             </div>
         </main>
+        
         <?php include('includes/footer.php'); ?>
+        
         <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
         <script>const simplemde = new SimpleMDE();</script>
         <script type="text/javascript" src="scroll-up-btn.js"></script>
+        <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
+        <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
+        <script type="text/javascript">
+            let posts = document.getElementsByClassName('post-content');
+            
+            Array.from(posts).forEach(post => {
+                const comment = post.innerHTML;
+                const cleanComment = DOMPurify.sanitize(comment)
+                post.innerHTML = marked(cleanComment);
+            });
+        </script>
+        
     </body>
 </html>
-
-
-

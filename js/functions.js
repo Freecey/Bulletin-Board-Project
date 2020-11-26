@@ -1,3 +1,7 @@
+window.addEventListener('onload', () => {
+    
+})
+
 function displayTextEditor(){
     let btnPostReply = document.getElementById("btn-post-reply");
     let newPostContainer = document.getElementById("newPostArea");
@@ -5,6 +9,6 @@ function displayTextEditor(){
 
     newPostContainer.style.display = "none";  
     btnPostReply.addEventListener("click", () => {
-    newPostContainer.style.display = "block"; 
+        newPostContainer.style.display = "block"; 
     })
 }

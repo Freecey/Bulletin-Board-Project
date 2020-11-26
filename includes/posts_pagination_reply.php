@@ -27,7 +27,7 @@
 <div class="d-flex justify-content-between mt-4">
     <div class="d-flex justify-content-start">
         <div class="mr-3">
-            <a href="#" class="btn btn-primary btn-rounded">Post a reply <i class="fas fa-long-arrow-alt-left"></i></a>
+            <!-- <a href="#" class="btn btn-primary btn-rounded">Post a reply <i class="fas fa-long-arrow-alt-left"></i></a> -->
         </div>
         <div>
             <?php include('includes/search.php') ?>
