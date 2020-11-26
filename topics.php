@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-10 col-md-9">
+                    <div class="col-xl-9 col-md-8">
                     <?php
                         $req_topics = $conn->query('SELECT * FROM topics ORDER BY topic_id');
                         if (!$req_topics) {
@@ -184,7 +184,7 @@
                         }
                         ?>
                     </div>
-                    <div class="col-xl-2 col-md-3 d-none d-md-block">
+                    <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
                         <?php include('includes/last-posts.php'); ?>

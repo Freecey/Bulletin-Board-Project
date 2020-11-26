@@ -9927,7 +9927,14 @@ body main #content {
 }
 
 .user-card {
-  padding: 1em;
+  width: 33%;
+  transform: scale(1);
+  color: #292b30;
+}
+
+.user-card:hover {
+  text-decoration: none;
+  transform: scale(1.05);
 }
 
 .user-list-item__gravatar {
@@ -9935,11 +9942,26 @@ body main #content {
   height: auto;
 }
 
-.user-list-item__sign {
+.last-posts__link {
+  color: #292b30;
+  transform: scale(1);
+}
+
+.last-posts__link:hover {
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.user-list-item__name, .last-posts-list__title {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.user-list-item__sign, .last-posts-list__time {
   font-size: 0.9em;
 }
 
-.user-list-item__sign {
+.user-list-item__sign, .last-posts-list__time, .last-posts-list__content {
   color: #6a6b6e;
 }
 
