@@ -27,7 +27,27 @@
 <div class="d-flex justify-content-between mt-4">
     <div class="d-flex justify-content-start">
         <div class="mr-3">
-            <a href="#" class="btn btn-primary btn-rounded">Post a reply <i class="fas fa-long-arrow-alt-left"></i></a>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+            <button type="button" id="btn-post-reply" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModal">Post a reply <i class="fas fa-long-arrow-alt-left"></i></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Post a reply</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <?php require('includes/new-post.php'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <?php include('includes/search.php') ?>
