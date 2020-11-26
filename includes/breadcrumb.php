@@ -26,9 +26,8 @@ function breadcrumbs($separator = ' &lsaquo; ', $home = '<i class="fas fa-home">
     if ($key) {
         $topics = getTopicId();
         while($topic = $topics->fetch()) {
-            array_splice($path, $key-1, 0, $topic['topic_id']);
+            array_splice($path, $key-1, 0, $topic['topic_subject'].'='. $topic['topic_id']);
         }
-        
     }
     $base = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
     $breadcrumbs = Array("<a href=\"$base\">$home</a>");
@@ -36,8 +35,11 @@ function breadcrumbs($separator = ' &lsaquo; ', $home = '<i class="fas fa-home">
     $last = end($pathkeys);
 
     foreach ($path AS $x => $crumb) {
-        if(is_numeric($crumb)) {
-            $crumb = 'Bulletin-Board-Project/topics.php?id='. $crumb;
+        $piece = stripos($crumb, '=');
+        if($piece !== false) {
+            $crumb_array = explode('=', $crumb);
+            $crumb = 'topics.php?id='. $crumb_array[1];
+            $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb_array[0]));
         } else {
             $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb));
         }
