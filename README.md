@@ -52,84 +52,17 @@ ___
     .
     ├── .sass-cache/                # sass cache folder
     ├── admin/                      # Admin/Moderator Section management
-    │   ├── boards.php
-    │   ├── boardscreat.php
-    │   ├── boardsedit.php
-    │   ├── index.php
-    │   ├── users.php
-    │   └── usersedit.php
     ├── assets/                     # folder for
     ├── css/                        # folder for CSS files
-    │   ├── main.css 
-    │   └── main.css.map 
     ├── includes/                   # folder for All php content 
     │   ├── admin/
-    │   │   ├── admin_content.php
-    │   │   ├── admin_view.php
-    │   │   ├── boards_form.php
-    │   │   ├── boards_view.php
-    │   │   ├── boardscreat_form.php
-    │   │   ├── boardscreat_view.php
-    │   │   ├── boardsedit_form.php
-    │   │   ├── boardsedit_view.php
-    │   │   ├── session_userlvl.php
-    │   │   ├── sidemenu.php
-    │   │   ├── users_form.php
-    │   │   ├── users_view.php
-    │   │   ├── usersedit_form.php
-    │   │   ├── usersedit_view.php
-    │   │   └── american-english
-    │   ├── function/
-    │   │   ├── checkurl.php
-    │   │   └── getip.php
-    │   ├── american-english
-    │   ├── breadcrumb.php
-    │   ├── connect.php
-    │   ├── footer.php
-    │   ├── gravatars.php
-    │   ├── header.php
-    │   ├── lostpwd.php
-    │   ├── lostpwdform.php
-    │   ├── posts_pagination_reply.php
-    │   ├── profile-upd.php
-    │   ├── profileform.php
-    │   ├── randomword.php
-    │   ├── search.php
-    │   ├── session.php
-    │   ├── signin.php
-    │   ├── signinform.php
-    │   ├── signup.php
-    │   └── signupform.php
+    │   └── function/
     ├── js/                         # folder for JS script
     ├── node_modules/               # folder for all node modules
     ├── resources/
-    │   ├── db_strucure.jpg         # Database Structure
-    │   ├── bbs-queen.sql           # SQL files to import to mysql
-    │   └── teams-4p.jpg            # Teams pictures
-    ├── sass/                       # SASS lib
-    ├── 404.php
-    ├── 500.php
-    ├── CODE_OF_CONDUCT.md
-    ├── comments.php
-    ├── CONTRIBUTING.md
-    ├── favicon.ico
-    ├── index.php
-    ├── LICENSE
-    ├── login.php
-    ├── logout.php
-    ├── lostpwd.php
-    ├── package-lock.json
-    ├── package.json
-    ├── policy.html
-    ├── profile.php
-    ├── README.md
-    ├── robots.txt
-    ├── scroll-up-btn.js
-    ├── signup.php
-    ├── terms.html
-    └── topics.php
+    └── sass/                       # SASS lib
 ```    
-
+more info on Files & Folders Structure See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki/Files-Folder-Structure)
 ___
 
 ## Database Structure
