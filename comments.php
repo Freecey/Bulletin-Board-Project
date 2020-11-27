@@ -79,7 +79,7 @@
                                                         <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
-                                                        <p class="mt-3 mb-0"><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
+                                                        <p class="mt-3 mb-0"><a href=member.php?view_user_id=<?php echo $post['user_id'] ;?>><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                     </div>
                                                 </div>
@@ -92,7 +92,7 @@
                                                 ?></p>
                                                 <p class="post-content"><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
-                                                <p><?= htmlspecialchars($post['user_sign']) ?></p>
+                                                <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
                                         </div>
                                     </div>

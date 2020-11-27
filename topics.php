@@ -82,16 +82,19 @@
                                                     <div class="ann-details col-2">
                                                         <!-- DATE -->
                                                         <div class="d-flex">
-                                                            <div class="font-weight-light">by</div>
+                                                            <div class="font-weight-light pr-1">by</div>
+                                                            <?php 
+                                                                    $req_user = $conn->query("SELECT user_id, user_name FROM users WHERE user_id =" .  $ann['ann_by']); 
+                                                                    while($user = $req_user->fetch()) { ?>
+                                                            <a href="member.php?view_user_id=<?php echo $user['user_id']; ?>" >
                                                             <strong> 
-                                                                <?php 
-                                                                    $req_user = $conn->query("SELECT user_name FROM users WHERE user_id =" .  $ann['ann_by']); 
-                                                                    while($user = $req_user->fetch()) {
+                                                                    <?php
                                                                         echo $user['user_name'];
                                                                     }
                                                                     $req_user->closeCursor();
                                                                 ?>
                                                             </strong>
+                                                            </a>
                                                         </div>
                                                         <div class="font-weight-light">
                                                             <?php
@@ -146,16 +149,17 @@
                                                 <div class="topic-details col-2">
                                                     <!-- DATE -->
                                                     <div class="d-flex">
-                                                        <div class="font-weight-light">by</div>
+                                                        <div class="font-weight-light pr-1">by</div>
+                                                            <?php $req_user = $conn->query("SELECT user_id, user_name FROM users WHERE user_id =" .  $topic['topic_by']); 
+                                                                while($user = $req_user->fetch()) { ?>
+                                                        <a href="member.php?view_user_id=<?php echo $user['user_id']; ?>" >
                                                         <strong class="text-danger"> 
-                                                            <?php 
-                                                                $req_user = $conn->query("SELECT user_name FROM users WHERE user_id =" .  $topic['topic_by']); 
-                                                                while($user = $req_user->fetch()) {
-                                                                    echo $user['user_name'];
+                                                            <?php
+                                                                echo $user['user_name'];
                                                                 }
                                                                 $req_user->closeCursor();
                                                             ?>
-                                                        </strong>
+                                                        </strong></a>
                                                     </div>
                                                     <div class="font-weight-light">
                                                         <?php
@@ -193,6 +197,6 @@
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
 
-        <script type="text/javascript" src="scroll-up-btn.js"></script>
+        <script type="text/javascript" src="js/scroll-up-btn.js"></script>
     </body>
 </html>
