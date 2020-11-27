@@ -16,17 +16,10 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-9 col-md-8">
-                    <?php
-                        $req_topics = $conn->query('SELECT * FROM topics ORDER BY topic_id');
-                        if (!$req_topics) {
-                            echo 'Unable to display the topics' .mysql_error();
-                        } else {
-                        ?>
 
                         <section class="mb-3" id="topics">
                             
                             <article class="container-fluid">
-                              
                                 <div class="row">
                                     <div class="col">
                                         <h2>Topics' List</h2>
@@ -38,7 +31,7 @@
                                 </div>
 
                                 <div class="btn-and-search row">
-                                    <a href='newtopic.php?boardID=<?php echo $_GET[id];?>'> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a>
+                                    <a href="newtopic.php?boardID=<?= $_GET[id];?>"> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a>
                                     <div class="col-2"> <?php include('includes/search.php'); ?> </div>
                                 </div>
 
@@ -54,45 +47,35 @@
 
                                     <div id="announce-list" class="card-body">
                                     <?php
-                                        $req_announce = $conn->query('SELECT * FROM announce ORDER BY ann_id');
-                                        if (!$req_announce) {
-                                            echo 'Unable to display the announces' .mysql_error();
-                                        } else {
+                                        $req_announce = getAnnounces();
                                             while ($ann = $req_announce->fetch())
                                             { 
                                             ?>
                                             <div class="card border-0 m-1">
                                                 <div class="ann-list-item card-body w-100 d-flex align-items-center">
                                                     <div class="col-7">
-                                                        <?php echo '<a href="./announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
+                                                        <?php echo '<a href="./announce.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
                                                     </div>
                                                     <div class="ann-details col-2">
                                                         <!-- COMMENTS -->
-                                                        <?php
-                                                            $req_posts = $conn->query("SELECT post_id FROM posts WHERE post_topic =" .  $ann['ann_id']);
-                                                            $posts_cnt = $req_posts->rowCount();
-                                                            echo $posts_cnt;
-                                                            $req_posts->closeCursor();
-                                                        ?>
+                                                        <?= getAnnounces()->rowCount(); ?>
                                                     </div>
                                                     <div class="ann-details col-1">
                                                         <!-- VIEWS -->
-                                                        486
+                                                        <?= $ann['ann_views']; ?>
                                                     </div>
                                                     <div class="ann-details col-2">
                                                         <!-- DATE -->
+                                                        <?php 
+                                                            $req_user = getLastAnnouce();
+                                                            while($user = $req_user->fetch()) {
+                                                        ?>
                                                         <div class="d-flex">
-                                                            <div class="font-weight-light pr-1">by</div>
-                                                            <?php 
-                                                                    $req_user = $conn->query("SELECT user_id, user_name FROM users WHERE user_id =" .  $ann['ann_by']); 
-                                                                    while($user = $req_user->fetch()) { ?>
-                                                            <a href="member.php?view_user_id=<?php echo $user['user_id']; ?>" >
+                                                            <div class="font-weight-light pr-1">by </div>
+                                                            
+                                                            <a href="member.php?view_user_id=<?= $user['user_id']; ?>" >
                                                             <strong> 
-                                                                    <?php
-                                                                        echo $user['user_name'];
-                                                                    }
-                                                                    $req_user->closeCursor();
-                                                                ?>
+                                                                    <?= ucwords($user['user_name']); ?>
                                                             </strong>
                                                             </a>
                                                         </div>
@@ -102,12 +85,15 @@
                                                                 echo $annDate->format('D M d, H:i');
                                                             ?>
                                                         </div>
+                                                        <?php
+                                                            }
+                                                            $req_user->closeCursor();
+                                                            ?>
                                                     </div>
                                                 </div>
                                             </div>
                                             <?php
                                             }
-                                        }
                                         $req_announce->closeCursor();
                                         ?>
                                     </div>
@@ -125,6 +111,7 @@
 
                                     <div id="topics-list" class="card-body">
                                         <?php
+                                        $req_topics = getTopics($_GET['id']);
                                         while ($topic = $req_topics->fetch())
                                         { 
                                         ?>
@@ -136,8 +123,7 @@
                                                 <div class="topic-details col-2">
                                                     <!-- COMMENTS -->
                                                     <?php
-                                                        $req_posts = $conn->prepare("SELECT post_id FROM posts WHERE post_topic = :topic_id");                                                        
-                                                        $req_posts->execute(array('topic_id' => $topic['topic_id']));
+                                                        $req_posts = getPosts($topic['topic_id']);
                                                         $posts_cnt = $req_posts->rowCount();
                                                         echo $posts_cnt;
                                                         $req_posts->closeCursor();
@@ -145,27 +131,27 @@
                                                 </div>
                                                 <div class="topic-details col-1">
                                                     <!-- VIEWS -->
-                                                    410
+                                                    <?= $topic['topic_views']; ?>
                                                 </div>
                                                 <div class="topic-details col-2">
                                                     <!-- DATE -->
                                                     <div class="d-flex">
                                                         <div class="font-weight-light pr-1">by</div>
-                                                            <?php $req_user = $conn->query("SELECT user_id, user_name FROM users WHERE user_id =" .  $topic['topic_by']); 
-                                                                while($user = $req_user->fetch()) { ?>
-                                                        <a href="member.php?view_user_id=<?php echo $user['user_id']; ?>" >
+                                                        <?php
+                                                            $req_lastPosts = getLastPost($topic['topic_id']);
+                                                            while($lastPost = $req_lastPosts->fetch()) {
+                                                        ?>
+                                                        <a href="member.php?view_user_id=<?= $lastPost['user_id']; ?>" >
                                                         <strong class="text-danger"> 
-                                                            <?php
-                                                                echo $user['user_name'];
-                                                                }
-                                                                $req_user->closeCursor();
-                                                            ?>
+                                                            <?= ucwords($lastPost['user_name']); ?>
                                                         </strong></a>
                                                     </div>
                                                     <div class="font-weight-light">
                                                         <?php
-                                                            $topicDate = new DateTime($topic['topic_date']);
-                                                            echo $topicDate->format('D M d, H:i');
+                                                            $postDate = new DateTime($lastPost['post_date']);
+                                                            echo $postDate->format('D M d, H:i');
+                                                        }
+                                                        $req_lastPosts->closeCursor();
                                                         ?>
                                                     </div>
                                                 </div>
@@ -180,9 +166,6 @@
                             </article>
                             
                         </section>
-                        <?php
-                        }
-                        ?>
                     </div>
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
