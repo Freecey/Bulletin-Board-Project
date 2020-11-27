@@ -8,8 +8,8 @@
     }
 
 
-    $query = $conn->prepare('SELECT count(*) AS nb_posts FROM posts');
-    $query->execute();
+    $query = $conn->prepare('SELECT count(*) AS nb_posts FROM posts WHERE post_topic = :topic_id');
+    $query->execute(array('topic_id' => $_GET['id']));
     $result = $query->fetch();
     $nb_posts = (int) $result['nb_posts'];
 
@@ -24,7 +24,7 @@
     $query->execute();
     $posts = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="d-flex justify-content-between mt-4">
+<div class="d-flex justify-content-between mt-4 flex-column flex-lg-row">
     <div class="d-flex justify-content-start">
         <div class="mr-3">
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

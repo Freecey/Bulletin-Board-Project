@@ -136,7 +136,8 @@
                                                 <div class="topic-details col-2">
                                                     <!-- COMMENTS -->
                                                     <?php
-                                                        $req_posts = $conn->query("SELECT post_id FROM posts WHERE post_topic =" .  $topic['topic_id']);
+                                                        $req_posts = $conn->prepare("SELECT post_id FROM posts WHERE post_topic = :topic_id");                                                        
+                                                        $req_posts->execute(array('topic_id' => $topic['topic_id']));
                                                         $posts_cnt = $req_posts->rowCount();
                                                         echo $posts_cnt;
                                                         $req_posts->closeCursor();

@@ -1,30 +1,4 @@
-
-<?php
-    
-    function getPosts() { 
-        require('includes/connect.php');
-        $query = $conn->query('SELECT
-                posts.post_id,
-                posts.post_content,
-                posts.post_date,
-                posts.post_by,
-                users.user_name,
-                users.user_gravatar,
-                users.user_sign,
-                users.user_id
-            FROM
-                posts
-            LEFT JOIN
-                users
-            ON
-                posts.post_by = users.user_id
-            WHERE
-                post_topic=' . $_GET['id']
-        );
-        return $query;
-    }
-    
-?>
+<?php require_once './includes/function/functions.php'; ?>
 
 <?php include 'includes/1head.php'; ?>
    <head>
@@ -46,7 +20,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-9 col-md-8">
-                        <section id="comments" class="mb-3 pl-5">
+                        <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
                                     <h2>Topic Read</h2>
@@ -68,7 +42,7 @@
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
                                     <?php
-                                        $req = getPosts();
+                                        $req = getBreadcrumbs();
                                         while($post = $req->fetch()) {
                                     ?>
                                     <div class="card border-0 shadow-sm rounded-lg mt-3" id="<?php echo $post['post_id']; ?>">
