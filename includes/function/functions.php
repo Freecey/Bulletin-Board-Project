@@ -9,8 +9,15 @@ function getBoards() {
 
 function getTopics($id) {
     require('includes/connect.php');
-    $query = $conn->prepare("SELECT topic_id FROM topics WHERE topic_board = ?");
+    $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ?");
     $query->execute(array($id));
+    return $query;
+}
+
+function getAnnounces() {
+    require('includes/connect.php');
+    $query = $conn->prepare("SELECT * FROM announce");
+    $query->execute();
     return $query;
 }
 
@@ -18,6 +25,29 @@ function getPosts($id) {
     require('includes/connect.php');
     $query = $conn->prepare('SELECT * FROM posts WHERE post_topic = ?');
     $query->execute(array($id));
+    return $query;
+}
+
+function getLastPost($topicId) {
+    require('includes/connect.php');
+    $query = $conn->prepare('
+        SELECT
+            users.user_name,
+            users.user_id,
+            posts.post_date
+        FROM
+            users
+        LEFT JOIN
+            posts
+        ON
+            posts.post_by = users.user_id
+        WHERE
+            post_topic = ?
+        ORDER BY
+            post_date DESC
+        LIMIT 1
+    ');
+    $query->execute(array($topicId));
     return $query;
 }
 
@@ -38,6 +68,27 @@ function getLastPostsDate($id, $orderBy) {
         ORDER BY ? DESC'
     );
     $query->execute(array($id, $orderBy));
+    return $query;
+}
+
+function getLastAnnouce() {
+    require('includes/connect.php');
+    $query = $conn->prepare('
+        SELECT
+            announce.ann_date,
+            users.user_name,
+            users.user_id
+        FROM
+            users
+        LEFT JOIN
+            announce
+        ON
+            announce.ann_by = users.user_id
+        ORDER BY
+            ann_date DESC
+        LIMIT 1
+    ');
+    $query->execute();
     return $query;
 }
 
@@ -101,6 +152,15 @@ function getBreadcrumbs() {
     $query->execute();
     return $query;
 }
+
+    function incrementTopicViews() {
+        require('includes/connect.php');
+        $query = $conn->prepare("UPDATE topics SET topic_views = topic_views + 1 WHERE topic_id = :topicId");
+        $query->execute(array(
+            'topicId' => $_GET['id']
+        ));
+        return $query;
+    }
 
 
 

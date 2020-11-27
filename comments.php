@@ -1,7 +1,10 @@
-<?php require_once './includes/function/functions.php'; ?>
+<?php
+    require_once './includes/function/functions.php';
+    incrementTopicViews();
+?>
 
 <?php include 'includes/1head.php'; ?>
-   <head>
+    <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -50,10 +53,10 @@
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar" width="90">
+                                                        <img class="avatar-sm rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar" width="90">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
-                                                        <p class="mt-3 mb-0"><a href=member.php?view_user_id=<?php echo $post['user_id'] ;?>><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
+                                                        <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                     </div>
                                                 </div>
@@ -62,7 +65,7 @@
                                                 <p class="text-secondary">
                                                 <?php
                                                     $date = new DateTime($post['post_date']);
-                                                    echo $date->format('D M d, Y H:m:s');
+                                                    echo $date->format('D M d, Y H:i:s');
                                                 ?></p>
                                                 <p class="post-content"><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
