@@ -4,6 +4,7 @@
     function getPosts() { 
         require('includes/connect.php');
         $query = $conn->query('SELECT
+                posts.post_id,
                 posts.post_content,
                 posts.post_date,
                 posts.post_by,
@@ -66,12 +67,11 @@
                             <?php require('includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
-                                    
                                     <?php
                                         $req = getPosts();
                                         while($post = $req->fetch()) {
                                     ?>
-                                    <div class="card border-0 shadow-sm rounded-lg mt-3">
+                                    <div class="card border-0 shadow-sm rounded-lg mt-3" id="<?php echo $post['post_id']; ?>">
                                         <div class="card-body row">
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
