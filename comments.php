@@ -50,7 +50,7 @@
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
+                                                        <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar" width="90">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href=member.php?view_user_id=<?php echo $post['user_id'] ;?>><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
