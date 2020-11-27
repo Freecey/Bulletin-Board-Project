@@ -6,7 +6,7 @@ include('includes/getdata/sitesettingGLOB.php'); ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $SITENAME . ' : ' . $PAGENAME; ?></title>
+        <title><?php echo $SITENAME . '   - ' . $PAGENAME; ?></title>
         <title>.::Bulletin Board::.</title>
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
