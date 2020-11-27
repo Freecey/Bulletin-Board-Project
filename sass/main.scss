@@ -160,6 +160,14 @@ body {
 
 .social-media__link:hover {
     text-decoration: none;
+}
+
+.social-media__link:hover .social-media__circle{
+    background-color: white;
+}
+
+.social-media__link:hover .social-media__icon{
+    text-decoration: none;
     color: $primary;
 }
 
@@ -208,4 +216,41 @@ body {
 .scroll-up-btn__icon {
     color: seashell;
     font-size: 2em;
+}
+
+//signup & signin
+#signup form {
+    margin: 3em 1em;
+}
+
+.signup__legal-text {
+    margin-top: 2em;
+}
+
+#signup .btn-primary, #signup .btn-outline-secondary, #signin .btn-primary {
+    font-size: 1.2em;
+}
+
+.gradient-line {
+    height: 0.2em;
+    background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+}
+
+#signin {
+    margin-top: 2em;
+    margin-bottom: 2.5em;
+}
+
+.signin__login-register {
+    font-size: 1.1em;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+.signin__form, .signin__forgot-pwd {
+    color: rgb(106, 107, 110);
+}
+
+.signin__forgot-pwd:hover{
+    text-decoration: none;
 }

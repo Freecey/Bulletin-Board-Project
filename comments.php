@@ -1,12 +1,7 @@
 <?php require_once './includes/function/functions.php'; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>.::Bulletin Board::.</title>
-        <link rel="stylesheet" href="css/main.css" type="text/css">
+<?php include 'includes/1head.php'; ?>
+   <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -46,12 +41,11 @@
                             <?php require('includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
-                                    
                                     <?php
                                         $req = getBreadcrumbs();
                                         while($post = $req->fetch()) {
                                     ?>
-                                    <div class="card border-0 shadow-sm rounded-lg mt-3">
+                                    <div class="card border-0 shadow-sm rounded-lg mt-3" id="<?php echo $post['post_id']; ?>">
                                         <div class="card-body row">
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
@@ -59,7 +53,7 @@
                                                         <img class="avatar rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
-                                                        <p class="mt-3 mb-0"><strong><?= htmlspecialchars($post['user_name']) ?></strong></p>
+                                                        <p class="mt-3 mb-0"><a href=member.php?view_user_id=<?php echo $post['user_id'] ;?>><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                     </div>
                                                 </div>
@@ -72,7 +66,7 @@
                                                 ?></p>
                                                 <p class="post-content"><?= htmlspecialchars($post['post_content']) ?></p>
                                                 <hr>
-                                                <p><?= htmlspecialchars($post['user_sign']) ?></p>
+                                                <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
                                         </div>
                                     </div>
