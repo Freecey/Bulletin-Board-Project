@@ -49,9 +49,6 @@
                 </div>
             </div>
         </div>
-        <div>
-            <?php include('includes/search.php') ?>
-        </div>
     </div>
     <div>
         <nav>
