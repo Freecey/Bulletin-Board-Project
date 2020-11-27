@@ -12,12 +12,20 @@
                 </div>
                 <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                     <ul class="navbar-nav ml-auto flex-nowrap">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="far fa-file-alt"></i> Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
-                        </li>
+                        <?php if($_SESSION['loginOK'] !=true) {
+                                echo `  <li class="nav-item">
+                                <a href="signup.php" class="nav-link"><i class="far fa-file-alt"></i> sRegister</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="login.php" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                </li>`;
+                                } else {
+                                    echo '
+                                    <li class="nav-item">
+                                    <a href="profile.php" class="nav-link"><i class="fas fa-sign-in-alt"></i> Welcome ' . $_SESSION[user_name] . '</a>
+                                    </li>';
+                                }
+                             ?>
                         <li class="nav-item d-md-none">
                             <?php include('search.php'); ?>
                         </li>
@@ -28,7 +36,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <h1 class="text-center text-white display-1">TRACKER</h1>
+            <h1 class="text-center text-white display-1"><?php echo $SITENAME; ?></h1>
         </div>
     </div>
 </section>

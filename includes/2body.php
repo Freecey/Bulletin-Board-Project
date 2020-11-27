@@ -1,6 +1,5 @@
 <body>
         <?php session_start(); ?>
-        <?php include('includes/connect.php'); ?>
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">

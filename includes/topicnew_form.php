@@ -55,21 +55,3 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-                                                  <!-- <?php
-for ($i = 0; $i <= 1; $i++) {
-    if ($i == $FromBoard_ID) {
-        echo "<option value='$i' selected>" . $Board_DATA[board_name] . "</option>";
-    }else{
-        echo "<option value='$i'>" . $Board_DATA[board_name] . "</option>";
-    }
-}
-?> -->

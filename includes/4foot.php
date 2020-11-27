@@ -3,6 +3,6 @@
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
 
-        <script type="text/javascript" src="scroll-up-btn.js"></script>
+        <script type="text/javascript" src="js/scroll-up-btn.js"></script>
     </body>
 </html>

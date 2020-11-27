@@ -23,6 +23,7 @@
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     </head>
+<?php require_once './includes/function/functions.php'; ?>
     <body>
         <?php include('includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
@@ -34,12 +35,6 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-9 col-md-8">
-                    <?php
-                        $req_boards = $conn->query('SELECT * FROM boards ORDER BY board_id');
-                        if (!$req_boards) {
-                            echo 'Unable to display the categories' .mysql_error();
-                        } else {
-                        ?>
 
                         <section class="mb-3" id="boards">
                             
@@ -51,6 +46,7 @@
                                 </div>
                                 <div class="row bg-light rounded-lg pb-3">
                                     <?php
+                                    $req_boards = getBoards();
                                     while ($board = $req_boards->fetch())
                                     { 
                                     ?>
@@ -81,12 +77,7 @@
                                                     <div class="col-3 pl-0">
                                                         <p class="small mb-0">
                                                             <strong>
-                                                                <?php
-                                                                    $req_topics = $conn->query("SELECT topic_id FROM topics WHERE topic_board =" .  $board['board_id']);
-                                                                    $topics_cnt = $req_topics->rowCount();
-                                                                    echo $topics_cnt;
-                                                                    $req_topics->closeCursor();
-                                                                ?>
+                                                                <?= getTopics($board['board_id'])->rowCount(); ?>
                                                             </strong>
                                                         </p>
                                                         <p class="small">Topics</p>
@@ -94,12 +85,7 @@
                                                     <div class="col-3 pl-0">
                                                         <p class="small mb-0">
                                                             <strong>
-                                                            <?php
-                                                                $req_posts = $conn->query("SELECT post_id FROM posts WHERE post_topic =" .  $board['board_id']);
-                                                                $posts_cnt = $req_posts->rowCount();
-                                                                echo $posts_cnt;
-                                                                $req_posts->closeCursor();
-                                                            ?>
+                                                            <?= getPosts($board['board_id'])->rowCount(); ?>
                                                             </strong>
                                                         </p>
                                                         <p class="small">Posts</p>
@@ -107,7 +93,7 @@
                                                     <div class="col pl-0">
                                                         <p class="small mb-0">
                                                             <?php
-                                                                $req_posts = $conn->query("SELECT post_date FROM posts WHERE post_topic =" .  $board['board_id'] . " ORDER BY post_date DESC");
+                                                                $req_posts = getLastPostsDate($board['board_id'], 'post_date');
                                                                 $post = $req_posts->fetch();
                                                                 $date = new DateTime($post['post_date']);
                                                                 echo $date->format('D M d');
@@ -128,9 +114,6 @@
                             </article>
                             
                         </section>
-                        <?php
-                        }
-                        ?>
 
                     </div>
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
@@ -148,5 +131,6 @@
         </div>
 
         <script type="text/javascript" src="scroll-up-btn.js"></script>
+        
     </body>
 </html>
