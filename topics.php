@@ -64,7 +64,7 @@
                                             <div class="card border-0 m-1">
                                                 <div class="ann-list-item card-body w-100 d-flex align-items-center">
                                                     <div class="col-7">
-                                                        <?php echo '<a href="./announce-content.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
+                                                        <?php echo '<a href="./announce.php?id=' . $ann['ann_id'] . '">' . $ann['ann_subject'] . '</a>'?>
                                                     </div>
                                                     <div class="ann-details col-2">
                                                         <!-- COMMENTS -->
