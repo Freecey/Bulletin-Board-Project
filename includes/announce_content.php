@@ -1,10 +1,35 @@
-<?php
-    require_once './includes/function/functions.php';
-    incrementTopicViews();
+<?php //require_once './includes/function/functions.php'; ?>
+<?php 
+// include './includes/function/functions2.php'; 
+$Ann_id = $_GET['id'];
+
+$query = $conn->prepare("SELECT * FROM announce WHERE ann_id = $Ann_id LIMIT 1");
+$query->setFetchMode(PDO::FETCH_ASSOC);
+$query->execute();
+$AnnounceDATA=$query->fetch();
+
+$query = $conn->prepare("SELECT * FROM users WHERE user_id = $AnnounceDATA[ann_by] LIMIT 1");
+$query->setFetchMode(PDO::FETCH_ASSOC);
+$query->execute();
+$UserByDATA=$query->fetch();
+
+/// $AnnounceDATA = getAnn(`$Ann_id`);
+
+// echo $AnnounceDATA['ann_id'];
+// echo $AnnounceDATA['ann_subject'];
+// echo $AnnounceDATA['ann_content'];
+// echo $AnnounceDATA['ann_type'];
+// echo $AnnounceDATA['ann_date'];
+// echo $AnnounceDATA['ann_date_update'];
+// echo $AnnounceDATA['ann_deleted'];
+// echo $AnnounceDATA['ann_by'];
+// echo $AnnounceDATA['ann_pin'];
 ?>
 
+<!-- // id= announce id -->
+
 <?php include 'includes/1head.php'; ?>
-    <head>
+   <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -26,37 +51,26 @@
                         <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
-                                    <h2>Topic Read</h2>
-                                    <div class="alert alert-danger" role="alert">
-                                    <p>Forum rules</p>
-                                        <ol>
-                                            <li>No Spam / Advertising / Self-promote in the forums.</li>
-                                            <li>Do not post copyright-infringing material.</li>
-                                            <li>Do not post “offensive” posts, links or images.</li>
-                                            <li>Do not cross post questions.</li>
-                                            <li>Do not PM users asking for help.</li>
-                                            <li>Remain respectful of other members at all times.</li>
-                                        </ol>
-                                    </div>
+                                    <h2>Announcement : <?php echo $AnnounceDATA['ann_subject'];?></h2>
                                 </div>
                             </div>
 
-                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            <?php // require('includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
                                     <?php
                                         $req = getBreadcrumbs();
-                                        while($post = $req->fetch()) {
+                                        
                                     ?>
-                                    <div class="card border-0 shadow-sm rounded-lg mt-3" id="<?php echo $post['post_id']; ?>">
+                                    <div class="card border-0 shadow-sm rounded-lg mt-3" id="<?php echo $AnnounceDATA['ann_id']; ?>">
                                         <div class="card-body row">
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar-sm rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar" width="90">
+                                                        <img class="avatar rounded-circle" src="<?= $UserByDATA['user_gravatar'] ?>" alt="<?= htmlspecialchars($UserByDATA['user_name']) ?>'s gravatar" width="90">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
-                                                        <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
+                                                        <p class="mt-3 mb-0"><a href=member.php?view_user_id=<?php echo $UserByDATA['user_id'] ;?>><strong><?= htmlspecialchars($UserByDATA['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                     </div>
                                                 </div>
@@ -64,24 +78,29 @@
                                             <div class="col-12 col-sm-7 col-md-9 col-lg-10">
                                                 <p class="text-secondary">
                                                 <?php
-                                                    $date = new DateTime($post['post_date']);
-                                                    echo $date->format('D M d, Y H:i:s');
+                                                    $date = new DateTime($AnnounceDATA['ann_date']);
+                                                    echo $date->format('D M d, Y H:m:s');
+                                                    if( $AnnounceDATA['ann_date_update'] == ''){
+
+                                                    }else{
+                                                        $dateupd = new DateTime($AnnounceDATA['ann_date_update']);
+                                                        echo ' - last update ';
+                                                        echo $dateupd->format('D M d, Y H:m:s');
+                                                    }
                                                 ?></p>
-                                                <p class="post-content"><?= htmlspecialchars($post['post_content']) ?></p>
+                                                <p class="post-content"><?= htmlspecialchars($AnnounceDATA['ann_content']) ?></p>
                                                 <hr>
-                                                <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
+                                                <p class="small"><?= htmlspecialchars($UserByDATA['user_sign']) ?></p>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php 
-                                        }
-                                    ?>
                                 </div>
                             </div>
+                            <!--
                             <div class="row mt-4">
                                 <a href="#" onclick="window.history.go(-1); return false;"><i class="fas fa-chevron-left"></i> Return to the topic section</a>
-                            </div>
-                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            </div> -->
+                            <?php // require('includes/posts_pagination_reply.php'); ?>
                         </section>
                         
                     </div>

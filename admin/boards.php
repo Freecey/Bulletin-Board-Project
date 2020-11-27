@@ -17,7 +17,7 @@
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php include('../includes/breadcrumb.php'); ?>
+                        <?php // include('../includes/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">

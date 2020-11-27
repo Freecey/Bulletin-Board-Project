@@ -73,6 +73,7 @@ try {
         $UPD_DOBy = $_POST['doby'];
         $UPD_DOBm = $_POST['dobm'];
         $UPD_DOBd = $_POST['dobd'];
+        $UPD_user_theme= $_POST['user_theme'];
         
 
         $UPD_full_DATE = mktime(0, 0, 0, $UPD_DOBm, $UPD_DOBd, $UPD_DOBy);
@@ -86,7 +87,17 @@ try {
         // echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
         // echo "---456";
 
-        $UPDATEQuerySQL1 = "UPDATE `users` SET `user_name` = '$UPD_user_name', `user_fname` = '$UPD_user_fname', `user_lname` = '$UPD_user_lname', `user_sign` = '$UPD_user_sign', `user_datebirthday` = '$UPD_DOB', `user_secquest` = '$UPD_user_secquest', `user_secansw` = '$UPD_user_secansw', `user_gravatar` = '$user_gravatar'  WHERE `users`.`user_id` = $_SESSION[user_id]";
+        $UPDATEQuerySQL1 = "UPDATE `users` 
+            SET `user_name` = '$UPD_user_name',
+             `user_fname` = '$UPD_user_fname',
+              `user_lname` = '$UPD_user_lname',
+               `user_sign` = '$UPD_user_sign',
+                `user_datebirthday` = '$UPD_DOB',
+                 `user_secquest` = '$UPD_user_secquest',
+                  `user_secansw` = '$UPD_user_secansw',
+                   `user_gravatar` = '$user_gravatar',
+                    `user_theme` = '$UPD_user_theme'
+                     WHERE `users`.`user_id` = $_SESSION[user_id]";
         // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Prof_UpdateINSERT->execute();
