@@ -18,7 +18,7 @@ echo '123';
 // noreply BBS
 // noreply_bbs-queen@neant.be
 // wKeUr4bXj6
-// PORT 25  587
+// PORT 25  587 465
 
 $mail = new PHPMailer;
 //$mail = new PHPMailer();
@@ -28,18 +28,18 @@ try {
 $mail->IsSMTP();
 $mail->CharSet = 'UTF-8';
 echo '4444444444';
-$mail->Host       = "mail.neant.be"; // SMTP server example
+$mail->Host       = "send.one.com"; // SMTP server example
 $mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
-$mail->Port       = 25;                    // set the SMTP port for the GMAIL server
+$mail->Port       = 465;                    // set the SMTP port for the GMAIL server
 //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-$mail->Username   = "noreply_bbs-queen@neant.be"; // SMTP account username example
-$mail->Password   = "wKeUr4bXj6";        // SMTP account password example
+$mail->Username   = "bbs-queen@iweep.be"; // SMTP account username example
+$mail->Password   = "123456Az.";        // SMTP account password example
 $mail->SMTPSecure = 'tls';   
 
 //Recipients
-$mail->setFrom('noreply_bbs-queen@neant.be', 'BBS-QUEEN');
-$mail->addAddress('cedric@neant.be', 'Cedric AUDRIT');     // Add a recipient
+$mail->setFrom('bbs-queen@iweep.be', 'BBS-QUEEN - Cedric');
+$mail->addAddress('cedric@audrit.be', 'Cedric AUDRIT');     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
