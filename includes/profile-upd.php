@@ -160,6 +160,3 @@ catch (PDOException $e) {
 
 
 ?>
-<head>
-<link rel="stylesheet" href="./css/main.css">
-</head>
