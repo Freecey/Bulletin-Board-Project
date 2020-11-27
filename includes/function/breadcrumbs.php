@@ -1,12 +1,12 @@
 <?php
-require('getPostId.php');
+require_once './includes/function/functions.php';
 
 // This function will take $_SERVER['REQUEST_URI'] and build a breadcrumb based on the user's current path
 function breadcrumbs($separator = ' &lsaquo; ', $home = '<i class="fas fa-home"></i> Home') {
     $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
     $key = array_search('comments.php', $path);
     if ($key) {
-        $topics = getTopicId();
+        $topics = getTopicId($_GET['id']);
         while($topic = $topics->fetch()) {
             array_splice($path, $key-1, 0, $topic['topic_subject'].'='. $topic['topic_id']);
         }

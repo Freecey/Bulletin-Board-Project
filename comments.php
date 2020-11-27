@@ -1,29 +1,4 @@
-
-<?php
-    
-    function getPosts() { 
-        require('includes/connect.php');
-        $query = $conn->query('SELECT
-                posts.post_content,
-                posts.post_date,
-                posts.post_by,
-                users.user_name,
-                users.user_gravatar,
-                users.user_sign,
-                users.user_id
-            FROM
-                posts
-            LEFT JOIN
-                users
-            ON
-                posts.post_by = users.user_id
-            WHERE
-                post_topic=' . $_GET['id']
-        );
-        return $query;
-    }
-    
-?>
+<?php require_once './includes/function/functions.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +48,7 @@
                                 <div class="col">
                                     
                                     <?php
-                                        $req = getPosts();
+                                        $req = getBreadcrumbs();
                                         while($post = $req->fetch()) {
                                     ?>
                                     <div class="card border-0 shadow-sm rounded-lg mt-3">

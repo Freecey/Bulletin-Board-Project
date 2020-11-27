@@ -8,8 +8,8 @@
     }
 
 
-    $query = $conn->prepare('SELECT count(*) AS nb_posts FROM posts');
-    $query->execute();
+    $query = $conn->prepare('SELECT count(*) AS nb_posts FROM posts WHERE post_topic = :topic_id');
+    $query->execute(array('topic_id' => $_GET['id']));
     $result = $query->fetch();
     $nb_posts = (int) $result['nb_posts'];
 
