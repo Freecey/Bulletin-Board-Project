@@ -21,6 +21,35 @@
                         <?php echo $UpdPWDOK; ?>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Site Settings </h4> 
+                    </div>
+                    
+                    <div class=" mt-2">
+                    <label class="labels">Theme</label>
+
+                        <div class="form-check ml-2">
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme0" value="0" <?php if($data_Sel_USR['user_theme'] == 0 ){echo 'checked';} ?>>
+                            <label class="form-check-label" for="user_theme0">
+                                Default
+                            </label>
+                        </div>
+                        <div class="form-check ml-2">
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme1" value="1" <?php if($data_Sel_USR['user_theme'] == 1 ){echo 'checked';} ?>>
+                            <label class="form-check-label" for="user_theme1">
+                                Dark
+                            </label>
+                        </div>                        
+                            <div class="form-check disabled ml-2">
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme666" value="666" <?php if($data_Sel_USR['user_theme'] == 666 ){echo 'checked';} ?> <?php if($data_Sel_USR['user_level'] < 3 ){echo 'disabled';} ?>>
+                            <label class="form-check-label" for="user_theme666">
+                                Devil
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                    <div class="d-flex justify-content-between align-items-center my-3">
                         <h4 class="text-right">Profile Settings </h4> 
                     </div>
                     <div class="row mt-3">
