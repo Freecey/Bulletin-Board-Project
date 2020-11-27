@@ -1,6 +1,7 @@
 <?php
     require_once './includes/function/functions.php';
     incrementTopicViews();
+// postedit.php?postedit_id=34
 ?>
 
 <?php include 'includes/1head.php'; ?>
@@ -58,6 +59,12 @@
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
+                                                        <?php 
+                                                        if(($post[post_by] == $_SESSION[user_id]) AND ($post[post_deleted] == 0)){
+                                                            echo '<a href="postedit.php?postedit_id='. $post[post_id] .'">
+                                                            <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
+                                                            </a>';
+                                                        } ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +74,7 @@
                                                     $date = new DateTime($post['post_date']);
                                                     echo $date->format('D M d, Y H:i:s');
                                                 ?></p>
-                                                <p class="post-content"><?= htmlspecialchars($post['post_content']) ?></p>
+                                                <p class="post-content"><?php if( $post[post_deleted] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
                                                 <hr>
                                                 <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>

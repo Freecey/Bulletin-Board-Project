@@ -10,7 +10,7 @@ $select = $conn->prepare("SELECT*FROM posts where post_id=$PostEdit_ID AND post_
 $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $PostDATA=$select->fetch();
-
+$topic_id=$PostDATA[post_topic];
 
 $select2 = $conn->prepare("SELECT*FROM topics where topic_id=$PostDATA[post_topic] LIMIT 1");
 $select2->setFetchMode(PDO::FETCH_ASSOC);
@@ -37,21 +37,21 @@ try {
         $UPDATEQuerySQL1 = "UPDATE `posts` SET `post_content` = '$UPD_post_content', `post_date_update` = '$UPD_post_date_update' WHERE `posts`.`post_id` = $UPD_post_id";
         $Post_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Post_UpdateINSERT->execute();
-        echo '<br><hr>TEST OK';
         $_SESSION['BoardUPDATEComplet'] = true;
-        header("location:$url");   
-        // header("Refresh:0");
+        header("location:comments.php?id=$topic_id#$UPD_post_id");   
+        //header("Refresh:");
     }elseif(isset($_POST['delete_post'])){
         
         $nameclasserr = '';
         $UPD_post_date_update = date('Y-m-d H:i:s'); 	 // to ADD QUERY
-        $UPD_post_id = $PostDel_ID;    // DON'T NOT UPDATE 
+        $UPD_post_id = $PostEdit_ID;    // DON'T NOT UPDATE 
         $UPD_post_by = $_SESSION[user_id]; // DON'T NOT UPDATE 
         $SetDELQuerySQL = "UPDATE `posts` SET `post_deleted` = '1' WHERE `posts`.`post_id` = $UPD_post_id";
         $Post_SetDelINSERT= $conn->prepare($SetDELQuerySQL);
+        echo '123456';
         $Post_SetDelINSERT->execute();
         $_SESSION['SetDELComplet'] = true;
-        header("location:$url");   
+        header("location:comments.php?id=$topic_id#$UPD_post_id");  
         // header("Refresh:0");
     }
 
