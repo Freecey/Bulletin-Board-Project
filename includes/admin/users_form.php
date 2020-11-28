@@ -7,8 +7,9 @@
 
 
 <div class="container">
+<div class="<?php echo $UpdateOKClass; ?>"> <?php echo $UpdateOK;?></div>
 <h3 class="well text-center">User Manager</h3>
- 
+
 <table class="table">
     <thead class="thead">
         <tr>
@@ -21,7 +22,8 @@
             <th>active</th>
             <th>last log</th>
             <th>last IP</th>
-            <th></th>
+            <?php if($_SESSION[user_level] > 2 ){
+            echo '<th></th>';} ?>
             <th>Action</th>
         </tr>
     </thead>
@@ -29,6 +31,7 @@
         <?php $i = 1; ?>
         <?php if($req_user) { ?>
             <?php while($row = $req_user->fetch()) { ?>
+        <form method="post">
         <tr>
             <?php $i++; ?>
             <td><?php echo $row['user_id']; ?></td>
@@ -40,11 +43,24 @@
             <td><?php echo $row['user_active'];?></td>
             <td><?php echo $row['user_datelastlog'];?></td>
             <td><?php echo $row['user_last_ip'];?></td>
-            <td><a href="usersedit.php?edit_id=<?php echo $row['user_id']; ?>" class="glyphicon glyphicon-edit btn btn-primary"> Edit</a></td>
-            <td><a href="ban.php?id=<?php echo $row['user_id']; ?>"  class="glyphicon glyphicon-remove btn btn-danger"> BAN</a></td>
-            <!-- <td><a href="delete.php?id=<?php echo $row['user_id']; ?>"  class="glyphicon glyphicon-remove btn btn-danger"> Delete</a></td> -->
+            <?php if($_SESSION[user_level] > 2 ){
+                echo '
+                <td><a href="usersedit.php?edit_id='. $row[user_id] .'" class="glyphicon glyphicon-edit btn btn-primary"> Edit</a></td>';
+            } ?>
+            <?php $actualusr = $row['user_id'];
+                if($row[user_active] == 2){
+                echo '
+                <td><input name="BAN_User_ID" type="hidden" value="'; echo $row['user_id']; echo '"></input> 
+                <input type="submit" class="btn btn-primary" name = "act_to_user" value = "UNBAN"></td>';
+            }else{
+                echo '<td><input name="BAN_User_ID" type="hidden" value="'; echo $row['user_id']; echo '"></input> 
+                <input type="submit" class="btn btn-primary" name = "act_to_user" value = "BAN"></td>';
+            } ?>
+
             
-    </tr>  
+            
+    </tr>
+    </form>  
             <?php } ?>
             <?php }else{ echo "DATA NOT FOUND"; } ?>
     </tbody>

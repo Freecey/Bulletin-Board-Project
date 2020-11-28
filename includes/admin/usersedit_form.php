@@ -40,7 +40,7 @@
                         <div class="col-md-4"><label class="labels">Active account</label>
                             <select class="custom-select" name="user_active">    
                                                   <?php 
-                            for($i=0;$i<=1;$i++)
+                            for($i=0;$i<=2;$i++)
                             {
                                 if ($i == $data['user_active']){
                                     echo "<option value='$i' selected>".$i."</option>";

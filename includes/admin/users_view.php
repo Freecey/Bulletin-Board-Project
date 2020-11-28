@@ -5,6 +5,6 @@ $req_user = $conn->query("SELECT * FROM users");
 //  }
 //  $req_user->closeCursor();
 
-
+// echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
 
 ?>

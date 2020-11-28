@@ -19,7 +19,11 @@ try {
 		if($SignInDATA['user_email']!=$user_email and $SignInDATA['user_pass']!=$user_pass)
 		{
             // $loginOK = false;
-            echo "Invalid username or Password";
+            echo '<div class="bg-danger text-white text-center"> Invalid username or Password</div>';
+		}elseif($SignInDATA['user_active'] == 2)
+		{
+            // $loginOK = false;
+            echo '<div class="bg-danger text-white text-center"> Your Account has BANNED</div>';
 		}
 		elseif($SignInDATA['user_email']==$user_email and $SignInDATA['user_pass']==$user_pass)
 		{
