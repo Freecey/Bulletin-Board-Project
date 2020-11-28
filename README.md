@@ -16,7 +16,7 @@ ___
 
 ### Generals
 - responsive design
-- session with cookies
+- session browser
 - Policy & Terms
 - 404 & 50x page error
 
@@ -27,7 +27,7 @@ ___
 - Profile pages(views and editing)
 - user image using gravatar
 - Admin Section
-- User Permission lvl
+- User Permission lvl (user, moderator, admin, ...)
 
 ### Content
 - Create & edit Board
@@ -36,8 +36,17 @@ ___
 - Search in Topics name and messages content
 - Markdown interpretation for content
 
+### Admin Section
+- only for moderator and admin
+- Announces creation/edition
+- boards creation/edition
+- topics edition (creation link to create link normal user)
+- Users edition (only for admin)
+- Site Setting (only for admin)
+
 ### Soon
 - emojis supported
+- Ban users system
 
 ___
 
@@ -63,12 +72,19 @@ ___
 ```
     .
     ├── .sass-cache/                # sass cache folder
+    ├── .vscode/                    # json file setting
     ├── admin/                      # Admin/Moderator Section management
-    ├── assets/                     # folder for
+    ├── assets/                     # folder for img
+    │   ├── 404/
+    │   ├── 500/
+    │   ├── avatar/
+    │   ├── pwdforgot/
+    │   └── topics/
     ├── css/                        # folder for CSS files
     ├── includes/                   # folder for All php content 
     │   ├── admin/
-    │   └── function/
+    │   ├── function/
+    │   └── getdata/
     ├── js/                         # folder for JS script
     ├── node_modules/               # folder for all node modules
     ├── resources/
