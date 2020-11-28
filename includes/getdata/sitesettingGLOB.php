@@ -5,5 +5,5 @@ $selectSETTING->execute();
 $SETTINGdata=$selectSETTING->fetch();
 
 $SITENAME = $SETTINGdata['set_sitename'];
-
+$HEADERNAME = $SETTINGdata['set_headername'];
 ?>

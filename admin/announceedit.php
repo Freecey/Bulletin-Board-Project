@@ -1,4 +1,4 @@
-<?php require('../includes/admin/session_userlvl_admin.php'); ?>
+<?php require('../includes/admin/session_userlvl_modo.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,14 +22,14 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
-                        <?php include('../includes/admin/usersedit_view.php'); ?>
-                        <?php include('../includes/admin/usersedit_form.php'); ?>
+                        <?php include('../includes/admin/announceedit_view.php'); ?>
+                        <?php include('../includes/admin/announceedit_form.php'); ?>
 
 
                     </div>
                     <div class="col-xl-2 col-md-3 d-none d-md-block">
                         <?php include('../includes/search.php'); ?>
-                        <?php include('../includes/admin/sidemenu.php'); ?>
+                        <?php include('../includes/admin/sidemenu.php'); ?> 
                     </div>
                 </div>
             </div>
@@ -42,5 +42,3 @@
         <script type="text/javascript" src="scroll-up-btn.js"></script>
     </body>
 </html>
-
-

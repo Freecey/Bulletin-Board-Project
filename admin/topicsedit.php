@@ -1,4 +1,4 @@
-<?php require('../includes/admin/session_userlvl_admin.php'); ?>
+<?php require('../includes/admin/session_userlvl_modo.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,8 +22,8 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-10 col-md-9">
-                        <?php include('../includes/admin/usersedit_view.php'); ?>
-                        <?php include('../includes/admin/usersedit_form.php'); ?>
+                        <?php include('../includes/admin/topicsedit_view.php'); ?>
+                        <?php include('../includes/admin/topicsedit_form.php'); ?>
 
 
                     </div>

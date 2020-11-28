@@ -29,6 +29,8 @@ try {
 	if(isset($_POST['update_setting'])){
         $set_id = $SETTINGdata[set_id];
         $UPD_set_sitename = $_POST['set_sitename'];
+        $UPD_set_headername = $_POST['set_headername'];
+        
 		$UPD_set_emailenable = $_POST['set_emailenable'];
 		$UPD_set_emailmgr = $_POST['set_emailmgr'];		
         $UPD_set_emailsite = $_POST['set_emailsite'];
@@ -39,6 +41,7 @@ try {
 
         $UPDATEQuerySQL1 = "UPDATE `sitesetting` SET 
          `set_sitename` = '$UPD_set_sitename', 
+         `set_headername` = '$UPD_set_headername', 
          `set_emailenable` = '$UPD_set_emailenable',
          `set_emailmgr` = '$UPD_set_emailmgr', 
          `set_emailsite` = '$UPD_set_emailsite', 

@@ -106,7 +106,7 @@ if ($_SESSION['loginOK']  == true) {
         // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
         // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {
-    include('includes/signinform.php');
+    include 'includes/signinform.php';
 }
 ?>
 
