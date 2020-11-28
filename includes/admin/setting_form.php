@@ -27,7 +27,13 @@
                         <h4 class="text-right">Site Settings: </h4> 
                     </div>
                     <div class="mt-3 row">
-                        <div class="col-md-6"><label class="labels">Site Name:</label><input type="text" class="form-control" name="set_sitename"  value="<?php echo $SETTINGdata['set_sitename']; ?>"></div>
+                        <div class="col-md-6"><label class="labels">Site Name TOP BAR:</label><input type="text" class="form-control" name="set_sitename"  value="<?php echo $SETTINGdata['set_sitename']; ?>"></div>
+                    </div>
+                    <div class="mt-3 row">
+                        <div class="col-md-6"><label class="labels">Site Name Page Header:</label><input type="text" class="form-control" name="set_headername"  value="<?php echo $SETTINGdata['set_headername']; ?>"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Email of Site manager:</label><input type="email" class="form-control" name="set_emailmgr" value="<?php echo $SETTINGdata['set_emailmgr'] ?>"></div>
                     </div>
                     <div class="text-center my-3">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_setting" Value = "Save Change">
@@ -37,19 +43,17 @@
                     </div>
 
 
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Email of Site manager:</label><input type="email" class="form-control" name="set_emailmgr" value="<?php echo $SETTINGdata['set_emailmgr'] ?>"></div>
-                    </div>
+
                     <div class="mt-2">
                         <label class="labels">Email of Site:</label>
                         <div class="form-check ml-4">
-                        <input class="form-check-input" type="radio" name="set_emailenable" value="1" checked>
+                        <input class="form-check-input" type="radio" name="set_emailenable" value="1" disabled>
                         <label class="form-check-label" for="set_emailenable">
-                            Enable
+                            Enable (soon)
                         </label>
                         </div>
                         <div class="form-check ml-4 disabled">
-                        <input class="form-check-input" type="radio" name="set_emailenable" value="0" disabled>
+                        <input class="form-check-input" type="radio" name="set_emailenable" value="0" checked>
                         <label class="form-check-label" for="set_emailenable">
                             Disable
                         </label>

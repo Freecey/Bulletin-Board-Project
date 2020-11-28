@@ -1,4 +1,4 @@
-<?php include('../includes/admin/session_userlvl.php'); ?>
+<?php require('../includes/admin/session_userlvl_modo.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

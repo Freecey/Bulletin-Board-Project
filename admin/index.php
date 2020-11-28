@@ -1,4 +1,4 @@
-<?php include('../includes/admin/session_userlvl.php'); ?>
+<?php require('../includes/admin/session_userlvl_modo.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +17,7 @@
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php // include('../includes/breadcrumb.php'); ?>
+                        <?php // include('../includes/admin/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">

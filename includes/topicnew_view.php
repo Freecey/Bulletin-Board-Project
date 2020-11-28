@@ -41,36 +41,45 @@ try {
         $ADD_topic_date     = $ADD_post_date;
         $ADD_topic_board    = $_POST['board_id'];
 
-        $SelectNewTopicID = $conn->prepare("SELECT * FROM `topics` WHERE `topic_subject` = '$ADD_topic_subject' LIMIT 1");
-        $SelectNewTopicID->setFetchMode(PDO::FETCH_ASSOC);
-        $SelectNewTopicID->execute();
-        $NewTopicID=$SelectNewTopicID->fetch();
+        if($ADD_topic_subject == ''){
+            $usernameErr = ' : Topic Name EMPTY';
+            $nameclasserr = 'bg-danger text-white';
+        }elseif($ADD_post_content == ''){
+            $MsgErr = ' : EMPTY';
+            $Msgclasserr = 'bg-danger text-white';
+        }else{
 
-                $ADDQueryTOPIC = $conn->prepare("INSERT INTO topics(topic_subject,topic_date,topic_board,topic_by)
-        values(:topic_subject, :topic_date, :topic_board, :topic_by)
-        ");
-        $ADDQueryTOPIC->bindParam (':topic_subject',$ADD_topic_subject);
-        $ADDQueryTOPIC->bindParam (':topic_date',$ADD_topic_date);
-        $ADDQueryTOPIC->bindParam (':topic_board',$ADD_topic_board);
-        $ADDQueryTOPIC->bindParam (':topic_by',$ADD_post_by);
-        
-        $ADDQueryTOPIC->execute();
+            $SelectNewTopicID = $conn->prepare("SELECT * FROM `topics` WHERE `topic_subject` = '$ADD_topic_subject' LIMIT 1");
+            $SelectNewTopicID->setFetchMode(PDO::FETCH_ASSOC);
+            $SelectNewTopicID->execute();
+            $NewTopicID=$SelectNewTopicID->fetch();
 
-        // Search New Topic ID
-        $SelectNewTopicID = $conn->prepare("SELECT * FROM `topics` WHERE `topic_subject` = '$ADD_topic_subject' LIMIT 1");
-        $SelectNewTopicID->setFetchMode(PDO::FETCH_ASSOC);
-        $SelectNewTopicID->execute();
-        $NewTopicID=$SelectNewTopicID->fetch();
+                    $ADDQueryTOPIC = $conn->prepare("INSERT INTO topics(topic_subject,topic_date,topic_board,topic_by)
+            values(:topic_subject, :topic_date, :topic_board, :topic_by)
+            ");
+            $ADDQueryTOPIC->bindParam (':topic_subject',$ADD_topic_subject);
+            $ADDQueryTOPIC->bindParam (':topic_date',$ADD_topic_date);
+            $ADDQueryTOPIC->bindParam (':topic_board',$ADD_topic_board);
+            $ADDQueryTOPIC->bindParam (':topic_by',$ADD_post_by);
+            
+            $ADDQueryTOPIC->execute();
 
-        
-        $ADD_post_topic = $NewTopicID['topic_id'] ;
-        
+            // Search New Topic ID
+            $SelectNewTopicID = $conn->prepare("SELECT * FROM `topics` WHERE `topic_subject` = '$ADD_topic_subject' LIMIT 1");
+            $SelectNewTopicID->setFetchMode(PDO::FETCH_ASSOC);
+            $SelectNewTopicID->execute();
+            $NewTopicID=$SelectNewTopicID->fetch();
 
-        $insert = $conn -> prepare('INSERT INTO posts(post_topic, post_content, post_by,  post_date)VALUES( ?, ?, ?, NOW())');
-        $insert ->execute(array($ADD_post_topic, $ADD_post_content, $_SESSION['user_id'],));       
+            
+            $ADD_post_topic = $NewTopicID['topic_id'] ;
+            
 
-        $_SESSION['BoardUPDATEComplet'] = true;
-        header("Location: ./comments.php?id=$ADD_post_topic");
+            $insert = $conn -> prepare('INSERT INTO posts(post_topic, post_content, post_by,  post_date)VALUES( ?, ?, ?, NOW())');
+            $insert ->execute(array($ADD_post_topic, $ADD_post_content, $_SESSION['user_id'],));       
+
+            $_SESSION['BoardUPDATEComplet'] = true;
+            header("Location: ./comments.php?id=$ADD_post_topic");
+        }
     }
 }
 catch (PDOException $e) {

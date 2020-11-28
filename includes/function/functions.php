@@ -16,7 +16,7 @@ function getTopics($id) {
 
 function getAnnounces() {
     require('includes/connect.php');
-    $query = $conn->prepare("SELECT * FROM announce");
+    $query = $conn->prepare("SELECT * FROM announce WHERE ann_status = 1");
     $query->execute();
     return $query;
 }
