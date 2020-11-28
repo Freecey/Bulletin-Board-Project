@@ -111,6 +111,12 @@ DocumentRoot /path/to/site
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
+        
+        ErrorDocument 404 /404.php
+        ErrorDocument 500 /500.php
+        ErrorDocument 502 /500.php
+        ErrorDocument 503 /500.php
+        ErrorDocument 504 /500.php
 </Directory>
 ```
 And restart your apache by
