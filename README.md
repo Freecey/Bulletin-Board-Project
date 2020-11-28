@@ -28,6 +28,7 @@ ___
 - user image using gravatar
 - Admin Section
 - User Permission lvl (user, moderator, admin, ...)
+- Ban users system
 
 ### Content
 - Create & edit Board
@@ -46,7 +47,6 @@ ___
 
 ### Soon
 - emojis supported
-- Ban users system
 
 ___
 
