@@ -52,6 +52,8 @@ if( $data_Sel_USR['user_level'] == 1 ) {
     $user_lvl_text = "Admin";
 } elseif ( $data_Sel_USR['user_level'] == 4 ) {
     $user_lvl_text = "God";
+} elseif ( $data_Sel_USR['user_level'] == 666 ) {
+    $user_lvl_text = "Devil";
 } 
 
 

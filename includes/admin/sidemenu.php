@@ -12,12 +12,13 @@
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Topics</div></a>
         <a class="text-white" href="boards.php">
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Boards</div></a>
+        <a class="text-white" href="users.php">
+        <div class="my-2  btn btn-primary btn-block rounded-pill" >Edit Users</div></a>
 <?php if($_SESSION['user_level'] >= 3) { 
 
 // For ADMIN ONLY
 echo '
-        <a class="text-white" href="users.php">
-        <div class="my-2  btn btn-primary btn-block rounded-pill" >Edit Users</div></a>
+
         <a class="text-white" href="setting.php">
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Site Setting</div></a>
     ';} ?>
