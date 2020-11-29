@@ -28,6 +28,21 @@ function getPosts($id) {
     return $query;
 }
 
+function getAllPostsFromBoard($board_id) {
+    require('includes/connect.php');
+    // $topics = getTopics($board_id);
+    // $arr = [];
+    // while($topic = $topics->fetch()) {
+    //     array_push($arr, $topic['topic_id']);
+    // }
+    
+    // $sqlArr = implode(',', $arr);
+    // echo $sqlArr;
+    $query = $conn->prepare('SELECT post_id FROM posts WHERE post_topic IN (SELECT topic_id FROM topics WHERE topic_board = :topics)');
+    $query->execute(array(':topics' => $board_id));
+    return $query;
+}
+
 function getLastPost($topicId) {
     require('includes/connect.php');
     $query = $conn->prepare('

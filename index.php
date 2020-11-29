@@ -64,7 +64,10 @@
                                                     <div class="col-3 pl-0">
                                                         <p class="small mb-0">
                                                             <strong>
-                                                            <?= getPosts($board['board_id'])->rowCount(); ?>
+                                                            <?php 
+                                                                $posts = getAllPostsFromBoard($board['board_id']);
+                                                                echo $posts->rowCount();
+                                                            ?>
                                                             </strong>
                                                         </p>
                                                         <p class="small">Posts</p>
