@@ -58,23 +58,26 @@ function getLastPost($topicId) {
     return $query;
 }
 
-function getLastPostsDate($id, $orderBy) {
+function getLastPostsDate($id) {
     require('includes/connect.php');
-    $query = $conn->prepare('SELECT * FROM posts WHERE post_topic = ? ORDER BY ? DESC');
     $query = $conn->prepare('SELECT
             topics.topic_id,
             posts.post_date
         FROM
-            topics
-        LEFT JOIN
             posts
+        LEFT JOIN
+            topics
         ON
-            topics.topic_id = posts.post_topic
+            posts.post_topic = topics.topic_id
         WHERE
-            post_topic= ?
-        ORDER BY ? DESC'
+            post_topic
+        IN
+            (SELECT topic_id FROM topics WHERE topic_board = :topics)
+        ORDER BY
+            posts.post_date DESC
+        LIMIT 1'
     );
-    $query->execute(array($id, $orderBy));
+    $query->execute(array('topics' => $id));
     return $query;
 }
 
