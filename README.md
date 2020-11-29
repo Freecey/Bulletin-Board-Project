@@ -60,6 +60,7 @@ ___
 - sass.
 - bootstrap.
 - Javascript.
+- phpmailer
 
 ___
 
