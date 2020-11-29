@@ -29,6 +29,7 @@ ___
 - Admin Section
 - User Permission lvl (user, moderator, admin, ...)
 - Ban users system
+- log failed login (store IP, Browser/OS, URLfrom, Datetime, email and password try)
 
 ### Content
 - Create & edit Board
