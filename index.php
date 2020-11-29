@@ -72,7 +72,7 @@
                                                     <div class="col pl-0">
                                                         <p class="small mb-0">
                                                             <?php
-                                                                $req_posts = getLastPostsDate($board['board_id'], 'post_date');
+                                                                $req_posts = getLastPostsDate($board['board_id']);
                                                                 $post = $req_posts->fetch();
                                                                 $date = new DateTime($post['post_date']);
                                                                 echo $date->format('D M d');
