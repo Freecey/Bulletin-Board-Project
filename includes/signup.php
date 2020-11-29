@@ -9,6 +9,8 @@ $creationOKClass = '';
 $creationOK = '';
 $signupProssComplet = false;
 
+include('includes/function/randomword.php');
+
 
 session_start();
 try {
@@ -26,8 +28,8 @@ try {
 		include('includes/gravatars.php');
 		$user_gravatar = $grav_url;
 		$user_secquest = "Your favorite word ?";
-		include('includes/randomword.php');
-		$user_secansw = $rand_word_ans;
+		///
+		$user_secansw = randword();
 		if( strlen($user_pass) <= 5) {
 			$passmatchErr = ' is too short need at least 6 character : Error!';
 			$pwdclasserr = 'bg-danger text-white';
