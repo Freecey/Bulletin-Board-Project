@@ -10,10 +10,21 @@ $selectSETTING->setFetchMode(PDO::FETCH_ASSOC);
 $selectSETTING->execute();
 $MailSETTINGdata=$selectSETTING->fetch();
 
+
+// echo '<pre>' . print_r($MailSETTINGdata, TRUE) . '</pre>';
 // echo $_SERVER['HTTP_HOST'];
 // echo '<br>';
 // echo $_SERVER['DOCUMENT_ROOT'];
-// echo '<pre>' . print_r($MailSETTINGdata, TRUE) . '</pre>';
+// echo $_SERVER[HTTP_HOST];
+// echo '<br>';
+// $hostname = getenv('HTTP_HOST');
+// echo $hostname;
+// echo '<br>';
+// $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+// echo '<br>';
+// echo $root;
+
+include ($_SERVER['DOCUMENT_ROOT'].'/includes/function/randomword.php');
 
 //set_sitename
 //set_headername	
@@ -31,7 +42,6 @@ $eMailServer    = $MailSETTINGdata[set_stmpsrv];
 $eMailPort      = $MailSETTINGdata[set_stmpport];
 $eMailUser      = $MailSETTINGdata[set_stmpusr];
 $eMailPass      = $MailSETTINGdata[set_stmppass];
-$eMailToEMail   = $MailSETTINGdata[set_emailmgr];
 $eMailFromEMail = $MailSETTINGdata[set_emailsite];
 $eMailFromName  = $MailSETTINGdata[set_headername];
 // echo $eMailServer;
@@ -45,12 +55,12 @@ $mail = new PHPMailer(true);
 //test_mail_subject
 //test_mail_to
 //test_mail_msg
-include ($_SERVER['DOCUMENT_ROOT'].'/includes/contact_form.php'); 
+include ($_SERVER['DOCUMENT_ROOT'].'/includes/admin/testmail_form.php'); 
 
 try {
-    if(isset($_POST['sendformtomail'])){
+    if(isset($_POST['testmail'])){
         //Server settings
-        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
         $mail->Host       = $eMailServer;                           // Set the SMTP server to send through
         $mail->SMTPAuth   = False;                                  // Enable SMTP authentication
@@ -63,8 +73,8 @@ try {
         $mail->AuthType   = 'LOGIN' ;                               // CRAM-MD5, LOGIN, PLAIN, XOAUTH2. 
 
         //Recipients
-        $mail->setFrom($eMailFromEMail, 'BBS-Queen Contact Form');
-        $mail->addAddress($eMailToEMail, 'BBS-Queen Teams');     // Add a recipient
+        $mail->setFrom($eMailFromEMail, $eMailFromName);
+        $mail->addAddress($_POST[test_mail_to], $_POST[test_mail_to]);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
@@ -76,12 +86,12 @@ try {
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject =  'Contact Form :'. $_POST[mail_subject];
-        $mail->Body    =  'MSG FROM :'. $_POST[sendformemail] . ' - ' . $_POST[sendformname] . '<br>' . $_POST[mail_msg];
-        $mail->AltBody =  'MSG FROM :'. $_POST[sendformemail] . ' - ' . $_POST[sendformname]  . '\n'. $_POST[mail_msg];
+        $mail->Subject =  $_POST[test_mail_subject];
+        $mail->Body    =  $_POST[test_mail_msg];
+        $mail->AltBody =  $_POST[test_mail_msg];
 
         $mail->send();
-        echo 'Message has been sent to BBS-Queen Teams';
+        echo 'Message has been sent to '. $_POST[test_mail_to];
     }
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

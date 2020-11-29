@@ -21,6 +21,8 @@ echo '
 
         <a class="text-white" href="setting.php">
         <div class="my-2  btn btn-primary btn-block rounded-pill" >Site Setting</div></a>
+        <a class="text-white" href="log.php">
+        <div class="my-2  btn btn-primary btn-block rounded-pill" >Log</div></a>
     ';} ?>
         <a class="text-white" href="../">
         <div class="my-2  btn btn-secondary btn-block rounded-pill" >Site Home</div></a>

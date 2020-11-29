@@ -44,7 +44,7 @@
 
 
 
-                    <div class="mt-2">
+                    <div class="mt-2" id="mailset">
                         <label class="labels">Email of Site:</label>
                         <div class="form-check ml-4">
                         <input class="form-check-input" type="radio" name="set_emailenable" value="1" disabled>
@@ -71,6 +71,12 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">PASSWORD (Email of Site) </label><input type="password" class="form-control" name="set_stmppass" value="<?php echo $SETTINGdata['set_stmppass'] ?>"></div>
+                    </div>
+                    <div class="row mt-2">
+                        <a class="text-white" href="testmail.php">
+                        <div class="my-2  btn btn-primary btn-block rounded-pill" >
+                            Test Mail Setting (save before)
+                        </div></a>
                     </div>
 
 
