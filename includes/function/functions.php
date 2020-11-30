@@ -9,7 +9,7 @@ function getBoards() {
 
 function getTopics($id) {
     require('includes/connect.php');
-    $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ?");
+    $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC");
     $query->execute(array($id));
     return $query;
 }
