@@ -75,7 +75,11 @@
                                                     echo $date->format('D M d, Y H:i:s');
                                                 ?></p>
                                                 <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
-                                                <button id="emoji-trigger"><i class="far fa-laugh-wink"></i></button>
+                                                
+                                                <a data-placement="bottom" data-toggle="popover" data-container="body" data-placement="left" type="button" data-html="true" href="#" id="login"><i class="far fa-laugh-wink"></i></a>
+                                                <div id="popover-content" class="hide">
+                                                    <emoji-picker></emoji-picker>
+                                                </div>
                                                 <hr>
                                                 <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
@@ -112,20 +116,6 @@
         <script type="text/javascript" src="scroll-up-btn.js"></script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
-        <script type="text/javascript">
-            //import { EmojiButton } from '@joeattardi/emoji-button';
-
-            const picker = new EmojiButton();
-            const trigger = document.querySelector('#emoji-trigger');
-            console.log(trigger);
-            picker.on('emoji', selection => {
-                // handle the selected emoji here
-                console.log(selection.emoji);
-            });
-
-            trigger.addEventListener('click', () => picker.togglePicker(trigger));
-        </script>
-
 
         <script type="text/javascript">
             let posts = document.getElementsByClassName('post-content');
@@ -135,6 +125,15 @@
                 const cleanComment = DOMPurify.sanitize(comment)
                 post.innerHTML = marked(cleanComment);
             });
+        </script>
+
+        <script type="text/javascript">
+            $("[data-toggle=popover]").popover({
+            html: true, 
+            content: function() {
+                return $('#popover-content').html();
+                }
+        });
         </script>
         
     </body>
