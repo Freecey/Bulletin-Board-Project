@@ -10,9 +10,9 @@ function getBoards() {
 function getTopics($id) {
     require('includes/connect.php');
     if ($id == 7) {
-        $query = $conn->query('SELECT * FROM topics  WHERE topic_board = ? ORDER BY topic_date DESC LIMIT 5');
+        $query = $conn->prepare('SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC LIMIT 5');
     }else {
-    $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC");
+    $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date");
     }
     $query->execute(array($id));
     return $query;
@@ -41,8 +41,7 @@ function getAllPostsFromBoard($board_id) {
 
 function getLastPost($topicId) {
     require('includes/connect.php');
-    $query = $conn->prepare('
-        SELECT
+    $query = $conn->prepare('        SELECT
             users.user_name,
             users.user_id,
             posts.post_date
