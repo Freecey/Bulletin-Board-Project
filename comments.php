@@ -60,8 +60,8 @@
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                         <?php 
-                                                        if(($post[post_by] == $_SESSION[user_id]) AND ($post[post_deleted] == 0)){
-                                                            echo '<a href="postedit.php?postedit_id='. $post[post_id] .'">
+                                                        if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0)){
+                                                            echo '<a href="postedit.php?postedit_id='. $post['post_id'] .'">
                                                             <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
                                                             </a>';
                                                         } ?>
@@ -74,7 +74,8 @@
                                                     $date = new DateTime($post['post_date']);
                                                     echo $date->format('D M d, Y H:i:s');
                                                 ?></p>
-                                                <p class="post-content"><?php if( $post[post_deleted] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
+                                                <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
+                                                <button id="emoji-trigger"><i class="far fa-laugh-wink"></i></button>
                                                 <hr>
                                                 <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
@@ -107,10 +108,25 @@
         <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
-        
+        <!-- <script type="text/javascript" src="./js/emoji-reaction.js"></script> -->
         <script type="text/javascript" src="scroll-up-btn.js"></script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
+        <script type="text/javascript">
+            //import { EmojiButton } from '@joeattardi/emoji-button';
+
+            const picker = new EmojiButton();
+            const trigger = document.querySelector('#emoji-trigger');
+            console.log(trigger);
+            picker.on('emoji', selection => {
+                // handle the selected emoji here
+                console.log(selection.emoji);
+            });
+
+            trigger.addEventListener('click', () => picker.togglePicker(trigger));
+        </script>
+
+
         <script type="text/javascript">
             let posts = document.getElementsByClassName('post-content');
             

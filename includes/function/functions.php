@@ -137,6 +137,7 @@ function getBreadcrumbs() {
     $query = $conn->prepare('SELECT
             posts.post_id,
             posts.post_content,
+            posts.post_deleted,
             posts.post_date,
             posts.post_by,
             posts.post_deleted,

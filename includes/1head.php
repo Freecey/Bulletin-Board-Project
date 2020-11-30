@@ -28,4 +28,5 @@ include('includes/getdata/sitesettingGLOB.php'); ?>
         ?>
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js" integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ==" crossorigin="anonymous"></script>
     </head>
