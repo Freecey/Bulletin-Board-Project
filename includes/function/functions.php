@@ -9,11 +9,13 @@ function getBoards() {
 
 function getTopics($id) {
     require('includes/connect.php');
+
     if ($id == 7) {
         $query = $conn->prepare('SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC LIMIT 5');
     }else {
-    $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date");
+     $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC");
     }
+
     $query->execute(array($id));
     return $query;
 }
