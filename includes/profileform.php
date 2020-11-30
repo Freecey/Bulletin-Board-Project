@@ -5,7 +5,95 @@
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
+            <span></span></div>
+
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <div class="form-group">
+                <form>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Gravatar image
+                    </label>
+                </div>
+
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                    Personal Image
+                    </label>
+                </div>
+
+
+
+        <div class="">
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+            <button type="button" id="btn-post-reply" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModal">Upload image <i class="fas fa-long-arrow-alt-left"></i></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Upload Personnal Image</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                        <div id="myOverlay"></div>
+<div id="box">
+    <div id="box-inside-div">
+        <div id="fileuploader"></div>
+    </div><!-- #box-inside-div -->
+</div><!-- #box -->
+<div id="main">
+     <h1>Upload a File Page</h1>
+
+    <p>To upload a file, click the button below</p>
+    <input type="button" id="myButt" value="Upload" />
+</div>
+<script>
+    $('#myButt').click(function () {
+    $('#myOverlay').show();
+    $("#box").show();
+    $("#fileuploader").uploadFile({
+        url: "upload_recv.php",
+        fileName: "myfile",
+        onError: function(files,status,errMsg){
+            /* Error because (1) jsFiddle cannot do ajax */
+            /* AND (2) there is no upload_recv.php file! */
+            $('#myOverlay').hide();
+            $('#box').hide();
+            alert('The file is now on the server');
+        }
+    });
+});//END mybutt.click
+    </script>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+                </form>
+            </div>
+        </div>
+
         </div>
         <div class="col-xl-9 col-md-9 border-right">
             <div class="p-3 py-5">
