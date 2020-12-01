@@ -142,6 +142,7 @@ function getBreadcrumbs() {
             posts.post_deleted,
             users.user_name,
             users.user_gravatar,
+            users.user_image,
             users.user_sign,
             users.user_id
         FROM

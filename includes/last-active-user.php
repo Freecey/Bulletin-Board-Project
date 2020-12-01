@@ -20,7 +20,7 @@
                     <a class="user-card card border-0 m-2" href="./member.php?view_user_id=<?php echo $user['user_id'];?>">
                         <div class="user-list-item text-center">
                             <div>
-                                <img class="user-list-item__gravatar col rounded-circle" src="<?php echo $user['user_gravatar']; ?>" alt="">
+                                <img class="user-list-item__gravatar col rounded-circle" src="<?php echo $user['user_image']; ?>" alt="">
                             </div>
                             <div class="user-list-item__name font-weight-bold col"> <?php echo $user['user_name']; ?> </div>
                             <div class="user-list-item__sign font-weight-light col"> <?php echo $user['user_sign']; ?> </div>

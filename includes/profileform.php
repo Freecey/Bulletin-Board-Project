@@ -5,28 +5,12 @@
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_image_C; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
             <span></span></div>
 
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-2">
             <div class="form-group">
-                <form>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        Gravatar image
-                    </label>
-                </div>
-
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                    Personal Image
-                    </label>
-                </div>
-
+   
 
 
         <div class="">
@@ -46,36 +30,30 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            
-                        <div id="myOverlay"></div>
-<div id="box">
-    <div id="box-inside-div">
-        <div id="fileuploader"></div>
-    </div><!-- #box-inside-div -->
-</div><!-- #box -->
-<div id="main">
-     <h1>Upload a File Page</h1>
 
-    <p>To upload a file, click the button below</p>
-    <input type="button" id="myButt" value="Upload" />
-</div>
-<script>
-    $('#myButt').click(function () {
-    $('#myOverlay').show();
-    $("#box").show();
-    $("#fileuploader").uploadFile({
-        url: "upload_recv.php",
-        fileName: "myfile",
-        onError: function(files,status,errMsg){
-            /* Error because (1) jsFiddle cannot do ajax */
-            /* AND (2) there is no upload_recv.php file! */
-            $('#myOverlay').hide();
-            $('#box').hide();
-            alert('The file is now on the server');
-        }
-    });
-});//END mybutt.click
-    </script>
+
+
+<!-- <input type="file" name="myImage" /> -->
+
+<!-- 
+<form name="frmImage" enctype="multipart/form-data" action=""
+        method="post" class="frmImageUpload">
+        <label>Upload Image File:</label><br /> <input name="userImage"
+            type="file" class="inputFile" /> <input type="submit"
+            value="Submit" class="btnSubmit" />
+    </form>
+ -->
+
+
+
+  <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
+    <div>
+      <span>Upload a File:</span>
+      <input type="file" name="uploadedFile" />
+    </div>
+
+    <input type="submit" name="uploadBtn" value="Upload" />
+  </form>
 
 
 
@@ -90,7 +68,7 @@
 
 
 
-                </form>
+
             </div>
         </div>
 
@@ -101,6 +79,13 @@
                     <div class="text-center <?php echo $UpdateOKClass . ' ' . $nameclasserr; ?>">
                         <?php echo $UpdateOK; ?>    
                         <?php echo $usernameErr; ?>
+                        <?php
+    if (isset($_SESSION['message']) && $_SESSION['message'])
+    {
+      printf('<b>%s</b>', $_SESSION['message']);
+      unset($_SESSION['message']);
+    }
+  ?>
                        
                     </div>
                     <div class="text-center <?php echo $pwdclasserrmm . ' ' . $UpdPWDOKClass . ' ' . $cpwdclasserrmm; ?>">
@@ -134,6 +119,24 @@
                             </label>
                         </div>
 
+                        <div class=" mt-2">
+                    <label class="labels">Avatar Image:</label>
+                    <div class="form-check  ml-2">
+                        <input class="form-check-input" type="radio" name="user_imagefrom"  value="1" <?php if($user_image_C == $user_gravatar){ echo 'checked';} ?>>
+                        <label class="form-check-label" for="user_imagefrom">
+                            Gravatar image
+                        </label>
+                    </div>
+
+
+                    <div class="form-check  ml-2">
+                        <input class="form-check-input" type="radio" name="user_imagefrom" value="2" <?php if( $user_image_C == $data_Sel_USR[user_imglocal] ){ echo 'checked';} ?>>
+                        <label class="form-check-label" for="user_imagefrom">
+                        Personal Image
+                        </label>
+                    </div>
+                    </label>
+                    </div>
                     </div>
 
 
