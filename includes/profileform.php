@@ -47,12 +47,31 @@
 
 
   <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
-    <div>
-      <span>Upload a File:</span>
-      <input type="file" name="uploadedFile" />
+    <!-- <span class="input-group-text" ></span> -->
+
+    <div class="input-group justify-content-center ">
+ 
+        <span  id="">Upload a File:</span>
     </div>
 
-    <input type="submit" name="uploadBtn" value="Upload" />
+
+    <div class="justify-content-center">
+    
+
+        <div class="custom-file input-group-prepend my-3 justify-content-center">
+        
+            <input type="file"  class="input-group-text" name="uploadedFile" />
+        
+        </div>
+    
+        <div class="container">
+             <div class="row">
+                 <div class="col text-center">
+                     <input type="submit" class="input-group-text my-3"  name="uploadBtn" value="Upload" />
+                     </div>
+                </div>
+            </div>
+         </div>
   </form>
 
 
