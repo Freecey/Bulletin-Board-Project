@@ -17,9 +17,18 @@ buttons.forEach((button, index) => {
 
 
 function toggle(index) {
-    console.log(index);
     tooltips[index].classList.toggle('shown')
 }
+const pickers = Array.from(document.getElementsByTagName('emoji-picker'));
 
-document.querySelector('emoji-picker')
-    .addEventListener('emoji-click', event => console.log(event.detail));
+pickers.forEach((picker, index) => {
+    picker.addEventListener('emoji-click', event => {
+        console.log(event.detail.unicode, index);
+        // $.ajax({
+        //     url: 'emoji-reaction.php',
+        //     type: 'GET',
+        //     data: 'id=' + topic_id,
+        //     dataType: 'html'
+        // })
+    });
+});

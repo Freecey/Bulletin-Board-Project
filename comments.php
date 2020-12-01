@@ -25,6 +25,7 @@
                 font-size: 13px;
                 border-radius: 4px;
             }
+
             #arrow,
             #arrow::before {
                 position: absolute;
@@ -121,9 +122,18 @@
                                                             echo $date->format('D M d, Y H:i:s');
                                                         ?></p>
                                                         <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
-                                                        <button type="button" class="btn btn-light btn-sm">
-                                                            Reactions <span class="badge">4</span>
+                                                        <?php
+                                                            $reactions = getReactions($post['post_id']);
+                                                            while($reaction = $reactions->fetch()) {
+                                                        ?>
+                                                        <button type="button" class="btn btn-light btn-sm reactionButton">
+                                                        <?= $reaction['postreact_content']; ?><span class="badge">1</span>
                                                         </button>
+                                                        <?php  
+                                                            }
+                                                            $reactions->closeCursor();
+                                                        ?>
+                                                        
                                                     </div>
                                                     <div class="reaction">
                                                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -145,6 +155,7 @@
                                     </div>
                                     <?php 
                                         }
+                                        $req->closeCursor();
                                     ?>
                                 </div>
                             </div>

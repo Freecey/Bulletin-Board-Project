@@ -32,6 +32,13 @@ function getPosts($id) {
     return $query;
 }
 
+function getReactions($post_id) {
+    require('includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
+    $query->execute(array($post_id));
+    return $query;
+}
+
 function getAllPostsFromBoard($board_id) {
     require('includes/connect.php');
     $query = $conn->prepare('SELECT post_id FROM posts WHERE post_topic IN (SELECT topic_id FROM topics WHERE topic_board = :topics)');
