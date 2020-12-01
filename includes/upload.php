@@ -31,7 +31,8 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
         //$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
         $imglocalURL = 'https://'. $_SERVER['HTTP_HOST'] .'/uploaded/users/'.$newFileName;
         $UPDATEQuerySQL3 = "UPDATE `users` 
-        SET `user_imglocal` = '$imglocalURL'
+        SET `user_imglocal` = '$imglocalURL',
+            `user_image` = '$imglocalURL'
                 WHERE `users`.`user_id` = $_SESSION[user_id]";
         // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL3);

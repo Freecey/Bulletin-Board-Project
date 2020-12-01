@@ -48,7 +48,7 @@ try {
             // Get IP address of client
             include('includes/function/getip.php');
             $userlast_ip = getRealIpAddr();
-            
+            include 'includes/function/loginoklog.php';
             // Store IP and update gravatar
             $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar',`user_last_ip` = '$userlast_ip'   WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);
