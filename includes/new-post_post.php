@@ -11,6 +11,7 @@
             if (!empty($new_post_msg)) {
                 $insert = $conn -> prepare('INSERT INTO posts(post_topic, post_content, post_by,  post_date)VALUES( ?, ?, ?, NOW())');
                 $insert ->execute(array($topic_id, $new_post_msg, $_SESSION['user_id'],));
+                include "topics_mail.php";
                 $post_alert = "Your message has been posted.";
                 header('Location: ../comments.php?id='. $_SESSION['topic_id']);
             }else{ 
