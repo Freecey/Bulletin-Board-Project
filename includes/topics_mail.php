@@ -131,7 +131,7 @@ try {
 
         //Recipients
         $mail->setFrom($eMailFromEMail, 'BBS-Queen NOREPLY');
-        $mail->addAddress('cedric@audrit.be', $USER_TOPIC_LIST );     // Add a recipient
+        $mail->addAddress($USER_DT_MAIL[user_email], $USER_DT_MAIL[user_name]);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
@@ -167,7 +167,7 @@ try {
 
         //Recipients
         $mail->setFrom($eMailFromEMail, 'BBS-Queen NOREPLY');
-        $mail->addAddress('cedric@audrit.be', $USER_TOPIC_LIST );     // Add a recipient
+        $mail->addAddress($USER_DT_MAIL[user_email], $USER_DT_MAIL[user_name]);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
