@@ -7,6 +7,13 @@ function getBoards() {
     return $query;
 }
 
+function getBoard($id) {
+    require('includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM boards WHERE board_id = ?');
+    $query->execute([$id]);
+    return $query;
+}
+
 function getTopics($id) {
     require('includes/connect.php');
 
