@@ -9,8 +9,52 @@
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script type="text/javascript" src="js/functions.js"></script>
+        <!-- <script type="text/javascript" src="js/functions.js"></script> -->
         <script src="js/simplemde.min.js"></script>
+        <style>
+            .emojiTooltip:not(.shown) {
+                display: none;
+                z-index: 1000;
+            }
+
+            .emojiTooltip {
+                background: #333;
+                color: white;
+                font-weight: bold;
+                padding: 4px 8px;
+                font-size: 13px;
+                border-radius: 4px;
+            }
+            #arrow,
+            #arrow::before {
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                z-index: -1;
+            }
+
+            #arrow::before {
+                content: '';
+                transform: rotate(45deg);
+                background: #333;
+            }
+
+            .emojiTooltip[data-popper-placement^='top'] > #arrow {
+                bottom: -4px;
+            }
+
+            .emojiTooltip[data-popper-placement^='bottom'] > #arrow {
+                top: -4px;
+            }
+
+            .emojiTooltip[data-popper-placement^='left'] > #arrow {
+                right: -4px;
+            }
+
+            .emojiTooltip[data-popper-placement^='right'] > #arrow {
+                left: -4px;
+            }
+        </style>
     </head>
     <body>
         
@@ -69,19 +113,33 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-7 col-md-9 col-lg-10">
-                                                <p class="text-secondary">
-                                                <?php
-                                                    $date = new DateTime($post['post_date']);
-                                                    echo $date->format('D M d, Y H:i:s');
-                                                ?></p>
-                                                <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
-                                                
-                                                <a data-placement="bottom" data-toggle="popover" data-container="body" data-placement="left" type="button" data-html="true" href="#" id="login"><i class="far fa-laugh-wink"></i></a>
-                                                <div id="popover-content" class="hide">
-                                                    <emoji-picker></emoji-picker>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="content">
+                                                        <p class="text-secondary">
+                                                        <?php
+                                                            $date = new DateTime($post['post_date']);
+                                                            echo $date->format('D M d, Y H:i:s');
+                                                        ?></p>
+                                                        <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
+                                                        <button type="button" class="btn btn-light btn-sm">
+                                                            Reactions <span class="badge">4</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="reaction">
+                                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                                            <div class="btn-group" role="group" aria-label="Third group">
+                                                                <button type="button" class="btn btn-outline emojiButton" onclick="toggle()"><i class="far fa-laugh-wink"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="emojiTooltip" role="tooltip">
+                                                            <emoji-picker></emoji-picker>
+                                                            <div id="arrow" data-popper-arrow></div>
+                                                        </div>
+                                                    </div>
+                                                    
                                                 </div>
                                                 <hr>
-                                                <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
+                                                    <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -112,10 +170,13 @@
         <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
-        <!-- <script type="text/javascript" src="./js/emoji-reaction.js"></script> -->
+        
         <script type="text/javascript" src="scroll-up-btn.js"></script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
+        <script type="text/javascript" src="./js/emoji-reaction.js"></script>
 
         <script type="text/javascript">
             let posts = document.getElementsByClassName('post-content');
@@ -127,14 +188,7 @@
             });
         </script>
 
-        <script type="text/javascript">
-            $("[data-toggle=popover]").popover({
-            html: true, 
-            content: function() {
-                return $('#popover-content').html();
-                }
-        });
-        </script>
+        
         
     </body>
 </html>
