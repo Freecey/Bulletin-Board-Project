@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('./../includes/connect.php');
+    require('./../connect.php');
     $postId = '';
     $emoji = '';
     $userId = $_SESSION['user_id'];
@@ -12,6 +12,4 @@
     $query = $conn->prepare('INSERT INTO `postreact`(`postreact_post`, `postreact_user`, `postreact_content`)
                             VALUES (:postId,:userId,:emoji)');
     $query->execute(array('postId'=>$postId, 'userId'=>$userId, 'emoji'=>$emoji));
-    echo 'les données récupérées sont '. $postId . ', ' . $emoji . ' et le user id: '. $userId .'. Tout est à jour.';
-
 ?>

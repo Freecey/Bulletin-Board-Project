@@ -33,7 +33,18 @@ function getPosts($id) {
 }
 
 function getReactions($post_id) {
-    require('includes/connect.php');
+    // require('includes/connect.php');
+
+    try
+    {
+        $conn = new PDO('mysql:host=db.bbs-queen.neant.be; port=33060; dbname=BCBB', 'bcbb-site', 'BCBB0pwdSITE--',
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' .$e->connect_error);
+    }
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
     $query->execute(array($post_id));
     return $query;

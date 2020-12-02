@@ -113,24 +113,17 @@
                                             </div>
                                             <div class="col-12 col-sm-7 col-md-9 col-lg-10">
                                                 <div class="d-flex justify-content-between">
-                                                    <div class="content">
+                                                    <div class="content message">
                                                         <p class="text-secondary">
                                                         <?php
                                                             $date = new DateTime($post['post_date']);
                                                             echo $date->format('D M d, Y H:i:s');
                                                         ?></p>
                                                         <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
-                                                        <?php
-                                                            $reactions = getReactions($post['post_id']);
-                                                            while($reaction = $reactions->fetch()) {
-                                                        ?>
-                                                        <button type="button" class="btn btn-light btn-sm reactionButton">
-                                                        <?= $reaction['postreact_content']; ?><span class="badge">1</span>
-                                                        </button>
-                                                        <?php  
-                                                            }
-                                                            $reactions->closeCursor();
-                                                        ?>
+                                                        
+                                                        <div emojiPost_id="<?= $post['post_id']; ?>">
+                                                            <?php include './includes/emojiReaction/updateEmojiReaction.php'; ?>
+                                                        </div>
                                                         
                                                     </div>
                                                     <div class="reaction">
