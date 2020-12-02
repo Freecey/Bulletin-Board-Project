@@ -69,10 +69,10 @@
 
                        </select>
                    </div>
-                   <div class="col-md-4"><label class="labels">Board Status (0= disable/1=enable)</label>
+                   <div class="col-md-6"><label class="labels">Board Status <small>(0= disable/1=enable/2=secret)</small></label>
                        <select class="custom-select" name="board_status">    
                                              <?php 
-                       for($i=0;$i<=1;$i++)
+                       for($i=0;$i<=2;$i++)
                        {
                            if ($i == $ADD_board_status){
                                echo "<option value='$i' selected>".$i."</option>";
