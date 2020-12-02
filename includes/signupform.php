@@ -65,7 +65,7 @@
 			</div>
 		</form>	
 
-		<div class="m-3">Read : <a href="./terms.html">Terms of use</a>  &bull;  <a href="./policy.html">Privacy policy</a></div>
+		<div class="m-3">Read : <a href="./terms.php">Terms of use</a>  &bull;  <a href="./policy.php">Privacy policy</a></div>
 	
 	</div>
 </div>

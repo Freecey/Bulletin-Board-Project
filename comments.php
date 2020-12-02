@@ -72,7 +72,15 @@
                                                 <p class="text-secondary">
                                                 <?php
                                                     $date = new DateTime($post['post_date']);
+                                                    $post_dtupade = $post['post_date_update'];
+                                                    //$post_dtupade = $post_dtupade->date('D M d, Y H:i:s');
+                                                    echo '<small>';
                                                     echo $date->format('D M d, Y H:i:s');
+                                                    if(isset($post_dtupade)){
+                                                        echo ' - last update ';
+                                                        echo $post_dtupade; //->format('D M d, Y H:m:s');
+                                                    }
+                                                    echo '</small>';
                                                 ?></p>
                                                 <p class="post-content"><?php if( $post[post_deleted] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
                                                 <hr>
