@@ -15,7 +15,7 @@
                         <?php  if($_SESSION['loginOK'] == '1') {
                                 echo '
                                  <li class="nav-item">
-                                <a href="profile.php" class="nav-link"><i class="fas fa-sign-in-alt"></i> Welcome ' . $_SESSION[user_name] . '</a>
+                                <a href="/profile.php" class="nav-link"><i class="fas fa-user-cog"></i></i></i> Welcome ' . $_SESSION[user_name] . ' <img class="rounded-circle" src="'.$_SESSION[user_image].'" width="25"></a>
                                 </li>';
                                 } else {
                                     echo '  <li class="nav-item">

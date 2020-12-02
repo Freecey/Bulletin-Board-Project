@@ -60,11 +60,14 @@
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                         <?php 
-                                                        if(($post[post_by] == $_SESSION[user_id]) AND ($post[post_deleted] == 0)){
-                                                            echo '<a href="postedit.php?postedit_id='. $post[post_id] .'">
-                                                            <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
-                                                            </a>';
-                                                        } ?>
+                                                        $reqlastPost = getLastPost();
+                                                        while ($lastPost = $reqlastPost->fetch()) {
+                                                           if(($post[post_by] == $_SESSION[user_id]) AND ($post[post_deleted] == 0)){
+                                                                echo '<a href="postedit.php?postedit_id='. $post[post_id] .'">
+                                                                <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
+                                                                </a>';
+                                                            } 
+                                                        }?> 
                                                     </div>
                                                 </div>
                                             </div>

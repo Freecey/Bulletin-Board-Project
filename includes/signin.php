@@ -36,7 +36,7 @@ try {
             $_SESSION['user_level'] = $SignInDATA['user_level'];
             $_SESSION['user_name'] = $SignInDATA['user_name'];
             $_SESSION['user_id'] = $SignInDATA['user_id'];
-            $_SESSION['user_gravatar'] = $SignInDATA['user_gravatar'];
+            $_SESSION['user_image'] = $SignInDATA['user_image'];
             $user_ID = $SignInDATA['user_id'];
             
             // Check if user have a gravatar if not set default picture
@@ -48,7 +48,7 @@ try {
             // Get IP address of client
             include('includes/function/getip.php');
             $userlast_ip = getRealIpAddr();
-            
+            include 'includes/function/loginoklog.php';
             // Store IP and update gravatar
             $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar',`user_last_ip` = '$userlast_ip'   WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);

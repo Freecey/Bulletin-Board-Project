@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-xl-9 col-md-8">
                         <?php 
-                            if ($_SERVER['REQUEST_URI'] == "/Bulletin-Board-Project/board_is_secret.php?id=" . $board['board_id'] . "ilovepizzawithananas") {
+                            if ($_SERVER['REQUEST_URI'] == "/board_is_secret.php?id=" . $board['board_id'] . "ilovepizzawithananas") {
                                 header("Location: topics.php?id=". $board['board_id']);
                             } else {
                             ?>
