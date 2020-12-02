@@ -1,4 +1,9 @@
 <?php 
+if ($_GET[search] == 'ilovepizzawithananas'){
+    header("location:/board_is_secret.php?id=6ilovepizzawithananas"); 
+}
+
+
     include 'includes/1head.php';
     include 'includes/2body.php';
     include 'includes/req_search.php';
