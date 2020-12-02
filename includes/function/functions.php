@@ -33,7 +33,7 @@ function getPosts($id) {
 }
 
 function getReactions($post_id) {
-    // require('includes/connect.php');
+    //require('includes/connect.php');
 
     try
     {

@@ -27,7 +27,7 @@ pickers.forEach((picker, index) => {
         console.log(event.detail.unicode, index);
         const post_id = picker.getAttribute('post_id');
         $.ajax({
-            url: 'http://localhost:8888/Bulletin-Board-Project/includes/emojiReaction/addEmojiReaction.php',
+            url: './includes/emojiReaction/addEmojiReaction.php',
             type: 'GET',
             data: 'post_id=' + post_id + '&emoji=' + event.detail.unicode,
             //dataType: 'html',
@@ -48,7 +48,7 @@ pickers.forEach((picker, index) => {
 
 let updateEmojiButtons = (index) => {
     $.ajax({
-        url: 'http://localhost:8888/Bulletin-Board-Project/includes/emojiReaction/updateEmojiReaction.php',
+        url: './includes/emojiReaction/updateEmojiReaction.php',
         type: 'GET',
         data: 'post_id=' + index,
         success: (data) => {
