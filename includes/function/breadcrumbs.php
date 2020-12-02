@@ -1,8 +1,8 @@
 <?php
-require_once './includes/function/functions.php';
+require_once ($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php'); 
 
 // This function will take $_SERVER['REQUEST_URI'] and build a breadcrumb based on the user's current path
-function breadcrumbs($separator = ' &lsaquo; ', $home = '<i class="fas fa-home"></i> Home') {
+function breadcrumbs($separator = '<i class="fas fa-angle-left mt-1 px-1"></i>', $home = '<i class="fas fa-home "></i> Home') {
     $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
     $key = array_search('comments.php', $path);
     if ($key) {
