@@ -6,11 +6,9 @@
 
 <?php include 'includes/1head.php'; ?>
     <head>
-        <link rel="stylesheet" href="css/simplemde.min.css">
-        <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        
         <!-- <script type="text/javascript" src="js/functions.js"></script> -->
-        <script src="js/simplemde.min.js"></script>
+        
         <style>
             .emojiTooltip:not(.shown) {
                 display: none;
@@ -142,7 +140,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="emojiTooltip" role="tooltip">
-                                                            <emoji-picker></emoji-picker>
+                                                            <emoji-picker post_id="<?= $post['post_id']; ?>"></emoji-picker>
                                                             <div id="arrow" data-popper-arrow></div>
                                                         </div>
                                                     </div>
@@ -182,7 +180,7 @@
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
         
-        <script type="text/javascript" src="scroll-up-btn.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
         <script src="https://unpkg.com/@popperjs/core@2"></script>
