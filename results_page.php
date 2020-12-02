@@ -19,7 +19,7 @@ if ($_GET[search] == 'ilovepizzawithananas'){
 <div class="container-fluid bg-light rounded-lg m-2">
     <div class="gradient-header row d-flex align-items-center">
         <div class="card-header__element col-7">
-            <p class="h6 mb-1">Topics Results</p>
+            <p class="h6 mb-1">Topics Subject Results</p>
         </div>
     </div>
     

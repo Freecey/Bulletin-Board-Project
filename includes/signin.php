@@ -65,10 +65,10 @@ catch (PDOException $Exception) {
 
 }
 
-
+echo        '<div class="justify-content-center col-12  center-block row">';
 if ($_SESSION['loginOK']  == true) {
         echo '<div class="m-2">';
-        echo 'Welcome ';echo $_SESSION['user_name'];
+        echo 'Welcome ';echo '<b>'.$_SESSION[user_name].'</b>';
         echo '</div>';
 
 
@@ -82,32 +82,27 @@ if ($_SESSION['loginOK']  == true) {
         // You're on the root route index.php
     } else {
         echo '
+        <div class="col col-10">
         <a class="text-white" href="/">
-        <div class="my-2  btn btn-primary btn-block rounded-pill" >
+        <div class="my-1  btn btn-primary btn-block rounded-pill" >
             Home
-        </div></a>';
+        </div></a>
+        </div>';
     }
     if ( $uri == "/profile.php" )
     {
         // You're on the root route
     } else {
-        echo '<a class="text-white" href="profile.php">
-        <div class="my-2 btn btn-primary btn-block rounded-pill" >
+        echo '
+        <div class="col col-10">
+        <a class="text-white" href="profile.php">
+        <div class="my-1 btn btn-info btn-block rounded-pill" >
             Your Profil
-        </div></a>';
+        </div></a>
+        </div>';
     }
-    if($_SESSION[user_level] >= 2 ){
-        echo '
-        <a class="text-white" href="./admin/">
-        <div class="my-2  btn btn-primary btn-block rounded-pill" >
-            Admin
-        </div></a>';
-    }
-        echo '
-        <a class="text-white" href="logout.php">
-        <div class="my-2  btn btn-primary btn-block rounded-pill" >
-            Logout
-        </div></a>';
+
+
         // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
         // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {

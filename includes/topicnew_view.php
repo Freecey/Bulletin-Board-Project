@@ -50,7 +50,7 @@ try {
             $ADD_post_exclsearch = 1;
         }else{
             $ADD_topics_exclsearch	= 0;
-            $ADD_post_exclsearch = 1;
+            $ADD_post_exclsearch = 0;
         }
 
         if($ADD_topic_subject == ''){

@@ -36,6 +36,7 @@
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/sidebutton2.php'); ?>
                     </div>
                 </div>
             </div>
