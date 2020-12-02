@@ -18,9 +18,9 @@ function getTopics($id) {
     require('includes/connect.php');
 
     if ($id == 7) {
-        $query = $conn->prepare('SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC LIMIT 5');
+        $query = $conn->prepare('SELECT * FROM topics WHERE topic_board = ? AND topic_status != 2 ORDER BY topic_date DESC LIMIT 5');
     }else {
-     $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC");
+     $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status != 2  ORDER BY topic_date DESC");
     }
 
     $query->execute(array($id));
@@ -150,6 +150,7 @@ function getBreadcrumbs() {
             posts.post_id,
             posts.post_content,
             posts.post_date,
+            posts.post_date_update,
             posts.post_by,
             posts.post_deleted,
             users.user_name,
