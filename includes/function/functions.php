@@ -2,7 +2,7 @@
 
 function getBoards() {
     require('includes/connect.php');
-    $query = $conn->prepare('SELECT * FROM boards ORDER BY board_id');
+    $query = $conn->prepare('SELECT * FROM boards WHERE board_status = 1 ORDER BY board_id');
     $query->execute();
     return $query;
 }
