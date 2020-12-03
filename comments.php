@@ -14,7 +14,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
-        <!-- <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script> -->
         <script src="/js/simplemde.min.js"></script>
     </head>
 
