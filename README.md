@@ -3,11 +3,20 @@
 A simple bulletin board system based on ```PHP``` and ```MySQL```.
 
 ___
+
+## Live Demo
+
+ [https://bbs-queen.neant.be/](https://bbs-queen.neant.be/)
+ 
+ [https://bbs-queen.herokuapp.com/](http://bbs-queen.neant.be/)
+
+___
+
 ## Features
 
 ### Generals
 - responsive design
-- session with cookies
+- session browser
 - Policy & Terms
 - 404 & 50x page error
 
@@ -18,19 +27,30 @@ ___
 - Profile pages(views and editing)
 - user image using gravatar
 - Admin Section
-- User Permission lvl
+- User Permission lvl (user, moderator, admin, ...)
+- Ban users system
+- log failed login (store IP, Browser/OS, URLfrom, Datetime, email and password try)
 
 ### Content
 - Create & edit Board
 - Create & edit Topic
 - Post and reply to topic message
 - Search in Topics name and messages content
+- Markdown interpretation for content
+
+### Admin Section
+- only for moderator and admin
+- Announces creation/edition
+- boards creation/edition
+- topics edition (creation link to create link normal user)
+- Users edition (only for admin)
+- Site Setting (only for admin)
 
 ### Soon
-- Markdown interpretation for content (in post/sign/desciption)
 - emojis supported
 
 ___
+
 ## Technology used and specification
 
 - html.
@@ -40,14 +60,13 @@ ___
 - sass.
 - bootstrap.
 - Javascript.
+- phpmailer
 
 ___
+
 ## Screen Shot
 
-![alt text](resources/Screenshot_Main.png?raw=true "Main Page loged" )
-![alt text](resources/Screenshot_ReadPost.png?raw=true "Read Post" )
-![alt text](resources/Screenshot_PwdRev.png?raw=true "Password Recovery" )
-![alt text](resources/Screenshot_PrivProfile.png?raw=true "Profile Editing by user" )
+See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
 
 ___
 ## Folder Structure
@@ -55,90 +74,32 @@ ___
 ```
     .
     ├── .sass-cache/                # sass cache folder
+    ├── .vscode/                    # json file setting
     ├── admin/                      # Admin/Moderator Section management
-    │   ├── boards.php
-    │   ├── boardscreat.php
-    │   ├── boardsedit.php
-    │   ├── index.php
-    │   ├── users.php
-    │   └── usersedit.php
-    ├── assets/                     # folder for
+    ├── assets/                     # folder for img
+    │   ├── 404/
+    │   ├── 500/
+    │   ├── avatar/
+    │   ├── pwdforgot/
+    │   └── topics/
     ├── css/                        # folder for CSS files
-    │   ├── main.css 
-    │   └── main.css.map 
     ├── includes/                   # folder for All php content 
     │   ├── admin/
-    │   │   ├── admin_content.php
-    │   │   ├── admin_view.php
-    │   │   ├── boards_form.php
-    │   │   ├── boards_view.php
-    │   │   ├── boardscreat_form.php
-    │   │   ├── boardscreat_view.php
-    │   │   ├── boardsedit_form.php
-    │   │   ├── boardsedit_view.php
-    │   │   ├── session_userlvl.php
-    │   │   ├── sidemenu.php
-    │   │   ├── users_form.php
-    │   │   ├── users_view.php
-    │   │   ├── usersedit_form.php
-    │   │   ├── usersedit_view.php
-    │   │   └── american-english
     │   ├── function/
-    │   │   ├── checkurl.php
-    │   │   └── getip.php
-    │   ├── american-english
-    │   ├── breadcrumb.php
-    │   ├── connect.php
-    │   ├── footer.php
-    │   ├── gravatars.php
-    │   ├── header.php
-    │   ├── lostpwd.php
-    │   ├── lostpwdform.php
-    │   ├── posts_pagination_reply.php
-    │   ├── profile-upd.php
-    │   ├── profileform.php
-    │   ├── randomword.php
-    │   ├── search.php
-    │   ├── session.php
-    │   ├── signin.php
-    │   ├── signinform.php
-    │   ├── signup.php
-    │   └── signupform.php
+    │   └── getdata/
     ├── js/                         # folder for JS script
     ├── node_modules/               # folder for all node modules
     ├── resources/
-    │   ├── db_strucure.jpg         # Database Structure
-    │   ├── bbs-queen.sql           # SQL files to import to mysql
-    │   └── teams-4p.jpg            # Teams pictures
-    ├── sass/                       # SASS lib
-    ├── 404.php
-    ├── 500.php
-    ├── CODE_OF_CONDUCT.md
-    ├── comments.php
-    ├── CONTRIBUTING.md
-    ├── favicon.ico
-    ├── index.php
-    ├── LICENSE
-    ├── login.php
-    ├── logout.php
-    ├── lostpwd.php
-    ├── package-lock.json
-    ├── package.json
-    ├── policy.html
-    ├── profile.php
-    ├── README.md
-    ├── robots.txt
-    ├── scroll-up-btn.js
-    ├── signup.php
-    ├── terms.html
-    └── topics.php
+    └── sass/                       # SASS lib
 ```    
-
+more info on Files & Folders Structure See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki/Files-Folder-Structure)
 ___
 
 ## Database Structure
 
-![alt text](resources/db_strucure.jpg?raw=true "Database Structure" )
+For explaine of tables see [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki/DataBase-Structure)
+
+![alt text](resources/db_structure.png?raw=true "Database Structure" )
 
 (pvmsg table is not used at this time, create for future feature)
 
@@ -168,6 +129,12 @@ DocumentRoot /path/to/site
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
+        
+        ErrorDocument 404 /404.php
+        ErrorDocument 500 /500.php
+        ErrorDocument 502 /500.php
+        ErrorDocument 503 /500.php
+        ErrorDocument 504 /500.php
 </Directory>
 ```
 And restart your apache by
@@ -187,7 +154,15 @@ or
 ```
 sudo mysql < bbs-queen.sql
 ```
+
 ___
+
+## Wiki
+
+More info see Wiki [Click Here](https://github.com/Freecey/Bulletin-Board-Project/wiki)
+
+___
+
 ## Contributor
 
 
@@ -200,5 +175,6 @@ ___
 * Cedric AUDRIT     [@freecey](https://github.com/freecey/)
 
 ___
+
 ## License
 Please see [LICENSE](https://raw.githubusercontent.com/Freecey/Bulletin-Board-Project/master/LICENSE) file for more details.

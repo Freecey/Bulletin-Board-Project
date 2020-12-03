@@ -5,7 +5,92 @@
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_gravatar; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_image_C; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
+            <span></span></div>
+
+        <div class="d-flex flex-column align-items-center text-center p-3 py-2">
+            <div class="form-group">
+   
+
+
+        <div class="">
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+            <button type="button" id="btn-post-reply" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModal">Upload image <i class="fas fa-long-arrow-alt-left"></i></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Upload Personnal Image</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+<!-- <input type="file" name="myImage" /> -->
+
+<!-- 
+<form name="frmImage" enctype="multipart/form-data" action=""
+        method="post" class="frmImageUpload">
+        <label>Upload Image File:</label><br /> <input name="userImage"
+            type="file" class="inputFile" /> <input type="submit"
+            value="Submit" class="btnSubmit" />
+    </form>
+ -->
+
+
+
+  <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
+    <!-- <span class="input-group-text" ></span> -->
+
+    <div class="input-group justify-content-center ">
+ 
+        <span  id="">Upload a File:</span>
+    </div>
+
+
+    <div class="justify-content-center">
+    
+
+        <div class="custom-file input-group-prepend my-3 justify-content-center">
+        
+            <input type="file"  class="input-group-text" name="uploadedFile" />
+        
+        </div>
+    
+        <div class="container">
+             <div class="row">
+                 <div class="col text-center">
+                     <input type="submit" class="input-group-text my-3"  name="uploadBtn" value="Upload" />
+                     </div>
+                </div>
+            </div>
+         </div>
+  </form>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
         </div>
         <div class="col-xl-9 col-md-9 border-right">
             <div class="p-3 py-5">
@@ -13,6 +98,13 @@
                     <div class="text-center <?php echo $UpdateOKClass . ' ' . $nameclasserr; ?>">
                         <?php echo $UpdateOK; ?>    
                         <?php echo $usernameErr; ?>
+                        <?php
+    if (isset($_SESSION['message']) && $_SESSION['message'])
+    {
+      printf('<b>%s</b>', $_SESSION['message']);
+      unset($_SESSION['message']);
+    }
+  ?>
                        
                     </div>
                     <div class="text-center <?php echo $pwdclasserrmm . ' ' . $UpdPWDOKClass . ' ' . $cpwdclasserrmm; ?>">
@@ -46,6 +138,24 @@
                             </label>
                         </div>
 
+                        <div class=" mt-2">
+                    <label class="labels">Avatar Image:</label>
+                    <div class="form-check  ml-2">
+                        <input class="form-check-input" type="radio" name="user_imagefrom"  value="1" <?php if($user_image_C == $user_gravatar){ echo 'checked';} ?>>
+                        <label class="form-check-label" for="user_imagefrom">
+                            Gravatar image
+                        </label>
+                    </div>
+
+
+                    <div class="form-check  ml-2">
+                        <input class="form-check-input" type="radio" name="user_imagefrom" value="2" <?php if( $user_image_C == $data_Sel_USR[user_imglocal] ){ echo 'checked';} ?>>
+                        <label class="form-check-label" for="user_imagefrom">
+                        Personal Image
+                        </label>
+                    </div>
+                    </label>
+                    </div>
                     </div>
 
 

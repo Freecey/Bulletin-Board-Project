@@ -46,7 +46,7 @@
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar-sm rounded-circle" src="<?= $post['user_gravatar'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s gravatar" width="90">
+                                                        <img class="avatar-sm rounded-circle" src="<?= $post['user_image'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s Avatar Picture" width="90">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
@@ -66,7 +66,15 @@
                                                         <p class="text-secondary">
                                                         <?php
                                                             $date = new DateTime($post['post_date']);
+                                                            $post_dtupade = $post['post_date_update'];
+                                                            //$post_dtupade = $post_dtupade->date('D M d, Y H:i:s');
+                                                            echo '<small>';
                                                             echo $date->format('D M d, Y H:i:s');
+                                                            if(isset($post_dtupade)){
+                                                                echo ' - last update ';
+                                                                echo $post_dtupade; //->format('D M d, Y H:m:s');
+                                                            }
+                                                            echo '</small>';
                                                         ?></p>
                                                         <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
                                                         

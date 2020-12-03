@@ -1,9 +1,16 @@
 <?php
 
 function getBoards() {
-    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
-    $query = $conn->prepare('SELECT * FROM boards ORDER BY board_id');
+    require('includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM boards WHERE board_status != 0 ORDER BY board_id');
     $query->execute();
+    return $query;
+}
+
+function getBoard($id) {
+    require('includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM boards WHERE board_id = ?');
+    $query->execute([$id]);
     return $query;
 }
 
@@ -150,10 +157,12 @@ function getBreadcrumbs() {
             posts.post_content,
             posts.post_deleted,
             posts.post_date,
+            posts.post_date_update,
             posts.post_by,
             posts.post_deleted,
             users.user_name,
             users.user_gravatar,
+            users.user_image,
             users.user_sign,
             users.user_id
         FROM

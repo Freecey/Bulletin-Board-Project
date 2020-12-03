@@ -12,5 +12,5 @@
 //     `logattempt_pwd` varchar(255) NOT NULL DEFAULT '0'
 
 $req_logfail = $conn->query("SELECT * FROM logattempts"); 
-
+$req_loginok = $conn->query("SELECT * FROM loginok"); 
 ?>

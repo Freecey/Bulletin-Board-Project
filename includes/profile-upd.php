@@ -17,11 +17,20 @@ $size = '90';
 include('includes/gravatars.php');
 $user_gravatar = $grav_url;
 
+$user_image_C = $data_Sel_USR[user_image];
+
 if($_SESSION[ProfileUPDATEComplet] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Profile Update Successfully';
     unset($_SESSION['ProfileUPDATEComplet']);
 }
+
+if($_SESSION['uploadProfOK'] == 'ULPictOK'){
+    $UpdateOKClass = 'bg-success text-white';
+    // $UpdateOK = 'image Upload Successfully';
+    unset($_SESSION['uploadProfOK']);
+}
+ ;
 
 // Popote pour la date et mis a 0 si autre selectionner
 $user_datebirthday = $data_Sel_USR['user_datebirthday'];
@@ -61,6 +70,31 @@ if( $data_Sel_USR['user_level'] == 1 ) {
 // echo "-----";
 // echo $dbResErr;
 
+// if (count($_FILES) > 0) {
+//     if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+//         $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
+//         $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
+        
+
+
+//         $UploadIMGQ = "INSERT INTO output_images(user_imgtype ,user_image)
+//         VALUES('{$imageProperties['mime']}', '{$imgData}') WHERE `users`.`user_id` = $user_id";
+//         // echo $UPDATEQueryPWD;
+//         $UpdateImgINSERT= $conn->prepare($UploadIMGQ);
+//         $UpdateImgINSERT->execute();
+
+
+//     //     $conn = "INSERT INTO output_images(user_imgtype ,user_image)
+// 	// VALUES('{$imageProperties['mime']}', '{$imgData}') WHERE `users`.`user_id` = $user_id";
+//     //     $current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
+//     //     if (isset($current_id)) {
+//     //         //header("Refresh:0");
+//     //         echo "HOLALA 13212345 .............";
+//     //     }
+//     }
+// }
+
+
 
 // Prepare and make update of users table
 try {
@@ -76,6 +110,12 @@ try {
         $UPD_DOBm = $_POST['dobm'];
         $UPD_DOBd = $_POST['dobd'];
         $UPD_user_theme= $_POST['user_theme'];
+
+        if($_POST['user_imagefrom'] == 2 ){
+            $user_image = $data_Sel_USR[user_imglocal];
+        }else{
+            $user_image = $user_gravatar;
+        }
         
 
         $UPD_full_DATE = mktime(0, 0, 0, $UPD_DOBm, $UPD_DOBd, $UPD_DOBy);
@@ -97,6 +137,7 @@ try {
                 `user_datebirthday` = '$UPD_DOB',
                  `user_secquest` = '$UPD_user_secquest',
                   `user_secansw` = '$UPD_user_secansw',
+                   `user_image` = '$user_image',
                    `user_gravatar` = '$user_gravatar',
                     `user_theme` = '$UPD_user_theme'
                      WHERE `users`.`user_id` = $_SESSION[user_id]";
@@ -105,6 +146,7 @@ try {
         $Prof_UpdateINSERT->execute();
 
         $_SESSION['user_name'] = $UPD_user_name;
+        $_SESSION['user_image'] = $user_image;
         $_SESSION['ProfileUPDATEComplet'] = true;
         header("Refresh:0");
     }
@@ -144,6 +186,11 @@ try {
             }
         }
     }
+    // elseif(isset($_POST['uploadpic'])){
+    //     echo '<img src="'. $_FILES .'" alt="" />';
+    //     echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
+    //     echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+    //     }
 }
 
 
