@@ -67,14 +67,14 @@ $MailSETTINGdata=$selectSETTING->fetch();
 
 //set_SMTPAuth
 //set_SMTPAuthType
-$eMailSiteN     = $MailSETTINGdata[set_sitename];
-$eMailServer    = $MailSETTINGdata[set_stmpsrv];
-$eMailPort      = $MailSETTINGdata[set_stmpport];
-$eMailUser      = $MailSETTINGdata[set_stmpusr];
-$eMailPass      = $MailSETTINGdata[set_stmppass];
-$eMailToEMail   = $MailSETTINGdata[set_emailmgr];
-$eMailFromEMail = $MailSETTINGdata[set_emailsite];
-$eMailFromName  = $MailSETTINGdata[set_headername];
+$eMailSiteN     = $MailSETTINGdata['set_sitename'];
+$eMailServer    = $MailSETTINGdata['set_stmpsrv'];
+$eMailPort      = $MailSETTINGdata['set_stmpport'];
+$eMailUser      = $MailSETTINGdata['set_stmpusr'];
+$eMailPass      = $MailSETTINGdata['set_stmppass'];
+$eMailToEMail   = $MailSETTINGdata['set_emailmgr'];
+$eMailFromEMail = $MailSETTINGdata['set_emailsite'];
+$eMailFromName  = $MailSETTINGdata['set_headername'];
 // echo $eMailServer;
 
 // Load Composer's autoloader
@@ -88,7 +88,7 @@ $SelectTOPID->execute();
 
 while($row_by = $SelectTOPID->fetch())
 {
-    $all_user_by[] = $row_by[post_by];
+    $all_user_by[] = $row_by['post_by'];
 }
 
 $all_user_by = array_unique($all_user_by);
@@ -131,7 +131,7 @@ try {
 
         //Recipients
         $mail->setFrom($eMailFromEMail, 'BBS-Queen NOREPLY');
-        $mail->addAddress($USER_DT_MAIL[user_email], $USER_DT_MAIL[user_name]);     // Add a recipient
+        $mail->addAddress($USER_DT_MAIL['user_email'], $USER_DT_MAIL['user_name']);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
@@ -167,7 +167,7 @@ try {
 
         //Recipients
         $mail->setFrom($eMailFromEMail, 'BBS-Queen NOREPLY');
-        $mail->addAddress($USER_DT_MAIL[user_email], $USER_DT_MAIL[user_name]);     // Add a recipient
+        $mail->addAddress($USER_DT_MAIL['user_email'], $USER_DT_MAIL['user_name']);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
