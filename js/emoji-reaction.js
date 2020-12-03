@@ -23,7 +23,7 @@ function toggle(index) {
 
 // on emoji click, save to DB with ajax
 let pickers = Array.from(document.getElementsByTagName('emoji-picker'));
-pickers.forEach((picker) => {
+pickers.forEach(picker => {
     picker.addEventListener('emoji-click', event => {
         const post_id = picker.getAttribute('post_id');
         $.ajax({

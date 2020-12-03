@@ -15,7 +15,7 @@
     <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script src="/js/simplemde.min.js"></script>
     </head>
 
