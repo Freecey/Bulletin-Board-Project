@@ -5,10 +5,10 @@ $url=$_SERVER['HTTP_REFERER'];
 // echo $url;
 
 // Check if form error for reselect the precedent board selection or page from
-if($_POST[board_id] != ''){
-    $FromBoard_ID = $_POST[board_id];
+if($_POST['board_id'] != ''){
+    $FromBoard_ID = $_POST['board_id'];
 }else{
-$FromBoard_ID = $_GET[boardID];
+$FromBoard_ID = $_GET['boardID'];
 }
 
 
@@ -56,9 +56,11 @@ try {
         if($ADD_topic_subject == ''){
             $usernameErr = ' : Topic Name EMPTY';
             $nameclasserr = 'bg-danger text-white';
+            $_SESSION['NewTopicreopenModal'] = 1;
         }elseif($ADD_post_content == ''){
             $MsgErr = ' : EMPTY';
             $Msgclasserr = 'bg-danger text-white';
+            $_SESSION['NewTopicreopenModal'] = 1;
         }else{
 
             $SelectNewTopicID = $conn->prepare("SELECT * FROM `topics` WHERE `topic_subject` = '$ADD_topic_subject' LIMIT 1");
@@ -91,6 +93,11 @@ try {
             $insert ->execute(array($ADD_post_topic, $ADD_post_content, $_SESSION['user_id'],$ADD_post_exclsearch,));       
 
             $_SESSION['BoardUPDATEComplet'] = true;
+            $_SESSION['NewTopicreopenModal'] = `<script>
+            $(document).ready(function(){
+                $("#NewPostModal").modal('show');
+            });
+        </script>`;
             header("Location: ./comments.php?id=$ADD_post_topic");
         }
     }
@@ -102,7 +109,8 @@ catch (PDOException $e) {
 		$usernameErr = ' : Topic Name already used, must be unique';
         $nameclasserr = 'bg-danger text-white';
         // echo '<pre>' . print_r($dbResErr, TRUE) . '</pre>';
-		// $dbResErr = '';
+        // $dbResErr = '';
+        $_SESSION['NewTopicreopenModal'] = 1;
 	}
 }
 
