@@ -1,14 +1,14 @@
 <?php
 
 function getBoards() {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM boards ORDER BY board_id');
     $query->execute();
     return $query;
 }
 
 function getTopics($id) {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     if ($id == 7) {
         $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC LIMIT 5");
     } else {
@@ -19,46 +19,35 @@ function getTopics($id) {
 }
 
 function getAnnounces() {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare("SELECT * FROM announce WHERE ann_status = 1");
     $query->execute();
     return $query;
 }
 
 function getPosts($id) {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM posts WHERE post_topic = ?');
     $query->execute(array($id));
     return $query;
 }
 
 function getReactions($post_id) {
-    //require('includes/connect.php');
-
-    try
-    {
-        $conn = new PDO('mysql:host=db.bbs-queen.neant.be; port=33060; dbname=BCBB', 'bcbb-site', 'BCBB0pwdSITE--',
-        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        
-    }
-    catch (Exception $e)
-    {
-        die('Erreur : ' .$e->connect_error);
-    }
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
     $query->execute(array($post_id));
     return $query;
 }
 
 function getAllPostsFromBoard($board_id) {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT post_id FROM posts WHERE post_topic IN (SELECT topic_id FROM topics WHERE topic_board = :topics)');
     $query->execute(array(':topics' => $board_id));
     return $query;
 }
 
 function getLastPost($topicId) {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('
         SELECT
             users.user_name,
@@ -81,7 +70,7 @@ function getLastPost($topicId) {
 }
 
 function getLastPostsDate($id) {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT
             topics.topic_id,
             posts.post_date
@@ -104,7 +93,7 @@ function getLastPostsDate($id) {
 }
 
 function getLastAnnouce() {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('
         SELECT
             announce.ann_date,
@@ -125,7 +114,7 @@ function getLastAnnouce() {
 }
 
 function getTopicId($id) { 
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT
             topics.topic_id,
             topics.topic_subject,
@@ -145,7 +134,7 @@ function getTopicId($id) {
 }
 
 function getBreadcrumbs() {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     if(isset($_GET['page']) && !empty($_GET['page'])){
         $currentPage = (int) strip_tags($_GET['page']);
     }else{
@@ -189,7 +178,7 @@ function getBreadcrumbs() {
 }
 
     function incrementTopicViews() {
-        require('includes/connect.php');
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
         $query = $conn->prepare("UPDATE topics SET topic_views = topic_views + 1 WHERE topic_id = :topicId");
         $query->execute(array(
             'topicId' => $_GET['id']

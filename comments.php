@@ -1,68 +1,17 @@
 <?php
-    require_once './includes/function/functions.php';
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
     incrementTopicViews();
 // postedit.php?postedit_id=34
 ?>
 
 <?php include 'includes/1head.php'; ?>
-    <head>
-        
-        <!-- <script type="text/javascript" src="js/functions.js"></script> -->
-        
-        <style>
-            .emojiTooltip:not(.shown) {
-                display: none;
-                z-index: 1000;
-            }
-
-            .emojiTooltip {
-                background: #333;
-                color: white;
-                font-weight: bold;
-                padding: 4px 8px;
-                font-size: 13px;
-                border-radius: 4px;
-            }
-
-            #arrow,
-            #arrow::before {
-                position: absolute;
-                width: 8px;
-                height: 8px;
-                z-index: -1;
-            }
-
-            #arrow::before {
-                content: '';
-                transform: rotate(45deg);
-                background: #333;
-            }
-
-            .emojiTooltip[data-popper-placement^='top'] > #arrow {
-                bottom: -4px;
-            }
-
-            .emojiTooltip[data-popper-placement^='bottom'] > #arrow {
-                top: -4px;
-            }
-
-            .emojiTooltip[data-popper-placement^='left'] > #arrow {
-                right: -4px;
-            }
-
-            .emojiTooltip[data-popper-placement^='right'] > #arrow {
-                left: -4px;
-            }
-        </style>
-    </head>
     <body>
-        
-        <?php include('includes/header.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php include('includes/breadcrumb.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">
@@ -85,7 +34,7 @@
                                 </div>
                             </div>
 
-                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
                                     <?php
@@ -153,44 +102,18 @@
                             <div class="row mt-4">
                                 <a href="#" onclick="window.history.go(-1); return false;"><i class="fas fa-chevron-left"></i> Return to the topic section</a>
                             </div>
-                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/posts_pagination_reply.php'); ?>
                         </section>
                         
                     </div>
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
-                        <?php include('includes/search.php'); ?>
-                        <?php include('includes/signin.php'); ?>
-                        <?php include('includes/last-posts.php'); ?>
-                        <?php include('includes/last-active-user.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/search.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/signin.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-posts.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-active-user.php'); ?>
                     </div>
                 </div>
             </div>
         </main>
         
-        <?php include('includes/footer.php'); ?>
-        
-        <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
-            <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
-        </div>
-        
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
-        <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
-        <script type="text/javascript" src="./js/emoji-reaction.js"></script>
-
-        <script type="text/javascript">
-            let posts = document.getElementsByClassName('post-content');
-            
-            Array.from(posts).forEach(post => {
-                const comment = post.innerHTML;
-                const cleanComment = DOMPurify.sanitize(comment)
-                post.innerHTML = marked(cleanComment);
-            });
-        </script>
-
-        
-        
-    </body>
-</html>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/4foot.php'); ?>

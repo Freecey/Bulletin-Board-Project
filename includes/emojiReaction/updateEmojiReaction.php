@@ -1,5 +1,4 @@
 <?php
-    
     $postId = '';
     if( isset($_GET['post_id'])) {
         include('./../function/functions.php');

@@ -1,5 +1,5 @@
 <?php 
-include('includes/connect.php');
+require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
 include('includes/getdata/sitesettingGLOB.php'); ?>
     <!DOCTYPE html>
 <html lang="en">
