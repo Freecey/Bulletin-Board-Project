@@ -70,6 +70,22 @@ function getLastPost($topicId) {
     return $query;
 }
 
+function getLastPostId($topicId) {
+    require('includes/connect.php');
+    $query = $conn->prepare('SELECT
+            *
+        FROM
+            posts
+        WHERE
+            post_topic = ?
+        ORDER BY
+            post_date DESC
+        LIMIT 1
+    ');
+    $query->execute(array($topicId));
+    return $query;
+}
+
 function getLastPostsDate($id) {
     require('includes/connect.php');
     $query = $conn->prepare('SELECT
