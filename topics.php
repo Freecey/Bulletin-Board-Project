@@ -5,12 +5,8 @@ $GetBoardName = $conn->query("SELECT board_name FROM boards WHERE board_id = '$_
 $GetBoardName_result=$GetBoardName->fetch();
 include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <head>
-        <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-        
     </head>
 
     <body>
@@ -35,8 +31,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
                                     ?></h2>
                                     <div class="alert alert-danger" role="alert">
                                     <p data-toggle="modal" data-target="#ModalRules"><i class="fab fa-readme"></i> Forum rules </i> </p>
-                                   
-                                    
 
                                                 <!-- Modal Rules Start -->
                                                 <div class="d-flex justify-content-start">
