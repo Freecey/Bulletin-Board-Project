@@ -1,4 +1,3 @@
-
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php'); 
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php'); 
@@ -13,15 +12,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
         <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
         
     </head>
+
     <body>
-        <?php session_start(); ?>
-        <?php include('includes/connect.php') ?>
-        <?php include('includes/header.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php include('includes/breadcrumb.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">

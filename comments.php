@@ -1,12 +1,15 @@
 <?php
+
     require_once($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php'); 
     require_once($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php'); 
+
     incrementTopicViews();
 // postedit.php?postedit_id=34
 
     $GetTOPName = $conn->query("SELECT topic_subject FROM topics WHERE topic_id = '$_GET[id]' LIMIT 1");
     $GetTOPName_result=$GetTOPName->fetch();
 ?>
+
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <head>
@@ -16,14 +19,14 @@
         <script type="text/javascript" src="js/functions.js"></script>
         <script src="js/simplemde.min.js"></script>
     </head>
+
     <body>
-        
-        <?php include('includes/header.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php include('includes/breadcrumb.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">
@@ -76,7 +79,7 @@
                                 </div>
                             </div>
 
-                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/posts_pagination_reply.php'); ?>
                             <div class="row bg-light rounded-lg pb-3">
                                 <div class="col">
                                     <?php
@@ -94,8 +97,8 @@
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                         <?php 
-                                                        if(($post[post_by] == $_SESSION[user_id]) AND ($post[post_deleted] == 0)){
-                                                            echo '<a href="postedit.php?postedit_id='. $post[post_id] .'">
+                                                        if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0)){
+                                                            echo '<a href="postedit.php?postedit_id='. $post['post_id'] .'">
                                                             <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
                                                             </a>';
                                                         } ?>
@@ -103,66 +106,67 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-7 col-md-9 col-lg-10">
-                                                <p class="text-secondary">
-                                                <?php
-                                                    $date = new DateTime($post['post_date']);
-                                                    $post_dtupade = $post['post_date_update'];
-                                                    //$post_dtupade = $post_dtupade->date('D M d, Y H:i:s');
-                                                    echo '<small>';
-                                                    echo $date->format('D M d, Y H:i:s');
-                                                    if(isset($post_dtupade)){
-                                                        echo ' - last update ';
-                                                        echo $post_dtupade; //->format('D M d, Y H:m:s');
-                                                    }
-                                                    echo '</small>';
-                                                ?></p>
-                                                <p class="post-content"><?php if( $post[post_deleted] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="content message">
+                                                        <p class="text-secondary">
+                                                        <?php
+                                                            $date = new DateTime($post['post_date']);
+                                                            $post_dtupade = $post['post_date_update'];
+                                                            //$post_dtupade = $post_dtupade->date('D M d, Y H:i:s');
+                                                            echo '<small>';
+                                                            echo $date->format('D M d, Y H:i:s');
+                                                            if(isset($post_dtupade)){
+                                                                echo ' - last update ';
+                                                                echo $post_dtupade; //->format('D M d, Y H:m:s');
+                                                            }
+                                                            echo '</small>';
+                                                        ?></p>
+                                                        <p class="post-content"><?php if( $post['post_deleted'] == 0 ) {?> <?= htmlspecialchars($post['post_content']);} else { echo 'deleted'; }; ?></p>
+                                                        
+                                                        <div emojiPost_id="<?= $post['post_id']; ?>">
+                                                            <?php include './includes/emojiReaction/updateEmojiReaction.php'; ?>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="reaction">
+                                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                                            <div class="btn-group" role="group" aria-label="Third group">
+                                                                <button type="button" class="btn btn-outline emojiButton" onclick="toggle()"><i class="far fa-laugh-wink"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="emojiTooltip" role="tooltip">
+                                                            <emoji-picker post_id="<?= $post['post_id']; ?>"></emoji-picker>
+                                                            <div id="arrow" data-popper-arrow></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
                                                 <hr>
-                                                <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
+                                                    <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
                                             </div>
                                         </div>
                                     </div>
                                     <?php 
                                         }
+                                        $req->closeCursor();
                                     ?>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <a href="#" onclick="window.history.go(-1); return false;"><i class="fas fa-chevron-left"></i> Return to the topic section</a>
                             </div>
-                            <?php require('includes/posts_pagination_reply.php'); ?>
+                            <?php require($_SERVER['DOCUMENT_ROOT'].'/includes/posts_pagination_reply.php'); ?>
                         </section>
                         
                     </div>
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
-                        <?php include('includes/search.php'); ?>
-                        <?php include('includes/signin.php'); ?>
-                        <?php include('includes/sidebutton2.php'); ?>
-                        <?php include('includes/last-posts.php'); ?>
-                        <?php include('includes/last-active-user.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/search.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/signin.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-posts.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-active-user.php'); ?>
                     </div>
                 </div>
             </div>
         </main>
         
-        <?php include('includes/footer.php'); ?>
-        
-        <div id="scroll-up-btn" class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Go back to the top">
-            <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
-        </div>
-        
-        <script type="text/javascript" src="scroll-up-btn.js"></script>
-        <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
-        <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
-        <script type="text/javascript">
-            let posts = document.getElementsByClassName('post-content');
-            
-            Array.from(posts).forEach(post => {
-                const comment = post.innerHTML;
-                const cleanComment = DOMPurify.sanitize(comment)
-                post.innerHTML = marked(cleanComment);
-            });
-        </script>
-        
-    </body>
-</html>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/4foot.php'); ?>

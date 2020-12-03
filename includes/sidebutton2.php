@@ -3,7 +3,7 @@
   echo        '<div class="justify-content-center col-12  center-block row">';
 if ($_SESSION['loginOK']  == true) {
         echo '<div class="m-2">';
-        echo 'Welcome ';echo '<b>'.$_SESSION[user_name].'</b>';
+        echo 'Welcome ';echo '<b>'.$_SESSION['user_name'].'</b>';
         echo '</div>';
 
 
@@ -74,7 +74,6 @@ if ($_SESSION['loginOK']  == true) {
         </div></a>
         </div>
 
-       
                     <div class="col col-10">
                 <a class="text-white" href="contact.php">
                  <div class="my-1  btn btn-primary btn-block rounded-pill" >
@@ -84,7 +83,7 @@ if ($_SESSION['loginOK']  == true) {
         
 
         <?php
-        if($_SESSION[user_level] >= 2 ){
+        if($_SESSION['user_level'] >= 2 ){
         echo '
         <div class="col col-10 nomargin">
         <a class="text-white" href="./admin/">
