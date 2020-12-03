@@ -14,8 +14,7 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
-        <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <!-- <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script> -->
         <script src="/js/simplemde.min.js"></script>
     </head>
 
@@ -94,7 +93,7 @@
                                                         <p>Posts: <strong>43</strong></p>
                                                         <?php 
 
-                                                           if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0) AND ($lastPost['post_id'] == $post['post_id'])){
+                                                            if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0) AND ($lastPost['post_id'] == $post['post_id'])){
                                                                 echo '<a href="postedit.php?postedit_id='. $post['post_id'] .'">
                                                                 <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
                                                                 </a>';
