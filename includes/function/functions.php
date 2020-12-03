@@ -46,6 +46,13 @@ function getReactions($post_id) {
     return $query;
 }
 
+function removeReaction($reaction_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('DELETE FROM postreact WHERE postreact_id= ?');
+    $query->execute(array($reaction_id));
+    return $query;
+}
+
 function getAllPostsFromBoard($board_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT post_id FROM posts WHERE post_topic IN (SELECT topic_id FROM topics WHERE topic_board = :topics)');
