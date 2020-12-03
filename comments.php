@@ -16,8 +16,7 @@
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script type="text/javascript" src="js/functions.js"></script>
-        <script src="js/simplemde.min.js"></script>
+        <script src="/js/simplemde.min.js"></script>
     </head>
 
     <body>
@@ -34,13 +33,9 @@
                         <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
-                                    <h2>Topic : <?php
-                                    echo $GetTOPName_result[topic_subject];
-                                    ?></h2>
+                                    <h2>Topic : <?= $GetTOPName_result['topic_subject']; ?></h2>
                                     <div class="alert alert-danger" role="alert">
                                     <p data-toggle="modal" data-target="#ModalRules"><i class="fab fa-readme"></i> Forum rules </i> </p>
-                                   
-                                    
 
                                                 <!-- Modal Rules Start -->
                                                 <div class="d-flex justify-content-start">
@@ -99,8 +94,8 @@
                                                         <p>Posts: <strong>43</strong></p>
                                                         <?php 
 
-                                                           if(($post[post_by] == $_SESSION[user_id]) AND ($post[post_deleted] == 0) AND ($lastPost['post_id'] == $post['post_id'])){
-                                                                echo '<a href="postedit.php?postedit_id='. $post[post_id] .'">
+                                                           if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0) AND ($lastPost['post_id'] == $post['post_id'])){
+                                                                echo '<a href="postedit.php?postedit_id='. $post['post_id'] .'">
                                                                 <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
                                                                 </a>';
                                                             } 
@@ -132,19 +127,27 @@
                                                         </div>
                                                         
                                                     </div>
-                                                    <div class="reaction">
-                                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                                            <div class="btn-group" role="group" aria-label="Third group">
-                                                                <button type="button" class="btn btn-outline emojiButton" onclick="toggle()"><i class="far fa-laugh-wink"></i></button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="emojiTooltip" role="tooltip">
-                                                            <emoji-picker post_id="<?= $post['post_id']; ?>"></emoji-picker>
-                                                            <div id="arrow" data-popper-arrow></div>
-                                                        </div>
+                                                    <?php
+                                                        if(!empty($_SESSION['user_id'])) {
+                                                            echo '
+                                                            <div class="reaction">
+                                                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                                                    <div class="btn-group" role="group" aria-label="Third group">
+                                                                        <button type="button" class="btn btn-outline emojiButton" onclick="toggle()"><i class="far fa-laugh-wink"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="emojiTooltip" role="tooltip">
+                                                                    <emoji-picker post_id="' . $post['post_id'] . '"></emoji-picker>
+                                                                    <div id="arrow" data-popper-arrow></div>
+                                                                </div>
 
-                                                    </div> 
+                                                            </div> 
+                                                            
+                                                            ';
+                                                        }
+                                                    ?>
+                                                    
                                                 </div>
                                                 <hr>
                                                     <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
@@ -176,5 +179,6 @@
         </main>
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
+        <script type="text/javascript" src="./js/emoji-reaction.js"></script>
         
         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/4foot.php'); ?>
