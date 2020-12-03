@@ -25,8 +25,8 @@
     $posts = $query->fetchAll(PDO::FETCH_ASSOC);
     
     // for lock news post if current user is the last author
-     $LastUSR_post = $conn->query("SELECT post_by FROM posts WHERE post_topic = '$_GET[id]' AND post_deleted = 0 ORDER BY post_id DESC LIMIT 1");
-     $LastUSR_post_result=$LastUSR_post->fetch();
+    $LastUSR_post = $conn->query("SELECT post_by FROM posts WHERE post_topic = '$_GET[id]' AND post_deleted = 0 ORDER BY post_id DESC LIMIT 1");
+    $LastUSR_post_result=$LastUSR_post->fetch();
      
 ?>
 <div class="d-flex justify-content-between mt-4 flex-column flex-lg-row">
@@ -35,7 +35,7 @@
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
             <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-            <?php if( $_SESSION[user_id] == $LastUSR_post_result[post_by]){}else{ echo '
+            <?php if( $_SESSION['user_id'] == $LastUSR_post_result['post_by']){}else{ echo '
             <button type="button" id="btn-post-reply" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModal">Post a reply <i class="fas fa-long-arrow-alt-left"></i></button>
             ';} ?>
             <!-- Modal -->
