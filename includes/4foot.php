@@ -7,9 +7,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
-        <script type="text/javascript" src="./js/emoji-reaction.js"></script>
+        
 
         <script type="text/javascript">
             let posts = document.getElementsByClassName('post-content');

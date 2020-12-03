@@ -1,14 +1,14 @@
 <?php
 
 function getBoards() {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM boards WHERE board_status != 0 ORDER BY board_id');
     $query->execute();
     return $query;
 }
 
 function getBoard($id) {
-    require('includes/connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM boards WHERE board_id = ?');
     $query->execute([$id]);
     return $query;
@@ -210,7 +210,5 @@ function getBreadcrumbs() {
         ));
         return $query;
     }
-
-
 
 ?>

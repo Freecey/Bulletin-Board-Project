@@ -31,5 +31,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
         <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="js/simplemde.min.js"></script>
+    
         
     </head>
