@@ -1,10 +1,25 @@
 <?php
-    require($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
+
+    require_once($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php'); 
+    require_once($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php'); 
+
     incrementTopicViews();
 // postedit.php?postedit_id=34
+
+    $GetTOPName = $conn->query("SELECT topic_subject FROM topics WHERE topic_id = '$_GET[id]' LIMIT 1");
+    $GetTOPName_result=$GetTOPName->fetch();
 ?>
 
-<?php include 'includes/1head.php'; ?>
+
+<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
+    <head>
+        <link rel="stylesheet" href="css/simplemde.min.css">
+        <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+        <script src="js/simplemde.min.js"></script>
+    </head>
+
     <body>
         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
@@ -19,17 +34,47 @@
                         <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
-                                    <h2>Topic Read</h2>
+                                    <h2>Topic : <?php
+                                    echo $GetTOPName_result[topic_subject];
+                                    ?></h2>
                                     <div class="alert alert-danger" role="alert">
-                                    <p>Forum rules</p>
-                                        <ol>
-                                            <li>No Spam / Advertising / Self-promote in the forums.</li>
-                                            <li>Do not post copyright-infringing material.</li>
-                                            <li>Do not post “offensive” posts, links or images.</li>
-                                            <li>Do not cross post questions.</li>
-                                            <li>Do not PM users asking for help.</li>
-                                            <li>Remain respectful of other members at all times.</li>
-                                        </ol>
+                                    <p data-toggle="modal" data-target="#ModalRules"><i class="fab fa-readme"></i> Forum rules </i> </p>
+                                   
+                                    
+
+                                                <!-- Modal Rules Start -->
+                                                <div class="d-flex justify-content-start">
+        <div class="mr-3">
+
+            <div class="modal fade" id="ModalRules" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="ModalRulesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalRulesLabel">Forum rules </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/rules.php'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <script type="text/javascript">
+            let posts = document.getElementsByClassName('post-content');
+            
+            Array.from(posts).forEach(post => {
+                const comment = post.innerHTML;
+                const cleanComment = DOMPurify.sanitize(comment)
+                post.innerHTML = marked(cleanComment);
+            });
+        </script>
+
+
+        <!-- Modal Rules END -->
+
                                     </div>
                                 </div>
                             </div>
