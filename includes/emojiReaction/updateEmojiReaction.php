@@ -10,7 +10,7 @@
     $reactions = getReactions($postId);
     while($reaction = $reactions->fetch()) {
 ?>
-<button type="button" class="btn btn-light btn-sm reactionButton">
+<button type="button" class="btn btn-light btn-sm reactionButton" onclick="deleteEmojiButton(<?= $reaction['postreact_id']; ?>)">
     <?= $reaction['postreact_content']; ?><span class="badge">1</span>
 </button>
 <?php  
