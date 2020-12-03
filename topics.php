@@ -1,17 +1,11 @@
-<?php include 'includes/1head.php'; ?>
-    <head>
-        <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-    </head>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <body>
-        <?php session_start(); ?>
-        <?php include('includes/connect.php') ?>
-        <?php include('includes/header.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php include('includes/breadcrumb.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">
