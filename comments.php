@@ -89,12 +89,13 @@
                                                                 <button type="button" class="btn btn-outline emojiButton" onclick="toggle()"><i class="far fa-laugh-wink"></i></button>
                                                             </div>
                                                         </div>
+                                                        
                                                         <div class="emojiTooltip" role="tooltip">
                                                             <emoji-picker post_id="<?= $post['post_id']; ?>"></emoji-picker>
                                                             <div id="arrow" data-popper-arrow></div>
                                                         </div>
-                                                    </div>
-                                                    
+
+                                                    </div> 
                                                 </div>
                                                 <hr>
                                                     <p class="small"><?= htmlspecialchars($post['user_sign']) ?></p>
@@ -123,5 +124,7 @@
                 </div>
             </div>
         </main>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
         
         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/4foot.php'); ?>

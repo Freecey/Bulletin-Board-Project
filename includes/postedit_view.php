@@ -38,7 +38,7 @@ try {
         $Post_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Post_UpdateINSERT->execute();
         $_SESSION['BoardUPDATEComplet'] = true;
-        header("location:comments.php?id=$topic_id#$UPD_post_id");   
+        header("location:comments.php?id=".$topic_id."#".$UPD_post_id);   
         //header("Refresh:");
     }elseif(isset($_POST['delete_post'])){
         
