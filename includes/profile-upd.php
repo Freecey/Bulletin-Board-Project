@@ -146,6 +146,7 @@ try {
         $Prof_UpdateINSERT->execute();
 
         $_SESSION['user_name'] = $UPD_user_name;
+        $_SESSION['user_image'] = $user_image;
         $_SESSION['ProfileUPDATEComplet'] = true;
         header("Refresh:0");
     }

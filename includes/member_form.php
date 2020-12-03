@@ -70,7 +70,7 @@ for ($i = ($actual_year - 100); $i <= ($actual_year - 15); $i++) {
                         <div class="col-md-4"><label class="labels">Active account</label>
                             <select class="custom-select form-control" name="user_active" readonly>
                                                   <?php
-for ($i = 0; $i <= 1; $i++) {
+for ($i = 0; $i <= 2; $i++) {
     if ($i == $data_Sel_USR['user_active']) {
         echo "<option value='$i' selected>" . $i . "</option>";
     }

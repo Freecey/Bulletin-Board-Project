@@ -1,6 +1,7 @@
 <?php 
-include('includes/connect.php');
-include('includes/getdata/sitesettingGLOB.php'); ?>
+session_start();
+include($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
     <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,18 +10,16 @@ include('includes/getdata/sitesettingGLOB.php'); ?>
         <title>.::Bulletin Board::.</title>
         <title><?php echo $SITENAME . '   - ' . $PAGENAME; ?></title>
         <?php
-        session_start();
-        include('includes/connect.php');
             if (true) {
                 $req_theme = $conn->prepare('SELECT user_theme FROM users WHERE user_id=?'); //
                 $req_theme->execute([$_SESSION['user_id']]);
                 $theme = $req_theme->fetch();
                 if ($theme['user_theme'] == 0) {
-                    echo '<link rel="stylesheet" href="css/main.css" type="text/css"/>';
+                    echo '<link rel="stylesheet" href="/css/main.css" type="text/css"/>';
                 } elseif ($theme['user_theme'] == 1) {
-                    echo '<link rel="stylesheet" href="css/dark.css" type="text/css"/>';
+                    echo '<link rel="stylesheet" href="/css/dark.css" type="text/css"/>';
                 } elseif ($theme['user_theme'] == 666) {
-                    echo '<link rel="stylesheet" href="css/666.css" type="text/css">';
+                    echo '<link rel="stylesheet" href="/css/666.css" type="text/css">';
                 }
             } else {
                 // echo '<link rel="stylesheet" href="css/main.css" type="text/css"/>';
@@ -28,4 +27,9 @@ include('includes/getdata/sitesettingGLOB.php'); ?>
         ?>
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js" integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ==" crossorigin="anonymous"></script> -->
+        <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+        <link rel="stylesheet" href="css/simplemde.min.css">
+        <script src="js/simplemde.min.js"></script>
+        
     </head>

@@ -15,6 +15,16 @@ $query->execute();
 $GetAnnDATA=$query->fetch();
 return $GetAnnDATA;
 
+
+
+function getTopic_name($id) {
+    require('includes/connect.php');
+    $query = $conn->prepare('SELECT topic_name FROM topics WHERE topics_id = ?');
+    $query->execute($query);
+    return $query;
+}
+
+
 } 
 
 ?>

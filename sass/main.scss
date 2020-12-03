@@ -254,3 +254,49 @@ body {
 .signin__forgot-pwd:hover{
     text-decoration: none;
 }
+
+// Emoji Reaction
+
+.emojiTooltip:not(.shown) {
+    display: none;
+    z-index: 1000;
+}
+
+.emojiTooltip {
+    background: #333;
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+#arrow,
+#arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: -1;
+}
+
+#arrow::before {
+    content: '';
+    transform: rotate(45deg);
+    background: #333;
+}
+
+.emojiTooltip[data-popper-placement^='top'] > #arrow {
+    bottom: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='bottom'] > #arrow {
+    top: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='left'] > #arrow {
+    right: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='right'] > #arrow {
+    left: -4px;
+}

@@ -45,14 +45,14 @@
     <!-- Breadcrumbs + links to legal informations, team members... -->
     <div id="more-infos" class="d-flex justify-content-between align-items-center">
 
-        <!-- <div class="more-infos__breadcrumbs"> -->
+        <div class="">
             <?php //include('includes/breadcrumb.php'); ?>
-        <!-- </div> -->
+        </div> 
         <div class="more-infos__links-box">
             <a class="more-infos__link" href="/contact.php"> <i class="fas fa-envelope"></i>Contact us </a>
             <a class="more-infos__link" href="/team.php"> <i class="fas fa-shield-alt"></i> The team </a>
-            <a class="more-infos__link" href="/terms.html"> <i class="fas fa-check"></i> Terms </a>
-            <a class="more-infos__link" href="/policy.html"> <i class="fas fa-lock"></i> Privacy </a>
+            <a class="more-infos__link" href="/terms.php"> <i class="fas fa-check"></i> Terms </a>
+            <a class="more-infos__link" href="/policy.php"> <i class="fas fa-lock"></i> Privacy </a>
             <a class="more-infos__link" href="/member.php"> <i class="fas fa-users"></i> Members </a>
             <a class="more-infos__link" href="/logout.php"> <i class="fas fa-trash-alt"></i> Delete cookies </a>
             All times are UTC
