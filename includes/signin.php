@@ -65,50 +65,6 @@ catch (PDOException $Exception) {
 
 }
 
-echo        '<div class="justify-content-center col-12  center-block row">';
-if ($_SESSION['loginOK']  == true) {
-        echo '<div class="m-2">';
-        echo 'Welcome ';echo '<b>'.$_SESSION[user_name].'</b>';
-        echo '</div>';
-
-
-    // Check if user is on / or /index.php for hidden home    
-    $uri = $_SERVER['REQUEST_URI'];
-
-        if ( $uri == "/" )
-    {
-        // You're on the root route
-    } elseif ( $uri == "/index.php" ) {
-        // You're on the root route index.php
-    } else {
-        echo '
-        <div class="col col-10">
-        <a class="text-white" href="/">
-        <div class="my-1  btn btn-primary btn-block rounded-pill" >
-            Home
-        </div></a>
-        </div>';
-    }
-    if ( $uri == "/profile.php" )
-    {
-        // You're on the root route
-    } else {
-        echo '
-        <div class="col col-10">
-        <a class="text-white" href="profile.php">
-        <div class="my-1 btn btn-info btn-block rounded-pill" >
-            Your Profil
-        </div></a>
-        </div>';
-    }
-
-
-        // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
-        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-} else {
-    include 'includes/signinform.php';
-}
 ?>
 
 
-</aside>
