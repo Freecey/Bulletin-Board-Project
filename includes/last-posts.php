@@ -1,5 +1,5 @@
 <?php
-    $req_posts = $conn->query('SELECT * FROM posts ORDER BY post_date DESC LIMIT 4');
+    $req_posts = $conn->query('SELECT * FROM posts WHERE post_exclsearch = 0 ORDER BY post_date DESC LIMIT 4');
     if (!$req_posts) {
         echo 'Unable to display the last posts' .mysql_error();
     } else {
@@ -22,7 +22,7 @@
                             <div class="row d-flex justify-content-between p-1">
                                 <div class="last-posts-list__title">
                                     <?php 
-                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post['post_topic']); 
+                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post[post_topic]); 
                                         while($topic = $req_topics->fetch()) {
                                             echo $topic['topic_subject'];
                                         }
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="last-posts-list__content row p-1"> 
-                                <?php echo $post['post_content']?>
+                                <?php echo mb_strimwidth($post['post_content'], 0, 85, "...");?>
                             </div>
                         </div>
                     </a>

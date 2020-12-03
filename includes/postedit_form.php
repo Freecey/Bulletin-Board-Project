@@ -26,8 +26,7 @@
                         }else{
                             echo $PostDATA['post_content'];
                         }
-                        ?>
-                        </textarea>
+                        ?></textarea>
                         </div>
                     </div>
 

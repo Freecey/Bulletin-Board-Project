@@ -1,17 +1,21 @@
-<?php include 'includes/1head.php'; ?>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php'); 
+require_once($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php'); 
+$GetBoardName = $conn->query("SELECT board_name FROM boards WHERE board_id = '$_GET[id]' LIMIT 1");
+$GetBoardName_result=$GetBoardName->fetch();
+include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <head>
-        <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     </head>
+
     <body>
-        <?php session_start(); ?>
-        <?php include('includes/connect.php') ?>
-        <?php include('includes/header.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
         <main class="pr-sm-5 pl-sm-5">
             <div class="container-fluid shadow rounded-lg" id="content">
                 <div class="row">
                     <div class="col-12">
-                        <?php include('includes/breadcrumb.php'); ?>
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/breadcrumb.php'); ?>
                     </div>
                 </div>
                 <div class="row">
@@ -22,13 +26,48 @@
                             <article class="container-fluid">
                                 <div class="row">
                                     <div class="col">
-                                        <h2>Topics' List</h2>
+                                        <h2>Board : <?php
+                                    echo $GetBoardName_result[board_name];
+                                    ?></h2>
+                                    <div class="alert alert-danger" role="alert">
+                                    <p data-toggle="modal" data-target="#ModalRules"><i class="fab fa-readme"></i> Forum rules </i> </p>
+
+                                                <!-- Modal Rules Start -->
+                                                <div class="d-flex justify-content-start">
+        <div class="mr-3">
+
+            <div class="modal fade" id="ModalRules" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="ModalRulesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalRulesLabel">Forum rules </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/rules.php'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <script type="text/javascript">
+            let posts = document.getElementsByClassName('post-content');
+            
+            Array.from(posts).forEach(post => {
+                const comment = post.innerHTML;
+                const cleanComment = DOMPurify.sanitize(comment)
+                post.innerHTML = marked(cleanComment);
+            });
+        </script>
+
+
+        <!-- Modal Rules END -->
+
                                     </div>
                                 </div>
-
-                                <div class="alert alert-danger m-2" role="alert">
-                                    Forum rules
-                                </div>
+                            </div>
 
                                 <div class="btn-and-search row">
                                     <a href="newtopic.php?boardID=<?= $_GET[id];?>"> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a>
@@ -170,6 +209,7 @@
                     <div class="col-xl-3 col-md-4 d-none d-md-block">
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
+                        <?php include('includes/sidebutton2.php'); ?>
                         <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </div>
