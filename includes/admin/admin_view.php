@@ -47,6 +47,7 @@
 
 							</div>
 							<div class="col col-md-4">
+
 								<h4>.</h4>
                                 <?php 
                                 $dtoday = date("Y-m-d"); 
@@ -55,6 +56,7 @@
                                  ?>
                                    <?php echo 
 										 '<div class="progress">
+
                                             <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="15"aria-valuemin="0" aria-valuemax="100" style="width:100%">'.$dtoday.'</div>
                                         </div>'
                                             ;}?>
@@ -64,9 +66,9 @@
 								<h4>Nb Register:</h4>
                                 <?php
                                     $dtoday = date("Y-m-d");
+
                                     $dtoday_1 = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
                                     for ($i = 1; $i <= 7; $i++) {
-
 
 
                                     $select2 = $conn->prepare("SELECT COUNT(*) 
@@ -78,6 +80,7 @@
                                     $data2=$select2->fetchColumn();
                                     $dtoday = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
                                     $dtoday_1 = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
+
                                     ?>
 
 
@@ -101,10 +104,10 @@
                     <div class="col col-md-4">
 								<h4>Login OK:</h4>
                                 <?php
+
                                     $dtoday = date("Y-m-d");
                                     $dtoday_1 = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday)));   
                                     for ($i = 1; $i <= 7; $i++) {
-                                    
                                     
 
                                     $select2 = $conn->prepare("SELECT COUNT(*) 
@@ -115,6 +118,7 @@
                                     $select2->execute();
                                     $data2=$select2->fetchColumn();
                                     $dtoday = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
+
                                     $dtoday_1 = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
                                     ?>
 
@@ -129,6 +133,7 @@
 
 							</div>
 							<div class="col col-md-4">
+
 								<h4>.</h4>
                                 <?php 
                                 $dtoday = date("Y-m-d");   
@@ -148,6 +153,7 @@
 							<div class="col col-md-4">
 								<h4>Login Fail:</h4>
                                 <?php
+
                                     $dtoday = date("Y-m-d");  
                                     $dtoday_1 = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday)));  
                                     for ($i = 1; $i <= 7; $i++) {
@@ -162,9 +168,8 @@
                                     $select2->execute();
                                     $data2=$select2->fetchColumn();
                                     $dtoday = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
+
                                     $dtoday_1 = date('Y-m-d', strtotime('-'.$i.' days', strtotime($dtoday))); 
-                                    
-                                   
                                     ?>
 
 

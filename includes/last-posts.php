@@ -22,7 +22,7 @@
                             <div class="row d-flex justify-content-between p-1">
                                 <div class="last-posts-list__title">
                                     <?php 
-                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post['post_topic']); 
+                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post[post_topic]); 
                                         while($topic = $req_topics->fetch()) {
                                             echo $topic['topic_subject'];
                                         }
