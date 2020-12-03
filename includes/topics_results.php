@@ -23,7 +23,7 @@
 
     <?php } else { ?>
     <ul>
-        <li>Aucun résultat...</li>
+        <li>No results found ...</li>
     </ul>
     <?php } ?>
 <?php } ?>
