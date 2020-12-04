@@ -21,6 +21,9 @@ function toggle(index) {
     tooltips[index].classList.toggle('shown')
 }
 
+// enable tooltip everywhere
+// $('[data-toggle="tooltip"]').tooltip()
+
 // on emoji click, save to DB with ajax
 let pickers = Array.from(document.getElementsByTagName('emoji-picker'));
 pickers.forEach(picker => {
