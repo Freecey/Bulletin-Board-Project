@@ -39,6 +39,27 @@ function getPosts($id) {
     return $query;
 }
 
+function getGodUsers() {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_level = 4');
+    $query->execute();
+    return $query;
+}
+
+function getDevilUsers() {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_level = 666');
+    $query->execute();
+    return $query;
+}
+
+function getModUsers() {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_level = 2');
+    $query->execute();
+    return $query;
+}
+
 function getReactions($post_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
