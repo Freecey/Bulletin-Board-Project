@@ -25,7 +25,4 @@ session_start();
         $response_array['status'] = 'You are not logged';
         echo json_encode($response_array);
     }
-
-    
-    
 ?>

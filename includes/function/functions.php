@@ -39,6 +39,13 @@ function getPosts($id) {
     return $query;
 }
 
+function getUser($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_id = ?');
+    $query->execute(array($id));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
 function getReactions($post_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
