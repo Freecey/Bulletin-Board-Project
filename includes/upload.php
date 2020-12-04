@@ -36,7 +36,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
         $imglocalURLwebp = 'https://'. $_SERVER['HTTP_HOST'] .'/uploaded/users/'.$newFileNamewebp;
         
         $fname = $newFileName;
-        $file = 'https://dev.bbs-queen.neant.be/uploaded/users/'.$fname;
+        $file = 'https://'. $_SERVER['HTTP_HOST'] .'/uploaded/users/'.$newFileName;
         $image = imagecreatefromstring(file_get_contents($file));
         ob_start();
         imagejpeg($image,NULL,100);
