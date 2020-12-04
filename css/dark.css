@@ -8321,7 +8321,7 @@ body main #content,
   color: #dadbdb; }
 
 #header {
-  background: url("../assets/bck-ground-two.png");
+  background: url("/assets/bck-ground-two.webp");
   background-size: cover;
   height: 35vh; }
 

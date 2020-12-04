@@ -7807,7 +7807,7 @@ body main {
     background-color: white; }
 
 #header {
-  background: url("../assets/bck-ground-two.png");
+  background: url("/assets/bck-ground-two.webp");
   background-size: cover;
   height: 35vh; }
 
