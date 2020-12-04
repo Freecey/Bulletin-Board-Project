@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('connect.php');
+
+
 $message = ''; 
 if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
 {
@@ -16,6 +18,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
 
     // sanitize file-name
     $newFileName = md5($_SESSION[user_email]) . '.' . $fileExtension;
+    $newFileNamewebp = md5($_SESSION[user_email]) . '.webp';
 
     // check if file has one of the following extensions
     $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
@@ -30,9 +33,25 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
       {
         //$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
         $imglocalURL = 'https://'. $_SERVER['HTTP_HOST'] .'/uploaded/users/'.$newFileName;
+        $imglocalURLwebp = 'https://'. $_SERVER['HTTP_HOST'] .'/uploaded/users/'.$newFileNamewebp;
+        
+        $fname = $newFileName;
+        $file = 'https://dev.bbs-queen.neant.be/uploaded/users/'.$fname;
+        $image = imagecreatefromstring(file_get_contents($file));
+        ob_start();
+        imagejpeg($image,NULL,100);
+        $cont = ob_get_contents();
+        ob_end_clean();
+        imagedestroy($image);
+        $content = imagecreatefromstring($cont);
+        $output = '../uploaded/users/'.$newFileNamewebp;
+        imagewebp($content,$output);
+        imagedestroy($content);
+        unlink('../uploaded/users/'.$newFileName);
+
         $UPDATEQuerySQL3 = "UPDATE `users` 
-        SET `user_imglocal` = '$imglocalURL',
-            `user_image` = '$imglocalURL'
+        SET `user_imglocal` = '$imglocalURLwebp',
+            `user_image` = '$imglocalURLwebp'
                 WHERE `users`.`user_id` = $_SESSION[user_id]";
         // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL3);
