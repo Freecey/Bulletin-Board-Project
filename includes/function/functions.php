@@ -68,6 +68,13 @@ function getReactions($post_id) {
     return $query;
 }
 
+function getReactionsById($react_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT postreact_user FROM postreact WHERE postreact_id = ?');
+    $query->execute(array($react_id));
+    return $query;
+}
+
 function removeReaction($reaction_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('DELETE FROM postreact WHERE postreact_id= ?');

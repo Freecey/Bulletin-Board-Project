@@ -51,22 +51,27 @@ let updateEmojiButtons = (index) => {
             console.log(data);
         },
         error: (data, status, error) => {
-            console.log(data, status, error)
+            console.log(data, status, error);
+            
         }
     })
 }
 
 // delete an emoji button reaction only if you are the owner.
-let deleteEmojiButton = (index) => {
+let deleteEmojiButton = (index, postId) => {
     $.ajax({
         url: './includes/emojiReaction/deleteEmojiReaction.php',
         type: 'GET',
         data: 'reaction_id=' + index,
         success: (data) => {
-            console.log(data);
+            if(data.status == 'success') {
+                updateEmojiButtons(postId);
+            } else {
+                console.log(data.status);
+            }
         },
         error: (data, status, error) => {
-            console.log(data, status, error)
+            console.log(data, status, error);
         }
     })
 }
