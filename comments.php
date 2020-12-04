@@ -127,7 +127,7 @@
                                                             <div class="reaction">
                                                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                                                     <div class="btn-group" role="group" aria-label="Third group">
-                                                                        <button type="button" class="btn btn-outline emojiButton" onclick="toggle()"><i class="far fa-laugh-wink"></i></button>
+                                                                        <button type="button" aria-describedby="tooltip" class="btn btn-outline emojiButton"><i class="far fa-laugh-wink"></i></button>
                                                                     </div>
                                                                 </div>
                                                                 
@@ -174,10 +174,10 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="   crossorigin="anonymous"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
         <script type="text/javascript" src="js/emoji-reaction.js"></script>
         <script>
-                $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
         </script>
         
         
