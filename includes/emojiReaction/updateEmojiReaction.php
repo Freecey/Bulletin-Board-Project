@@ -1,7 +1,7 @@
 <?php
     $postId = '';
     if( isset($_GET['post_id'])) {
-        include('./../function/functions.php');
+        include($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
         $postId = $_GET['post_id'];
     } else {
         
@@ -10,7 +10,7 @@
     $reactions = getReactions($postId);
     while($reaction = $reactions->fetch()) {
 ?>
-<button type="button" class="btn btn-light btn-sm reactionButton" onclick="deleteEmojiButton(<?= $reaction['postreact_id']; ?>)">
+<button type="button" class="btn btn-light btn-sm reactionButton" onclick="deleteEmojiButton(<?= $reaction['postreact_id']; ?>, <?= $reaction['postreact_post']; ?>)">
     <?= $reaction['postreact_content']; ?><span class="badge">1</span>
 </button>
 <?php  
