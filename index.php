@@ -9,12 +9,14 @@
                         <?php include('includes/breadcrumb.php'); ?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row"> 
                     <div class="col-xl-9 col-md-8">
-
-                        <section class="mb-3" id="boards">
+ <?php include('includes/announce_toinclude.php'); ?>
+                        <section class="my-4" id="boards">
                             
                             <article class="container-fluid">
+
+                               
                                 <div class="row">
                                     <div class="col">
                                         <h2>Category One</h2>

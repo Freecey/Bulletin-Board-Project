@@ -1,0 +1,10 @@
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access 1 weeks
+    ExpiresByType image/gif "access 1 weeks"
+    ExpiresByType image/jpeg "access 1 weeks"
+    ExpiresByType text/javascript "access 2 weeks"
+    ExpiresByType text/css "access 2 months"
+    ExpiresByType text/html "modification 4 hours"
+    ExpiresDefault "access 5 days"
+</IfModule>

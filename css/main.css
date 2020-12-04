@@ -9911,7 +9911,7 @@ body main #content {
 }
 
 #header {
-  background: url("../assets/bck-ground-two.png");
+  background: url("/assets/bck-ground-two.webp");
   background-size: cover;
   height: 35vh;
 }
@@ -10127,6 +10127,7 @@ body main #content {
   text-decoration: none;
 }
 
+
 .emojiTooltip:not(.shown) {
   display: none;
   z-index: 1000;
@@ -10139,7 +10140,12 @@ body main #content {
   padding: 4px 8px;
   font-size: 13px;
   border-radius: 4px;
-}
+  display: none; }
+
+.emojiTooltip[data-show] {
+  display: block;
+  z-index: 100000;
+  position: absolute; }
 
 #arrow,
 #arrow::before {

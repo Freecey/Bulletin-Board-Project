@@ -1,9 +1,11 @@
-//Add index to toggle button and style the popover
+
+// creation of every emoji picker in tooltip
+let popperInstance = null;
 const buttons = Array.from(document.querySelectorAll('.emojiButton'));
 const tooltips = Array.from(document.querySelectorAll('.emojiTooltip'));
-buttons.forEach((button, index) => {
-    button.setAttribute('onclick', `toggle(${index})`);
-    Popper.createPopper(button, tooltips[index], {
+
+function create(index) {
+    popperInstance = Popper.createPopper(buttons[index], tooltips[index], {
         placement: 'left',
         modifiers: [
             {
@@ -14,12 +16,39 @@ buttons.forEach((button, index) => {
             },
         ],
     });
-})
-
-// open popover switch button
-function toggle(index) {
-    tooltips[index].classList.toggle('shown')
 }
+
+function destroy() {
+    if (popperInstance) {
+        popperInstance.destroy();
+        popperInstance = null;
+    }
+}
+
+function show(index) {
+    tooltips[index].setAttribute('data-show', '');
+    create(index);
+}
+
+function hide(index) {
+    tooltips[index].removeAttribute('data-show');
+    destroy();
+}
+
+buttons.forEach((button, index) => {
+    
+    button.addEventListener('mouseenter', () => {
+        show(index);
+    });
+});
+
+tooltips.forEach((tooltip, index) => {
+    tooltip.addEventListener('mouseleave', () => {
+        hide(index)
+    });
+});
+
+
 
 // on emoji click, save to DB with ajax
 let pickers = Array.from(document.getElementsByTagName('emoji-picker'));
@@ -51,7 +80,27 @@ let updateEmojiButtons = (index) => {
             console.log(data);
         },
         error: (data, status, error) => {
-            console.log(data, status, error)
+            console.log(data, status, error);
+            
+        }
+    })
+}
+
+// delete an emoji button reaction only if you are the owner.
+let deleteEmojiButton = (index, postId) => {
+    $.ajax({
+        url: './includes/emojiReaction/deleteEmojiReaction.php',
+        type: 'GET',
+        data: 'reaction_id=' + index,
+        success: (data) => {
+            if(data.status == 'success') {
+                updateEmojiButtons(postId);
+            } else {
+                console.log(data.status);
+            }
+        },
+        error: (data, status, error) => {
+            console.log(data, status, error);
         }
     })
 }

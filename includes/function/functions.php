@@ -17,9 +17,31 @@ function getBoard($id) {
 function getTopics($id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     if ($id == 7) {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? ORDER BY topic_date DESC LIMIT 5");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date DESC LIMIT 5");
     } else {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ?");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2");
+    }
+    $query->execute(array($id));
+    return $query;
+}
+
+function getTopicsNoPIN($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    if ($id == 7) {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0 ORDER BY topic_date DESC LIMIT 5");
+    } else {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0");
+    }
+    $query->execute(array($id));
+    return $query;
+}
+
+function getTopicsPin($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    if ($id == 7) {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 1 ORDER BY topic_date DESC LIMIT 5");
+    } else {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 1");
     }
     $query->execute(array($id));
     return $query;
@@ -60,10 +82,31 @@ function getModUsers() {
     return $query;
 }
 
+function getUser($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_id = ?');
+    $query->execute(array($id));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
 function getReactions($post_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
     $query->execute(array($post_id));
+    return $query;
+}
+
+function getReactionsById($react_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT postreact_user FROM postreact WHERE postreact_id = ?');
+    $query->execute(array($react_id));
+    return $query;
+}
+
+function removeReaction($reaction_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('DELETE FROM postreact WHERE postreact_id= ?');
+    $query->execute(array($reaction_id));
     return $query;
 }
 

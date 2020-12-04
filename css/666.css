@@ -8311,7 +8311,7 @@ body main #content {
   background-color: #525252; }
 
 #header {
-  background: url("../assets/666fire.png");
+  background: url("/assets/666fire.webp");
   background-size: cover;
   height: 35vh; }
 
