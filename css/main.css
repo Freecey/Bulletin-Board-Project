@@ -7980,17 +7980,19 @@ body main {
 .signin__forgot-pwd:hover {
   text-decoration: none; }
 
-.emojiTooltip:not(.shown) {
-  display: none;
-  z-index: 1000; }
-
 .emojiTooltip {
   background: #333;
   color: white;
   font-weight: bold;
   padding: 4px 8px;
   font-size: 13px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  display: none; }
+
+.emojiTooltip[data-show] {
+  display: block;
+  z-index: 100000;
+  position: absolute; }
 
 #arrow,
 #arrow::before {
