@@ -17,7 +17,7 @@ if ($_SESSION['loginOK']  == true) {
         // You're on the root route index.php
     } else {
         echo '
-        <div class="col col-10">
+        <div class="col col-12">
         <a class="text-white" href="/">
         <div class="my-1  btn btn-primary btn-block rounded-pill" >
             Home
@@ -29,10 +29,10 @@ if ($_SESSION['loginOK']  == true) {
         // You're on the root route
     } else {
         echo '
-        <div class="col col-10">
+        <div class="col col-12">
         <a class="text-white" href="profile.php">
         <div class="my-1 btn btn-info btn-block rounded-pill" >
-            Your Profil
+            Your Profile
         </div></a>
         </div>';
     }
@@ -49,7 +49,7 @@ if ($_SESSION['loginOK']  == true) {
         // You're on the root route index.php
     } else {
         echo '
-        <div class="col col-10">
+        <div class="col col-12">
         <a class="text-white" href="/">
         <div class="my-1  btn btn-primary btn-block rounded-pill" >
             Home
@@ -59,7 +59,7 @@ if ($_SESSION['loginOK']  == true) {
 }
 ?>
  
-         <div class="col col-10">
+         <div class="col col-12">
         <a class="text-white" href="member.php">
         <div class="my-1  btn btn-primary btn-block rounded-pill" >
             Members
@@ -67,14 +67,14 @@ if ($_SESSION['loginOK']  == true) {
         </div>
 
 
-                    <div class="col col-10">
+                    <div class="col col-12">
         <a class="text-white" href="team.php">
         <div class="my-1 btn btn-primary btn-block rounded-pill" >
             The team
         </div></a>
         </div>
 
-                    <div class="col col-10">
+                    <div class="col col-12">
                 <a class="text-white" href="contact.php">
                  <div class="my-1  btn btn-primary btn-block rounded-pill" >
                     Contact
@@ -85,7 +85,7 @@ if ($_SESSION['loginOK']  == true) {
         <?php
         if($_SESSION['user_level'] >= 2 ){
         echo '
-        <div class="col col-10 nomargin">
+        <div class="col col-12 nomargin">
         <a class="text-white" href="./admin/">
         <div class="my-1  btn btn-warning btn-block rounded-pill" >
             Admin
@@ -95,7 +95,7 @@ if ($_SESSION['loginOK']  == true) {
 
         if ($_SESSION['loginOK']  == true) {
             echo '
-            <div class="col col-10">
+            <div class="col col-12">
         <a class="text-white" href="logout.php">
         <div class="my-1  btn btn-secondary btn-block rounded-pill" >
             Logout
