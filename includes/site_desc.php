@@ -1,27 +1,27 @@
 <?php $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        $default_desc = 'Where web developers and designers learn and share how to design websites, build mobile applications, create WordPress themes, write code, HTML, JavaScript,...';
+        $default_desc = 'BBS Queen : Where web developers and designers learn and share how to design websites, build mobile applications, create WordPress themes, write code, HTML, JavaScript,...';
 
             if( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
-            echo '<title>'.$SITENAME. '   - ' . $PAGENAME.'</title>';
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>'.$SITENAME. '   - ' . $PAGENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }elseif( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/member.php' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
-            echo '<title>Members List   - ' . $SITENAME.'</title>';
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Members List   - ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }elseif( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/contact.php' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
-            echo '<title>Contact Us - ' . $SITENAME.'</title>';
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Contact Us - ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }elseif( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/team.php' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
-            echo '<title>The Team - ' . $SITENAME.'</title>';
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>The Team - ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }elseif( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/profile.php' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
-            echo '<title>My Profile - ' . $SITENAME.'</title>';
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>My Profile - ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }elseif( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/terms.php' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
+            echo '<meta name="description" content="'.$default_desc.'">';
             echo '<title>Terms - ' . $SITENAME.'</title>';
         }elseif( $actual_link == 'https://'.$_SERVER[HTTP_HOST].'/policy.php' ){
-            echo '<meta property="description" content="'.$default_desc.'">';
-            echo '<title>Privacy policy - ' . $SITENAME.'</title>';
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Privacy policy - ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }
 
 
@@ -34,8 +34,8 @@
             $select_board->setFetchMode(PDO::FETCH_ASSOC);
             $select_board->execute();
             $data_Sel_Board=$select_board->fetch();
-            echo '<meta property="description" content="all discussion of the board '.$data_Sel_Board['board_name'].'.">';
-            echo '<title>Boards : '.$data_Sel_Board['board_name'].'  -  ' . $SITENAME.'</title>';
+            echo '<meta name="description" content="all discussion of the board '.$data_Sel_Board['board_name'].'.">';
+            echo '<title>Boards : '.$data_Sel_Board['board_name'].'  -  ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }elseif (strpos($actual_link, 'https://'.$_SERVER[HTTP_HOST].'/comments.php') !== false) {
             $topic_id = $_GET['id'];
             $select_topic = $conn->prepare("SELECT topic_subject FROM topics where topic_id=$topic_id LIMIT 1");
@@ -50,9 +50,9 @@
 
 
 
-            echo '<meta property="description" content="'.$data_Sel_1stpost['post_content'].'">';
+            echo '<meta name="description" content="'.$data_Sel_1stpost['post_content'].'">';
 
-            echo '<title>Topic : '.$data_Sel_topic['topic_subject'].' - ' . $SITENAME.'</title>';
+            echo '<title>Topic : '.$data_Sel_topic['topic_subject'].' - ' . $SITENAME.' - '.$_SERVER[HTTP_HOST].'</title>';
         }
 
 
