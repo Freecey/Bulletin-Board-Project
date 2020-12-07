@@ -19,17 +19,19 @@ ___
 - session browser
 - Policy & Terms
 - 404 & 50x page error
+- annoucements on main page (can be disabled in admin)
 
 ### User management
 - register system
 - Login system
 - Password recovery (with secret question set in profile page)
 - Profile pages(views and editing)
-- user image using gravatar
+- user image (gravatar or personnal with upload)
 - Admin Section
 - User Permission lvl (user, moderator, admin, ...)
 - Ban users system
 - log failed login (store IP, Browser/OS, URLfrom, Datetime, email and password try)
+- log successfull login (store IP, Browser/OS, URLfrom, Datetime, user_id)
 
 ### Content
 - Create & edit Board
@@ -37,6 +39,8 @@ ___
 - Post and reply to topic message
 - Search in Topics name and messages content
 - Markdown interpretation for content
+- email notification on topic if user have participated
+- emojis reaction on post
 
 ### Admin Section
 - only for moderator and admin
