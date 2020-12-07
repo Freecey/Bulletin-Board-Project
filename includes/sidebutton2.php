@@ -1,6 +1,6 @@
 <?php
  $uri = $_SERVER['REQUEST_URI'];
-  echo        '<div class="justify-content-center col-12  center-block row">';
+  echo        '<div class="justify-content-center center-block row m-1">';
 if ($_SESSION['loginOK']  == true) {
         echo '<div class="m-2">';
         echo 'Welcome ';echo '<b>'.$_SESSION['user_name'].'</b>';

@@ -4,8 +4,8 @@
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="d-flex flex-grow-1">
                     <div class="w-100 text-right">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="navbar-toggler-icon"></span>
+                        <button class="navbar-toggler second-button" type="button" data-toggle="collapse" data-target="#myNavbar">
+                            <div class="animated-icon"><span></span><span></span><span></span><span></span></div>
                         </button>
                     </div>
                 </div>

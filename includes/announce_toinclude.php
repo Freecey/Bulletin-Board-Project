@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php'); 
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php'); 
 ?>
-<div class="container-fluid bg-light rounded-lg col-lg-12 col-xl-7 ">
+<div class="container-fluid bg-light rounded-lg col-12">
                                 <div class="gradient-header row d-flex align-items-center blue-gradient">
 
                                         <div class="card-header__element col-12"> <p class="h6 mb-1 text-center">Announcements</p></div>

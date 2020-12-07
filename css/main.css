@@ -9911,7 +9911,7 @@ body main #content {
 }
 
 #header {
-  background: url("/assets/bck-ground-two.webp");
+  background: url("../assets/bck-ground-two.png");
   background-size: cover;
   height: 35vh;
 }
@@ -10127,12 +10127,6 @@ body main #content {
   text-decoration: none;
 }
 
-
-.emojiTooltip:not(.shown) {
-  display: none;
-  z-index: 1000;
-}
-
 .emojiTooltip {
   background: #333;
   color: white;
@@ -10140,12 +10134,14 @@ body main #content {
   padding: 4px 8px;
   font-size: 13px;
   border-radius: 4px;
-  display: none; }
+  display: none;
+}
 
 .emojiTooltip[data-show] {
   display: block;
   z-index: 100000;
-  position: absolute; }
+  position: absolute;
+}
 
 #arrow,
 #arrow::before {
@@ -10175,6 +10171,28 @@ body main #content {
 
 .emojiTooltip[data-popper-placement^=right] > #arrow {
   left: -4px;
+}
+
+.animated-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: 0px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.animated-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+  background-color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
