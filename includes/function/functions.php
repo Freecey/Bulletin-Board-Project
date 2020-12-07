@@ -275,4 +275,45 @@ function getBreadcrumbs() {
         return $query;
     }
 
+
+
+    function topicLock($id) {
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        $query = $conn->prepare("SELECT topic_by FROM topics WHERE topic_id = ?");
+        $query->execute(array($id));
+    
+    
+        return $query;
+    }
+    
+    
+    function topicStatusLock($id) {
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        echo $id;
+        $query = $conn->prepare("UPDATE topics SET topic_status = 1 WHERE topic_id = ?");
+        $query->execute(array('topicunlockid'=>$id));
+        echo 'Je suis un sujet... 1111111111';
+        
+    }
+    
+    function topicStatusUnlock($id) {
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        echo $id;
+        $query = $conn->prepare("UPDATE topics SET topic_status = 0 WHERE topic_id = ?");
+        $query->execute(array('topicunlockid'=>$id));
+        echo 'Je suis un sujet... 00000000000000';
+        
+        
+    }
+    
+    function topicStatus($id){
+    
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        
+        $query =$conn->prepare("SELECT topic_status FROM topics WHERE topic_id = ?");
+        $query->execute(array($id));
+        return $query;
+    }
+    
+
 ?>
