@@ -10173,26 +10173,4 @@ body main #content {
   left: -4px;
 }
 
-.animated-icon {
-  width: 30px;
-  height: 20px;
-  position: relative;
-  margin: 0px;
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
-}
-
-.animated-icon span {
-  display: block;
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
-  background-color: white;
-}
-
 /*# sourceMappingURL=main.css.map */
