@@ -2,7 +2,7 @@
 //profile.php
 include('includes/session.php');
 include('includes/connect.php');
-echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 $ACT_user_id = $_SESSION['user_id'];
 
 $select_usr = $conn->prepare("SELECT*FROM users where user_id=$ACT_user_id LIMIT 1");
@@ -126,7 +126,7 @@ try {
         
          	
         // echo '123---';
-        echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+        // echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
         // echo "---456";
 
         $UPDATEQuerySQL1 = "UPDATE `users` 
