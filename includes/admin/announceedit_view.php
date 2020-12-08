@@ -23,19 +23,22 @@ $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $data=$select->fetch();
 
-if($_SESSION[AnnUPDATEComplet] == true ){
+if($_SESSION['AnnUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Announce Update Successfully';
     unset($_SESSION['AnnUPDATEComplet']);
 }
 
-$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$data[ann_by] LIMIT 1");
+$ANN_by = $data['ann_by'];
+
+$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$ANN_by LIMIT 1");
 $select2->setFetchMode(PDO::FETCH_ASSOC);
 $select2->execute();
 $data2=$select2->fetch();
 
+$ANN_UPD_BY = $data['ann_upd_by'];
 
-$select3 = $conn->prepare("SELECT user_name FROM users where user_id=$data[ann_upd_by] LIMIT 1");
+$select3 = $conn->prepare("SELECT user_name FROM users where user_id=$ANN_UPD_BY LIMIT 1");
 $select3->setFetchMode(PDO::FETCH_ASSOC);
 $select3->execute();
 $data3=$select3->fetch();
@@ -54,7 +57,7 @@ try {
         $UPD_ann_subject = $_POST['ann_subject'];  // to ADD QUERY
         $UPD_ann_content = $_POST['ann_content'];  // to ADD QUERY
         $UPD_ann_status  = $_POST['ann_status'];  // to ADD QUERY
-        $UPD_ann_upd_by  = $_SESSION[user_id];
+        $UPD_ann_upd_by  = $_SESSION['user_id'];
         $UPD_ann_date_update = date('Y-m-d H:i:s');
         
 

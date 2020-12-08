@@ -12,7 +12,7 @@ $FromBoard_ID = $_GET['boardID'];
 }
 
 
-if($_SESSION[TopicAddComplet] == true ){
+if($_SESSION['TopicAddComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'New Topic Create Successfully';
     $formRO = 'readonly';

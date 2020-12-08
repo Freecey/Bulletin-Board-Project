@@ -1,4 +1,5 @@
-<?php $actual_link = 'https://'.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+
+<?php $actual_link = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $default_desc = 'BBS Queen : Where web developers and designers learn and share how to design websites, build mobile applications, create WordPress themes, write code, HTML, JavaScript,...';
 
         $keyword_tag = '<meta name="keywords" content="BBS, Queen, BBS-Queen, Forum, Boards, board, topics, tocic, posts, post, developers, designers, discution, share, team, message">';
@@ -6,7 +7,7 @@
 
             if( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/' ){
             echo '<meta name="description" content="'.$default_desc.'">';
-            echo '<title>'.$SITENAME. '   - ' . $PAGENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            //echo '<title>'.$SITENAME. '   - ' . $PAGENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
         }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/member.php' ){
             echo '<meta name="description" content="'.$default_desc.'">';

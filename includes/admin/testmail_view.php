@@ -81,7 +81,7 @@ try {
 
         //Recipients
         $mail->setFrom($eMailFromEMail, $eMailFromName);
-        $mail->addAddress($_POST[test_mail_to], $_POST[test_mail_to]);     // Add a recipient
+        $mail->addAddress($_POST['test_mail_to'], $_POST['test_mail_to']);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
@@ -93,12 +93,12 @@ try {
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject =  $_POST[test_mail_subject];
-        $mail->Body    =  $_POST[test_mail_msg];
-        $mail->AltBody =  $_POST[test_mail_msg];
+        $mail->Subject =  $_POST['test_mail_subject'];
+        $mail->Body    =  $_POST['test_mail_msg'];
+        $mail->AltBody =  $_POST['test_mail_msg'];
 
         $mail->send();
-        echo 'Message has been sent to '. $_POST[test_mail_to];
+        echo 'Message has been sent to '. $_POST['test_mail_to'];
     }
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

@@ -13,13 +13,13 @@ $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $data=$select->fetch();
 
-if($_SESSION[TopicUPDATEComplet] == true ){
+if($_SESSION['TopicUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Topic Update Successfully';
     unset($_SESSION['TopicUPDATEComplet']);
 }
-
-$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$data[topic_by] LIMIT 1");
+$TOP_BY = $data['topic_by'];
+$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$TOP_BY LIMIT 1");
 $select2->setFetchMode(PDO::FETCH_ASSOC);
 $select2->execute();
 $data2=$select2->fetch();

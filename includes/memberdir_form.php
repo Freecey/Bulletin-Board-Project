@@ -30,7 +30,7 @@
         <tr>
             <?php $i++; ?>
             <td><?php echo $i-1; ?></td>
-            <td><img class="rounded-circle" src="<?php echo $row[user_image]; ?>" width="35"></td>
+            <td><img class="rounded-circle" src="<?php echo $row['user_image']; ?>" width="35"></td>
             <td><?php echo $row['user_name']; ?></td>
             <td><?php 
 
