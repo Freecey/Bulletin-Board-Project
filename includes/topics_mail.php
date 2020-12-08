@@ -75,6 +75,12 @@ $eMailPass      = $MailSETTINGdata['set_stmppass'];
 $eMailToEMail   = $MailSETTINGdata['set_emailmgr'];
 $eMailFromEMail = $MailSETTINGdata['set_emailsite'];
 $eMailFromName  = $MailSETTINGdata['set_headername'];
+
+$eMail_smtpauth = $MailSETTINGdata['set_email_smtpauth'];
+$eMail_authtype = $MailSETTINGdata['set_email_authtype'];
+$eMail_smtpsecure = $MailSETTINGdata['set_email_smtpsecure'];
+$eMail_smtpautotls = $MailSETTINGdata['set_email_smtpautotls'];
+
 // echo $eMailServer;
 
 // Load Composer's autoloader
@@ -120,14 +126,14 @@ try {
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
         $mail->Host       = $eMailServer;                           // Set the SMTP server to send through
-        $mail->SMTPAuth   = False;                                  // Enable SMTP authentication
-        $mail->UserName   = $eMailUser;                             // SMTP username
+        $mail->SMTPAuth   = $eMail_smtpauth;                                  // Enable SMTP authentication
+        $mail->Username   = $eMailUser;                             // SMTP username
         $mail->Password   = $eMailPass;                             // SMTP password
         //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;       // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port       = $eMailPort;                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-        $mail->SMTPAutoTLS = True;
-        //$mail->SMTPSecure = false;
-        $mail->AuthType   = 'LOGIN' ;                               // CRAM-MD5, LOGIN, PLAIN, XOAUTH2. 
+        $mail->SMTPAutoTLS = $eMail_smtpautotls;
+        $mail->AuthType   = $eMail_authtype ;                               // CRAM-MD5, LOGIN, PLAIN, XOAUTH2. 
+        $mail->SMTPSecure = $eMail_smtpsecure;
 
         //Recipients
         $mail->setFrom($eMailFromEMail, 'BBS-Queen NOREPLY');

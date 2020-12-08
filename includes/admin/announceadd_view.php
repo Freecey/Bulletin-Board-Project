@@ -5,13 +5,15 @@ include('../includes/admin/session_userlvl.php');
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 // echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
 
-if($_SESSION[AnnAddComplet] == true ){
+if($_SESSION['AnnAddComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Announce Create Successfully';
     unset($_SESSION['AnnAddComplet']);
 }
 
-$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$_SESSION[user_id] LIMIT 1");
+$ACT_USERID = $_SESSION['user_id'];
+
+$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$ACT_USERID LIMIT 1");
 $select2->setFetchMode(PDO::FETCH_ASSOC);
 $select2->execute();
 $data2=$select2->fetch();
@@ -52,9 +54,9 @@ try {
             $ADDQuerySQL1->bindParam (':ann_subject',$ADD_ann_subject);
             $ADDQuerySQL1->bindParam (':ann_content',$ADD_ann_content);
             $ADDQuerySQL1->bindParam (':ann_date',$ADD_ann_date);
-            $ADDQuerySQL1->bindParam (':ann_by',$_SESSION[user_id]);
+            $ADDQuerySQL1->bindParam (':ann_by',$_SESSION['user_id']);
             $ADDQuerySQL1->bindParam (':ann_status',$ADD_ann_status);
-            $ADDQuerySQL1->bindParam (':ann_upd_by',$_SESSION[user_id]);
+            $ADDQuerySQL1->bindParam (':ann_upd_by',$_SESSION['user_id']);
             
             
             $ADDQuerySQL1->execute();

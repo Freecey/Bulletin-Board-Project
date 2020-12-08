@@ -23,7 +23,7 @@ $board_img_prepatch = "assets/topics/";
 
 // $board_image_cur =  str_replace("assets/topics/", "",$data[board_image]);
 
-if($_SESSION[BoardUPDATEComplet] == true ){
+if($_SESSION['BoardUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Board Create Successfully';
     unset($_SESSION['BoardUPDATEComplet']);

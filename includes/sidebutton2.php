@@ -25,6 +25,7 @@ if (isset($_SESSION['loginOK'])  == true) {
             </div>
         </div>
     <?php
+
     }
 
 } else {
@@ -35,7 +36,7 @@ if (isset($_SESSION['loginOK'])  == true) {
         // You're on the root route index.php
     } else {
         echo '
-        <div class="col col-10">
+        <div class="col col-12">
         <a class="text-white" href="/">
         <div class="my-1  btn btn-primary btn-block rounded-pill" >
             Home

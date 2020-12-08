@@ -11,7 +11,7 @@
                 </div>
                 <div class="row"> 
                     <div class="col-xl-9 col-md-8">
- <?php include('includes/announce_toinclude.php'); ?>
+            <?php if( $SETTINGdata['set_announce_en'] == 1){include('includes/announce_toinclude.php');} ?>
                         <section class="my-4" id="boards">
                             
                             <article class="container-fluid">

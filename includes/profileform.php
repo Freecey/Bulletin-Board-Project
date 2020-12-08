@@ -149,7 +149,7 @@
 
 
                     <div class="form-check  ml-2">
-                        <input class="form-check-input" type="radio" name="user_imagefrom" value="2" <?php if( $user_image_C == $data_Sel_USR[user_imglocal] ){ echo 'checked';} ?>>
+                        <input class="form-check-input" type="radio" name="user_imagefrom" value="2" <?php if( $user_image_C == $data_Sel_USR['user_imglocal'] ){ echo 'checked';} ?>>
                         <label class="form-check-label" for="user_imagefrom">
                         Personal Image
                         </label>

@@ -11,12 +11,12 @@ $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $data=$select->fetch();
 
-$email = $data[user_email];
+$email = $data['user_email'];
 $size = '90';
 include('../includes/gravatars.php');
 $user_gravatar = $grav_url;
 
-if($_SESSION[ProfileUPDATEComplet] == true ){
+if($_SESSION['ProfileUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Profile Update Successfully';
     unset($_SESSION['ProfileUPDATEComplet']);
