@@ -22,7 +22,7 @@
                             <div class="row d-flex justify-content-between p-1">
                                 <div class="last-posts-list__title">
                                     <?php 
-                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post[post_topic]); 
+                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post['post_topic']); 
                                         while($topic = $req_topics->fetch()) {
                                             echo $topic['topic_subject'];
                                         }
@@ -52,7 +52,17 @@
                                 </div>
                             </div>
                             <div class="last-posts-list__content row p-1"> 
-                                <?php echo mb_strimwidth($post['post_content'], 0, 85, "...");?>
+                                <?php 
+                                $POST_CONT = $post['post_content'];
+                                // echo $POST_CONT;
+                                if (strlen($POST_CONT) > 85){
+                                      $POST_CONT = substr($POST_CONT, 0, 85) . '...';
+                                      echo $POST_CONT;
+                                }else{
+                                    echo $POST_CONT;
+                                }
+                                // echo mb_strimwidth($POST_CONT, 0, 85, "...");
+                                ?>
                             </div>
                         </div>
                     </a>

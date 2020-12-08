@@ -3,23 +3,23 @@
 include('includes/session.php');
 include('includes/connect.php');
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-// $user_id = $_SESSION[user_id];
+$ACT_user_id = $_SESSION['user_id'];
 
-$select_usr = $conn->prepare("SELECT*FROM users where user_id=$_SESSION[user_id] LIMIT 1");
+$select_usr = $conn->prepare("SELECT*FROM users where user_id=$ACT_user_id LIMIT 1");
 $select_usr->setFetchMode(PDO::FETCH_ASSOC);
 $select_usr->execute();
 $data_Sel_USR=$select_usr->fetch();
 
 // echo '<pre>' . print_r($data_Sel_USR, TRUE) . '</pre>';
 
-$email = $_SESSION[user_email];
+$email = $_SESSION['user_email'];
 $size = '90';
 include('includes/gravatars.php');
 $user_gravatar = $grav_url;
 
-$user_image_C = $data_Sel_USR[user_image];
+$user_image_C = $data_Sel_USR['user_image'];
 
-if($_SESSION[ProfileUPDATEComplet] == true ){
+if($_SESSION['ProfileUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Profile Update Successfully';
     unset($_SESSION['ProfileUPDATEComplet']);
