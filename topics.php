@@ -107,7 +107,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
 
 <div class="container-fluid bg-light rounded-lg m-2 pb-3">
                                     <div class="gradient-header row d-flex">
-                                        <div class="col-7">
+                                        <div class="col-xs-12 col-sm-7">
                                             <p class="h6 mb-1"><i class="fas fa-map-pin"><b class="ml-2"></i> Pin Topics' List</b></p>
                                         </div>
                                         <div class="col-1"> <i class="fas fa-comments"></i> </div>
@@ -122,8 +122,8 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         { 
                                         ?>
                                         <div class="card border-0 m-1">
-                                            <div class="topic-list-item card-body w-100 d-flex align-items-center">
-                                                <div class="col-7"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                            <div class="topic-list-item row d-flex">
+                                                <div class="col-xs-12 col-sm-7"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
                                                     <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
                                                 <div class="topic-details col-1">
@@ -178,7 +178,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
 
                                 <div class="container-fluid bg-light rounded-lg m-2 pb-3">
                                     <div class="gradient-header row d-flex">
-                                        <div class="col-7">
+                                        <div class="col-xs-12 col-sm-7">
                                             <p class="h6 mb-1">Topics' List</p>
                                         </div>
                                         <div class="col-1"> <i class="fas fa-comments"></i> </div>
@@ -193,8 +193,8 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         { 
                                         ?>
                                         <div class="card border-0 m-1">
-                                            <div class="topic-list-item card-body w-100 d-flex align-items-center">
-                                                <div class="col-7"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                            <div class="topic-list-item row w-100 d-flex align-items-center">
+                                                <div class="col-xs-12 col-sm-7"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
                                                     <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
                                                 <div class="topic-details col-1">
@@ -206,11 +206,11 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                                         $req_posts->closeCursor();
                                                     ?>
                                                 </div>
-                                                <div class="topic-details col-2">
+                                                <div class="topic-details col-xs-3 col-sm-2">
                                                     <!-- VIEWS -->
                                                     <?= $topic['topic_views']; ?>
                                                 </div>
-                                                <div class="topic-details col-2">
+                                                <div class="topic-details col-xs-4 col-sm-2">
                                                     <!-- DATE -->
                                                     <div class="d-flex">
                                                         <div class="font-weight-light pr-1"><small>by</small></div>
