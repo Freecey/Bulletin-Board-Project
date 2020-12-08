@@ -6,8 +6,9 @@
     incrementTopicViews();
 // postedit.php?postedit_id=34
 
-    $GetTOPName = $conn->query("SELECT topic_subject FROM topics WHERE topic_id = '$_GET[id]' LIMIT 1");
+    $GetTOPName = $conn->query("SELECT * FROM topics WHERE topic_id = '$_GET[id]' LIMIT 1");
     $GetTOPName_result=$GetTOPName->fetch();
+    $TOP_status = $GetTOPName_result['topic_status'];
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/1head.php'); ?>
     <!-- <head>
@@ -77,8 +78,14 @@
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
                                                         <p>Posts: <strong>43</strong></p>
                                                         <?php 
+                                                            if(isset($_SESSION['TOP_status_UPD'])){
+                                                                $ACT_STATUS = $_SESSION['TOP_status_UPD'];
+                                                                unset($_SESSION['TOP_status_UPD']);
+                                                            }else{
+                                                                $ACT_STATUS = $TOP_status;
+                                                            }
 
-                                                            if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0) AND ($lastPost['post_id'] == $post['post_id'])){
+                                                            if(($post['post_by'] == $_SESSION['user_id']) AND ($post['post_deleted'] == 0) AND ($ACT_STATUS == 0) AND ($lastPost['post_id'] == $post['post_id'])){
                                                                 echo '<a href="postedit.php?postedit_id='. $post['post_id'] .'">
                                                                 <button  class="btn btn-secondary btn-rounded" >Edit/Delete</button>
                                                                 </a>';
