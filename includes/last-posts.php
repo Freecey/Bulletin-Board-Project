@@ -55,7 +55,7 @@
                                 <?php 
                                 $POST_CONT = $post['post_content'];
                                 // echo $POST_CONT;
-                                echo substr($POST_CONT, 0, 85, "...");
+                                echo mb_strimwidth($POST_CONT, 0, 85, "...");
                                 ?>
                             </div>
                         </div>

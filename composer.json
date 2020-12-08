@@ -3,3 +3,8 @@
         "phpmailer/phpmailer": "^6.2"
     }
 }
+{
+"require": {
+    "ext-mbstring": "*"
+  }
+}
