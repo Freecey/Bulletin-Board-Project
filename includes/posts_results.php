@@ -10,7 +10,7 @@
             <?php
             $topNAME = $conn->query("SELECT topic_subject FROM topics WHERE topic_id = $datas[post_topic] LIMIT 1");
             $topNAME_re=$topNAME->fetch();
-            echo $topNAME_re[topic_subject];
+            echo $topNAME_re['topic_subject'];
             ?>
             
             </b></a></br>
