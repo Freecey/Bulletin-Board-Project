@@ -49,7 +49,9 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <?php require('includes/new-post.php'); ?>
+                            <?php if( $TOP_status == 0 ){
+                             require('includes/new-post.php'); 
+                        }?>
                         </div>
                     </div>
                 </div>
@@ -57,6 +59,84 @@
         </div>
 
     </div>
+<!-- LOCK / UNLOCK START -->
+    <div>
+                <?php
+                 if( $_SESSION['user_id'] == $LastUSR_post_result['post_by']){
+                    $TOP_ID = $_GET['id'];
+                    
+                    // echo $TOP_status;
+                     if( $TOP_status == 0 ){
+                        
+                        if(isset($_POST['btn_lock'])){
+                            $UPD_topic_image  = 'https://'.$_SERVER['SERVER_NAME'].'/assets/topic_status/01-padlock.svg'; 
+                            $UPDATEQuerySQL1 = "UPDATE `topics` 
+                            SET `topic_status`  = 1, 
+                                `topic_image`   = '$UPD_topic_image'
+                            WHERE `topics`.`topic_id` = $TOP_ID";
+                            $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
+                            $Top_UpdateINSERT->execute();
+                            $_SESSION['MSG_lock_unlock'] = "Topic Locked successfully";
+                            $_SESSION['MSG_lock_unlock_tltp'] = 'Click to UNLOCK Topic';
+                            $_SESSION['ICON_CLASS'] = 'fas fa-lock';
+                            $_SESSION['TOP_status_UPD'] = 1;
+                            header("Refresh:0; url=comments.php?id='.$TOP_ID");
+                            // topicStatusLock($TOP_ID);
+                        }
+                        $MSG_ACTION = $_SESSION['MSG_lock_unlock'];
+                        unset($_SESSION['MSG_lock_unlock']);
+                        if(isset($_SESSION['MSG_lock_unlock_tltp'])){
+                            $MSG_tooltip_LC = $_SESSION['MSG_lock_unlock_tltp'];
+                            $ICON_CLASS = $_SESSION['ICON_CLASS'];
+                            unset($_SESSION['MSG_lock_unlock_tltp']);
+                            unset($_SESSION['ICON_CLASS']);
+                        }else{
+                            $MSG_tooltip_LC = 'Click to LOCK Topic';
+                            $ICON_CLASS = 'fas fa-unlock';
+                        }
+                        echo'<form method="post">
+                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="'.$MSG_tooltip_LC.'">
+                        <button type="submit" class="btn-danger btn-rounded mt-1 ml-2" name = "btn_lock" Value = "lock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i>'.$MSG_ACTION.'</button>
+                        </span></form>';
+                     }elseif( $TOP_status == 1 ){
+                        
+                        if(isset($_POST['btn_lock'])){
+                            $UPD_topic_image  = 'https://'.$_SERVER['SERVER_NAME'].'/assets/topic_status/00-open-padlock.svg'; 
+                            $UPDATEQuerySQL1 = "UPDATE `topics` 
+                            SET `topic_status`  = 0, 
+                                `topic_image`   = '$UPD_topic_image'
+                            WHERE `topics`.`topic_id` = $TOP_ID";
+                            $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
+                            $Top_UpdateINSERT->execute();
+                            $_SESSION['MSG_lock_unlock'] = "Topic Unlocked successfully";
+                            $_SESSION['MSG_lock_unlock_tltp'] = 'Click to LOCK Topic';
+                            $_SESSION['ICON_CLASS'] = 'fas fa-unlock';
+                            $_SESSION['TOP_status_UPD'] = 0;
+                            header("comments.php?id='.$TOP_ID.':0");
+                            // topicStatusUnlock($getid);
+                            }
+                            $MSG_ACTION = $_SESSION['MSG_lock_unlock'];
+                            unset($_SESSION['MSG_lock_unlock']);
+                            if(isset($_SESSION['MSG_lock_unlock_tltp'])){
+                                $MSG_tooltip_LC = $_SESSION['MSG_lock_unlock_tltp'];
+                                $ICON_CLASS = $_SESSION['ICON_CLASS'];
+                                unset($_SESSION['MSG_lock_unlock_tltp']);
+                                unset($_SESSION['ICON_CLASS']);
+                            }else{
+                            $MSG_tooltip_LC = 'Click to UNLOCK Topic';
+                            $ICON_CLASS = 'fas fa-lock';
+                            }
+                            echo'<form method="post">
+                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="'.$MSG_tooltip_LC.'">
+                            <button type="submit" class="btn-danger btn-rounded mt-1 ml-2" name = "btn_lock" Value = "unlock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i> '.$MSG_ACTION.'</button>
+                            </span></form>';
+                     }                    
+                 }else{}
+                
+
+                ?>
+    </div>
+<!-- LOCK / UNLOCK END -->
     <div>
         <nav>
             <ul class="pagination">

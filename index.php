@@ -10,8 +10,9 @@
                     </div>
                 </div>
                 <div class="row"> 
-                    <div class="col-xl-9 col-md-8">
-            <?php if( $SETTINGdata['set_announce_en'] == 1){include('includes/announce_toinclude.php');} ?>
+                    <div class="col-xs-12 col-md-7 col-lg-8 col-xl-9">
+                       <?php if( $SETTINGdata['set_announce_en'] == 1){include('includes/announce_toinclude.php');} ?>
+
                         <section class="my-4" id="boards">
                             
                             <article class="container-fluid">
@@ -103,10 +104,14 @@
                         </section>
 
                     </div>
-                    <aside class="col-xl-3 col-md-4 d-none d-md-block">
+
+                    <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
+                        <div class="d-none d-md-block">
+
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
                         <?php include('includes/sidebutton2.php'); ?>
+                        </div>
                         <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </aside>
