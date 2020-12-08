@@ -2,7 +2,7 @@
 //profile.php
 include('includes/session.php');
 include('includes/connect.php');
-// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 $ACT_user_id = $_SESSION['user_id'];
 
 $select_usr = $conn->prepare("SELECT*FROM users where user_id=$ACT_user_id LIMIT 1");
@@ -112,7 +112,7 @@ try {
         $UPD_user_theme= $_POST['user_theme'];
 
         if($_POST['user_imagefrom'] == 2 ){
-            $user_image = $data_Sel_USR[user_imglocal];
+            $user_image = $data_Sel_USR['user_imglocal'];
         }else{
             $user_image = $user_gravatar;
         }
@@ -126,7 +126,7 @@ try {
         
          	
         // echo '123---';
-        // echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+        echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
         // echo "---456";
 
         $UPDATEQuerySQL1 = "UPDATE `users` 
@@ -140,7 +140,7 @@ try {
                    `user_image` = '$user_image',
                    `user_gravatar` = '$user_gravatar',
                     `user_theme` = '$UPD_user_theme'
-                     WHERE `users`.`user_id` = $_SESSION[user_id]";
+                     WHERE `users`.`user_id` = $ACT_user_id";
         // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Prof_UpdateINSERT->execute();
@@ -148,7 +148,8 @@ try {
         $_SESSION['user_name'] = $UPD_user_name;
         $_SESSION['user_image'] = $user_image;
         $_SESSION['ProfileUPDATEComplet'] = true;
-        header("Refresh:0");
+        echo "<meta http-equiv='refresh' content='0'>";
+        header("Location: profile.php");
     }
 
 	elseif(isset($_POST['update_pwd'])){

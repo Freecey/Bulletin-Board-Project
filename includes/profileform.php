@@ -94,7 +94,7 @@
         </div>
         <div class="col-xl-9 col-md-9 border-right">
             <div class="p-3 py-5">
-                <form method="post">
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                     <div class="text-center <?php echo $UpdateOKClass . ' ' . $nameclasserr; ?>">
                         <?php echo $UpdateOK; ?>    
                         <?php echo $usernameErr; ?>
