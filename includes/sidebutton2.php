@@ -1,4 +1,5 @@
 <?php
+
 $user = getUser(isset($_SESSION['user_id']));
 $uri = $_SERVER['REQUEST_URI']; 
 if (isset($_SESSION['loginOK'])  == true) {
