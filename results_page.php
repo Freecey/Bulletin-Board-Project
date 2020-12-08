@@ -1,5 +1,5 @@
 <?php 
-if ($_GET[search] == 'ilovepizzawithananas'){
+if ($_GET['search'] == 'ilovepizzawithananas'){
     header("location:/board_is_secret.php?id=6ilovepizzawithananas"); 
 }
 

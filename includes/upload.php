@@ -17,11 +17,11 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
     $fileExtension = strtolower(end($fileNameCmps));
 
     // sanitize file-name
-    $newFileName = md5($_SESSION[user_email]) . '.' . $fileExtension;
-    $newFileNamewebp = md5($_SESSION[user_email]) . '.webp';
+    $newFileName = md5($_SESSION['user_email']) . '.' . $fileExtension;
+    $newFileNamewebp = md5($_SESSION['user_email']) . '.webp';
 
     // check if file has one of the following extensions
-    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
+    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg', 'webp');
 
     if (in_array($fileExtension, $allowedfileExtensions))
     {

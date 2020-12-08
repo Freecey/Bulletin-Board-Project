@@ -4,7 +4,7 @@
 include 'includes/1head.php';
 include 'includes/2body.php';
 
-echo 'Send a msg to : USER ID '.$_GET[sendto_id];
+echo 'Send a msg to : USER ID '.$_GET['sendto_id'];
 echo '<br>';
 echo 'SOON feature in way';
 

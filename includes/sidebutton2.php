@@ -1,49 +1,37 @@
 <?php
- $uri = $_SERVER['REQUEST_URI'];
-  echo        '<div class="justify-content-center center-block row m-1">';
-if ($_SESSION['loginOK']  == true) {
-        echo '<div class="m-2">';
-        echo 'Welcome ';echo '<b>'.$_SESSION['user_name'].'</b>';
-        echo '</div>';
 
+$user = getUser(isset($_SESSION['user_id']));
+$uri = $_SERVER['REQUEST_URI']; 
+if (isset($_SESSION['loginOK'])  == true) {
 
-    // Check if user is on / or /index.php for hidden home    
-   
+    if ( $uri != "/profile.php" ) {
+        ?>
+        <div class="card text-center rounded-lg">
+            <div class="card-body">
+                <img class="avatar-sm rounded-circle" alt="" src="<?= $user['user_gravatar']; ?>">
+                <h5 class="card-title"><?= $user['user_name']?></h5>
+                <div class="small text-secondary"><?= $user['user_sign']; ?></div>
+            </div>
+            <div class="card-footer d-flex justify-content-around">
+                <a class="btn btn-primary rounded-pill my-1" href="profile.php">My profile</button>
+                <?php
+                    if($_SESSION['user_level'] >= 2 ){
+                        echo '<a class="text-white my-1 btn btn-warning rounded-pill" href="./admin/">Admin</a>';
+                    }
 
-        if ( $uri == "/" )
-    {
-        // You're on the root route
-    } elseif ( $uri == "/index.php" ) {
-        // You're on the root route index.php
-    } else {
-        echo '
-        <div class="col col-12">
-        <a class="text-white" href="/">
-        <div class="my-1  btn btn-primary btn-block rounded-pill" >
-            Home
-        </div></a>
-        </div>';
-    }
-    if ( $uri == "/profile.php" )
-    {
-        // You're on the root route
-    } else {
-        echo '
-        <div class="col col-12">
-        <a class="text-white" href="profile.php">
-        <div class="my-1 btn btn-info btn-block rounded-pill" >
-            Your Profile
-        </div></a>
-        </div>';
+                    if ($_SESSION['loginOK']  == true) {
+                        echo '<a class="text-white my-1 btn btn-secondary rounded-pill" href="logout.php">Logout</a>';
+                    };
+                ?>
+            </div>
+        </div>
+    <?php
+
     }
 
-
-        // echo '<pre>' . print_r($SignInDATA, TRUE) . '</pre>';
-        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 } else {
     include 'includes/signinform.php';
-    if ( $uri == "/" )
-    {
+    if ( $uri == "/" ) {
         // You're on the root route
     } elseif ( $uri == "/index.php" ) {
         // You're on the root route index.php
@@ -58,52 +46,3 @@ if ($_SESSION['loginOK']  == true) {
     }
 }
 ?>
- 
-         <div class="col col-12">
-        <a class="text-white" href="member.php">
-        <div class="my-1  btn btn-primary btn-block rounded-pill" >
-            Members
-        </div></a>
-        </div>
-
-
-                    <div class="col col-12">
-        <a class="text-white" href="team.php">
-        <div class="my-1 btn btn-primary btn-block rounded-pill" >
-            The team
-        </div></a>
-        </div>
-
-                    <div class="col col-12">
-                <a class="text-white" href="contact.php">
-                 <div class="my-1  btn btn-primary btn-block rounded-pill" >
-                    Contact
-                 </div></a>
-                 </div>
-        
-
-        <?php
-        if($_SESSION['user_level'] >= 2 ){
-        echo '
-        <div class="col col-12 nomargin">
-        <a class="text-white" href="./admin/">
-        <div class="my-1  btn btn-warning btn-block rounded-pill" >
-            Admin
-        </div></a>
-        </div>';
-    }
-
-        if ($_SESSION['loginOK']  == true) {
-            echo '
-            <div class="col col-12">
-        <a class="text-white" href="logout.php">
-        <div class="my-1  btn btn-secondary btn-block rounded-pill" >
-            Logout
-        </div></a>
-        </div>';};
-        ?>
-    </div>
-
-
-
-    </aside>

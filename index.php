@@ -11,7 +11,8 @@
                 </div>
                 <div class="row"> 
                     <div class="col-xs-12 col-md-7 col-lg-8 col-xl-9">
-                        <?php include('includes/announce_toinclude.php'); ?>
+                       <?php if( $SETTINGdata['set_announce_en'] == 1){include('includes/announce_toinclude.php');} ?>
+
                         <section class="my-4" id="boards">
                             
                             <article class="container-fluid">
@@ -103,15 +104,17 @@
                         </section>
 
                     </div>
+
                     <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
                         <div class="d-none d-md-block">
+
                         <?php include('includes/search.php'); ?>
                         <?php include('includes/signin.php'); ?>
                         <?php include('includes/sidebutton2.php'); ?>
                         </div>
                         <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </main>

@@ -21,7 +21,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
     });
     </script>`;
     unset($_SESSION['NewTopicreopenModal'] );
-    if($_SESSION[TopicAddComplet] == true ){
+    if($_SESSION['TopicAddComplet'] == true ){
         $UpdateOKClass = 'bg-success text-white';
         $UpdateOK = 'New Topic Create Successfully';
         $formRO = 'readonly';
@@ -48,7 +48,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                 <div class="row">
                                     <div class="col">
                                         <h2>Board : <?php
-                                    echo $GetBoardName_result[board_name];
+                                    echo $GetBoardName_result['board_name'];
                                     ?></h2> <?php echo $usernameErr; ?>
 
                                 <div class="btn-and-search row">
