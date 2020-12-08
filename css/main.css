@@ -7807,9 +7807,8 @@ body main {
     background-color: white; }
 
 #header {
-  background: url("/assets/bck-ground-two.webp");
-  background-size: cover;
-  height: 35vh; }
+  background: url("../assets/bck-ground-two.png");
+  background-size: cover; }
 
 #boards hr {
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);

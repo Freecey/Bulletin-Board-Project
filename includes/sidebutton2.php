@@ -1,21 +1,7 @@
 <?php
-$user = getUser($_SESSION['user_id']);
+$user = getUser(isset($_SESSION['user_id']));
 $uri = $_SERVER['REQUEST_URI']; 
-if ($_SESSION['loginOK']  == true) {
-    // Check if user is on / or /index.php for hidden home    
-    // if ( $uri == "/" ) {
-    //     // You're on the root route
-    // } elseif ( $uri == "/index.php" ) {
-    //     // You're on the root route index.php
-    // } else {
-    //     echo '
-    //     <div class="col col-10">
-    //     <a class="text-white" href="/">
-    //     <div class="my-1  btn btn-primary btn-block rounded-pill" >
-    //         Home
-    //     </div></a>
-    //     </div>';
-    // }
+if (isset($_SESSION['loginOK'])  == true) {
 
     if ( $uri != "/profile.php" ) {
         ?>
@@ -58,28 +44,3 @@ if ($_SESSION['loginOK']  == true) {
     }
 }
 ?>
-
-<div class="col col-10">
-    <a class="text-white" href="member.php">
-        <div class="my-1  btn btn-primary btn-block rounded-pill" >
-            Members
-        </div>
-    </a>
-</div>
-
-
-<div class="col col-10">
-    <a class="text-white" href="team.php">
-        <div class="my-1 btn btn-primary btn-block rounded-pill" >
-            The team
-        </div>
-    </a>
-</div>
-
-<div class="col col-10">
-    <a class="text-white" href="contact.php">
-        <div class="my-1  btn btn-primary btn-block rounded-pill" >
-            Contact
-        </div>
-    </a>
-</div>

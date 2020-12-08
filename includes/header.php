@@ -1,41 +1,78 @@
 <section id="header" class="container-fluid">
-    <div class="row justify-content-between">
-        <div class="col">
-            <nav class="navbar navbar-expand-md navbar-light">
-                <div class="d-flex flex-grow-1">
-                    <div class="w-100 text-right">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                    <ul class="navbar-nav ml-auto flex-nowrap">
-                        <?php  if($_SESSION['loginOK'] == '1') {
-                                echo '
-                                 <li class="nav-item">
-                                <a href="/profile.php" class="nav-link"><i class="fas fa-user-cog"></i></i></i> Welcome ' . $_SESSION['user_name'] . ' <img class="rounded-circle" src="'.$_SESSION['user_image'].'" width="25"></a>
-                                </li>';
-                                } else {
-                                    echo '  <li class="nav-item">
-                                    <a href="signup.php" class="nav-link"><i class="far fa-file-alt"></i> sRegister</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <a href="login.php" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
-                                    </li>';
-                                }
-                             ?>
-                        <li class="nav-item d-md-none">
-                            <?php include('search.php'); ?>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="member.php">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.php">The Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.php">Contact</a>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li class="nav-item d-lg-none my-2">
+                    <?php include('search.php'); ?>
+                </li>
+
+            </ul>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center text-white display-1"><?php echo $HEADERNAME; ?></h1>
+        <div class="nav-item dropdown d-lg-none">
+            <?php  if(isset($_SESSION['loginOK']) == '1') {
+                ?>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle" src="<?= $_SESSION['user_image'] ?>" width="25">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/profile.php">My profile</a>
+                    <?php if($_SESSION['user_level'] >= 2) {
+                        echo '<a class="dropdown-item" href="./admin/">Admin</a>';
+                    }
+                    ?>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                </div>
+            <?php
+                } else {
+                ?>
+                    <div class="nav-item dropdown d-lg-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle text-secondary"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="signup.php">Register</a>
+                            <a class="dropdown-item" href="login.php">Login</a>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+        </div>
+    </nav>
+    <div id="header" class="jumbotron jumbotron-fluid pt-6">
+        <div class="container mt-5">
+            <h1 class="text-center text-white display-2"><?php echo $HEADERNAME; ?></h1>
         </div>
     </div>
 </section>
+<script>
+    $(window).scroll(function(){        
+        var scroll = $(window).scrollTop();
+        console.log(scroll)
+        if(scroll <= 100){
+            $('.fixed-top').css('background', `rgba(255, 255, 255, 0.${Math.floor(scroll/10)})`);
+            $('.nav').addClass('text-white');
+        } else{
+            $('.fixed-top').css('background', 'white');
+            $('.nav').addClass('text-secondary');
+        }
+    });
+</script>
