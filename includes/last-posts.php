@@ -52,7 +52,9 @@
                                 </div>
                             </div>
                             <div class="last-posts-list__content row p-1"> 
-                                <?php echo mb_strimwidth($post['post_content'], 0, 85, "...");?>
+                                <?php 
+                                $POST_CONT = $post['post_content'];
+                                echo mb_strimwidth($POST_CONT, 0, 85, "...");?>
                             </div>
                         </div>
                     </a>
