@@ -7,7 +7,7 @@
 
     <section id="last-posts">
         
-        <div class="container-fluid bg-light rounded-lg">
+        <div class="container-fluid bg-light rounded-lg mb-lg-4 mb-3">
             <div class="gradient-header row">
                 Last posts
             </div>
