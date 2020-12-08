@@ -31,7 +31,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle" src="<?= $_SESSION['user_image'] ?>" width="25">
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/profile.php">My profile</a>
                     <?php if($_SESSION['user_level'] >= 2) {
                         echo '<a class="dropdown-item" href="./admin/">Admin</a>';
@@ -47,7 +47,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user-circle text-secondary"></i>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="signup.php">Register</a>
                             <a class="dropdown-item" href="login.php">Login</a>
                         </div>
