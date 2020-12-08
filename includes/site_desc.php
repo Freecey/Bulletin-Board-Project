@@ -6,7 +6,7 @@
 
             if( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/' ){
             echo '<meta name="description" content="'.$default_desc.'">';
-            echo '<title>'.$SITENAME. '   - ' . $PAGENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            //echo '<title>'.$SITENAME. '   - ' . $PAGENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
         }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/member.php' ){
             echo '<meta name="description" content="'.$default_desc.'">';

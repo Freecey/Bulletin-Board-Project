@@ -14,7 +14,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
                 $req_theme = $conn->prepare('SELECT user_theme FROM users WHERE user_id=?'); //
                 $req_theme->execute([isset($_SESSION['user_id'])]);
                 $theme = $req_theme->fetch();
-                if (isset($theme['user_theme']) == 0) {
+                if ($theme['user_theme'] == 0) {
                     echo '<link rel="stylesheet" href="/css/main.css" type="text/css"/>';
                 } elseif ($theme['user_theme'] == 1) {
                     echo '<link rel="stylesheet" href="/css/dark.css" type="text/css"/>';
