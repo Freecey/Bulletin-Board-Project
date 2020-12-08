@@ -24,8 +24,8 @@
                         <h4 class="text-right">Password Recovery</h4> 
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control <?php echo $_SESSION['lp_LOCKClassOK_1'];?>" name="user_email" value="<?php echo $_SESSION[lp_user_email]; ?>" required <?php echo $_SESSION['lp_LOCK_1'];?>></div>
-                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>  <?php echo $_SESSION['lp_LOCKClassOK_1'];?>" name="user_name" value="<?php echo $_SESSION[lp_user_name]; ?>" required <?php echo $_SESSION['lp_LOCK_1'];?>></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control <?php echo $_SESSION['lp_LOCKClassOK_1'];?>" name="user_email" value="<?php echo $_SESSION['lp_user_email']; ?>" required <?php echo $_SESSION['lp_LOCK_1'];?>></div>
+                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>  <?php echo $_SESSION['lp_LOCKClassOK_1'];?>" name="user_name" value="<?php echo $_SESSION['lp_user_name']; ?>" required <?php echo $_SESSION['lp_LOCK_1'];?>></div>
                     </div>
                     <!-- <div class="row mt-3">
                         <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>

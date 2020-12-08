@@ -13,7 +13,7 @@ $data_Sel_USR = $select->fetch();
 
 //  echo '<pre>' . print_r($data_Sel_USR, TRUE) . '</pre>';
 
-if (isset($data_Sel_USR[user_id])) {
+if (isset($data_Sel_USR['user_id'])) {
     $user_id_nok = '';
     $user_id_nok_class = '';
 } else {

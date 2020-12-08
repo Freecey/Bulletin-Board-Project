@@ -36,7 +36,7 @@
             <td><?php 
                     $key = array_search($row['topic_by'], array_column($new_array, 'user_id'));
                     $keyuser = $new_array[$key];
-                    $useralias = $keyuser[user_name];
+                    $useralias = $keyuser['user_name'];
                     echo $useralias ;?></td>
             <td> Soon </td>
             <td></td>  <!-- Remove if add second button -->
@@ -64,7 +64,7 @@
                     
                     echo '<option >All</option>';
                     while($row = $req_boards->fetch()) {
-                        echo '<option value="'.$row[board_id].'"';  if($_GET['SelectBoard'] == $row[board_id] ){echo 'selected';}; echo '>'.$row[board_name].'</option>
+                        echo '<option value="'.$row['board_id'].'"';  if($_GET['SelectBoard'] == $row['board_id'] ){echo 'selected';}; echo '>'.$row['board_name'].'</option>
                     ';}
                 }
                 ?>

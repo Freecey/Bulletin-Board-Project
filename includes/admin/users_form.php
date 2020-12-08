@@ -22,7 +22,7 @@
             <th>active</th>
             <th>last log</th>
             <th>last IP</th>
-            <?php if($_SESSION[user_level] > 2 ){
+            <?php if($_SESSION['user_level'] > 2 ){
             echo '<th></th>';} ?>
             <th>Action</th>
         </tr>
@@ -43,12 +43,12 @@
             <td><?php echo $row['user_active'];?></td>
             <td><?php echo $row['user_datelastlog'];?></td>
             <td><?php echo $row['user_last_ip'];?></td>
-            <?php if($_SESSION[user_level] > 2 ){
+            <?php if($_SESSION['user_level'] > 2 ){
                 echo '
-                <td><a href="usersedit.php?edit_id='. $row[user_id] .'" class="glyphicon glyphicon-edit btn btn-primary"> Edit</a></td>';
+                <td><a href="usersedit.php?edit_id='. $row['user_id'] .'" class="glyphicon glyphicon-edit btn btn-primary"> Edit</a></td>';
             } ?>
             <?php $actualusr = $row['user_id'];
-                if($row[user_active] == 2){
+                if($row['user_active'] == 2){
                 echo '
                 <td><input name="BAN_User_ID" type="hidden" value="'; echo $row['user_id']; echo '"></input> 
                 <input type="submit" class="btn btn-primary" name = "act_to_user" value = "UNBAN"></td>';

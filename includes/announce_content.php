@@ -8,7 +8,8 @@ $query->setFetchMode(PDO::FETCH_ASSOC);
 $query->execute();
 $AnnounceDATA=$query->fetch();
 
-$query = $conn->prepare("SELECT * FROM users WHERE user_id = $AnnounceDATA[ann_by] LIMIT 1");
+$ANN_BY = $AnnounceDATA['ann_by'];
+$query = $conn->prepare("SELECT * FROM users WHERE user_id = $ANN_BY LIMIT 1");
 $query->setFetchMode(PDO::FETCH_ASSOC);
 $query->execute();
 $UserByDATA=$query->fetch();

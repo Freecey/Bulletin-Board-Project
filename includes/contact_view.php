@@ -82,9 +82,9 @@ try {
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject =  'Contact Form :'. $_POST[mail_subject];
-        $mail->Body    =  'MSG FROM :'. $_POST[sendformemail] . ' - ' . $_POST[sendformname] . '<br>' . $_POST[mail_msg];
-        $mail->AltBody =  'MSG FROM :'. $_POST[sendformemail] . ' - ' . $_POST[sendformname]  . '\n'. $_POST[mail_msg];
+        $mail->Subject =  'Contact Form :'. $_POST['mail_subject'];
+        $mail->Body    =  'MSG FROM :'. $_POST['sendformemail'] . ' - ' . $_POST['sendformname'] . '<br>' . $_POST['mail_msg'];
+        $mail->AltBody =  'MSG FROM :'. $_POST['sendformemail'] . ' - ' . $_POST['sendformname']  . '\n'. $_POST['mail_msg'];
 
         $mail->send();
         echo 'Message has been sent to BBS-Queen Teams';

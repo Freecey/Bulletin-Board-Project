@@ -8,7 +8,7 @@ $selectSETTING->execute();
 $SETTINGdata=$selectSETTING->fetch();
 
 
-if($_SESSION[SettingUPDATEComplet] == true ){
+if($_SESSION['SettingUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Setting Update Successfully';
     unset($_SESSION['SettingUPDATEComplet']);
@@ -35,7 +35,7 @@ if($_SESSION[SettingUPDATEComplet] == true ){
 
 try {
 	if(isset($_POST['update_setting'])){
-        $set_id = $SETTINGdata[set_id];
+        $set_id = $SETTINGdata['set_id'];
         $UPD_set_sitename = $_POST['set_sitename'];
         $UPD_set_headername = $_POST['set_headername'];
         $UPD_set_announce_en = $_POST['set_announce_en'];

@@ -35,7 +35,7 @@
             <td><?php 
                     $key = array_search($row['ann_by'], array_column($new_array, 'user_id'));
                     $keyuser = $new_array[$key];
-                    $useralias = $keyuser[user_name];
+                    $useralias = $keyuser['user_name'];
                     echo $useralias ;?></td>
             <td></td>  <!-- Remove if add second button -->
             <td><a href="announceedit.php?edit_id=<?php echo $row['ann_id']; ?>" class="glyphicon glyphicon-edit btn btn-primary"> Edit</a></td>
