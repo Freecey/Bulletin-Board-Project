@@ -16,7 +16,7 @@ $response = get_headers($gravcheck);
 if ($response[0] != "HTTP/1.1 404 Not Found"){
     $img = $grav_url;
 } else {
-    $grav_url = 'https://bbs-queen.neant.be/assets/avatar/alien.jpg';
+    $grav_url = 'https://bbs-queen.neant.be/assets/avatar/projectavatar.webp';
 }
 // echo $grav_url;
 
