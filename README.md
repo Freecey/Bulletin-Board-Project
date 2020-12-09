@@ -181,7 +181,7 @@ ___
 ## Contributor
 
 
-![alt text](resources/tream-4p.jpg?raw=true "Team Pictures" )
+![alt text](resources/team-5p.jpg?raw=true "Team Pictures" )
 
 
 * Tanya Leenders    [@Tanya-Amber-L](https://github.com/Tanya-Amber-L)
