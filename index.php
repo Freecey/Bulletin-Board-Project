@@ -107,14 +107,13 @@
 
                     <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
                         <div class="d-none d-md-block">
-
-                        <?php include('includes/search.php'); ?>
-                        <?php include('includes/signin.php'); ?>
-                        <?php include('includes/sidebutton2.php'); ?>
+                            <?php include('includes/search.php'); ?>
+                            <?php include('includes/signin.php'); ?>
+                            <?php include('includes/sidebutton2.php'); ?>
                         </div>
                         <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
-                    </aside>
+                    </div>
                 </div>
             </div>
         </main>

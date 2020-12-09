@@ -40,7 +40,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-9 col-md-8">
+                    <div class="col-xs-12 col-md-7 col-lg-8 col-xl-9">
 
                         <section class="mb-3" id="topics">
                             
@@ -48,71 +48,70 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                 <div class="row">
                                     <div class="col">
                                         <h2>Board : <?php
-                                    echo $GetBoardName_result['board_name'];
-                                    ?></h2> <?php echo $usernameErr; ?>
+                                            echo $GetBoardName_result['board_name'];
+                                            ?>
+                                        </h2> 
+                                        <?php echo $usernameErr; ?>
 
-                                <div class="btn-and-search row">
-                                <div class="col-6 col-lg-3 col-xl-2 align-self-center">
-                                <div>
-                                <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal/newtopic.php'); ?>
-                                </div>
-                                    <!-- <a href="newtopic.php?boardID=<?= $_GET[id];?>"> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a> -->
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-xl-3 align-self-center"> <?php include('includes/search.php'); ?> </div>
-                                <div class="col-0 col-xl-4"></div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="alert alert-danger col-12 " role="alert">
-                                    <p data-toggle="modal" data-target="#ModalRules" class="text-center align-middle"><i class="fab fa-readme"></i> Forum rules </i> </p>
-
+                                        <div class="forum__rules row">
+                                            <div class="alert alert-danger col-12" role="alert">
+                                                <p data-toggle="modal" data-target="#ModalRules"><i class="fab fa-readme"></i> Forum rules </i> </p>
         <!-- Modal Rules Start -->
-                                       <div class="d-flex justify-content-start">
-                                        <div class="mr-3">
-
-                                            <div class="modal fade" id="ModalRules" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="ModalRulesLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="ModalRulesLabel">Forum rules </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                            </button>
+                                                <div class="d-flex justify-content-start align-self-center">
+                                                    <div class="mr-3">
+                                                        <div class="modal fade" id="ModalRules" tabindex="1" role="dialog" data-backdrop="false" aria-labelledby="ModalRulesLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 10">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="ModalRulesLabel">Forum rules </h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/rules.php'); ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="modal-body">
-                                                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/rules.php'); ?>
-                                                        </div>
+                                                    
+                                                        <script type="text/javascript">
+                                                            let posts = document.getElementsByClassName('post-content');
+                                                            
+                                                            Array.from(posts).forEach(post => {
+                                                                const comment = post.innerHTML;
+                                                                const cleanComment = DOMPurify.sanitize(comment)
+                                                                post.innerHTML = marked(cleanComment);
+                                                            });
+                                                        </script>
                                                     </div>
                                                 </div>
+        <!-- Modal Rules END --> 
+                                        </div>
+
+                                        <div class="btn-and-search row">
+                                            <div class="col-6 col-xl-4 align-self-center">
+                                                <div>
+                                                <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal/newtopic.php'); ?>
+                                                </div>
+                                                <!-- <a href="newtopic.php?boardID=<?= $_GET[id];?>"> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a> -->
                                             </div>
-                                        
-                                        <script type="text/javascript">
-                                            let posts = document.getElementsByClassName('post-content');
-                                            
-                                            Array.from(posts).forEach(post => {
-                                                const comment = post.innerHTML;
-                                                const cleanComment = DOMPurify.sanitize(comment)
-                                                post.innerHTML = marked(cleanComment);
-                                            });
-                                        </script>
-
-
-        <!-- Modal Rules END --> </div>
-        </div>
+                                            <div class="col-6 col-xl-5 align-self-center"> <?php include('includes/search.php'); ?> </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
                            
 <!-- pinned Topic List -->
 
 
-<div class="container-fluid bg-light rounded-lg m-2 pb-3">
+                            <div class="container-fluid bg-light rounded-lg m-2 pb-3">
                                     <div class="gradient-header row d-flex">
-                                        <div class="col-7">
+                                        <div class="col-xs-12 col-sm-5">
                                             <p class="h6 mb-1"><i class="fas fa-map-pin"><b class="ml-2"></i> Pin Topics' List</b></p>
                                         </div>
-                                        <div class="col-1"> <i class="fas fa-comments"></i> </div>
+                                        <div class="col-2"> <i class="fas fa-comments"></i> </div>
                                         <div class="col-2"> <i class="far fa-eye"></i> </div>
-                                        <div class="col-2"> <i class="far fa-clock"></i> </div>
+                                        <div class="col-3 d-none d-sm-block"> <i class="far fa-clock"></i> </div>
                                     </div>
 
                                     <div id="topics-list" class="card-body">
@@ -122,11 +121,11 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         { 
                                         ?>
                                         <div class="card border-0 m-1">
-                                            <div class="topic-list-item card-body w-100 d-flex align-items-center">
-                                                <div class="col-7"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                            <div class="topic-list-item row no-gutters d-flex">
+                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
                                                     <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
-                                                <div class="topic-details col-1">
+                                                <div class="topic-details col-2">
                                                     <!-- COMMENTS -->
                                                     <?php
                                                         $req_posts = getPosts($topic['topic_id']);
@@ -139,7 +138,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                                     <!-- VIEWS -->
                                                     <?= $topic['topic_views']; ?>
                                                 </div>
-                                                <div class="topic-details col-2">
+                                                <div class="topic-details col-xs-12 col-sm-3">
                                                     <!-- DATE -->
                                                     <div class="d-flex">
                                                         <div class="font-weight-light pr-1"><small>by</small></div>
@@ -178,12 +177,12 @@ if($_SESSION['NewTopicreopenModal'] = 1){
 
                                 <div class="container-fluid bg-light rounded-lg m-2 pb-3">
                                     <div class="gradient-header row d-flex">
-                                        <div class="col-7">
+                                        <div class="col-xs-12 col-sm-5">
                                             <p class="h6 mb-1">Topics' List</p>
                                         </div>
-                                        <div class="col-1"> <i class="fas fa-comments"></i> </div>
+                                        <div class="col-2"> <i class="fas fa-comments"></i> </div>
                                         <div class="col-2"> <i class="far fa-eye"></i> </div>
-                                        <div class="col-2"> <i class="far fa-clock"></i> </div>
+                                        <div class="col-3 d-none d-sm-block"> <i class="far fa-clock"></i> </div>
                                     </div>
 
                                     <div id="topics-list" class="card-body">
@@ -193,11 +192,11 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         { 
                                         ?>
                                         <div class="card border-0 m-1">
-                                            <div class="topic-list-item card-body w-100 d-flex align-items-center">
-                                                <div class="col-7"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                            <div class="topic-list-item row no-gutters w-100 d-flex align-items-center">
+                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
                                                     <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
-                                                <div class="topic-details col-1">
+                                                <div class="topic-details col-2">
                                                     <!-- COMMENTS -->
                                                     <?php
                                                         $req_posts = getPosts($topic['topic_id']);
@@ -210,7 +209,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                                     <!-- VIEWS -->
                                                     <?= $topic['topic_views']; ?>
                                                 </div>
-                                                <div class="topic-details col-2">
+                                                <div class="topic-details col-xs-12 col-sm-3">
                                                     <!-- DATE -->
                                                     <div class="d-flex">
                                                         <div class="font-weight-light pr-1"><small>by</small></div>
@@ -244,10 +243,12 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                             
                         </section>
                     </div>
-                    <div class="col-xl-3 col-md-4 d-none d-md-block">
-                        <?php include('includes/search.php'); ?>
-                        <?php include('includes/signin.php'); ?>
-                        <?php include('includes/sidebutton2.php'); ?>
+                    <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
+                        <div class="d-none d-md-block">
+                            <?php include('includes/search.php'); ?>
+                            <?php include('includes/signin.php'); ?>
+                            <?php include('includes/sidebutton2.php'); ?>
+                        </div>
                         <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </div>
