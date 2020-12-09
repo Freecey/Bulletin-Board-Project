@@ -18,8 +18,8 @@ if (isset($_SESSION['loginOK'])  == true) {
                         <div class="small text-secondary mt-0"><?= $user['user_sign']; ?></div>
                     </div>
                     <?php if($nbmsgpv > 0 ) {echo '<div>
-                    <button class="btn-success  btn-rounded mt-0 ml-0"><i class="fas fa-envelope" aria-hidden="true"> '.$nbmsgpv.'</i></button>
-                    </div>';} ?>
+                    <a href="/msg.php"><button class="btn-success  btn-rounded mt-0 ml-0"><i class="fas fa-envelope" aria-hidden="true"> '.$nbmsgpv.'</i></button>
+                    </a></div>';} ?>
                     
                 </div>
             </div>
