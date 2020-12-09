@@ -1,3 +1,4 @@
+
 <?php $actual_link = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         $default_desc = 'BBS Queen : Where web developers and designers learn and share how to design websites, build mobile applications, create WordPress themes, write code, HTML, JavaScript,...';
 

@@ -7,7 +7,7 @@
 
     <section id="last-posts">
         
-        <div class="container-fluid bg-light rounded-lg">
+        <div class="container-fluid bg-light rounded-lg mb-lg-4 mb-3">
             <div class="gradient-header row">
                 Last posts
             </div>
@@ -22,7 +22,8 @@
                             <div class="row d-flex justify-content-between p-1">
                                 <div class="last-posts-list__title">
                                     <?php 
-                                        $req_topics = $conn->query("SELECT topic_subject FROM topics WHERE topic_id =" .  $post['post_topic']); 
+                                        $req_topics = $conn->prepare("SELECT topic_subject FROM topics WHERE topic_id = :topicId");
+                                        $req_topics->execute(['topicId'=>$post['post_topic']]);
                                         while($topic = $req_topics->fetch()) {
                                             echo $topic['topic_subject'];
                                         }
