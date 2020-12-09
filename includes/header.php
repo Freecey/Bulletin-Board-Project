@@ -10,7 +10,8 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <?php if(isset($_SESSION['user_level'])){ 
-                    $sql = "SELECT COUNT(pvmsg_read) AS NumberOfUnread FROM pvmsg WHERE (pvmsg_inbox= '4') AND (pvmsg_read= '0')";
+                    $act_usr_ID = $_SESSION['user_id'];
+                    $sql = "SELECT COUNT(pvmsg_read) AS NumberOfUnread FROM pvmsg WHERE (pvmsg_inbox= '$act_usr_ID') AND (pvmsg_read= '0')";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $nbmsgpv = $stmt->fetch(PDO::FETCH_ASSOC);
