@@ -9,6 +9,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <?php if(isset($_SESSION['user_level'])){ 
+                    $sql = "SELECT COUNT(pvmsg_read) AS NumberOfUnread FROM pvmsg WHERE (pvmsg_inbox= '4') AND (pvmsg_read= '0')";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $nbmsgpv = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $nbmsgpv = $nbmsgpv['NumberOfUnread'];
+                    echo '
+                <li class="nav-item"> 
+                    <a class="nav-link" href="msg.php">Messages'; if($nbmsgpv > 0 ) {echo ' <i class="fas fa-envelope text-success">'.$nbmsgpv.'</i>'; } echo  '</a>
+                </li> ';} ?>
                 <li class="nav-item">
                     <a class="nav-link" href="member.php">Members</a>
                 </li>

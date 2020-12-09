@@ -22,7 +22,13 @@ echo'
 <link rel="stylesheet" href="/css/msg.css" type="text/css"/>
 
 ';
+
+if(isset($_GET['sendto_id'])) {
 $sendto_id = $_GET['sendto_id'];
+}else{
+    $sendto_id = '0';
+}
+
 // echo $sendto_id;
 $CURRENT_USERID = $_SESSION['user_id'];
 $CURRENT_IMAGE = $_SESSION['user_image'];

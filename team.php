@@ -4,7 +4,7 @@
 ?>
 
     <div id="team">
-        <h1 class="text-center m-2">The Team</h1>
+        <h2 class="text-center m-2">The Team</h2>
 
         
         <h5 class="team-title border-bottom border-primary m-3 p-3">"Gods"</h5>

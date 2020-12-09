@@ -7,7 +7,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>.::Bulletin Board::.</title>
+        <!-- <title>.::Bulletin Board::.</title> -->
         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/site_desc.php');
             if(isset($_SESSION['user_id'])) {
                 $req_theme = $conn->prepare('SELECT user_theme FROM users WHERE user_id=?'); //

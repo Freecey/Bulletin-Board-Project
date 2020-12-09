@@ -18,8 +18,7 @@
             <th>Total Post</th>
             <th>Level</th>
             <th>active</th>
-            <th></th>
-            
+            <?php if(isset($_SESSION['user_lvl'])){ echo '<th></th>'; }; ?>
             <th>Action</th>
         </tr>
     </thead>
@@ -44,7 +43,7 @@
 
 
             <td><a href="?view_user_id=<?php echo $row['user_id']; ?>" class="glyphicon glyphicon-edit btn btn-primary">View</a></td>
-            <td><a href="msg.php?sendto_id=<?php echo $row['user_id']; ?>"  class="glyphicon glyphicon-remove btn btn-primary">Send MSG</a></td>
+            <?php if(isset($_SESSION['user_level'])) {echo '<td><a href="msg.php?sendto_id='.$row['user_id'].'"  class="glyphicon glyphicon-remove btn btn-primary">Send MSG</a></td>';} ?>
             
     </tr>  
             <?php } ?>

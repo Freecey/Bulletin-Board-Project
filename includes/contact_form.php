@@ -17,7 +17,7 @@
 
     <div class="my-5 text-center">
         <input type="submit" class="btn btn-primary rounded-pill" name = "sendformtomail" Value = "Send Message">
-        <a class="text-white" href="setting.php#mailset">
-        <div class="btn btn-secondary rounded-pill" >Back to Setting</div></a>
+        <a class="text-white" href="/">
+        <div class="btn btn-secondary rounded-pill" >Back to Home</div></a>
     </div>
 </form>
