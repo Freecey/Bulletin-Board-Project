@@ -40,13 +40,16 @@ try {
 
 				$user_date = date('Y-m-d H:i:s');
 
+				$imglocalURLwebp = 'https://'. $_SERVER['HTTP_HOST'] .'/assets/avatar/projectavatar.webp';
+				
+				$blob = file_get_contents($user_gravatar);
 
 				// Get IP address of client
 				include('includes/function/getip.php');
 				$userlast_ip = getRealIpAddr();
 				
-				$SignUPinsert = $conn->prepare("INSERT INTO users(user_name,user_email,user_pass,user_fname,user_lname,user_date,user_secquest,user_secansw,user_gravatar,user_last_ip)
-						values(:user_name, :user_email, :user_pass, :user_fname, :user_lname, :user_date, :user_secquest, :user_secansw, :user_gravatar, :user_last_ip)
+				$SignUPinsert = $conn->prepare("INSERT INTO users(user_name,user_email,user_pass,user_fname,user_lname,user_date,user_secquest,user_secansw,user_gravatar,user_last_ip,user_imgdata)
+						values(:user_name, :user_email, :user_pass, :user_fname, :user_lname, :user_date, :user_secquest, :user_secansw, :user_gravatar, :user_last_ip, :user_imgdata)
 						");
 				$SignUPinsert->bindParam (':user_name',$user_name);
 				$SignUPinsert->bindParam (':user_email',$user_email);
@@ -58,6 +61,7 @@ try {
 				$SignUPinsert->bindParam (':user_secansw',$user_secansw);
 				$SignUPinsert->bindParam (':user_gravatar',$user_gravatar);
 				$SignUPinsert->bindParam (':user_last_ip',$userlast_ip);
+				$SignUPinsert->bindParam(':user_imgdata', $blob, PDO::PARAM_LOB);
 				$SignUPinsert->execute();
 				$creationOKClass = 'bg-success text-white';
 				$creationOK = 'Sign Up Successfully <a href="../index.php">Click Here to go Home for login</a>';

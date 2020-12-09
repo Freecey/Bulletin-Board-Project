@@ -31,7 +31,7 @@
                 <div class="col-2"> <img class="rounded-circle" src=" <?= $devil['user_image'] ?> " alt="" width="80" height="80"></div>
                 <div class="col-7 font-weight-bold"> <?= $devil['user_name'] ?> </div>
                 <div class="col-3">
-                    <a href="?view_user_id=<?php echo $devil['user_id']; ?>" class="btn btn-primary">View</a>
+                    <a href="member.php?view_user_id=<?php echo $devil['user_id']; ?>" class="btn btn-primary">View</a>
                     <a href="msg.php?sendto_id=<?php echo $devil['user_id']; ?>"  class="btn btn-primary">Send MSG</a>
                 </div>
             </div>
