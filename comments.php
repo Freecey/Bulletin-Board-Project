@@ -173,9 +173,6 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
         <script type="text/javascript" src="js/emoji-reaction.js"></script>
-        <script>
-            $('[data-toggle="tooltip"]').tooltip();
-        </script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
         <script type="text/javascript">

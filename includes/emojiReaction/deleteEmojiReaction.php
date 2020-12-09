@@ -4,7 +4,9 @@ session_start();
     $reactUserId= '';
     header('Content-type: application/json');
     include($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
+    try {
 
+    
     if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         $currentUserId= $_SESSION['user_id'];
         if( isset($_GET['reaction_id'])) {
@@ -25,4 +27,7 @@ session_start();
         $response_array['status'] = 'You are not logged';
         echo json_encode($response_array);
     }
+} catch (Exception $e) {
+    echo "Captured Throwable: " . $e->getMessage();
+}
 ?>
