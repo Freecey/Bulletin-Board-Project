@@ -7,7 +7,7 @@
 
             if( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/' ){
             echo '<meta name="description" content="'.$default_desc.'">';
-            //echo '<title>'.$SITENAME. '   - ' . $PAGENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo '<title>'.$SITENAME. '   - Home - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
         }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/member.php' ){
             echo '<meta name="description" content="'.$default_desc.'">';
@@ -33,9 +33,38 @@
             echo '<meta name="description" content="'.$default_desc.'">';
             echo '<title>Privacy policy - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
+        }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/member.php' ){
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Members List - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
+        }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/member.php?view_user_id') !== false) {
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>View Member Profile - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
+        }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/lostpwd.php' ){
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Password Lost ??? - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
+        }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/board_is_secret.php') !== false) {
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Password Lost ??? - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
+        }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/signup.php' ){
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>SignUp - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
+        }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/msg.php') !== false) {
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>My Private Message - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
         }
 
+        
 
+
+        
+        
+        
 
 
 
@@ -66,7 +95,7 @@
         }
 
 
-
+        
 
         
 
