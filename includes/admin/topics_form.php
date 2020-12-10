@@ -37,8 +37,19 @@
                     $key = array_search($row['topic_by'], array_column($new_array, 'user_id'));
                     $keyuser = $new_array[$key];
                     $useralias = $keyuser['user_name'];
+                    $Current_postUSR_ID = $keyuser['user_id'];
                     echo $useralias ;?></td>
-            <td> Soon </td>
+            <td> 
+            <?php
+            $Current_postTOP_ID= $row['topic_id'];
+            $sql = "SELECT COUNT(post_topic) AS NumberOfPosts FROM posts WHERE post_topic= $Current_postTOP_ID";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $nbmposts = $stmt->fetch(PDO::FETCH_ASSOC);
+            $nbmposts = $nbmposts['NumberOfPosts'];
+            echo $nbmposts;    
+            ?>
+             </td>
             <td></td>  <!-- Remove if add second button -->
             <td><a href="topicsedit.php?edit_id=<?php echo $row['topic_id']; ?>" class="glyphicon glyphicon-edit btn btn-primary"> Edit</a></td>
             <!-- <td><a href="delete.php?id=<?php echo $row['topic_id']; ?>"  class="glyphicon glyphicon-remove btn btn-danger"> Delete</a></td> -->

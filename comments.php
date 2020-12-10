@@ -76,7 +76,17 @@
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
-                                                        <p>Posts: <strong>43</strong></p>
+                                                        <p>Posts: <strong>
+                                                        <?php 
+                    $Current_postUSR_ID = $post['user_id'];
+                    $sql = "SELECT COUNT(post_by) AS NumberOfPosts FROM posts WHERE post_by= $Current_postUSR_ID";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $nbmposts = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $nbmposts = $nbmposts['NumberOfPosts'];
+                    echo $nbmposts;                                                        
+                                                        ?>
+                                                        </strong></p>
                                                         <?php 
                                                             if(isset($_SESSION['TOP_status_UPD'])){
                                                                 $ACT_STATUS = $_SESSION['TOP_status_UPD'];
