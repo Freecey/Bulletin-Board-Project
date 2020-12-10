@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 
@@ -67,7 +66,6 @@
 </div>
 
 
-=======
 <?PHP 
 require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
 
@@ -80,4 +78,3 @@ $search_Member->execute();
 return $search_Member;
 }
 ?>
->>>>>>> 5d8de8a00cb2d7f489e3c76ccd4f561b61cd0a57
