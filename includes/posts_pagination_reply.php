@@ -96,7 +96,7 @@
                         }
                         echo'<form method="post">
                         <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="'.$MSG_tooltip_LC.'">
-                        <button type="submit" class="btn-danger btn-rounded mt-1 ml-2" name = "btn_lock" Value = "lock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i>'.$MSG_ACTION.'</button>
+                            <button type="submit" class="btn btn-primary btn-rounded mt-1 ml-2" name = "btn_lock" Value = "lock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i>'.$MSG_ACTION.'</button>
                         </span></form>';
                      }elseif( $TOP_status == 1 ){
                         
@@ -128,7 +128,7 @@
                             }
                             echo'<form method="post">
                             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="'.$MSG_tooltip_LC.'">
-                            <button type="submit" class="btn-danger btn-rounded mt-1 ml-2" name = "btn_lock" Value = "unlock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i> '.$MSG_ACTION.'</button>
+                            <button type="submit" class="btn btn-primary btn-rounded mt-1 ml-2" name = "btn_lock" Value = "unlock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i> '.$MSG_ACTION.'</button>
                             </span></form>';
                      }                    
                  }else{}

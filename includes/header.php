@@ -77,7 +77,6 @@
 <script>
     $(window).scroll(function(){        
         var scroll = $(window).scrollTop();
-        console.log(scroll)
         if(scroll <= 100){
             $('.fixed-top').css('background', `rgba(255, 255, 255, 0.${Math.floor(scroll/10)})`);
             $('.nav').addClass('text-white');
