@@ -29,7 +29,7 @@
                                 </p>
                             </div>
                             <div class="col">
-                                <img class="img-fluid" src="/assets/404/lost_kitten.jpg" alt="">
+                                <img class="img-fluid" src="/assets/404/lost_kitten.jpg" alt="Kitten Busy">
                             </div>
                         </div>
                             

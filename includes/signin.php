@@ -37,6 +37,7 @@ try {
             $_SESSION['user_name'] = $SignInDATA['user_name'];
             $_SESSION['user_id'] = $SignInDATA['user_id'];
             $_SESSION['user_image'] = $SignInDATA['user_image'];
+            $_SESSION['user_imgdata'] = $SignInDATA['user_imgdata'];
             $user_ID = $SignInDATA['user_id'];
             
             // Check if user have a gravatar if not set default picture

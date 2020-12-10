@@ -5,7 +5,7 @@
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
         <div class="col-xl-3 col-md-3 border-right">
-            <!-- <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="./assets/pwdforgot/funny-it-comics-li-anne-dias-fb.png" width="200x"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data['user_email'] ?></span><span> </span></div> -->
+            
         </div>
         <div class="col-xl-7 col-md-7 border-right">
             <div class="p-3 py-5">

@@ -40,7 +40,7 @@
             <?php  if(isset($_SESSION['loginOK']) == '1') {
                 ?>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle" src="<?= $_SESSION['user_image'] ?>" width="25">
+                    <img class="rounded-circle" src="data:image/webp;base64,<?php echo base64_encode($_SESSION['user_imgdata']); ?>" width="25" alt="User's avatar">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/profile.php">My profile</a>
