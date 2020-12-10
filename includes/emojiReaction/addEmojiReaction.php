@@ -1,6 +1,7 @@
 <?php
     session_start();
-    require('./../connect.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
+    $counter = null;
     $postId = '';
     $emoji = '';
     $userId = $_SESSION['user_id'];
@@ -9,21 +10,20 @@
         $emoji = $_GET['emoji'];
     }
     header('Content-type: application/json');
+    $reactions = getReactions($postId);
+    foreach($reactions as $reaction) {
+        if ($reaction['postreact_user'] == $userId && $reaction['postreact_content'] == $emoji) {
+            $counter = 1;
+        break;
+        }
+    }
 
-    try {
-    $query = $conn->prepare('INSERT INTO `postreact`(`postreact_post`, `postreact_user`, `postreact_content`) 
-    SELECT :postId, :userId, :emoji 
-    WHERE NOT EXISTS 
-        (SELECT `postreact_post`, `postreact_user`, `postreact_content` 
-        FROM `postreact` 
-        WHERE `postreact_post` = :postId
-        AND `postreact_user` = :userId
-        AND `postreact_content` = :emoji )');
-    $query->execute(['postId'=>$postId, 'userId'=>$userId, 'emoji'=>$emoji]);
-    $response_array['status'] = 'success';
+    if ($counter == 1) {
+        $response_array['status'] = 'removed';
         echo json_encode($response_array);
-    } catch (Exception $e) {
-        $response_array['status'] = 'duplicate';
+    } else {
+        addReaction($postId, $userId, $emoji);
+        $response_array['status'] = 'added';
         echo json_encode($response_array);
     }
 ?>

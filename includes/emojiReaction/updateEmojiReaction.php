@@ -4,9 +4,9 @@
         include($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
         $postId = $_GET['post_id'];
     } else {
-        
         $postId = $post['post_id'];
     }
+
     $reactions = getReactions($postId);
     while($reaction = $reactions->fetch()) {
         $user = getUser($reaction['postreact_user']);
@@ -16,7 +16,6 @@
 </button>
 <?php  
     }
-    $reactions->closeCursor();
 ?>
 <script>
     $('[data-toggle="tooltip"]').tooltip();

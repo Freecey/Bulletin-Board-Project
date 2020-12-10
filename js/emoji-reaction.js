@@ -48,9 +48,35 @@ tooltips.forEach((tooltip, index) => {
     });
 });
 
+
+
+// on emoji click, save to DB with ajax
+let pickers = Array.from(document.getElementsByTagName('emoji-picker'));
+pickers.forEach(picker => {
+    picker.addEventListener('emoji-click', event => {
+        let post_id = picker.getAttribute('post_id');
+        $.ajax({
+            url: './includes/emojiReaction/addEmojiReaction.php',
+            type: 'GET',
+            data: 'post_id=' + post_id + '&emoji=' + event.detail.unicode,
+            success: (data) => {
+                if (data.status == 'removed') {
+                    alert('This emoji already exists');
+                    console.log(data.status)
+                } else {
+                    console.log(data.status)
+                    updateEmojiButtons(post_id);
+                }
+            },
+            error: (result, status, error) => {
+                console.log(result, status, error);
+            }
+        })
+    });
+});
+
 //update the emoji reactions buttons (below message)
 let updateEmojiButtons = (index) => {
-    console.log('update en cours');
     $.ajax({
         url: './includes/emojiReaction/updateEmojiReaction.php',
         type: 'GET',
@@ -61,35 +87,9 @@ let updateEmojiButtons = (index) => {
         },
         error: (data, status, error) => {
             console.log(data, status, error);
-            
         }
     })
 }
-
-// on emoji click, save to DB with ajax
-let pickers = Array.from(document.getElementsByTagName('emoji-picker'));
-pickers.forEach(picker => {
-    picker.addEventListener('emoji-click', event => {
-        const post_id = picker.getAttribute('post_id');
-        $.ajax({
-            url: './includes/emojiReaction/addEmojiReaction.php',
-            type: 'GET',
-            data: 'post_id=' + post_id + '&emoji=' + event.detail.unicode,
-            success: (data) => {
-                if (data.status == 'success') {
-                    console.log(data.status)
-                    updateEmojiButtons(post_id);    
-                } else {
-                    console.log(data.status)
-                }
-                
-            },
-            error: (result, status, error) => {
-                console.log(result, status, error);
-            }
-        })
-    });
-});
 
 // delete an emoji button reaction only if you are the owner.
 let deleteEmojiButton = (index, postId) => {

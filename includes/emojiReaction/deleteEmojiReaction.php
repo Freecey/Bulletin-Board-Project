@@ -5,7 +5,6 @@ session_start();
     header('Content-type: application/json');
     include($_SERVER['DOCUMENT_ROOT'].'/includes/function/functions.php');
     try {
-
     
     if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         $currentUserId= $_SESSION['user_id'];
