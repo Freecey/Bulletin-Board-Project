@@ -22,7 +22,7 @@ if (!$req_boards) {
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col-auto">
-                                    <img src="<?php echo $board['board_image']; ?>" alt="" width="48" height="48">
+                                    <img src="<?php echo $board['board_image']; ?>" alt="Board logo" width="48" height="48">
                                 </div>
                                 <div class="col ml-2">
                                     <p class="h6 mb-1"><?php echo $board['board_name']?></p>

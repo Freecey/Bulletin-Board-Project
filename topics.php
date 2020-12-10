@@ -122,7 +122,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         ?>
                                         <div class="card border-0 m-1">
                                             <div class="topic-list-item row no-gutters d-flex">
-                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40" alt="Topic Logo">
                                                     <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
                                                 <div class="topic-details col-2">
@@ -193,7 +193,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         ?>
                                         <div class="card border-0 m-1">
                                             <div class="topic-list-item row no-gutters w-100 d-flex align-items-center">
-                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40" alt="Topic Logo">
                                                     <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
                                                 </div>
                                                 <div class="topic-details col-2">

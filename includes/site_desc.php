@@ -47,7 +47,7 @@
             echo $keyword_tag;
         }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/board_is_secret.php') !== false) {
             echo '<meta name="description" content="'.$default_desc.'">';
-            echo '<title>Password Lost ??? - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo '<title>Board is secret - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
         }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/signup.php' ){
             echo '<meta name="description" content="'.$default_desc.'">';

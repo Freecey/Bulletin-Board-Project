@@ -17,6 +17,7 @@ $size = '90';
 include('includes/gravatars.php');
 $user_gravatar = $grav_url;
 
+$user_imgDATA_C = $data_Sel_USR['user_imgdata'];
 $user_image_C = $data_Sel_USR['user_image'];
 
 if($_SESSION['ProfileUPDATEComplet'] == true ){

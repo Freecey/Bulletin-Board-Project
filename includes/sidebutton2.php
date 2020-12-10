@@ -10,7 +10,7 @@ if (isset($_SESSION['loginOK'])  == true) {
             <div class="card-body">
                 <div class="d-flex flex-column flex-lg-row">
                     <div>
-                        <img class="avatar-sm rounded-circle" alt="" src="<?= $user['user_image']; ?>" width="48"> 
+                    <?php echo '<img class="avatar-sm rounded-circle" alt="'.$user['user_name'].' Avatar" src="data:image/webp;base64,'.base64_encode($user['user_imgdata']).'" width="48">'; ?>
                     </div>
                     
                     <div class="text-center text-lg-left ml-lg-2">

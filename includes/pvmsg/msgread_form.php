@@ -49,7 +49,7 @@
                         $key = array_search($rowDISC['pvmsg_to'], array_column($users_array, 'user_id'));
                         $keyuser = $users_array[$key];
                         $useralias = $keyuser['user_name'];
-                        $userimage = $keyuser['user_image'];
+                        $userimage = $keyuser['user_imgdata'];
 
                                              
                            echo '
@@ -58,7 +58,7 @@
                         echo '<div class="badge bg-success float-right">unread</div>';
                         }
                         echo '<div class="d-flex align-items-start">
-							<img src="'.$userimage.'" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
+							<img src="data:image/webp;base64,'.base64_encode($userimage).'" class="rounded-circle mr-1" alt="'.$useralias.'s avatar" width="40" height="40">
 							<div class="flex-grow-1 ml-3">';
                             
                             
@@ -85,9 +85,9 @@
                                 $key = array_search($sendto_id, array_column($users_array, 'user_id'));
                                 $keyuser = $users_array[$key];
                                 $useralias = $keyuser['user_name'];
-                                $userimage = $keyuser['user_image'];
+                                $userimage = $keyuser['user_imgdata'];
                                 echo'
-								<img src="'.$userimage.'" class="rounded-circle mr-1" alt="'.$useralias.'" width="40" height="40">
+								<img src="data:image/webp;base64,'.base64_encode($userimage).'" class="rounded-circle mr-1" alt="'.$useralias.' avatar" width="40" height="40">
 							</div>
 							<div class="flex-grow-1 pl-3">
 								<strong>'.$useralias.'</strong>';
@@ -114,7 +114,7 @@
                         echo '
 							<div class="chat-message-right pb-4">
 								<div>
-									<img src="'.$CURRENT_IMAGE.'" class="rounded-circle mr-1" alt="'.$CURRENT_UNAME.'" width="40" height="40">
+									<img src="data:image/webp;base64,'.base64_encode($CURRENT_IMAGE).'" class="rounded-circle mr-1" alt="'.$CURRENT_UNAME.'" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">'.humanTiming($MSG_DATE).'</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">

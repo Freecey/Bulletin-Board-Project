@@ -243,6 +243,7 @@ function getBreadcrumbs() {
             users.user_name,
             users.user_gravatar,
             users.user_image,
+            users.user_imgdata,
             users.user_sign,
             users.user_id
         FROM
