@@ -253,8 +253,16 @@
                     </div>
                     <div class="mt-5 text-center">
                             <input type="submit" class="btn btn-primary rounded-pill" name = "update_pwd" Value = "Change Password">
+                            
                     </div>
                 </form>
+                <div class="mt-5 d-flex align-items-end flex-column">
+                <div class="p-2">
+               
+                <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal/account_remove.php'); ?>
+                
+                </div>
+                </div>
             </div>
         </div>
     </div>

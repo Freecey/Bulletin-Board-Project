@@ -1,7 +1,25 @@
 <?php
 //profile.php
-include('includes/session.php');
-include('includes/connect.php');
+if($_SESSION['DELETE_ACC'] == 1){
+    echo $_SESSION['MSG_SEND_OK'];
+    $_SESSION['DELETE_ACC2'] = $_SESSION['DELETE_ACC'];
+    unset($_SESSION['DELETE_ACC']);
+    echo'
+    <div>
+    <!-- <img src="/assets/other/message-sent-icon-23.webp" class="rounded mx-auto d-block" alt="Message sent OK"> -->
+    <p class="text-center bg-success text-light">Account Close Successfully Log out NOW ..</p>
+    </div>
+    <meta http-equiv="refresh" content="1">';
+    exit();
+    unset($_SESSION['MSG_SEND_OK2']);
+    unset($_SESSION);
+
+    session_destroy();
+    include($_SERVER['DOCUMENT_ROOT'].'/logout.php');
+}
+
+include($_SERVER['DOCUMENT_ROOT'].'/includes/session.php');
+include($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 $ACT_user_id = $_SESSION['user_id'];
 
@@ -31,7 +49,6 @@ if($_SESSION['uploadProfOK'] == 'ULPictOK'){
     // $UpdateOK = 'image Upload Successfully';
     unset($_SESSION['uploadProfOK']);
 }
- ;
 
 // Popote pour la date et mis a 0 si autre selectionner
 $user_datebirthday = $data_Sel_USR['user_datebirthday'];
@@ -187,12 +204,9 @@ try {
 				$pwdclasserrmm = 'bg-danger text-white';
             }
         }
-    }
-    // elseif(isset($_POST['uploadpic'])){
-    //     echo '<img src="'. $_FILES .'" alt="" />';
-    //     echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
-    //     echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
-    //     }
+    }       
+    
+
 }
 
 
@@ -206,8 +220,12 @@ catch (PDOException $e) {
 	}
 }
 
-
-
+include($_SERVER['DOCUMENT_ROOT'].'/includes/account_remove.php');
+// elseif(isset($_POST['uploadpic'])){
+    //     echo '<img src="'. $_FILES .'" alt="" />';
+    //     echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
+    //     echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+    //     }
 
 
 ?>
