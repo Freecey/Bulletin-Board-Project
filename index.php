@@ -34,7 +34,7 @@
                                                 <div class="card-body">
                                                     <div class="row align-items-center no-gutters">
                                                         <div class="col-auto">
-                                                            <img src="<?php echo $board['board_image']; ?>" alt="" width="48" height="48">
+                                                            <img src="<?php echo $board['board_image']; ?>" alt="Board Logo" width="48" height="48">
                                                         </div>
                                                         <div class="col ml-2">
                                                             <p class="h6 mb-1"> 
@@ -122,7 +122,6 @@
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
 
-        <script type="text/javascript" src="scroll-up-btn.js"></script>
-        
+        <script type="text/javascript" src="js/scroll-up-btn.js"></script>
     </body>
 </html>

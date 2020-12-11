@@ -54,13 +54,19 @@ tooltips.forEach((tooltip, index) => {
 let pickers = Array.from(document.getElementsByTagName('emoji-picker'));
 pickers.forEach(picker => {
     picker.addEventListener('emoji-click', event => {
-        const post_id = picker.getAttribute('post_id');
+        let post_id = picker.getAttribute('post_id');
         $.ajax({
             url: './includes/emojiReaction/addEmojiReaction.php',
             type: 'GET',
             data: 'post_id=' + post_id + '&emoji=' + event.detail.unicode,
-            success: () => {
-                updateEmojiButtons(post_id);
+            success: (data) => {
+                if (data.status == 'removed') {
+                    alert('This emoji already exists');
+                    console.log(data.status)
+                } else {
+                    console.log(data.status)
+                    updateEmojiButtons(post_id);
+                }
             },
             error: (result, status, error) => {
                 console.log(result, status, error);
@@ -77,11 +83,10 @@ let updateEmojiButtons = (index) => {
         data: 'post_id=' + index,
         success: (data) => {
             $('[emojiPost_id=' + index + ']').html(data);
-            console.log(data);
+            // console.log(data);
         },
         error: (data, status, error) => {
             console.log(data, status, error);
-            
         }
     })
 }
@@ -91,13 +96,10 @@ let deleteEmojiButton = (index, postId) => {
     $.ajax({
         url: './includes/emojiReaction/deleteEmojiReaction.php',
         type: 'GET',
-        data: 'reaction_id=' + index,
+        data: 'reaction_id=' + index + '&reaction_post=' + postId,
         success: (data) => {
-            if(data.status == 'success') {
-                updateEmojiButtons(postId);
-            } else {
-                console.log(data.status);
-            }
+            // console.log(data.status);
+            updateEmojiButtons(postId);
         },
         error: (data, status, error) => {
             console.log(data, status, error);

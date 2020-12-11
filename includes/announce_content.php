@@ -29,7 +29,6 @@ $UserByDATA=$query->fetch();
 
 <!-- // id= announce id -->
 
-<?php include 'includes/1head.php'; ?>
    <head>
         <link rel="stylesheet" href="css/simplemde.min.css">
         <script src="https://kit.fontawesome.com/ad9205c9ea.js" crossorigin="anonymous"></script>
@@ -68,7 +67,7 @@ $UserByDATA=$query->fetch();
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar rounded-circle" src="<?= $UserByDATA['user_image'] ?>" alt="<?= htmlspecialchars($UserByDATA['user_name']) ?>'s Avatar Picture" width="90">
+                                                        <img class="avatar rounded-circle" src="data:image/webp;base64,<?php echo base64_encode($UserByDATA['user_imgdata']); ?>" alt="<?= htmlspecialchars($UserByDATA['user_name']) ?>'s Avatar Picture" width="90">
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href=member.php?view_user_id=<?php echo $UserByDATA['user_id'] ;?>><strong><?= htmlspecialchars($UserByDATA['user_name']) ?></strong></a></p>

@@ -8,6 +8,19 @@
 
 <div class="container">
 <h3 class="well text-center">User Manager</h3>
+
+<!-- search bar to search members -->
+<form action="/member.php?search_member=<?php echo $_GET['user'];?>" methode="GET" class="form-group">	
+    <div class="bg-light rounded rounded-pill shadow-sm">	
+        <div class="input-group">	
+            <input type="search" name="search_member" placeholder="Search member..." aria-describedby="button-addon1" class="form-control border-0 bg-light rounded-pill ">	
+            <div class="input-group-append">	
+                <button type="submit" class="btn btn-link text-primary" ><i class="fa fa-search"></i></button>	
+            </div>	
+        </div>	
+    </div>	
+</form>
+<!-- end search  bar -->
  
 <table class="table">
     <thead class="thead">
@@ -17,9 +30,8 @@
             <th>Alias</th>
             <th>Total Post</th>
             <th>Level</th>
-            <th>active</th>
-            <th></th>
-            
+            <th>Active</th>
+            <?php if(isset($_SESSION['user_lvl'])){ echo '<th></th>'; }; ?>
             <th>Action</th>
         </tr>
     </thead>
@@ -30,7 +42,7 @@
         <tr>
             <?php $i++; ?>
             <td><?php echo $i-1; ?></td>
-            <td><img class="rounded-circle" src="<?php echo $row['user_image']; ?>" width="35"></td>
+            <td><img class="rounded-circle" src="data:image/webp;base64,<?php echo base64_encode($row['user_imgdata']); ?>" width="35" alt="user's avatar"></td>
             <td><?php echo $row['user_name']; ?></td>
             <td><?php 
 
@@ -44,7 +56,7 @@
 
 
             <td><a href="?view_user_id=<?php echo $row['user_id']; ?>" class="glyphicon glyphicon-edit btn btn-primary">View</a></td>
-            <td><a href="msg.php?sendto_id=<?php echo $row['user_id']; ?>"  class="glyphicon glyphicon-remove btn btn-primary">Send MSG</a></td>
+            <?php if(isset($_SESSION['user_level'])) {echo '<td><a href="msg.php?sendto_id='.$row['user_id'].'"  class="glyphicon glyphicon-remove btn btn-primary">Send MSG</a></td>';} ?>
             
     </tr>  
             <?php } ?>

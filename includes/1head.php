@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ob_start();
 include($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
 include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
     <!DOCTYPE html>
@@ -7,10 +8,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>.::Bulletin Board::.</title>
+        <!-- <title>.::Bulletin Board::.</title> -->
         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/site_desc.php');
             if(isset($_SESSION['user_id'])) {
-                $req_theme = $conn->prepare('SELECT user_theme FROM users WHERE user_id=?'); //
+                $CURRENT_USRID = $_SESSION['user_id'];
+                $req_theme = $conn->prepare("SELECT user_theme FROM users WHERE user_id= '$CURRENT_USRID'"); //
                 $req_theme->execute([isset($_SESSION['user_id'])]);
                 $theme = $req_theme->fetch();
                 if ($theme['user_theme'] == 0) {

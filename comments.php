@@ -72,11 +72,21 @@
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar-sm rounded-circle" src="<?= $post['user_image'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s Avatar Picture" width="90">
+                                                    <?php echo '<img class="avatar-sm rounded-circle" src="data:image/webp;base64,'.base64_encode($post['user_imgdata']).'" alt="'.htmlspecialchars($post['user_name']).'s Avatar Picture" width="90">'; ?>
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
-                                                        <p>Posts: <strong>43</strong></p>
+                                                        <p>Posts: <strong>
+                                                        <?php 
+                    $Current_postUSR_ID = $post['user_id'];
+                    $sql = "SELECT COUNT(post_by) AS NumberOfPosts FROM posts WHERE post_by= $Current_postUSR_ID";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $nbmposts = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $nbmposts = $nbmposts['NumberOfPosts'];
+                    echo $nbmposts;                                                        
+                                                        ?>
+                                                        </strong></p>
                                                         <?php 
                                                             if(isset($_SESSION['TOP_status_UPD'])){
                                                                 $ACT_STATUS = $_SESSION['TOP_status_UPD'];
@@ -102,12 +112,13 @@
                                                         <?php
                                                             $date = new DateTime($post['post_date']);
                                                             $post_dtupade = $post['post_date_update'];
+                                                            $newDate = date('D M d, Y H:i:s', strtotime($post_dtupade));
                                                             //$post_dtupade = $post_dtupade->date('D M d, Y H:i:s');
                                                             echo '<small>';
                                                             echo $date->format('D M d, Y H:i:s');
                                                             if(isset($post_dtupade)){
                                                                 echo ' - last update ';
-                                                                echo $post_dtupade; //->format('D M d, Y H:m:s');
+                                                                echo $newDate; //->format('D M d, Y H:m:s');
                                                             }
                                                             echo '</small>';
                                                         ?></p>
@@ -175,9 +186,6 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
         <script type="text/javascript" src="js/emoji-reaction.js"></script>
-        <script>
-            $('[data-toggle="tooltip"]').tooltip();
-        </script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
         <script type="text/javascript">

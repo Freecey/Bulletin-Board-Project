@@ -1,5 +1,5 @@
 <?php
-    $req_users = $conn->prepare('SELECT user_image, user_name, user_sign FROM users ORDER BY user_datelastlog DESC LIMIT 3');
+    $req_users = $conn->prepare('SELECT user_image, user_name, user_sign, user_imgdata, user_id FROM users ORDER BY user_datelastlog DESC LIMIT 3');
     $req_users->execute();
     if (!$req_users) {
         echo 'Unable to display the last active users' .mysql_error();
@@ -16,12 +16,12 @@
                 while ($user = $req_users->fetch())
                 {
             ?>
-            <a class="card border-0 text-center mb-lg-2 mb-1" href="./member.php?view_user_id=<?= $user['user_id'];?>">
+            <a class="card border-0 text-center mb-lg-2 mb-1" href="/member.php?view_user_id=<?= $user['user_id'];?>">
                 <div class="card-body">
                     <div class="d-flex flex-column flex-lg-row">
                         
                         <div>
-                            <img class="avatar-sm rounded-circle" alt="" src="<?= $user['user_image']; ?>" width="48"> 
+                            <img class="avatar-sm rounded-circle" alt="" src="data:image/webp;base64,<?php echo base64_encode($user['user_imgdata']); ?>" width="48" alt="User's avatar"> 
                         </div>
                         
                         <div class="text-center text-lg-left ml-lg-2">

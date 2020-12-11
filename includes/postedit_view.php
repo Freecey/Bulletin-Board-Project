@@ -48,7 +48,7 @@ try {
         $UPD_post_by = $_SESSION['user_id']; // DON'T NOT UPDATE 
         $SetDELQuerySQL = "UPDATE `posts` SET `post_deleted` = '1' WHERE `posts`.`post_id` = $UPD_post_id";
         $Post_SetDelINSERT= $conn->prepare($SetDELQuerySQL);
-        echo '123456';
+        
         $Post_SetDelINSERT->execute();
         $_SESSION['SetDELComplet'] = true;
         header("location:comments.php?id=".$topic_id."#".$UPD_post_id);  

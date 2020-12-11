@@ -1,5 +1,6 @@
 <?php include 'includes/1head.php'; ?>
-<?php require_once './includes/function/functions.php'; ?>
+<?php require_once './includes/function/functions.php'; 
+ob_start();?>
     <body>
         <?php 
             include('includes/header.php'); 
@@ -21,7 +22,7 @@
                             ?>
                             <div class="row">
                                 <div class="col">
-                                    <img src="https://i.pinimg.com/originals/57/ca/61/57ca6168f9eaaf6ce368dd79e99c709d.png" alt="" width="500">
+                                    <img src="/assets/other/smilenok.webp" alt="Smile surprise" width="500">
                                 </div>
                                 <div class="col d-flex flex-column justify-content-center">
                                     <h2 class="font-weight-bold">Ooooooooh crap!</h2>

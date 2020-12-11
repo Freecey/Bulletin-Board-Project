@@ -5,7 +5,7 @@
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
     <div class="row">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_image_C; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="data:image/webp;base64,<?php echo base64_encode($user_imgDATA_C); ?>" width="90" alt="User's Avatar"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
             <span></span></div>
 
         <div class="d-flex flex-column align-items-center text-center p-3 py-2">
@@ -235,7 +235,7 @@
 
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data_Sel_USR['user_secquest']; ?>" ></div>
-                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw']; ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw'];?>" ></div>
                     </div>
                     <div class="mt-5 text-center">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_profil" Value = "Update Profile">
@@ -253,8 +253,16 @@
                     </div>
                     <div class="mt-5 text-center">
                             <input type="submit" class="btn btn-primary rounded-pill" name = "update_pwd" Value = "Change Password">
+                            
                     </div>
                 </form>
+                <div class="mt-5 d-flex align-items-end flex-column">
+                <div class="p-2">
+               
+                <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal/account_remove.php'); ?>
+                
+                </div>
+                </div>
             </div>
         </div>
     </div>

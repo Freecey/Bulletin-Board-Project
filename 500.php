@@ -24,7 +24,7 @@
                                 <p>An error has occured and we're working to fix the problem! We'll be up and running shortly.</p>
                             </div>
                             <div class="col">
-                                <img class="img-fluid" src="./assets/500/kitten_busy.jpg" alt="">
+                                <img class="img-fluid" src="./assets/500/kitten_busy.jpg" alt="Kitten Busy">
                             </div>
                         </div>
                             

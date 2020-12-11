@@ -84,8 +84,8 @@ try {
         $nameclasserr = '';
         $user_email = $_POST['user_email'];
 		$user_name = $_POST['user_name'];
-        $user_secquest = $_POST['user_secquest'];
-        $user_secansw = $_POST['user_secansw'];
+        $user_secquest = htmlentities($_POST['user_secquest'], ENT_QUOTES);
+        $user_secansw = htmlentities($_POST['user_secansw'], ENT_QUOTES);
         // $DOBy = $_POST['doby'];
         // $DOBm = $_POST['dobm'];
         // $DOBd = $_POST['dobd'];

@@ -1,6 +1,6 @@
 <?php
 
-$user = getUser(isset($_SESSION['user_id']));
+$user = getUser($_SESSION['user_id']);
 $uri = $_SERVER['REQUEST_URI']; 
 if (isset($_SESSION['loginOK'])  == true) {
 
@@ -10,13 +10,17 @@ if (isset($_SESSION['loginOK'])  == true) {
             <div class="card-body">
                 <div class="d-flex flex-column flex-lg-row">
                     <div>
-                        <img class="avatar-sm rounded-circle" alt="" src="<?= $user['user_gravatar']; ?>" width="48"> 
+                    <?php echo '<img class="avatar-sm rounded-circle" alt="'.$user['user_name'].' Avatar" src="data:image/webp;base64,'.base64_encode($user['user_imgdata']).'" width="48">'; ?>
                     </div>
                     
                     <div class="text-center text-lg-left ml-lg-2">
                         <h5 class="card-title mb-0"><?= $user['user_name']?></h5>
                         <div class="small text-secondary mt-0"><?= $user['user_sign']; ?></div>
                     </div>
+                    <?php if($nbmsgpv > 0 ) {echo '<div>
+                    <a href="/msg.php"><button class="btn-success  btn-rounded mt-0 ml-0"><i class="fas fa-envelope" aria-hidden="true"> '.$nbmsgpv.'</i></button>
+                    </a></div>';} ?>
+                    
                 </div>
             </div>
             <div class="card-footer d-flex justify-content-around flex-column flex-lg-row">
