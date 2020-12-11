@@ -54,7 +54,7 @@ try {
             $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar',`user_last_ip` = '$userlast_ip'   WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);
             $SignInINSERT->execute();
-            header("location:$url,");
+            header("location:$url");
 
 			// header("location:profile.php");
 		}
