@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-9 col-md-8">
+                    <div class="col-xs-12 col-md-7 col-lg-8 col-xl-9">
                         <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
@@ -169,10 +169,12 @@
                         </section>
                         
                     </div>
-                    <div class="col-xl-3 col-md-4 d-none d-md-block">
-                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/search.php'); ?>
-                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/signin.php'); ?>
-                        <?php include('includes/sidebutton2.php'); ?>
+                    <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
+                        <div class="d-none d-md-block">
+                            <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/search.php'); ?>
+                            <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/signin.php'); ?>
+                            <?php include('includes/sidebutton2.php'); ?>
+                        </div>
                         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-posts.php'); ?>
                         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-active-user.php'); ?>
                     </div>
