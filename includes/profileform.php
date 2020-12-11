@@ -235,7 +235,7 @@
 
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data_Sel_USR['user_secquest']; ?>" ></div>
-                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw']; ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw'];?>" ></div>
                     </div>
                     <div class="mt-5 text-center">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_profil" Value = "Update Profile">

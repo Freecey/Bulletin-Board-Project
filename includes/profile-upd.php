@@ -104,8 +104,8 @@ try {
 		$UPD_user_fname = $_POST['user_fname'];
 		$UPD_user_lname = $_POST['user_lname'];		
         $UPD_user_sign = $_POST['user_sign'];
-        $UPD_user_secquest = $_POST['user_secquest'];
-        $UPD_user_secansw = $_POST['user_secansw'];
+        $UPD_user_secquest = htmlentities($_POST['user_secquest'], ENT_QUOTES);
+        $UPD_user_secansw  = htmlentities($_POST['user_secansw'], ENT_QUOTES);
         $UPD_DOBy = $_POST['doby'];
         $UPD_DOBm = $_POST['dobm'];
         $UPD_DOBd = $_POST['dobd'];
