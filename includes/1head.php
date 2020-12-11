@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ob_start();
 include($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
 include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
     <!DOCTYPE html>
