@@ -1,5 +1,6 @@
 <?php include 'includes/1head.php'; ?>
-<?php require_once './includes/function/functions.php'; ?>
+<?php require_once './includes/function/functions.php'; 
+ob_start();?>
     <body>
         <?php 
             include('includes/header.php'); 

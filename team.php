@@ -49,7 +49,7 @@
                 <div class="col-7 font-weight-bold align-middle"> <?= $mod['user_name'] ?> </div>
                 <div class="col-3 align-middle">
                     <a href="member.php?view_user_id=<?php echo $mod['user_id']; ?>" class="btn btn-primary">View</a>
-                    <?php if(isset($_SESSION['user_level'])) { echo  '<a href="msg.php?sendto_id='.$god['user_id'].'"  class="btn btn-primary">Send MSG</a>';} ?>
+                    <?php if(isset($_SESSION['user_level'])) { echo  '<a href="msg.php?sendto_id='.$mod['user_id'].'"  class="btn btn-primary">Send MSG</a>';} ?>
                 </div>
             </div>
 

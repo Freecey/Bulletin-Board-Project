@@ -10,7 +10,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/includes/getdata/sitesettingGLOB.php'); ?>
         <!-- <title>.::Bulletin Board::.</title> -->
         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/site_desc.php');
             if(isset($_SESSION['user_id'])) {
-                $req_theme = $conn->prepare('SELECT user_theme FROM users WHERE user_id=?'); //
+                $CURRENT_USRID = $_SESSION['user_id'];
+                $req_theme = $conn->prepare("SELECT user_theme FROM users WHERE user_id= '$CURRENT_USRID'"); //
                 $req_theme->execute([isset($_SESSION['user_id'])]);
                 $theme = $req_theme->fetch();
                 if ($theme['user_theme'] == 0) {
