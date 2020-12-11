@@ -103,7 +103,7 @@ function addReaction($postId, $userId, $content) {
     $query->execute(['postId'=>$postId, 'userId'=>$userId, 'content'=>$content]);
 }
 
-function getReactionsById($react_id) {
+function getReactionById($react_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_id = ?');
     $query->execute(array($react_id));

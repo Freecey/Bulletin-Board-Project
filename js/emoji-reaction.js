@@ -83,7 +83,7 @@ let updateEmojiButtons = (index) => {
         data: 'post_id=' + index,
         success: (data) => {
             $('[emojiPost_id=' + index + ']').html(data);
-            console.log(data);
+            // console.log(data);
         },
         error: (data, status, error) => {
             console.log(data, status, error);
@@ -96,9 +96,9 @@ let deleteEmojiButton = (index, postId) => {
     $.ajax({
         url: './includes/emojiReaction/deleteEmojiReaction.php',
         type: 'GET',
-        data: 'reaction_id=' + index,
+        data: 'reaction_id=' + index + '&reaction_post=' + postId,
         success: (data) => {
-            console.log(data.status);
+            // console.log(data.status);
             updateEmojiButtons(postId);
         },
         error: (data, status, error) => {
