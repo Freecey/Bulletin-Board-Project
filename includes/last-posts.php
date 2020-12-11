@@ -1,5 +1,5 @@
 <?php
-    $req_posts = $conn->query('SELECT * FROM posts WHERE post_exclsearch = 0 ORDER BY post_date DESC LIMIT 4');
+    $req_posts = $conn->query('SELECT * FROM posts WHERE post_exclsearch = 0 AND post_deleted = 0 ORDER BY post_date DESC LIMIT 4');
     if (!$req_posts) {
         echo 'Unable to display the last posts' .mysql_error();
     } else {
