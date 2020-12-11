@@ -98,6 +98,7 @@ let deleteEmojiButton = (index, postId) => {
         type: 'GET',
         data: 'reaction_id=' + index,
         success: (data) => {
+            console.log(data.status);
             updateEmojiButtons(postId);
         },
         error: (data, status, error) => {
