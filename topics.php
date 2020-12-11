@@ -122,8 +122,18 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         ?>
                                         <div class="card border-0 m-1">
                                             <div class="topic-list-item row no-gutters d-flex">
-                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
-                                                    <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                <div class="col-xs-12 col-sm-5 d-flex">
+                                                    <img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                                    <div>
+                                                        <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                        <br/>
+                                                        <small class="d-none d-lg-block" style= "color:rgb(106, 107, 110)"> Created: 
+                                                            <?php
+                                                                $topicCreationDate = new DateTime($topic['topic_date']);
+                                                                echo $topicCreationDate->format('D M d');
+                                                            ?> 
+                                                        </small>
+                                                    </div>
                                                 </div>
                                                 <div class="topic-details col-2">
                                                     <!-- COMMENTS -->
@@ -193,8 +203,18 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                         ?>
                                         <div class="card border-0 m-1">
                                             <div class="topic-list-item row no-gutters w-100 d-flex align-items-center">
-                                                <div class="col-xs-12 col-sm-5"><img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
-                                                    <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                <div class="col-xs-12 col-sm-5 d-flex">
+                                                    <img class="rounded-circle pr-1" src="<?php echo $topic['topic_image']; ?>" width="40">
+                                                    <div>
+                                                        <?php echo '<a href="./comments.php?id=' . $topic['topic_id'] . '">' . $topic['topic_subject'] . '</a>'?>
+                                                        <br/>
+                                                        <small class="d-none d-lg-block" style= "color:rgb(106, 107, 110)"> Created: 
+                                                            <?php
+                                                                $topicCreationDate = new DateTime($topic['topic_date']);
+                                                                echo $topicCreationDate->format('D M d');
+                                                            ?> 
+                                                        </small>
+                                                    </div>
                                                 </div>
                                                 <div class="topic-details col-2">
                                                     <!-- COMMENTS -->
