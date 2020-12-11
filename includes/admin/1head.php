@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 include('../includes/connect.php');
 include('../includes/getdata/sitesettingGLOB.php'); ?>
     <!DOCTYPE html>
