@@ -62,7 +62,9 @@
 <!-- LOCK / UNLOCK START -->
     <div>
                 <?php
-                 if( $_SESSION['user_id'] == $LastUSR_post_result['post_by']){
+                $userTop = $conn->query("SELECT topic_by FROM topics WHERE topic_id = '$_GET[id]'");
+                $userTop_result=$userTop->fetch();
+                 if( $_SESSION['user_id'] == $userTop_result['topic_by']){
                     $TOP_ID = $_GET['id'];
                     
                     // echo $TOP_status;

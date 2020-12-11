@@ -8,6 +8,10 @@ if (empty($_GET['view_user_id'])) {
     include 'includes/memberdir_view.php';
     include 'includes/memberdir_form.php';
 
+    if ($search_Member = true) {
+        include 'includes/member_search.php';
+    }
+
 } else {
     include 'includes/member_view.php';
     include 'includes/member_form.php';

@@ -8,6 +8,19 @@
 
 <div class="container">
 <h3 class="well text-center">User Manager</h3>
+
+<!-- search bar to search members -->
+<form action="/member.php?search_member=<?php echo $_GET['user'];?>" methode="GET" class="form-group">	
+    <div class="bg-light rounded rounded-pill shadow-sm">	
+        <div class="input-group">	
+            <input type="search" name="search_member" placeholder="Search member..." aria-describedby="button-addon1" class="form-control border-0 bg-light rounded-pill ">	
+            <div class="input-group-append">	
+                <button type="submit" class="btn btn-link text-primary" ><i class="fa fa-search"></i></button>	
+            </div>	
+        </div>	
+    </div>	
+</form>
+<!-- end search  bar -->
  
 <table class="table">
     <thead class="thead">
@@ -17,7 +30,7 @@
             <th>Alias</th>
             <th>Total Post</th>
             <th>Level</th>
-            <th>active</th>
+            <th>Active</th>
             <?php if(isset($_SESSION['user_lvl'])){ echo '<th></th>'; }; ?>
             <th>Action</th>
         </tr>
