@@ -163,6 +163,16 @@ try {
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Prof_UpdateINSERT->execute();
 
+
+        $blob = file_get_contents($user_image);
+        
+        $sql = "UPDATE users SET user_imgdata = :user_imgdata
+                        WHERE user_id = $ACT_user_id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':user_imgdata', $blob, PDO::PARAM_LOB);
+        
+        $stmt->execute();
+
         $_SESSION['user_name'] = $UPD_user_name;
         $_SESSION['user_image'] = $user_image;
         $_SESSION['ProfileUPDATEComplet'] = true;
