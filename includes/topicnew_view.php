@@ -45,7 +45,7 @@ try {
         $ADD_topic_date     = $ADD_post_date;
         $ADD_topic_board    = $_POST['board_id'];
 
-        if(ADD_topic_board == 6){
+        if($ADD_topic_board == 6){
             $ADD_topics_exclsearch	= 1;
             $ADD_post_exclsearch = 1;
         }else{
