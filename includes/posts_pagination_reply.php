@@ -82,7 +82,8 @@
                             $_SESSION['MSG_lock_unlock_tltp'] = 'Click to UNLOCK Topic';
                             $_SESSION['ICON_CLASS'] = 'fas fa-lock';
                             $_SESSION['TOP_status_UPD'] = 1;
-                            header("Refresh:0; url=comments.php?id='.$TOP_ID");
+                            header("Refresh:0; ");
+                            //header("Refresh:0; url=comments.php?id='.$TOP_ID");
                             // topicStatusLock($TOP_ID);
                         }
                         $MSG_ACTION = $_SESSION['MSG_lock_unlock'];
