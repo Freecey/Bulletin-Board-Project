@@ -94,7 +94,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                                 <div>
                                                 <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal/newtopic.php'); ?>
                                                 </div>
-                                                <!-- <a href="newtopic.php?boardID=<?= $_GET[id];?>"> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a> -->
+                                                <!-- <a href="newtopic.php?boardID=<?= $_GET['id'];?>"> <div class="p-3 btn btn-primary btn-block rounded-pill"> New Topic <i class="fas fa-pencil-alt"></i> </div></a> -->
                                             </div>
                                             <div class="col-6 col-xl-5 align-self-center"> <?php include('includes/search.php'); ?> </div>
                                         </div>
