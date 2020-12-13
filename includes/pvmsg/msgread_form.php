@@ -53,7 +53,7 @@
 
                                              
                            echo '
-					<a href="msg.php?sendto_id='.$DISCACTUSR.'" class="list-group-item list-group-item-action border-0">';
+					<a href="msg.php?sendto_id='.$DISCACTUSR.'" class="list-group-item list-group-item-action border-0 form-color">';
                         if( $rowDISC['pvmsg_read'] == 0){
                         echo '<div class="badge bg-success float-right">unread</div>';
                         }

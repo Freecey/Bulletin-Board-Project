@@ -3,7 +3,7 @@
 //mise en page formutaire
 ?>
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
-    <div class="row">
+    <div class="row form-color">
         <div class="col-xl-3 col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="data:image/webp;base64,<?php echo base64_encode($user_imgDATA_C); ?>" width="90" alt="User's Avatar"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
             <span></span></div>
@@ -65,7 +65,7 @@
         </div>
     
         <div class="container">
-             <div class="row">
+             <div class="row form-color">
                  <div class="col text-center">
                      <input type="submit" class="input-group-text my-3"  name="uploadBtn" value="Upload" />
                      </div>
@@ -131,6 +131,12 @@
                                 Dark
                             </label>
                         </div>                        
+                        <div class="form-check ml-2">
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme6" value="6" <?php if($data_Sel_USR['user_theme'] == 6 ){echo 'checked';} ?>>
+                            <label class="form-check-label" for="user_theme1">
+                                Drak Blue - Special Cey
+                            </label>
+                        </div>  
                             <div class="form-check disabled ml-2">
                             <input class="form-check-input" type="radio" name="user_theme" id="user_theme666" value="666" <?php if($data_Sel_USR['user_theme'] == 666 ){echo 'checked';} ?> <?php if($data_Sel_USR['user_level'] < 3 ){echo 'disabled';} ?>>
                             <label class="form-check-label" for="user_theme666">
