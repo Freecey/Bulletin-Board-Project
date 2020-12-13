@@ -10814,10 +10814,6 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #a1a1a1 !important;
 }
 
-form {
-  background-color: #a1a1a1 !important;
-}
-
 .navbar {
   background-color: black;
   background: black !important;
@@ -10825,6 +10821,10 @@ form {
 
 .nav-link {
   color: white !important;
+}
+
+.breadcrumb-item {
+  color: #446ca8 !important;
 }
 
 .btn-rounded, .input-rounded {

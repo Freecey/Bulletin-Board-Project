@@ -30,7 +30,7 @@ $Dark4: rgb(161, 161, 161) !important;
     $dark:       $dark;
 };
 form{
-    background-color: $Dark4;
+ //   background-color: $Dark4;
 }
 .navbar{
     background-color: black;
@@ -40,7 +40,9 @@ form{
 .nav-link{
     color: white !important;
 }
-
+.breadcrumb-item{
+    color: rgb(68, 108, 168) !important;
+}
 // general
 .btn-rounded, .input-rounded {
     border-radius: 23px;
