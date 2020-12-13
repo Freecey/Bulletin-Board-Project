@@ -6,7 +6,9 @@
     incrementTopicViews();
 // postedit.php?postedit_id=34
 
-    $GetTOPName = $conn->query("SELECT * FROM topics WHERE topic_id = '$_GET[id]' LIMIT 1");
+$GET_ID = $_GET['id'];
+
+    $GetTOPName = $conn->query("SELECT * FROM topics WHERE topic_id = $GET_ID LIMIT 1");
     $GetTOPName_result=$GetTOPName->fetch();
     $TOP_status = $GetTOPName_result['topic_status'];
 ?>
@@ -91,6 +93,7 @@
                                                             if(isset($_SESSION['TOP_status_UPD'])){
                                                                 $ACT_STATUS = $_SESSION['TOP_status_UPD'];
                                                                 unset($_SESSION['TOP_status_UPD']);
+                                                                // header("Refresh:0; ");
                                                             }else{
                                                                 $ACT_STATUS = $TOP_status;
                                                             }

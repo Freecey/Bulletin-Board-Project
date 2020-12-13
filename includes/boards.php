@@ -16,7 +16,7 @@ if (!$req_boards) {
         <div class="row bg-light rounded-lg pb-3">
             <?php
             while ($board = $req_boards->fetch())
-            {
+            { ?>
                 <div class="col-lg-6 mt-3">
                     <div class="card border-0">
                         <div class="card-body">
@@ -78,7 +78,7 @@ if (!$req_boards) {
                         </div>
                     </div>
                 </div>
-            }
+      <?      }
             $req_boards->closeCursor();
             ?>
         </div>

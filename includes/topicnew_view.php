@@ -1,7 +1,7 @@
 <?php
 //topicnew_view.php
 
-$url=$_SERVER['HTTP_REFERER'];
+// $url=$_SERVER['HTTP_REFERER'];
 // echo $url;
 
 // Check if form error for reselect the precedent board selection or page from
@@ -19,17 +19,17 @@ if($_SESSION['TopicAddComplet'] == true ){
     unset($_SESSION['BoardUPDATEComplet']);
 }
 
-if( $_GET[boardID] == 6 ) {
+if( $_GET['boardID'] == 6 ) {
 // Select all board for set in form selection
 $req_boards = $conn->query("SELECT * FROM boards"); 
 // end of this query in the form
 }else{ 
-    $req_boards = $conn->query("SELECT * FROM boards WHERE board_status=1"); 
+    $req_boards = $conn->query("SELECT * FROM boards WHERE board_status = '1'"); 
 }
 
 
 
-$SelectNewTopicID = $conn->prepare("SELECT * FROM `topics` WHERE `topic_subject` = '$ADD_topic_subject'");
+$SelectNewTopicID = $conn->prepare("SELECT * FROM topics WHERE topic_subject = '$ADD_topic_subject'");
 $SelectNewTopicID->setFetchMode(PDO::FETCH_ASSOC);
 $SelectNewTopicID->execute();
 $NewTopicID=$SelectNewTopicID->fetch();

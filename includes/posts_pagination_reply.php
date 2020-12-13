@@ -25,7 +25,7 @@
     $posts = $query->fetchAll(PDO::FETCH_ASSOC);
     
     // for lock news post if current user is the last author
-    $LastUSR_post = $conn->query("SELECT post_by FROM posts WHERE post_topic = '$_GET[id]' AND post_deleted = 0 ORDER BY post_id DESC LIMIT 1");
+    $LastUSR_post = $conn->query("SELECT post_by FROM posts WHERE post_topic = '$GET_ID' AND post_deleted = 0 ORDER BY post_id DESC LIMIT 1");
     $LastUSR_post_result=$LastUSR_post->fetch();
      
 ?>
@@ -62,7 +62,7 @@
 <!-- LOCK / UNLOCK START -->
     <div>
                 <?php
-                $userTop = $conn->query("SELECT topic_by FROM topics WHERE topic_id = '$_GET[id]'");
+                $userTop = $conn->query("SELECT topic_by FROM topics WHERE topic_id = '$GET_ID'");
                 $userTop_result=$userTop->fetch();
                  if( $_SESSION['user_id'] == $userTop_result['topic_by']){
                     $TOP_ID = $_GET['id'];
@@ -82,7 +82,7 @@
                             $_SESSION['MSG_lock_unlock_tltp'] = 'Click to UNLOCK Topic';
                             $_SESSION['ICON_CLASS'] = 'fas fa-lock';
                             $_SESSION['TOP_status_UPD'] = 1;
-                            header("Refresh:0; ");
+                            // header("Refresh:0; ");
                             //header("Refresh:0; url=comments.php?id='.$TOP_ID");
                             // topicStatusLock($TOP_ID);
                         }
@@ -115,7 +115,7 @@
                             $_SESSION['MSG_lock_unlock_tltp'] = 'Click to LOCK Topic';
                             $_SESSION['ICON_CLASS'] = 'fas fa-unlock';
                             $_SESSION['TOP_status_UPD'] = 0;
-                            header("comments.php?id='.$TOP_ID.':0");
+                            // header("Refresh:0; ");
                             // topicStatusUnlock($getid);
                             }
                             $MSG_ACTION = $_SESSION['MSG_lock_unlock'];
