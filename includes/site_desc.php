@@ -94,10 +94,11 @@
             echo $keyword_tag;
         }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/comments.php') !== false) {
             $topic_id = $_GET['id'];
-            $select_topic = $conn->prepare("SELECT topic_subject FROM topics where topic_id=$topic_id LIMIT 1");
+            $select_topic = $conn->prepare("SELECT topic_subject,topic_board FROM topics where topic_id=$topic_id LIMIT 1");
             $select_topic->setFetchMode(PDO::FETCH_ASSOC);
             $select_topic->execute();
             $data_Sel_topic=$select_topic->fetch();
+            $_SESSION['BOARDID_formSITESET'] = $data_Sel_topic['topic_board'];
 
             $select_1stpost = $conn->prepare("SELECT post_content FROM posts where post_topic=$topic_id LIMIT 1");
             $select_1stpost->setFetchMode(PDO::FETCH_ASSOC);
