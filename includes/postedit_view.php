@@ -37,6 +37,12 @@ try {
         $UPDATEQuerySQL1 = "UPDATE `posts` SET `post_content` = '$UPD_post_content', `post_date_update` = '$UPD_post_date_update' WHERE `posts`.`post_id` = $UPD_post_id";
         $Post_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Post_UpdateINSERT->execute();
+
+        $test = date("Y-m-d H:i:s");
+        echo $test;
+        $update=$conn->prepare("UPDATE topics SET topic_date_upd= '$test' WHERE topic_id = $topic_id");
+        $update->execute();
+
         $_SESSION['BoardUPDATEComplet'] = true;
         header("location:comments.php?id=".$topic_id."#".$UPD_post_id);   
         //header("Refresh:");

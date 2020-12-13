@@ -17,9 +17,9 @@ function getBoard($id) {
 function getTopics($id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     if ($id == 7) {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date DESC LIMIT 5");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date_upd DESC LIMIT 5");
     } else {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date_upd DESC ");
     }
     $query->execute(array($id));
     return $query;
@@ -28,9 +28,9 @@ function getTopics($id) {
 function getTopicsNoPIN($id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     if ($id == 7) {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0 ORDER BY topic_date DESC LIMIT 5");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0 ORDER BY topic_date_upd DESC LIMIT 5");
     } else {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0 ORDER BY topic_date_upd DESC");
     }
     $query->execute(array($id));
     return $query;
