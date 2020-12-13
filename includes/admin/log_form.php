@@ -4,7 +4,7 @@
 
 
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
-    <div class="row thead-light">
+    <div class="row thead-light form-color2">
 
 
 <table class="table table-sm table-striped  form-color">
