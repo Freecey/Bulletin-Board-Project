@@ -34,7 +34,7 @@
                                 if ($req_boards) {
                                     while ($row = $req_boards->fetch()) {
                                         $i++;
-                                        if ($FromBoard_ID == $i - 1) {
+                                        if ($_GET['id'] == $i - 1) {
                                             echo "<option value='" . $row['board_id'] . "' selected>" . $row['board_name'] . "</option>";
                                         } else {
                                             echo "<option value='" . $row['board_id'] . "'>" . $row['board_name'] . "</option>";

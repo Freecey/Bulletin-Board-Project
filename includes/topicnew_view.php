@@ -68,11 +68,12 @@ try {
             $SelectNewTopicID->execute();
             $NewTopicID=$SelectNewTopicID->fetch();
 
-                    $ADDQueryTOPIC = $conn->prepare("INSERT INTO topics(topic_subject,topic_date,topic_board,topic_by,topics_exclsearch)
-            values(:topic_subject, :topic_date, :topic_board, :topic_by, :topics_exclsearch)
+                    $ADDQueryTOPIC = $conn->prepare("INSERT INTO topics(topic_subject,topic_date,topic_date_upd,topic_board,topic_by,topics_exclsearch)
+            values(:topic_subject, :topic_date, :topic_date_upd, :topic_board, :topic_by, :topics_exclsearch)
             ");
             $ADDQueryTOPIC->bindParam (':topic_subject',$ADD_topic_subject);
             $ADDQueryTOPIC->bindParam (':topic_date',$ADD_topic_date);
+            $ADDQueryTOPIC->bindParam (':topic_date_upd',$ADD_topic_date);
             $ADDQueryTOPIC->bindParam (':topic_board',$ADD_topic_board);
             $ADDQueryTOPIC->bindParam (':topic_by',$ADD_post_by);
             $ADDQueryTOPIC->bindParam (':topics_exclsearch',$ADD_topics_exclsearch);

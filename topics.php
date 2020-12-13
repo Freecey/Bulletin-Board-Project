@@ -244,7 +244,7 @@ if($_SESSION['NewTopicreopenModal'] = 1){
                                                     </div>
                                                     <div class="font-weight-light"><small>
                                                         <?php
-                                                            $postDate = new DateTime($lastPost['post_date']);
+                                                            $postDate = new DateTime($topic['topic_date_upd']);//  $lastPost['post_date']);
                                                             echo $postDate->format('D M d, H:i');
                                                         }
                                                         $req_lastPosts->closeCursor();

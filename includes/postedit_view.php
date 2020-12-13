@@ -38,9 +38,8 @@ try {
         $Post_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Post_UpdateINSERT->execute();
 
-        $test = date("Y-m-d H:i:s");
-        echo $test;
-        $update=$conn->prepare("UPDATE topics SET topic_date_upd= '$test' WHERE topic_id = $topic_id");
+
+        $update=$conn->prepare("UPDATE topics SET topic_date_upd= '$UPD_post_date_update' WHERE topic_id = $topic_id");
         $update->execute();
 
         $_SESSION['BoardUPDATEComplet'] = true;
