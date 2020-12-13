@@ -134,11 +134,11 @@
                         <div class="form-check ml-2">
                             <input class="form-check-input" type="radio" name="user_theme" id="user_theme6" value="6" <?php if($data_Sel_USR['user_theme'] == 6 ){echo 'checked';} ?>>
                             <label class="form-check-label" for="user_theme1">
-                                Drak Blue - Special Cey
+                                Dark Blue - Special
                             </label>
                         </div>  
                             <div class="form-check disabled ml-2">
-                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme666" value="666" <?php if($data_Sel_USR['user_theme'] == 666 ){echo 'checked';} ?> <?php if($data_Sel_USR['user_level'] < 3 ){echo 'disabled';} ?>>
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme666" value="666" <?php if($data_Sel_USR['user_theme'] == 666 ){echo 'checked';} ?> <?php //if($data_Sel_USR['user_level'] < 3 ){echo 'disabled';} ?>>
                             <label class="form-check-label" for="user_theme666">
                                 Devil
                             </label>
