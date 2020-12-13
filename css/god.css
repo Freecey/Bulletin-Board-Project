@@ -10804,14 +10804,82 @@ a.text-dark:hover, a.text-dark:focus {
 
 .bg-white {
   background-color: #242424 !important;
+  color: #a1a1a1 !important;
 }
 
 .bg-light {
   background-color: #a1a1a1 !important;
+  color: #555555 !important;
 }
 
 .form-color {
   background-color: #a1a1a1 !important;
+  color: #555555 !important;
+}
+
+.custom-select {
+  background-color: #a1a1a1 !important;
+  color: #555555 !important;
+}
+
+.form-color2 {
+  background-color: #555555 !important;
+}
+
+.reactionButton {
+  background-color: #555555 !important;
+  border-color: #555555 !important;
+  color: #a1a1a1 !important;
+}
+
+.modal-content {
+  background-color: #a1a1a1 !important;
+}
+
+.CodeMirror {
+  background-color: #555555 !important;
+  color: #a1a1a1 !important;
+}
+
+.modal-header {
+  background-color: #242424 !important;
+  border-color: #5e5e5e !important;
+  color: #a1a1a1 !important;
+}
+
+.form-control {
+  background-color: #a1a1a1 !important;
+  color: #555555 !important;
+}
+
+.labels-inact {
+  border: none !important;
+}
+
+.page-link {
+  background-color: #242424 !important;
+  color: #a1a1a1 !important;
+  border-color: #3f3f3f !important;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #a1a1a1 !important;
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #0056b3 !important;
+  text-decoration: none !important;
+  background-color: #a1a1a1 !important;
+  border-color: #a1a1a1 !important;
+}
+
+a:hover {
+  color: #0056b3 !important;
+  text-decoration: underline !important;
 }
 
 .navbar {
@@ -10832,7 +10900,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 html {
-  background-color: #555555 !important;
+  background-color: #3f3f3f !important;
 }
 
 body {

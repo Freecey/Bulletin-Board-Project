@@ -6,17 +6,74 @@ $newprimary2:  rgb(122, 71, 58)   !important;
 
 $Dark0: rgb(36, 36, 36) !important;
 $Dark1: #555555 !important;
-$Dark2: #555555 !important;
+$Dark2: #3f3f3f !important;
 $Dark3: rgb(94, 94, 94) !important;
 $Dark4: rgb(161, 161, 161) !important;
 .bg-white {
     background-color: $Dark0;
+    color: $Dark4;
 }
 .bg-light {
     background-color: $Dark4;
+    color: $Dark1;
 }
 .form-color{
     background-color: $Dark4;
+    color: $Dark1;
+}
+.custom-select{
+    background-color: $Dark4;
+    color: $Dark1;
+}
+.form-color2{
+    background-color: $Dark1;
+}
+.reactionButton{
+    background-color: $Dark1;
+    border-color: $Dark1;
+    color: $Dark4;
+
+}
+.modal-content{
+    background-color: $Dark4;
+}
+.CodeMirror{
+    background-color: $Dark1;
+    color: $Dark4;
+}
+.modal-header{
+    background-color: $Dark0;
+    border-color: $Dark3;
+    color: $Dark4;
+}
+.form-control{
+    background-color: $Dark4;
+    color: $Dark1;
+}
+.labels-inact{
+    border: none !important;
+}
+.page-link{
+    background-color: $Dark0;
+    color: $Dark4;
+    border-color: $Dark2;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: $Dark4;
+    background-color: #007bff !important;;
+    border-color: #007bff !important;;
+}
+.page-link:hover {
+    z-index: 2;
+    color: #0056b3 !important;;
+    text-decoration: none !important;;
+    background-color: $Dark4;
+    border-color: $Dark4;
+}
+a:hover {
+    color: #0056b3 !important;;
+    text-decoration: underline !important;;
 }
 .theme-colors{
   
@@ -29,9 +86,6 @@ $Dark4: rgb(161, 161, 161) !important;
     $light:      $Dark3;
     $dark:       $dark;
 };
-form{
- //   background-color: $Dark4;
-}
 .navbar{
     background-color: black;
     background: black !important;

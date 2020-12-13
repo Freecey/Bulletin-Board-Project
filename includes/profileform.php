@@ -225,18 +225,18 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_id']; ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_active']; ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $user_lvl_text; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels ">User ID</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_id']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_active']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control labels-inact" value="<?php echo $user_lvl_text; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <label class="labels">Registry Date</label>
-                            <input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_date'] ?>" readonly>
+                            <input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_date'] ?>" readonly>
                         </div>
-                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_datelastlog']; ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">Last IP connexion</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_last_ip']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels>Last Login Date</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_datelastlog']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last IP connexion</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_last_ip']; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">

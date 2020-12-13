@@ -4,12 +4,12 @@
 
 
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
-    <div class="row">
+    <div class="row thead-light">
 
 
-<table class="table table-sm table-striped ">
+<table class="table table-sm table-striped  form-color">
 <h3 class="text-center mb-3">LOG : loggin Attempts </h3>
-    <thead class="thead-dark">
+    <thead class="thead-dark ">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">date</th>
@@ -56,7 +56,7 @@
 <div class="<?php echo $UpdateOKClass; ?>"> <?php echo $UpdateOK;?></div>
 
 
-<table class="table table-sm table-striped ">
+<table class="table table-sm table-striped form-color">
 <h3 class="text-center mb-3">LOG : loggin OK </h3>
     <thead class="thead-dark">
         <tr>
