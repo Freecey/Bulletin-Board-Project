@@ -25,7 +25,7 @@
     $posts = $query->fetchAll(PDO::FETCH_ASSOC);
     
     // for lock news post if current user is the last author
-    $LastUSR_post = $conn->query("SELECT post_by FROM posts WHERE post_topic = '$_GET[id]' AND post_deleted = 0 ORDER BY post_id DESC LIMIT 1");
+    $LastUSR_post = $conn->query("SELECT post_by FROM posts WHERE post_topic = '$GET_ID' AND post_deleted = 0 ORDER BY post_id DESC LIMIT 1");
     $LastUSR_post_result=$LastUSR_post->fetch();
      
 ?>
@@ -62,7 +62,9 @@
 <!-- LOCK / UNLOCK START -->
     <div>
                 <?php
-                 if( $_SESSION['user_id'] == $LastUSR_post_result['post_by']){
+                $userTop = $conn->query("SELECT topic_by FROM topics WHERE topic_id = '$GET_ID'");
+                $userTop_result=$userTop->fetch();
+                 if( $_SESSION['user_id'] == $userTop_result['topic_by']){
                     $TOP_ID = $_GET['id'];
                     
                     // echo $TOP_status;
@@ -80,7 +82,8 @@
                             $_SESSION['MSG_lock_unlock_tltp'] = 'Click to UNLOCK Topic';
                             $_SESSION['ICON_CLASS'] = 'fas fa-lock';
                             $_SESSION['TOP_status_UPD'] = 1;
-                            header("Refresh:0; url=comments.php?id='.$TOP_ID");
+                            // header("Refresh:0; ");
+                            //header("Refresh:0; url=comments.php?id='.$TOP_ID");
                             // topicStatusLock($TOP_ID);
                         }
                         $MSG_ACTION = $_SESSION['MSG_lock_unlock'];
@@ -96,7 +99,7 @@
                         }
                         echo'<form method="post">
                         <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="'.$MSG_tooltip_LC.'">
-                        <button type="submit" class="btn-danger btn-rounded mt-1 ml-2" name = "btn_lock" Value = "lock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i>'.$MSG_ACTION.'</button>
+                            <button type="submit" class="btn btn-primary btn-rounded mt-1 ml-2" name = "btn_lock" Value = "lock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i>'.$MSG_ACTION.'</button>
                         </span></form>';
                      }elseif( $TOP_status == 1 ){
                         
@@ -112,7 +115,7 @@
                             $_SESSION['MSG_lock_unlock_tltp'] = 'Click to LOCK Topic';
                             $_SESSION['ICON_CLASS'] = 'fas fa-unlock';
                             $_SESSION['TOP_status_UPD'] = 0;
-                            header("comments.php?id='.$TOP_ID.':0");
+                            // header("Refresh:0; ");
                             // topicStatusUnlock($getid);
                             }
                             $MSG_ACTION = $_SESSION['MSG_lock_unlock'];
@@ -128,7 +131,7 @@
                             }
                             echo'<form method="post">
                             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="'.$MSG_tooltip_LC.'">
-                            <button type="submit" class="btn-danger btn-rounded mt-1 ml-2" name = "btn_lock" Value = "unlock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i> '.$MSG_ACTION.'</button>
+                            <button type="submit" class="btn btn-primary btn-rounded mt-1 ml-2" name = "btn_lock" Value = "unlock"><i class="'.$ICON_CLASS.'" aria-hidden="true"></i> '.$MSG_ACTION.'</button>
                             </span></form>';
                      }                    
                  }else{}

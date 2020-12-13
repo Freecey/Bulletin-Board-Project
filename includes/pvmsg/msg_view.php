@@ -31,7 +31,7 @@ $sendto_id = $_GET['sendto_id'];
 
 // echo $sendto_id;
 $CURRENT_USERID = $_SESSION['user_id'];
-$CURRENT_IMAGE = $_SESSION['user_image'];
+$CURRENT_IMAGE = $_SESSION['user_imgdata'];
 $CURRENT_UNAME = $_SESSION['user_name'];
 
 if(isset($_GET['sendto_id'])){
@@ -89,7 +89,7 @@ if(isset($_SESSION['MSG_SEND_OK'])){
         unset($_SESSION['MSG_SEND_OK2']);
     }
 
-    $req_USR_list = $conn->query("SELECT user_id,user_name FROM users"); 
+    $req_USR_list = $conn->query("SELECT user_id,user_name FROM users where user_active != 0"); 
 
 
     if(isset($_POST['SEND_MSG'])){
@@ -148,7 +148,7 @@ if(isset($_SESSION['MSG_SEND_OK'])){
 // SELECT  DISTINCT pvmsg_disc FROM pvmsg WHERE pvmsg_from !=4 OR pvmsg_to !=4
 
 
-$req_users = $conn->query("SELECT user_id, user_name, user_image FROM users"); 
+$req_users = $conn->query("SELECT user_id, user_name, user_image, user_imgdata FROM users"); 
 
 while($rowusr = $req_users->fetch()) { 
     $users_array[] = $rowusr; 

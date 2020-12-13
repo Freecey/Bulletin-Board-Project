@@ -42,7 +42,7 @@
         <tr>
             <?php $i++; ?>
             <td><?php echo $i-1; ?></td>
-            <td><img class="rounded-circle" src="<?php echo $row['user_image']; ?>" width="35"></td>
+            <td><img class="rounded-circle" src="data:image/webp;base64,<?php echo base64_encode($row['user_imgdata']); ?>" width="35" alt="user's avatar"></td>
             <td><?php echo $row['user_name']; ?></td>
             <td><?php 
 

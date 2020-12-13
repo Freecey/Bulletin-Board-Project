@@ -7,7 +7,7 @@
 
 
             <div class="p-3 py-5 col-12">
-                <form method="post">
+            <?php  echo '<form method="POST" action="'.$_SERVER['REQUEST_URI'].'">'; ?>
                     <div class="text-center <?php echo $user_id_nok_class; ?>">
                         <?php echo $user_id_nok; ?>
                     </div>

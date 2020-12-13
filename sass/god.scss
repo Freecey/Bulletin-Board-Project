@@ -1,0 +1,298 @@
+@import "variable_overrides";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// general
+.btn-rounded, .input-rounded {
+    border-radius: 23px;
+}
+
+body {
+    
+    main {
+
+        position: relative;
+        z-index: 20;
+        margin-top: -40px;
+        margin-bottom: -40px;
+        #content {
+            background-color: white;
+        }
+    }    
+}
+
+// Header
+#header{
+    background:url('../assets/bck-ground-two.png');
+    background-size: cover;
+    //height: 35vh;
+}
+
+#boards {
+
+    hr {
+        background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+        height: 2px;
+        border-radius: 2px;
+    }
+
+
+}
+
+//Last active user & Last posts
+
+.user-card {
+    width: 33%;
+    transform: scale(1);
+    color: rgb(41, 43, 48);
+}
+
+.user-card:hover {
+    text-decoration: none;    
+    transform: scale(1.05);
+}
+
+.user-list-item__gravatar {
+    width: 5em;
+    height: auto;
+}
+
+.last-posts__link {
+    color: rgb(41, 43, 48);
+    transform: scale(1);
+}
+
+.last-posts__link:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.user-list-item__name, .last-posts-list__title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.user-list-item__sign, .last-posts-list__time {
+    font-size: 0.9em;
+}
+
+.user-list-item__sign, .last-posts-list__time, .last-posts-list__content {
+    color: rgb(106, 107, 110);
+}
+
+.last-posts__link {
+    color: rgb(41, 43, 48);
+    transform: scale(1);
+}
+
+.last-posts__link:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.last-posts-list__title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.last-posts-list__time {
+    font-size: 0.9em;
+}
+
+.last-posts-list__time, .last-posts-list__content {
+    color: rgb(106, 107, 110);
+}
+
+// Topics
+#topics a {
+    color: rgb(41, 43, 48);
+}
+
+#topics a:hover {
+    color: $primary;
+    text-decoration: none;
+}
+
+.gradient-header {
+    padding: 1em;
+    border-radius: 0.8em 0.8em 0em 0em;
+    background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+    color: seashell;
+}
+
+.topic-list-item, .ann-list-item {
+    padding: 1em 0em;
+}
+
+.btn-and-search {
+    margin: 3em 1em;
+}
+
+.topic-details, .ann-details {
+    color: rgb(106, 107, 110);
+}
+
+// FOOTER
+
+#social-media {
+    height: 10em;
+    background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+}
+
+.social-media__circle {
+    height: 2.5em;
+    width: 2.5em;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 2px solid white;
+    margin: 0.5em;
+    position: relative;
+    top: 1.5em;
+}
+
+.social-media__icon {
+    color: white;
+    font-size: 1.3em;
+}
+
+.social-media__link:hover {
+    text-decoration: none;
+}
+
+.social-media__link:hover .social-media__circle{
+    background-color: white;
+}
+
+.social-media__link:hover .social-media__icon{
+    text-decoration: none;
+    color: $primary;
+}
+
+#more-infos, #design-cpright {
+    padding: 1em;
+    font-size: 0.7em;
+    color: seashell;
+}
+
+#more-infos {
+    height: 6em;
+    background-color: rgb(41, 43, 48);
+}
+
+.more-infos__link, .design-cpright__link {
+    margin: 0.5em;
+}
+
+#design-cpright {
+    height: 3em;
+    background-color: rgb(21, 22, 24);
+}
+
+
+.more-infos__link:hover, .design-cpright__link:hover {
+    text-decoration: none;
+    color: seashell;
+}
+
+
+//Scroll up button
+
+#scroll-up-btn {
+    z-index: 30;
+    height: 3em;
+    width: 3em;
+    background-color: $primary;
+    position: fixed;
+    bottom : 10px;
+    right: -100px;
+    opacity: 0.7;
+    border-radius: 2px;
+}
+
+.scroll-up-btn__icon {
+    color: seashell;
+    font-size: 2em;
+}
+
+//signup & signin
+#signup form {
+    margin: 3em 1em;
+}
+
+.signup__legal-text {
+    margin-top: 2em;
+}
+
+#signup .btn-primary, #signup .btn-outline-secondary, #signin .btn-primary {
+    font-size: 1.2em;
+}
+
+.gradient-line {
+    height: 0.2em;
+    background: linear-gradient(90deg, $primary 0%, rgba(70,104,220,1) 100%);
+}
+
+#signin {
+    margin-top: 2em;
+    margin-bottom: 2.5em;
+}
+
+.signin__login-register {
+    font-size: 1.1em;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+.signin__form, .signin__forgot-pwd {
+    color: rgb(106, 107, 110);
+}
+
+.signin__forgot-pwd:hover{
+    text-decoration: none;
+}
+
+// Emoji Reaction
+
+.emojiTooltip {
+    background: #333;
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+    display: none;
+}
+
+.emojiTooltip[data-show] {
+    display: block;
+    z-index: 100000;
+    position: absolute;
+}
+
+#arrow,
+#arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: -1;
+}
+
+#arrow::before {
+    content: '';
+    transform: rotate(45deg);
+    background: #333;
+}
+
+.emojiTooltip[data-popper-placement^='top'] > #arrow {
+    bottom: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='bottom'] > #arrow {
+    top: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='left'] > #arrow {
+    right: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='right'] > #arrow {
+    left: -4px;
+}

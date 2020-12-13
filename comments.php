@@ -6,7 +6,9 @@
     incrementTopicViews();
 // postedit.php?postedit_id=34
 
-    $GetTOPName = $conn->query("SELECT * FROM topics WHERE topic_id = '$_GET[id]' LIMIT 1");
+$GET_ID = $_GET['id'];
+
+    $GetTOPName = $conn->query("SELECT * FROM topics WHERE topic_id = $GET_ID LIMIT 1");
     $GetTOPName_result=$GetTOPName->fetch();
     $TOP_status = $GetTOPName_result['topic_status'];
 ?>
@@ -26,7 +28,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-9 col-md-8">
+                    <div class="col-xs-12 col-md-7 col-lg-8 col-xl-9">
                         <section id="comments" class="mb-3 pl-md-5">
                             <div class="row">
                                 <div class="col">
@@ -72,15 +74,26 @@
                                             <div class="col-12 col-sm-5 col-md-3 col-lg-2">
                                                 <div class="row mb-2 text-md-center">
                                                     <div class="col-4 col-md-3 col-lg-12">
-                                                        <img class="avatar-sm rounded-circle" src="<?= $post['user_image'] ?>" alt="<?= htmlspecialchars($post['user_name']) ?>'s Avatar Picture" width="90">
+                                                    <?php echo '<img class="avatar-sm rounded-circle" src="data:image/webp;base64,'.base64_encode($post['user_imgdata']).'" alt="'.htmlspecialchars($post['user_name']).'s Avatar Picture" width="90">'; ?>
                                                     </div>
                                                     <div class="col-8 col-md-9 col-lg-12">
                                                         <p class="mt-3 mb-0"><a href="member.php?view_user_id=<?php echo $post['user_id'] ;?>"><strong><?= htmlspecialchars($post['user_name']) ?></strong></a></p>
-                                                        <p>Posts: <strong>43</strong></p>
+                                                        <p>Posts: <strong>
+                                                        <?php 
+                    $Current_postUSR_ID = $post['user_id'];
+                    $sql = "SELECT COUNT(post_by) AS NumberOfPosts FROM posts WHERE post_by= $Current_postUSR_ID";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $nbmposts = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $nbmposts = $nbmposts['NumberOfPosts'];
+                    echo $nbmposts;                                                        
+                                                        ?>
+                                                        </strong></p>
                                                         <?php 
                                                             if(isset($_SESSION['TOP_status_UPD'])){
                                                                 $ACT_STATUS = $_SESSION['TOP_status_UPD'];
                                                                 unset($_SESSION['TOP_status_UPD']);
+                                                                // header("Refresh:0; ");
                                                             }else{
                                                                 $ACT_STATUS = $TOP_status;
                                                             }
@@ -102,12 +115,13 @@
                                                         <?php
                                                             $date = new DateTime($post['post_date']);
                                                             $post_dtupade = $post['post_date_update'];
+                                                            $newDate = date('D M d, Y H:i:s', strtotime($post_dtupade));
                                                             //$post_dtupade = $post_dtupade->date('D M d, Y H:i:s');
                                                             echo '<small>';
                                                             echo $date->format('D M d, Y H:i:s');
                                                             if(isset($post_dtupade)){
                                                                 echo ' - last update ';
-                                                                echo $post_dtupade; //->format('D M d, Y H:m:s');
+                                                                echo $newDate; //->format('D M d, Y H:m:s');
                                                             }
                                                             echo '</small>';
                                                         ?></p>
@@ -158,10 +172,12 @@
                         </section>
                         
                     </div>
-                    <div class="col-xl-3 col-md-4 d-none d-md-block">
-                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/search.php'); ?>
-                        <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/signin.php'); ?>
-                        <?php include('includes/sidebutton2.php'); ?>
+                    <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
+                        <div class="d-none d-md-block">
+                            <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/search.php'); ?>
+                            <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/signin.php'); ?>
+                            <?php include('includes/sidebutton2.php'); ?>
+                        </div>
                         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-posts.php'); ?>
                         <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/last-active-user.php'); ?>
                     </div>
@@ -173,9 +189,6 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
         <script type="text/javascript" src="js/emoji-reaction.js"></script>
-        <script>
-            $('[data-toggle="tooltip"]').tooltip();
-        </script>
         <script type="text/javascript" src="./node_modules/marked/marked.min.js"></script>
         <script type="text/javascript" src="./node_modules/dompurify/dist/purify.min.js"></script>
         <script type="text/javascript">

@@ -19,19 +19,20 @@ ___
 - session browser
 - Policy & Terms
 - 404 & 50x page error
-- annoucements on main page (can be disabled in admin)
+- Private messaging
+- contact form
 
 ### User management
 - register system
 - Login system
 - Password recovery (with secret question set in profile page)
 - Profile pages(views and editing)
-- user image (gravatar or personnal with upload)
+- user image using gravatar
 - Admin Section
 - User Permission lvl (user, moderator, admin, ...)
 - Ban users system
 - log failed login (store IP, Browser/OS, URLfrom, Datetime, email and password try)
-- log successfull login (store IP, Browser/OS, URLfrom, Datetime, user_id)
+- log login access
 
 ### Content
 - Create & edit Board
@@ -39,8 +40,8 @@ ___
 - Post and reply to topic message
 - Search in Topics name and messages content
 - Markdown interpretation for content
-- email notification on topic if user have participated
-- emojis reaction on post
+- emojis supported
+- Email notification
 
 ### Admin Section
 - only for moderator and admin
@@ -49,9 +50,7 @@ ___
 - topics edition (creation link to create link normal user)
 - Users edition (only for admin)
 - Site Setting (only for admin)
-
-### Soon
-- emojis supported
+- Email seting/Test page (for use with phpmailer)
 
 ___
 
@@ -65,6 +64,7 @@ ___
 - bootstrap.
 - Javascript.
 - phpmailer
+- emojiReaction
 
 ___
 
@@ -77,6 +77,7 @@ ___
 
 ```
     .
+    ├── .github/                    # .github
     ├── .sass-cache/                # sass cache folder
     ├── .vscode/                    # json file setting
     ├── admin/                      # Admin/Moderator Section management
@@ -89,12 +90,22 @@ ___
     ├── css/                        # folder for CSS files
     ├── includes/                   # folder for All php content 
     │   ├── admin/
+    │   ├── emojiReaction/
     │   ├── function/
-    │   └── getdata/
+    │   ├── getdata/
+    │   ├── modal/
+    │   └── pvmsg/
     ├── js/                         # folder for JS script
     ├── node_modules/               # folder for all node modules
     ├── resources/
-    └── sass/                       # SASS lib
+    ├── sass/                       # SASS lib
+    ├── uploaded/
+    │   └── users/                  # Upload folders for user avatar
+    └── vendor/
+        ├── composer/
+        └── phpmailer/
+            ├──language
+            └── src
 ```    
 more info on Files & Folders Structure See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki/Files-Folder-Structure)
 ___
@@ -170,10 +181,11 @@ ___
 ## Contributor
 
 
-![alt text](resources/tream-4p.jpg?raw=true "Team Pictures" )
+![alt text](resources/team-5p.jpg?raw=true "Team Pictures" )
 
 
 * Tanya Leenders    [@Tanya-Amber-L](https://github.com/Tanya-Amber-L)
+* Aline-Daems       [@Aline-Daems](https://github.com/Aline-Daems)
 * Alan Massaro      [@macmowl](https://github.com/macmowl/)
 * Kevin CASSART     [@KevKsar](https://github.com/KevKsar/)
 * Cedric AUDRIT     [@freecey](https://github.com/freecey/)

@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 include('../includes/connect.php');
 include('../includes/getdata/sitesettingGLOB.php'); ?>
     <!DOCTYPE html>
@@ -19,6 +20,8 @@ include('../includes/getdata/sitesettingGLOB.php'); ?>
                     echo '<link rel="stylesheet" href="../css/dark.css" type="text/css"/>';
                 } elseif ($theme['user_theme'] == 666) {
                     echo '<link rel="stylesheet" href="../css/666.css" type="text/css">';
+                }elseif ($theme['user_theme'] == 6) {
+                    echo '<link rel="stylesheet" href="/css/god.css" type="text/css">';
                 }
             } else {
                 // echo '<link rel="stylesheet" href="css/main.css" type="text/css"/>';

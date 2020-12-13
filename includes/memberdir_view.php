@@ -1,6 +1,6 @@
 <?php 
 //memberdir_view.php
-$req_member = $conn->query("SELECT * FROM users"); 
+$req_member = $conn->query("SELECT * FROM users WHERE user_active != 0"); 
 
 
 // PUT in HTML code for table

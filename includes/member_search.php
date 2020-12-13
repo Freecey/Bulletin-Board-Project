@@ -1,5 +1,6 @@
 <?PHP 
 include 'req_member.php';
+$req_member = $conn->query("SELECT * FROM users"); //request to get the users table
 
 $user_lvl_text = array(
     "Viewer",
@@ -16,7 +17,7 @@ $user_lvl_text = array(
     <h3 class="well text-center">User Research for <em> <?= $search_Member; ?> </em> </h3>
 
     <!-- search bar to search members -->
-    <form action="/member.php?search_member=<?php echo $_GET['user'];?>" method="GET" class="form-group">	
+    <form action="/member.php?search_member=<?php echo $_GET['user'];?>" methode="GET" class="form-group">	
         <div class="bg-light rounded rounded-pill shadow-sm">	
             <div class="input-group">	
                 <input type="search" name="search_member" placeholder="Search member..." aria-describedby="button-addon1" class="form-control border-0 bg-light rounded-pill ">	
@@ -43,8 +44,8 @@ $user_lvl_text = array(
         </thead>
         <tbody>
             <?php $i = 0;
-                if($searchMember == true) {
-                    while($user = $search_Member->fetch()) { ?>
+                if($req_member) {
+                    while($user = $req_member->fetch()) { ?>
                     <tr>
                         <?php $i++; ?>
 
@@ -77,4 +78,11 @@ $user_lvl_text = array(
             ?>
         </tbody>
     </table>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+
+
+
+>>>>>>> 9a9211462a1d3e4a7a290c02d82c11d3fddcb1e1

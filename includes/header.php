@@ -18,16 +18,16 @@
                     $nbmsgpv = $nbmsgpv['NumberOfUnread'];
                     echo '
                 <li class="nav-item"> 
-                    <a class="nav-link" href="msg.php">Messages'; if($nbmsgpv > 0 ) {echo ' <i class="fas fa-envelope text-success">'.$nbmsgpv.'</i>'; } echo  '</a>
+                    <a class="nav-link" href="/msg.php">Messages'; if($nbmsgpv > 0 ) {echo ' <i class="fas fa-envelope text-success">'.$nbmsgpv.'</i>'; } echo  '</a>
                 </li> ';} ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="member.php">Members</a>
+                    <a class="nav-link" href="/member.php">Members</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="team.php">The Team</a>
+                    <a class="nav-link" href="/team.php">The Team</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link" href="/contact.php">Contact</a>
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="nav-item d-lg-none my-2">
@@ -40,7 +40,7 @@
             <?php  if(isset($_SESSION['loginOK']) == '1') {
                 ?>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle" src="<?= $_SESSION['user_image'] ?>" width="25">
+                    <img class="rounded-circle" src="data:image/webp;base64,<?php echo base64_encode($_SESSION['user_imgdata']); ?>" width="25" alt="User's avatar">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/profile.php">My profile</a>
@@ -77,7 +77,6 @@
 <script>
     $(window).scroll(function(){        
         var scroll = $(window).scrollTop();
-        console.log(scroll)
         if(scroll <= 100){
             $('.fixed-top').css('background', `rgba(255, 255, 255, 0.${Math.floor(scroll/10)})`);
             $('.nav').addClass('text-white');

@@ -12,11 +12,11 @@
             while($god = $req_godUsers->fetch()) {  ?>
 
             <div class="row bg-light m-3 p-3 d-flex align-items-center">
-                <div class="col-2"> <img class="rounded-circle" src="<?= $god['user_image'] ?>" alt="" width="80" height="80"> </div>
+            <?php echo   '<div class="col-2"> <img class="rounded-circle" src="data:image/webp;base64,'.base64_encode($god['user_imgdata']).'" alt="'.$god['user_name'].'s Avatar" width="80" height="80"></div>'; ?>
                 <div class="col-7 font-weight-bold"> <?= $god['user_name'] ?> </div>
                 <div class="col-3">
-                    <a href="?view_user_id=<?php echo $god['user_id']; ?>" class="btn btn-primary">View</a>
-                    <a href="msg.php?sendto_id=<?php echo $god['user_id']; ?>"  class="btn btn-primary">Send MSG</a>
+                    <a href="member.php?view_user_id=<?php echo $god['user_id']; ?>" class="btn btn-primary">View</a>
+                    <?php if(isset($_SESSION['user_level'])) { echo  '<a href="msg.php?sendto_id='.$god['user_id'].'"  class="btn btn-primary">Send MSG</a>';} ?>
                 </div>
             </div>
 
@@ -28,11 +28,11 @@
             while($devil = $req_devilUsers->fetch()) {  ?>
 
             <div class="row bg-light m-3 p-3 d-flex align-items-center">
-                <div class="col-2"> <img class="rounded-circle" src=" <?= $devil['user_image'] ?> " alt="" width="80" height="80"></div>
+            <?php echo   '<div class="col-2"> <img class="rounded-circle" src="data:image/webp;base64,'.base64_encode($devil['user_imgdata']).'" alt="'.$devil['user_name'].'s Avatar" width="80" height="80"></div>'; ?>
                 <div class="col-7 font-weight-bold"> <?= $devil['user_name'] ?> </div>
                 <div class="col-3">
-                    <a href="?view_user_id=<?php echo $devil['user_id']; ?>" class="btn btn-primary">View</a>
-                    <a href="msg.php?sendto_id=<?php echo $devil['user_id']; ?>"  class="btn btn-primary">Send MSG</a>
+                    <a href="member.php?view_user_id=<?php echo $devil['user_id']; ?>" class="btn btn-primary">View</a>
+                    <?php if(isset($_SESSION['user_level'])) { echo  '<a href="msg.php?sendto_id='.$devil['user_id'].'"  class="btn btn-primary">Send MSG</a>';} ?>
                 </div>
             </div>
 
@@ -44,11 +44,12 @@
             while($mod = $req_modUsers->fetch()) {  ?>
 
             <div class="row bg-light m-3 p-3 d-flex align-items-center">
-                <div class="col-2"> <img class="rounded-circle" src=" <?= $mod['user_image'] ?> " alt="" width="80" height="80"></div>
+     <?php 
+     echo   '<div class="col-2"> <img class="rounded-circle" src="data:image/webp;base64,'.base64_encode($mod['user_imgdata']).'" alt="'.$mod['user_name'].'s Avatar" width="80" height="80"></div>'; ?>
                 <div class="col-7 font-weight-bold align-middle"> <?= $mod['user_name'] ?> </div>
                 <div class="col-3 align-middle">
-                    <a href="?view_user_id=<?php echo $mod['user_id']; ?>" class="btn btn-primary">View</a>
-                    <a href="msg.php?sendto_id=<?php echo $mod['user_id']; ?>"  class="btn btn-primary">Send MSG</a>
+                    <a href="member.php?view_user_id=<?php echo $mod['user_id']; ?>" class="btn btn-primary">View</a>
+                    <?php if(isset($_SESSION['user_level'])) { echo  '<a href="msg.php?sendto_id='.$mod['user_id'].'"  class="btn btn-primary">Send MSG</a>';} ?>
                 </div>
             </div>
 

@@ -37,6 +37,7 @@ try {
             $_SESSION['user_name'] = $SignInDATA['user_name'];
             $_SESSION['user_id'] = $SignInDATA['user_id'];
             $_SESSION['user_image'] = $SignInDATA['user_image'];
+            $_SESSION['user_imgdata'] = $SignInDATA['user_imgdata'];
             $user_ID = $SignInDATA['user_id'];
             
             // Check if user have a gravatar if not set default picture
@@ -53,7 +54,7 @@ try {
             $UPDATEQuerySQL2 = "UPDATE `users` SET `user_datelastlog` = '$Login_date',`user_gravatar` = '$user_gravatar',`user_last_ip` = '$userlast_ip'   WHERE `users`.`user_id` = $user_ID";
             $SignInINSERT= $conn->prepare($UPDATEQuerySQL2);
             $SignInINSERT->execute();
-            header("location:$url,");
+            header("location:$url");
 
 			// header("location:profile.php");
 		}

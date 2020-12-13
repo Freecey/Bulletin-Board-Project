@@ -96,9 +96,16 @@ function getReactions($post_id) {
     return $query;
 }
 
-function getReactionsById($react_id) {
+function addReaction($postId, $userId, $content) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
-    $query = $conn->prepare('SELECT postreact_user FROM postreact WHERE postreact_id = ?');
+    $query = $conn->prepare('INSERT INTO postreact(postreact_post, postreact_user, postreact_content)
+                                VALUES (:postId, :userId, :content)');
+    $query->execute(['postId'=>$postId, 'userId'=>$userId, 'content'=>$content]);
+}
+
+function getReactionById($react_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_id = ?');
     $query->execute(array($react_id));
     return $query;
 }
@@ -243,6 +250,7 @@ function getBreadcrumbs() {
             users.user_name,
             users.user_gravatar,
             users.user_image,
+            users.user_imgdata,
             users.user_sign,
             users.user_id
         FROM

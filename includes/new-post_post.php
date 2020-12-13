@@ -28,7 +28,8 @@
             if (!empty($new_post_msg)) {
                 $insert = $conn -> prepare('INSERT INTO posts(post_topic, post_content, post_by, post_exclsearch,  post_date)VALUES( ?, ?, ?, ?, NOW())');
                 $insert ->execute(array($topic_id, $new_post_msg, $_SESSION['user_id'], $ADD_post_exclsearch,));
-                // $update=$conn->prepare('UPDATE topics SET topic_date_upd=NOW() WHERE topic_id = $topic_id');
+
+                // $update=$conn->prepare('UPDATE topics SET topic_date_upd=GETDATE() WHERE topic_id = $topic_id');
                 // $update->execute();
 
                 include "topics_mail.php";

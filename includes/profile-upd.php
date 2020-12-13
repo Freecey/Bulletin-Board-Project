@@ -1,7 +1,25 @@
 <?php
 //profile.php
-include('includes/session.php');
-include('includes/connect.php');
+if($_SESSION['DELETE_ACC'] == 1){
+    echo $_SESSION['MSG_SEND_OK'];
+    $_SESSION['DELETE_ACC2'] = $_SESSION['DELETE_ACC'];
+    unset($_SESSION['DELETE_ACC']);
+    echo'
+    <div>
+    <!-- <img src="/assets/other/message-sent-icon-23.webp" class="rounded mx-auto d-block" alt="Message sent OK"> -->
+    <p class="text-center bg-success text-light">Account Close Successfully Log out NOW ..</p>
+    </div>
+    <meta http-equiv="refresh" content="1">';
+    exit();
+    unset($_SESSION['MSG_SEND_OK2']);
+    unset($_SESSION);
+
+    session_destroy();
+    include($_SERVER['DOCUMENT_ROOT'].'/logout.php');
+}
+
+include($_SERVER['DOCUMENT_ROOT'].'/includes/session.php');
+include($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 $ACT_user_id = $_SESSION['user_id'];
 
@@ -17,6 +35,7 @@ $size = '90';
 include('includes/gravatars.php');
 $user_gravatar = $grav_url;
 
+$user_imgDATA_C = $data_Sel_USR['user_imgdata'];
 $user_image_C = $data_Sel_USR['user_image'];
 
 if($_SESSION['ProfileUPDATEComplet'] == true ){
@@ -30,7 +49,6 @@ if($_SESSION['uploadProfOK'] == 'ULPictOK'){
     // $UpdateOK = 'image Upload Successfully';
     unset($_SESSION['uploadProfOK']);
 }
- ;
 
 // Popote pour la date et mis a 0 si autre selectionner
 $user_datebirthday = $data_Sel_USR['user_datebirthday'];
@@ -104,8 +122,8 @@ try {
 		$UPD_user_fname = $_POST['user_fname'];
 		$UPD_user_lname = $_POST['user_lname'];		
         $UPD_user_sign = $_POST['user_sign'];
-        $UPD_user_secquest = $_POST['user_secquest'];
-        $UPD_user_secansw = $_POST['user_secansw'];
+        $UPD_user_secquest = htmlentities($_POST['user_secquest'], ENT_QUOTES);
+        $UPD_user_secansw  = htmlentities($_POST['user_secansw'], ENT_QUOTES);
         $UPD_DOBy = $_POST['doby'];
         $UPD_DOBm = $_POST['dobm'];
         $UPD_DOBd = $_POST['dobd'];
@@ -144,6 +162,16 @@ try {
         // echo $UPDATEQuerySQL1;
         $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
         $Prof_UpdateINSERT->execute();
+
+
+        $blob = file_get_contents($user_image);
+        
+        $sql = "UPDATE users SET user_imgdata = :user_imgdata
+                        WHERE user_id = $ACT_user_id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':user_imgdata', $blob, PDO::PARAM_LOB);
+        
+        $stmt->execute();
 
         $_SESSION['user_name'] = $UPD_user_name;
         $_SESSION['user_image'] = $user_image;
@@ -186,12 +214,9 @@ try {
 				$pwdclasserrmm = 'bg-danger text-white';
             }
         }
-    }
-    // elseif(isset($_POST['uploadpic'])){
-    //     echo '<img src="'. $_FILES .'" alt="" />';
-    //     echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
-    //     echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
-    //     }
+    }       
+    
+
 }
 
 
@@ -205,8 +230,12 @@ catch (PDOException $e) {
 	}
 }
 
-
-
+include($_SERVER['DOCUMENT_ROOT'].'/includes/account_remove.php');
+// elseif(isset($_POST['uploadpic'])){
+    //     echo '<img src="'. $_FILES .'" alt="" />';
+    //     echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
+    //     echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+    //     }
 
 
 ?>

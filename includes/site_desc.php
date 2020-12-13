@@ -47,7 +47,7 @@
             echo $keyword_tag;
         }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/board_is_secret.php') !== false) {
             echo '<meta name="description" content="'.$default_desc.'">';
-            echo '<title>Password Lost ??? - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo '<title>Board is secret - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
         }elseif( $actual_link == 'https://'.$_SERVER["HTTP_HOST"].'/signup.php' ){
             echo '<meta name="description" content="'.$default_desc.'">';
@@ -57,11 +57,26 @@
             echo '<meta name="description" content="'.$default_desc.'">';
             echo '<title>My Private Message - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
             echo $keyword_tag;
+        }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/login.php') !== false) {
+            echo '<meta name="description" content="'.$default_desc.'">';
+            echo '<title>Login - ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
         }
 
+
+        
         
 
-
+        elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/announce.php') !== false) {
+            $ann_id = $_GET['id'];
+            $select_Ann = $conn->prepare("SELECT ann_subject, ann_content FROM announce where ann_id=$ann_id LIMIT 1");
+            $select_Ann->setFetchMode(PDO::FETCH_ASSOC);
+            $select_Ann->execute();
+            $data_Sel_Ann=$select_Ann->fetch();
+            echo '<meta name="description" content="BBS-Queen Announcement: '.$data_Sel_Ann['ann_subject'].' '.$data_Sel_Ann['ann_content'].'.">';
+            echo '<title>Announcement : '.$data_Sel_Ann['ann_subject'].'  -  ' . $SITENAME.' - '.$_SERVER["HTTP_HOST"].'</title>';
+            echo $keyword_tag;
+        }
         
         
         
@@ -79,10 +94,11 @@
             echo $keyword_tag;
         }elseif (strpos($actual_link, 'https://'.$_SERVER["HTTP_HOST"].'/comments.php') !== false) {
             $topic_id = $_GET['id'];
-            $select_topic = $conn->prepare("SELECT topic_subject FROM topics where topic_id=$topic_id LIMIT 1");
+            $select_topic = $conn->prepare("SELECT topic_subject,topic_board FROM topics where topic_id=$topic_id LIMIT 1");
             $select_topic->setFetchMode(PDO::FETCH_ASSOC);
             $select_topic->execute();
             $data_Sel_topic=$select_topic->fetch();
+            $_SESSION['BOARDID_formSITESET'] = $data_Sel_topic['topic_board'];
 
             $select_1stpost = $conn->prepare("SELECT post_content FROM posts where post_topic=$topic_id LIMIT 1");
             $select_1stpost->setFetchMode(PDO::FETCH_ASSOC);
