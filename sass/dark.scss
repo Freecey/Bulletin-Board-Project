@@ -4286,7 +4286,7 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color:var(--gray-dark);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -9912,13 +9912,24 @@ body main #content,
 .breadcrumb, 
 .card-body,
 .last-posts-list,
-.user-card {
+.user-card,
+.page-item a {
   background-color: var(--dark)!important;
-  color: #dadbdb;
+  color: #dadbdb !important;
 }
-.bg-light{
+.bg-light,
+.navbar,
+.form-color,
+.card-footer{
   background-color: var(--black)!important; 
   color: #dadbdb;
+}
+
+.nav-link {
+  color: var(--secondary)!important; 
+}
+.nav-link:hover {
+  color: var(--light) !important; 
 }
 
 #header {
@@ -9998,7 +10009,7 @@ body main #content,
 }
 
 #topics a {
-  color: #292b30;
+  color: seashell;
 }
 
 #topics a:hover {
@@ -10008,13 +10019,14 @@ body main #content,
 
 .gradient-header {
   padding: 1em;
-  border-radius: 0.8em 0.8em 0em 0em;
+  border-radius: 0.5em 0.5em 0em 0em;
   background: linear-gradient(90deg, #b06ab3 0%, #4668dc 100%);
   color: seashell;
 }
 
 .topic-list-item, .ann-list-item {
   padding: 1em 0em;
+  background-color: var(--dark);
 }
 
 .btn-and-search {
@@ -10134,6 +10146,59 @@ body main #content,
 
 .signin__forgot-pwd:hover {
   text-decoration: none;
+}
+
+// Emoji Reaction
+
+.reactionButton{
+  background-color: rgba(0, 0, 0, 0);
+  color: seashell;
+}
+
+.emojiTooltip {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  display: none;
+}
+
+.emojiTooltip[data-show] {
+  display: block;
+  z-index: 100000;
+  position: absolute;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+#arrow::before {
+  content: '';
+  transform: rotate(45deg);
+  background: #333;
+}
+
+.emojiTooltip[data-popper-placement^='top'] > #arrow {
+  bottom: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='bottom'] > #arrow {
+  top: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='left'] > #arrow {
+  right: -4px;
+}
+
+.emojiTooltip[data-popper-placement^='right'] > #arrow {
+  left: -4px;
 }
 
 /*# sourceMappingURL=main.css.map */
