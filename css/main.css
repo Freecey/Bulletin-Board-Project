@@ -7807,7 +7807,7 @@ body main {
     background-color: white; }
 
 #header {
-  background: url("../assets/bck-ground-two.webp");
+  background: url("../assets/bck-ground-two.png");
   background-size: cover; }
 
 #boards hr {
@@ -8013,5 +8013,10 @@ body main {
 
 .emojiTooltip[data-popper-placement^='right'] > #arrow {
   left: -4px; }
+
+.centered {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0); }
 
 /*# sourceMappingURL=main.css.map */
