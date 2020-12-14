@@ -170,11 +170,11 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data_Sel_USR['user_email'] ?>" readonly></div>
-                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data_Sel_USR['user_name'] ?>" required></div>
+                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo htmlentities($data_Sel_USR['user_name'], ENT_QUOTES) ?>" required></div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo $data_Sel_USR['user_fname'] ?>" required></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data_Sel_USR['user_lname'] ?>" required></div>
+                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo htmlentities($data_Sel_USR['user_fname'], ENT_QUOTES) ?>" required></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo htmlentities($data_Sel_USR['user_lname'], ENT_QUOTES) ?>" required></div>
                     </div>
                     <div class="row mt-3">
                         <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>
@@ -221,7 +221,7 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo $data_Sel_USR['user_sign']; ?></textarea>
+                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo htmlentities($data_Sel_USR['user_sign'], ENT_QUOTES); ?></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -240,8 +240,8 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data_Sel_USR['user_secquest']; ?>" ></div>
-                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw'];?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo htmlentities($data_Sel_USR['user_secquest'], ENT_QUOTES); ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo htmlentities($data_Sel_USR['user_secansw'], ENT_QUOTES);?>" ></div>
                     </div>
                     <div class="mt-5 text-center">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_profil" Value = "Update Profile">

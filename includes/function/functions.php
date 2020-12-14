@@ -49,7 +49,7 @@ function getTopicsPin($id) {
 
 function getAnnounces() {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
-    $query = $conn->prepare("SELECT * FROM announce WHERE ann_status = 1");
+    $query = $conn->prepare("SELECT * FROM announce WHERE ann_status = 1 ORDER BY ann_date DESC ");
     $query->execute();
     return $query;
 }

@@ -22,9 +22,9 @@
                     <div class="row mt-3">
                         <div class="col-md-12"><label for="post_content">Message </label><textarea class="form-control" id="post_content" name="post_content" rows="3"><?php 
                         if(isset($_POST['post_content'])){
-                            echo $_POST['post_content']; 
+                            echo htmlentities($_POST['post_content']); 
                         }else{
-                            echo $PostDATA['post_content'];
+                            echo htmlentities($PostDATA['post_content']);
                         }
                         ?></textarea>
                         </div>

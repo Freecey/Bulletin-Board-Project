@@ -38,10 +38,10 @@ $NewTopicID=$SelectNewTopicID->fetch();
 try {
 	if(isset($_POST['topic_new'])){
         $nameclasserr       = '';
-        $ADD_post_content   = $_POST['post_content'];  
+        $ADD_post_content   = htmlentities($_POST['post_content']);  
         $ADD_post_date      =  date('Y-m-d H:i:s'); 
         $ADD_post_by        = $_SESSION['user_id']; 
-        $ADD_topic_subject  = $_POST['topic_subject'];
+        $ADD_topic_subject  = htmlentities($_POST['topic_subject']);
         $ADD_topic_date     = $ADD_post_date;
         $ADD_topic_board    = $_POST['board_id'];
 

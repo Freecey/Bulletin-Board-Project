@@ -29,7 +29,7 @@ if($_SESSION['PostUPDATEComplet'] == true ){
 try {
 	if(isset($_POST['post_edit'])){
         $nameclasserr = '';
-        $UPD_post_content  = $_POST['post_content'];  // to ADD QUERY
+        $UPD_post_content  = htmlentities($_POST['post_content']);  // to ADD QUERY
         $UPD_post_date_update = date('Y-m-d H:i:s'); 	 // to ADD QUERY
         $UPD_post_id = $PostEdit_ID;    // DON'T NOT UPDATE 
         // $UPD_post_by = $_SESSION[user_id]; // DON'T NOT UPDATE 

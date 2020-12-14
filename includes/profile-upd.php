@@ -196,10 +196,14 @@ try {
                 $current_user_pass_DB = $data_Sel_USR['user_pass'];
                 if($UPD_pwd_current_hast == $current_user_pass_DB) {
 
-                    $UPDATEQueryPWD = "UPDATE `users` SET `user_pass` = '$UPD_pwd_new_hast'  WHERE `users`.`user_id` = $user_id";
-                    // echo $UPDATEQueryPWD;
-                    $UpdatePwdINSERT= $conn->prepare($UPDATEQueryPWD);
-                    $UpdatePwdINSERT->execute();
+
+
+                    $UPDATEQuerySQL1 = "UPDATE `users` 
+                    SET  `user_pass` = '$UPD_pwd_new_hast'
+                             WHERE `users`.`user_id` = $ACT_user_id";
+                
+                $Prof_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
+                $Prof_UpdateINSERT->execute();
 
                     $UpdPWDOKClass = 'bg-success text-white';
                     $UpdPWDOK = 'Password changed Successfully';

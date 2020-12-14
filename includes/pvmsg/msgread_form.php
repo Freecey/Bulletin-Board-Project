@@ -55,7 +55,7 @@
                            echo '
 					<a href="msg.php?sendto_id='.$DISCACTUSR.'" class="list-group-item list-group-item-action border-0 form-color">';
                         if( $rowDISC['pvmsg_read'] == 0){
-                        echo '<div class="badge bg-success float-right">unread</div>';
+                        echo '<div class="badge bg-light border float-right">unread</div>';
                         }
                         echo '<div class="d-flex align-items-start">
 							<img src="data:image/webp;base64,'.base64_encode($userimage).'" class="rounded-circle mr-1" alt="'.$useralias.'s avatar" width="40" height="40">
@@ -106,8 +106,11 @@
 					<div class="position-relative">
 						<div class="chat-messages p-4">
 <!-- ME START-->    <?php 
+			$nmb_msg_disp = 1;
             if($req_PVMSG2) { 
                     while($rowDMSG = $req_PVMSG2->fetch()) { 
+						if( $nmb_msg_disp <= 10) {
+							
                         $MSG_DATE = strtotime($rowDMSG['pvmsg_date']);
                         
                         if( ($rowDMSG['pvmsg_action'] == 'SEND') AND ($rowDMSG['pvmsg_to'] == $sendto_id) ){
@@ -124,7 +127,8 @@
                             </div>
                         
 <!-- ME END -->
-<!-- YOU START -->';    }elseif(  $rowDMSG['pvmsg_to'] == $sendto_id ){
+<!-- YOU START -->';    $nmb_msg_disp = $nmb_msg_disp+1;
+						}elseif(  $rowDMSG['pvmsg_to'] == $sendto_id ){
                         
                         echo '
                             <div class="chat-message-left pb-4">
@@ -138,10 +142,11 @@
 								</div>
                             </div>
                             
-                        ';}
+						';
+						$nmb_msg_disp = $nmb_msg_disp+1;}
                     }
                     
-			}
+			}}
 			if ($sendto_id == '0' ) { echo '<img src="/assets/other/mailbox.webp" class="rounded mx-auto d-block" alt="Welcome in inbox">'; } ?>
 <!-- YOU END -->
 

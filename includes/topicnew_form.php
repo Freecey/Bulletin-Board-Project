@@ -16,11 +16,11 @@
                         <h4 class="text-right">Create New Topic </h4>
                     </div> -->
                     <div class="row col-mt-12">
-                        <div class="col-md-12"><label class="labels">Subject <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="topic_subject" value="<?php echo $_POST['topic_subject'] ?>"></div>
+                        <div class="col-md-12"><label class="labels">Subject <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="topic_subject" value="<?php echo htmlentities($_POST['topic_subject']) ?>"></div>
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label for="post_content">Message <?php echo $MsgErr; ?></label><textarea class="form-control  <?php echo $Msgclasserr; ?>" id="post_content" name="post_content" rows="3"><?php echo $_POST['post_content']; ?></textarea>
+                        <div class="col-md-12"><label for="post_content">Message <?php echo $MsgErr; ?></label><textarea class="form-control  <?php echo $Msgclasserr; ?>" id="post_content" name="post_content" rows="3"><?php echo htmlentities($_POST['post_content']); ?></textarea>
                         </div>
                     </div>
 

@@ -18,7 +18,16 @@
                     $nbmsgpv = $nbmsgpv['NumberOfUnread'];
                     echo '
                 <li class="nav-item"> 
-                    <a class="nav-link" href="/msg.php">Messages'; if($nbmsgpv > 0 ) {echo ' <i class="fas fa-envelope text-success">'.$nbmsgpv.'</i>'; } echo  '</a>
+                    <a class="nav-link d-flex" href="/msg.php">Messages'; 
+                    if($nbmsgpv > 0 ) {
+                        echo ' 
+                        <i class="far fa-envelope d-flex p-1"> 
+                            <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center" style="width:15px; height:15px; position:relative; bottom:5px; right:5px">
+                                <small class="text-light">'.$nbmsgpv.'</small>
+                            </div>
+                        </i>'; 
+                    } 
+                    echo  '</a>
                 </li> ';} ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/member.php">Members</a>
