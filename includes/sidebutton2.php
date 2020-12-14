@@ -17,9 +17,15 @@ if (isset($_SESSION['loginOK'])  == true) {
                         <h5 class="card-title mb-0"><?= $user['user_name']?></h5>
                         <div class="small text-secondary mt-0"><?= $user['user_sign']; ?></div>
                     </div>
-                    <?php if($nbmsgpv > 0 ) {echo '<div>
-                    <a href="/msg.php"><button class="btn-success  btn-rounded mt-0 ml-0"><i class="fas fa-envelope" aria-hidden="true"> '.$nbmsgpv.'</i></button>
-                    </a></div>';} ?>
+                    <?php if($nbmsgpv > 0 ) {
+                        echo '<a class="text-dark border-left ml-4 p-3 d-flex" href="/msg.php">
+                            <i class="far fa-envelope d-flex p-1"> 
+                                <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center" style="width:15px; height:15px; position:relative; bottom:5px; right:5px">
+                                    <small class="text-light">'.$nbmsgpv.'</small>
+                                </div>
+                            </i>
+                        </a>';
+                    } ?>
                     
                 </div>
             </div>
