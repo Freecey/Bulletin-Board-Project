@@ -7,7 +7,7 @@
 
 
             <div class="p-3 py-5 col-12">
-                <form method="post">
+            <?php  echo '<form method="POST" action="'.$_SERVER['REQUEST_URI'].'">'; ?>
                     <div class="text-center <?php echo $user_id_nok_class; ?>">
                         <?php echo $user_id_nok; ?>
                     </div>
@@ -22,9 +22,9 @@
                     <div class="row mt-3">
                         <div class="col-md-12"><label for="post_content">Message </label><textarea class="form-control" id="post_content" name="post_content" rows="3"><?php 
                         if(isset($_POST['post_content'])){
-                            echo $_POST['post_content']; 
+                            echo htmlentities($_POST['post_content']); 
                         }else{
-                            echo $PostDATA['post_content'];
+                            echo htmlentities($PostDATA['post_content']);
                         }
                         ?></textarea>
                         </div>

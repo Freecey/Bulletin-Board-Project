@@ -17,9 +17,31 @@ function getBoard($id) {
 function getTopics($id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     if ($id == 7) {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date DESC LIMIT 5");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date_upd DESC LIMIT 5");
     } else {
-        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ");
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 ORDER BY topic_date_upd DESC ");
+    }
+    $query->execute(array($id));
+    return $query;
+}
+
+function getTopicsNoPIN($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    if ($id == 7) {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0 ORDER BY topic_date_upd DESC LIMIT 5");
+    } else {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 0 ORDER BY topic_date_upd DESC");
+    }
+    $query->execute(array($id));
+    return $query;
+}
+
+function getTopicsPin($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    if ($id == 7) {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 1 ORDER BY topic_date DESC LIMIT 5");
+    } else {
+        $query = $conn->prepare("SELECT * FROM topics WHERE topic_board = ? AND topic_status !=2 AND topic_pin = 1");
     }
     $query->execute(array($id));
     return $query;
@@ -27,7 +49,7 @@ function getTopics($id) {
 
 function getAnnounces() {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
-    $query = $conn->prepare("SELECT * FROM announce WHERE ann_status = 1");
+    $query = $conn->prepare("SELECT * FROM announce WHERE ann_status = 1 ORDER BY ann_date DESC ");
     $query->execute();
     return $query;
 }
@@ -39,10 +61,59 @@ function getPosts($id) {
     return $query;
 }
 
+function getGodUsers() {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_level = 4');
+    $query->execute();
+    return $query;
+}
+
+function getDevilUsers() {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_level = 666');
+    $query->execute();
+    return $query;
+}
+
+function getModUsers() {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_level = 2');
+    $query->execute();
+    return $query;
+}
+
+function getUser($id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM users WHERE user_id = ?');
+    $query->execute(array($id));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
 function getReactions($post_id) {
     require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
     $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_post = ?');
     $query->execute(array($post_id));
+    return $query;
+}
+
+function addReaction($postId, $userId, $content) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('INSERT INTO postreact(postreact_post, postreact_user, postreact_content)
+                                VALUES (:postId, :userId, :content)');
+    $query->execute(['postId'=>$postId, 'userId'=>$userId, 'content'=>$content]);
+}
+
+function getReactionById($react_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('SELECT * FROM postreact WHERE postreact_id = ?');
+    $query->execute(array($react_id));
+    return $query;
+}
+
+function removeReaction($reaction_id) {
+    require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+    $query = $conn->prepare('DELETE FROM postreact WHERE postreact_id= ?');
+    $query->execute(array($reaction_id));
     return $query;
 }
 
@@ -179,6 +250,7 @@ function getBreadcrumbs() {
             users.user_name,
             users.user_gravatar,
             users.user_image,
+            users.user_imgdata,
             users.user_sign,
             users.user_id
         FROM
@@ -210,5 +282,46 @@ function getBreadcrumbs() {
         ));
         return $query;
     }
+
+
+
+    function topicLock($id) {
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        $query = $conn->prepare("SELECT topic_by FROM topics WHERE topic_id = ?");
+        $query->execute(array($id));
+    
+    
+        return $query;
+    }
+    
+    
+    function topicStatusLock($id) {
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        echo $id;
+        $query = $conn->prepare("UPDATE topics SET topic_status = 1 WHERE topic_id = ?");
+        $query->execute(array('topicunlockid'=>$id));
+        echo 'Je suis un sujet... 1111111111';
+        
+    }
+    
+    function topicStatusUnlock($id) {
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        echo $id;
+        $query = $conn->prepare("UPDATE topics SET topic_status = 0 WHERE topic_id = ?");
+        $query->execute(array('topicunlockid'=>$id));
+        echo 'Je suis un sujet... 00000000000000';
+        
+        
+    }
+    
+    function topicStatus($id){
+    
+        require($_SERVER['DOCUMENT_ROOT'].'/includes/connect.php');
+        
+        $query =$conn->prepare("SELECT topic_status FROM topics WHERE topic_id = ?");
+        $query->execute(array($id));
+        return $query;
+    }
+    
 
 ?>

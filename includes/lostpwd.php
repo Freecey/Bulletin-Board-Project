@@ -10,7 +10,7 @@ $select->execute();
 $data=$select->fetch();
 
 
-if($_SESSION[ProfileUPDATEComplet] == true ){
+if($_SESSION['ProfileUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'New Password Set Successfully';
     unset($_SESSION['ProfileUPDATEComplet']);
@@ -64,16 +64,16 @@ try {
 		$GetQuestSELECT->execute();
 		$GetDATA=$GetQuestSELECT->fetch();
         
-        $_SESSION['lp_user_email']= $GetDATA[user_email];
-        $_SESSION['lp_user_name']= $GetDATA[user_name];
+        $_SESSION['lp_user_email']= $GetDATA['user_email'];
+        $_SESSION['lp_user_name']= $GetDATA['user_name'];
         
-        if($user_email == $GetDATA[user_email] and $user_name == $GetDATA[user_name] ){
+        if($user_email == $GetDATA['user_email'] and $user_name == $GetDATA['user_name'] ){
 
-        $_SESSION['lp_user_email']= $GetDATA[user_email];
-        $_SESSION['lp_user_name']= $GetDATA[user_name];
+        $_SESSION['lp_user_email']= $GetDATA['user_email'];
+        $_SESSION['lp_user_name']= $GetDATA['user_name'];
         $_SESSION['lp_LOCK_1']= 'readonly';
-        $_SESSION['lp_user_secquest']= $GetDATA[user_secquest];
-        $_SESSION['lp_user_sa12457']= $GetDATA[user_secansw];
+        $_SESSION['lp_user_secquest']= $GetDATA['user_secquest'];
+        $_SESSION['lp_user_sa12457']= $GetDATA['user_secansw'];
         $_SESSION['lp_LOCKClassOK_1']= 'bg-success text-white';
         // echo $GetDATA;
         // echo $_SESSION['user_secansw'];
@@ -84,8 +84,8 @@ try {
         $nameclasserr = '';
         $user_email = $_POST['user_email'];
 		$user_name = $_POST['user_name'];
-        $user_secquest = $_POST['user_secquest'];
-        $user_secansw = $_POST['user_secansw'];
+        $user_secquest = htmlentities($_POST['user_secquest'], ENT_QUOTES);
+        $user_secansw = htmlentities($_POST['user_secansw'], ENT_QUOTES);
         // $DOBy = $_POST['doby'];
         // $DOBm = $_POST['dobm'];
         // $DOBd = $_POST['dobd'];
@@ -99,11 +99,11 @@ try {
 		$CheckAnsSELECT->execute();
         $GetDATA=$CheckAnsSELECT->fetch();
 
-        if( $user_secquest == $GetDATA[user_secquest] and $user_secansw == $GetDATA[user_secansw] ) {
+        if( $user_secquest == $GetDATA['user_secquest'] and $user_secansw == $GetDATA['user_secansw'] ) {
         // echo '<pre>' . print_r($GetDATA, TRUE) . '</pre>';
         // echo '<pre>' . print_r($GetIDDATA, TRUE) . '</pre>';
         $_SESSION['lp_user_id']= $GetDATA['user_id'];
-        $_SESSION['lp_user_secansw']= $GetDATA[user_secansw];
+        $_SESSION['lp_user_secansw']= $GetDATA['user_secansw'];
         $_SESSION['lp_LOCK_2']= 'readonly';
         $_SESSION['lp_LOCKClassOK_2']= 'bg-success text-white';
         echo $GetIDDATA;
@@ -124,7 +124,7 @@ try {
 		$UPD_pwd_new = $_POST['pwd_new'];
         $UPD_pwd_newconfirm = $_POST['pwd_newconfirm'];	
         
-        $user_id = $_SESSION[lp_user_id];
+        $user_id = $_SESSION['lp_user_id'];
          	
 		if( strlen($UPD_pwd_new) <= 5) {
 			$passmatchErr = ' is too short need at least 6 character : Error!';

@@ -26,13 +26,14 @@ $data=$select->fetch();
 
 $board_image_cur =  str_replace("assets/topics/", "",$data[board_image]);
 
-if($_SESSION[BoardUPDATEComplet] == true ){
+if($_SESSION['BoardUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Board Update Successfully';
     unset($_SESSION['BoardUPDATEComplet']);
 }
 
-$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$data[board_creat_by] LIMIT 1");
+$BOARD_CR_by = $data['board_creat_by'];
+$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$BOARD_CR_by LIMIT 1");
 $select2->setFetchMode(PDO::FETCH_ASSOC);
 $select2->execute();
 $data2=$select2->fetch();

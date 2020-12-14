@@ -9,12 +9,15 @@
                         <?php include('includes/breadcrumb.php'); ?>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-9 col-md-8">
+                <div class="row"> 
+                    <div class="col-xs-12 col-md-7 col-lg-8 col-xl-9">
+                       <?php if( $SETTINGdata['set_announce_en'] == 1){include('includes/announce_toinclude.php');} ?>
 
-                        <section class="mb-3" id="boards">
+                        <section class="my-4" id="boards">
                             
                             <article class="container-fluid">
+
+                               
                                 <div class="row">
                                     <div class="col">
                                         <h2>Category One</h2>
@@ -31,7 +34,7 @@
                                                 <div class="card-body">
                                                     <div class="row align-items-center no-gutters">
                                                         <div class="col-auto">
-                                                            <img src="<?php echo $board['board_image']; ?>" alt="" width="48" height="48">
+                                                            <img src="<?php echo $board['board_image']; ?>" alt="Board Logo" width="48" height="48">
                                                         </div>
                                                         <div class="col ml-2">
                                                             <p class="h6 mb-1"> 
@@ -101,10 +104,13 @@
                         </section>
 
                     </div>
-                    <div class="col-xl-3 col-md-4 d-none d-md-block">
-                        <?php include('includes/search.php'); ?>
-                        <?php include('includes/signin.php'); ?>
-                        <?php include('includes/sidebutton2.php'); ?>
+
+                    <div class="col-xs-12 col-md-5 col-lg-4 col-xl-3 d-md-block">
+                        <div class="d-none d-md-block">
+                            <?php include('includes/search.php'); ?>
+                            <?php include('includes/signin.php'); ?>
+                            <?php include('includes/sidebutton2.php'); ?>
+                        </div>
                         <?php include('includes/last-posts.php'); ?>
                         <?php include('includes/last-active-user.php'); ?>
                     </div>
@@ -116,7 +122,6 @@
             <a href="#top"><i class="fas fa-arrow-up scroll-up-btn__icon"></i></a>
         </div>
 
-        <script type="text/javascript" src="scroll-up-btn.js"></script>
-        
+        <script type="text/javascript" src="js/scroll-up-btn.js"></script>
     </body>
 </html>

@@ -27,7 +27,7 @@
         <tr>
             <?php $i++; ?>
             <td><?php echo $row['board_id']; ?></td>
-            <td><img src=../<?php echo $row['board_image']; ?> width="30"></td>
+            <td><img src=../<?php echo $row['board_image']; ?> width="30" alt="board logo"></td>
             <td><?php echo $row['board_name'];?></td>
             <td><?php echo $row['board_description'];?></td>
             <td></td>  <!-- Remove if add second button -->

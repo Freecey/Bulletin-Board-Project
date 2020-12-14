@@ -2,3 +2,4 @@
 User-agent: *
 Disallow: profile.php
 Disallow: /resources/
+Sitemap: https://bbs-queen.neant.be/sitemap.xml

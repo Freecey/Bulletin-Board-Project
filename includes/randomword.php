@@ -1,5 +1,5 @@
 <?php
-$dico_file = "https://dev.bbs-queen.neant.be/includes/american-english";
+$dico_file = "https://bbs-queen.neant.be/includes/american-english";
 // Convert the text fle into array and get text of each line in each array index
 $file_arr = file($dico_file);
 // Total number of linesin file

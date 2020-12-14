@@ -3,7 +3,7 @@
 //mise en page formutaire
 ?>
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
-    <div class="row">
+    <div class="row form-color">
         <div class="col-xl-3 col-md-3 border-right">
                               
         </div>
@@ -35,9 +35,9 @@
                                     while ($row = $req_boards->fetch()) {
                                         $i++;
                                         if ($data['topic_board'] == $i - 1) {
-                                            echo "<option value='" . $row[board_id] . "' selected>" . $row[board_name] . "</option>";
+                                            echo "<option value='" . $row['board_id'] . "' selected>" . $row['board_name'] . "</option>";
                                         } else {
-                                            echo "<option value='" . $row[board_id] . "'>" . $row[board_name] . "</option>";
+                                            echo "<option value='" . $row['board_id'] . "'>" . $row['board_name'] . "</option>";
                                         }
 
                                     }

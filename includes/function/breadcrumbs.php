@@ -20,7 +20,7 @@ function breadcrumbs($separator = '<i class="fas fa-angle-left mt-1 px-1"></i>',
         $piece = stripos($crumb, '=');
         if($piece !== false) {
             $crumb_array = explode('=', $crumb);
-            $crumb = 'topics.php?id='. $crumb_array[1];
+            $crumb = 'topics.php?id='. $_SESSION['BOARDID_formSITESET'];//$crumb_array[1];
             $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb_array[0]));
         } else {
             $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb));

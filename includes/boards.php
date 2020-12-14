@@ -16,13 +16,13 @@ if (!$req_boards) {
         <div class="row bg-light rounded-lg pb-3">
             <?php
             while ($board = $req_boards->fetch())
-            {
+            { ?>
                 <div class="col-lg-6 mt-3">
                     <div class="card border-0">
                         <div class="card-body">
                             <div class="row align-items-center no-gutters">
                                 <div class="col-auto">
-                                    <img src="<?php echo $board['board_image']; ?>" alt="" width="48" height="48">
+                                    <img src="<?php echo $board['board_image']; ?>" alt="Board logo" width="48" height="48">
                                 </div>
                                 <div class="col ml-2">
                                     <p class="h6 mb-1"><?php echo $board['board_name']?></p>
@@ -78,7 +78,7 @@ if (!$req_boards) {
                         </div>
                     </div>
                 </div>
-            }
+      <?      }
             $req_boards->closeCursor();
             ?>
         </div>

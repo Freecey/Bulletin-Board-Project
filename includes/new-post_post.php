@@ -28,6 +28,12 @@
             if (!empty($new_post_msg)) {
                 $insert = $conn -> prepare('INSERT INTO posts(post_topic, post_content, post_by, post_exclsearch,  post_date)VALUES( ?, ?, ?, ?, NOW())');
                 $insert ->execute(array($topic_id, $new_post_msg, $_SESSION['user_id'], $ADD_post_exclsearch,));
+
+                $test = date("Y-m-d H:i:s");
+                echo $test;
+                $update=$conn->prepare("UPDATE topics SET topic_date_upd= '$test' WHERE topic_id = $topic_id");
+                $update->execute();
+
                 include "topics_mail.php";
                 $post_alert = "Your message has been posted.";
                 header('Location: ../comments.php?id='. $_SESSION['topic_id']);

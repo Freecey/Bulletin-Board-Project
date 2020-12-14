@@ -26,7 +26,7 @@ body {
 #header{
     background:url('../assets/bck-ground-two.png');
     background-size: cover;
-    height: 35vh;
+    //height: 35vh;
 }
 
 #boards {
@@ -41,12 +41,8 @@ body {
 }
 
 //Last active user & Last posts
-#last-active-user, #last-posts {
-    margin: 2em 1em;
-}
 
 .user-card {
-    width: 33%;
     transform: scale(1);
     color: rgb(41, 43, 48);
 }
@@ -257,11 +253,6 @@ body {
 
 // Emoji Reaction
 
-.emojiTooltip:not(.shown) {
-    display: none;
-    z-index: 1000;
-}
-
 .emojiTooltip {
     background: #333;
     color: white;
@@ -269,6 +260,13 @@ body {
     padding: 4px 8px;
     font-size: 13px;
     border-radius: 4px;
+    display: none;
+}
+
+.emojiTooltip[data-show] {
+    display: block;
+    z-index: 100000;
+    position: absolute;
 }
 
 #arrow,
@@ -299,4 +297,10 @@ body {
 
 .emojiTooltip[data-popper-placement^='right'] > #arrow {
     left: -4px;
+}
+
+.centered {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

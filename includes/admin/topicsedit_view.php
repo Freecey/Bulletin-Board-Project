@@ -13,13 +13,13 @@ $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute();
 $data=$select->fetch();
 
-if($_SESSION[TopicUPDATEComplet] == true ){
+if($_SESSION['TopicUPDATEComplet'] == true ){
     $UpdateOKClass = 'bg-success text-white';
     $UpdateOK = 'Topic Update Successfully';
     unset($_SESSION['TopicUPDATEComplet']);
 }
-
-$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$data[topic_by] LIMIT 1");
+$TOP_BY = $data['topic_by'];
+$select2 = $conn->prepare("SELECT user_name FROM users where user_id=$TOP_BY LIMIT 1");
 $select2->setFetchMode(PDO::FETCH_ASSOC);
 $select2->execute();
 $data2=$select2->fetch();
@@ -53,6 +53,16 @@ try {
         $UPD_topic_status = $_POST['topic_status'];  // to ADD QUERY
         $UPD_topic_subject  = $_POST['topic_subject'];  // to ADD QUERY
         $UPD_topic_date_upd = date('Y-m-d H:i:s');
+        if( $UPD_topic_status   == 1){
+            $UPD_topic_image  = 'https://'.$_SERVER['SERVER_NAME'].'/assets/topic_status/01-padlock.svg'; 
+        }elseif( $UPD_topic_status   == 0){
+            $UPD_topic_image  = 'https://'.$_SERVER['SERVER_NAME'].'/assets/topic_status/00-open-padlock.svg'; 
+        }elseif( $UPD_topic_status   == 2){
+            $UPD_topic_image  = 'https://'.$_SERVER['SERVER_NAME'].'/assets/topic_status/02_cross.svg'; 
+        }
+
+
+        
 
         if( $UPD_topic_subject == ''){
             $usernameErr = 'Topic subject Can not be empty';
@@ -62,12 +72,30 @@ try {
                 SET `topic_board` = '$UPD_topic_board', 
                 `topic_status` = '$UPD_topic_status', 
                 `topic_subject` = '$UPD_topic_subject', 
+                `topic_image` = '$UPD_topic_image', 
                 `topic_date_upd` = '$UPD_topic_date_upd'  
                 WHERE `topics`.`topic_id` = $UPD_topic_id";
             
-            echo $UPDATEQuerySQL1;
             $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
             $Top_UpdateINSERT->execute();
+
+                if($UPD_topic_status == 2){
+                    $UPDATEQuerySQL2 = "UPDATE `topics` 
+                SET `topics_exclsearch` = '1'
+                WHERE `topics`.`topic_id` = $UPD_topic_id";
+            
+                $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL2);
+                $Top_UpdateINSERT->execute();
+
+
+                $UPDATEQuerySQL3 = "UPDATE `posts` 
+                SET `post_exclsearch` = '1',
+                    `post_deleted` = '1'
+                WHERE `posts`.`post_topic` = $UPD_topic_id";
+            
+                $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL3);
+                $Top_UpdateINSERT->execute();
+                }
 
             $_SESSION['TopicUPDATEComplet'] = true;
             header("Refresh:0");

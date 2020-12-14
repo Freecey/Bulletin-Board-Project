@@ -3,9 +3,9 @@
 //mise en page formutaire
 ?>
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
-    <div class="row">
+    <div class="row form-color">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="../<?php echo $data['board_image']; ?>" width="90"><span class="font-weight-bold"><?php echo $data['board_name'] ?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="../<?php echo $data['board_image']; ?>" width="90" alt="board logo"><span class="font-weight-bold"><?php echo $data['board_name'] ?></span><span> </span></div>
                               
         </div>
         <div class="col-xl-9 col-md-9 border-right">

@@ -3,9 +3,9 @@
 //mise en page formutaire
 ?>
 <div class="container rounded bg-white mt-5 mb-5 col-xl-10 col-md-9">
-    <div class="row">
+    <div class="row form-color">
         <div class="col-xl-3 col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="<?php echo $user_image_C; ?>" width="90"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="data:image/webp;base64,<?php echo base64_encode($user_imgDATA_C); ?>" width="90" alt="User's Avatar"><span class="font-weight-bold"><?php echo $user_name ?></span><span class="text-black-50"><?php echo $data_Sel_USR['user_email'] ?></span>
             <span></span></div>
 
         <div class="d-flex flex-column align-items-center text-center p-3 py-2">
@@ -65,7 +65,7 @@
         </div>
     
         <div class="container">
-             <div class="row">
+             <div class="row form-color">
                  <div class="col text-center">
                      <input type="submit" class="input-group-text my-3"  name="uploadBtn" value="Upload" />
                      </div>
@@ -94,7 +94,7 @@
         </div>
         <div class="col-xl-9 col-md-9 border-right">
             <div class="p-3 py-5">
-                <form method="post">
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                     <div class="text-center <?php echo $UpdateOKClass . ' ' . $nameclasserr; ?>">
                         <?php echo $UpdateOK; ?>    
                         <?php echo $usernameErr; ?>
@@ -131,8 +131,14 @@
                                 Dark
                             </label>
                         </div>                        
+                        <div class="form-check ml-2">
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme6" value="6" <?php if($data_Sel_USR['user_theme'] == 6 ){echo 'checked';} ?>>
+                            <label class="form-check-label" for="user_theme1">
+                                Dark Blue - Special
+                            </label>
+                        </div>  
                             <div class="form-check disabled ml-2">
-                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme666" value="666" <?php if($data_Sel_USR['user_theme'] == 666 ){echo 'checked';} ?> <?php if($data_Sel_USR['user_level'] < 3 ){echo 'disabled';} ?>>
+                            <input class="form-check-input" type="radio" name="user_theme" id="user_theme666" value="666" <?php if($data_Sel_USR['user_theme'] == 666 ){echo 'checked';} ?> <?php //if($data_Sel_USR['user_level'] < 3 ){echo 'disabled';} ?>>
                             <label class="form-check-label" for="user_theme666">
                                 Devil
                             </label>
@@ -149,7 +155,7 @@
 
 
                     <div class="form-check  ml-2">
-                        <input class="form-check-input" type="radio" name="user_imagefrom" value="2" <?php if( $user_image_C == $data_Sel_USR[user_imglocal] ){ echo 'checked';} ?>>
+                        <input class="form-check-input" type="radio" name="user_imagefrom" value="2" <?php if( $user_image_C == $data_Sel_USR['user_imglocal'] ){ echo 'checked';} ?>>
                         <label class="form-check-label" for="user_imagefrom">
                         Personal Image
                         </label>
@@ -164,11 +170,11 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Email</label><input type="email" class="form-control" name="user_email" value="<?php echo $data_Sel_USR['user_email'] ?>" readonly></div>
-                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo $data_Sel_USR['user_name'] ?>" required></div>
+                        <div class="col-md-12"><label class="labels">Alias (Display Name) <?php echo $usernameErr; ?></label><input type="text" class="form-control  <?php echo $nameclasserr; ?>" name="user_name" value="<?php echo htmlentities($data_Sel_USR['user_name'], ENT_QUOTES) ?>" required></div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo $data_Sel_USR['user_fname'] ?>" required></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo $data_Sel_USR['user_lname'] ?>" required></div>
+                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" name="user_fname" value="<?php echo htmlentities($data_Sel_USR['user_fname'], ENT_QUOTES) ?>" required></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="user_lname" value="<?php echo htmlentities($data_Sel_USR['user_lname'], ENT_QUOTES) ?>" required></div>
                     </div>
                     <div class="row mt-3">
                         <label class="col-md-12" for="inlineFormCustomSelectPref">Date of Birthday</label>
@@ -215,27 +221,27 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo $data_Sel_USR['user_sign']; ?></textarea>
+                        <div class="col-md-12"><label for="user_sign">Signature</label><textarea class="form-control" id="user_sign" name="user_sign" rows="3"><?php echo htmlentities($data_Sel_USR['user_sign'], ENT_QUOTES); ?></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-4"><label class="labels">User ID</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_id']; ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_active']; ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control" value="<?php echo $user_lvl_text; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels ">User ID</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_id']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Active account</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_active']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">User Level</label><input type="text" class="form-control labels-inact" value="<?php echo $user_lvl_text; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <label class="labels">Registry Date</label>
-                            <input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_date'] ?>" readonly>
+                            <input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_date'] ?>" readonly>
                         </div>
-                        <div class="col-md-4"><label class="labels">Last Login Date</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_datelastlog']; ?>" readonly></div>
-                        <div class="col-md-4"><label class="labels">Last IP connexion</label><input type="text" class="form-control" value="<?php echo $data_Sel_USR['user_last_ip']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels>Last Login Date</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_datelastlog']; ?>" readonly></div>
+                        <div class="col-md-4"><label class="labels">Last IP connexion</label><input type="text" class="form-control labels-inact" value="<?php echo $data_Sel_USR['user_last_ip']; ?>" readonly></div>
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo $data_Sel_USR['user_secquest']; ?>" ></div>
-                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo $data_Sel_USR['user_secansw']; ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Question (for password recovery)</label><input type="text" class="form-control" name="user_secquest" value="<?php echo htmlentities($data_Sel_USR['user_secquest'], ENT_QUOTES); ?>" ></div>
+                        <div class="col-md-12"><label class="labels">Secret Answer</label><input type="text" class="form-control" name="user_secansw" value="<?php echo htmlentities($data_Sel_USR['user_secansw'], ENT_QUOTES);?>" ></div>
                     </div>
                     <div class="mt-5 text-center">
                         <input type="submit" class="btn btn-primary rounded-pill" name = "update_profil" Value = "Update Profile">
@@ -253,8 +259,16 @@
                     </div>
                     <div class="mt-5 text-center">
                             <input type="submit" class="btn btn-primary rounded-pill" name = "update_pwd" Value = "Change Password">
+                            
                     </div>
                 </form>
+                <div class="mt-5 d-flex align-items-end flex-column">
+                <div class="p-2">
+               
+                <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal/account_remove.php'); ?>
+                
+                </div>
+                </div>
             </div>
         </div>
     </div>

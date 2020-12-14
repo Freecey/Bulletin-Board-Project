@@ -10,16 +10,16 @@
             <?php
             $topNAME = $conn->query("SELECT topic_subject FROM topics WHERE topic_id = $datas[post_topic] LIMIT 1");
             $topNAME_re=$topNAME->fetch();
-            echo $topNAME_re[topic_subject];
+            echo $topNAME_re['topic_subject'];
             ?>
             
             </b></a></br>
-            <?= substr($datas[post_content], 0, 230); ?> ... <br>
+            <?= substr($datas['post_content'], 0, 230); ?> ... <br>
             <small><?= $datas['post_date'] .' - by ';
-                 
-                 $usrNAME = $conn->query("SELECT user_name FROM users WHERE user_id = $datas[post_by] LIMIT 1");
+                 $DT_POST_BY = $datas['post_by'];
+                 $usrNAME = $conn->query("SELECT user_name FROM users WHERE user_id = $DT_POST_BY LIMIT 1");
                  $usrNAME_re=$usrNAME->fetch();
-                 echo '<b>'. $usrNAME_re[user_name] .'</b>';
+                 echo '<b>'. $usrNAME_re['user_name'] .'</b>';
                 ?></small>
         </li>
     <?php } ?>
