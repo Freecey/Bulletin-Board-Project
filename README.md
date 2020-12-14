@@ -21,13 +21,14 @@ ___
 - 404 & 50x page error
 - Private messaging
 - contact form
+- multi theme
 
 ### User management
 - register system
 - Login system
 - Password recovery (with secret question set in profile page)
 - Profile pages(views and editing)
-- user image using gravatar
+- user image using gravatar or personnal
 - Admin Section
 - User Permission lvl (user, moderator, admin, ...)
 - Ban users system
@@ -42,6 +43,7 @@ ___
 - Markdown interpretation for content
 - emojis supported
 - Email notification
+- Secret Boards (access with a special word in search bar)
 
 ### Admin Section
 - only for moderator and admin
@@ -70,7 +72,13 @@ ___
 
 ## Screen Shot
 
-See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
+Main Theme:
+![alt text](resources/Screenshot/SS_BSS-QUEEN-main.png "Main Theme" )
+
+Dark Blue Theme:
+![alt text](resources/Screenshot/SS_BSS-QUEEN-main-blue.png "Dark Blue Theme" )
+
+More See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
 
 ___
 ## Folder Structure

@@ -298,3 +298,9 @@ body {
 .emojiTooltip[data-popper-placement^='right'] > #arrow {
     left: -4px;
 }
+
+.centered {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
