@@ -55,7 +55,7 @@
                            echo '
 					<a href="msg.php?sendto_id='.$DISCACTUSR.'" class="list-group-item list-group-item-action border-0 form-color">';
                         if( $rowDISC['pvmsg_read'] == 0){
-                        echo '<div class="badge bg-success float-right">unread</div>';
+                        echo '<div class="badge bg-light border float-right">unread</div>';
                         }
                         echo '<div class="d-flex align-items-start">
 							<img src="data:image/webp;base64,'.base64_encode($userimage).'" class="rounded-circle mr-1" alt="'.$useralias.'s avatar" width="40" height="40">
