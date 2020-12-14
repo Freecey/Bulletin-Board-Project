@@ -124,7 +124,6 @@ For explaine of tables see [Wiki](https://github.com/Freecey/Bulletin-Board-Proj
 
 ![alt text](resources/db_structure.png?raw=true "Database Structure" )
 
-(pvmsg table is not used at this time, create for future feature)
 
 ___
 
