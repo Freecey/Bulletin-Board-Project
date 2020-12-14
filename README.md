@@ -15,7 +15,7 @@ ___
 ## Features
 
 ### Generals
-- responsive design
+- responsive design (except admin, see FAQs in wiki)
 - session browser
 - Policy & Terms
 - 404 & 50x page error
