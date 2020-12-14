@@ -72,7 +72,11 @@ ___
 
 ## Screen Shot
 
-See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
+![alt text](resources/Screenshot/SS_BSS-QUEEN-main.png "Main Theme" )
+
+![alt text](resources/Screenshot/SS_BSS-QUEEN-main-blue.png "Dark Blue Theme" )
+
+More See [Wiki](https://github.com/Freecey/Bulletin-Board-Project/wiki) for screen shot
 
 ___
 ## Folder Structure
