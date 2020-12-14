@@ -9,8 +9,8 @@
 <div class="container">
 <h3 class="well text-center">User Manager</h3>
 
-<!-- search bar to search members -->
-<form action="/member.php?search_member=<?php echo $_GET['user'];?>" methode="GET" class="form-group">	
+<!-- search bar to search members - NOT FINISH - NOT WORK -->
+<!-- <form action="/member.php?search_member=<?php //echo $_GET['user'];?>" methode="GET" class="form-group">	
     <div class="bg-light rounded rounded-pill shadow-sm">	
         <div class="input-group">	
             <input type="search" name="search_member" placeholder="Search member..." aria-describedby="button-addon1" class="form-control border-0 bg-light rounded-pill ">	
@@ -19,7 +19,7 @@
             </div>	
         </div>	
     </div>	
-</form>
+</form> -->
 <!-- end search  bar -->
  
 <table class="table">
