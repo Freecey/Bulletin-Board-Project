@@ -76,9 +76,26 @@ try {
                 `topic_date_upd` = '$UPD_topic_date_upd'  
                 WHERE `topics`.`topic_id` = $UPD_topic_id";
             
-            echo $UPDATEQuerySQL1;
             $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL1);
             $Top_UpdateINSERT->execute();
+
+                if($UPD_topic_status == 2){
+                    $UPDATEQuerySQL2 = "UPDATE `topics` 
+                SET `topics_exclsearch` = '1'
+                WHERE `topics`.`topic_id` = $UPD_topic_id";
+            
+                $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL2);
+                $Top_UpdateINSERT->execute();
+
+
+                $UPDATEQuerySQL3 = "UPDATE `posts` 
+                SET `post_exclsearch` = '1',
+                    `post_deleted` = '1'
+                WHERE `posts`.`post_topic` = $UPD_topic_id";
+            
+                $Top_UpdateINSERT= $conn->prepare($UPDATEQuerySQL3);
+                $Top_UpdateINSERT->execute();
+                }
 
             $_SESSION['TopicUPDATEComplet'] = true;
             header("Refresh:0");
