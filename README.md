@@ -85,9 +85,6 @@ ___
 
 ```
     .
-    ├── .github/                    # .github
-    ├── .sass-cache/                # sass cache folder
-    ├── .vscode/                    # json file setting
     ├── admin/                      # Admin/Moderator Section management
     ├── assets/                     # folder for img
     │   ├── 404/
@@ -106,7 +103,6 @@ ___
     ├── js/                         # folder for JS script
     ├── node_modules/               # folder for all node modules
     ├── resources/
-    ├── sass/                       # SASS lib
     ├── uploaded/
     │   └── users/                  # Upload folders for user avatar
     └── vendor/
